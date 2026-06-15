@@ -16,7 +16,7 @@
       </a>
       <div class="nav-actions" role="tablist" aria-label="頁面切換">
         <a href="#reports" class="nav-tab is-active" data-page-link="reports" role="tab" aria-selected="true">Reports</a>
-        <a href="#profile" class="nav-tab" data-page-link="profile" role="tab" aria-selected="false">Profile</a>
+        <a href="#profile" class="nav-tab" data-page-link="profile" role="tab" aria-selected="false">背景</a>
         <button id="feedbackOpen" class="nav-button" type="button">留言</button>
       </div>
     </nav>
@@ -28,7 +28,7 @@
         <p id="siteDescription" class="site-description">以資料完整性、估值情境與風控紀律整理的公開個股研究索引。</p>
         <div class="hero-actions">
           <a class="primary-link" href="#reports" data-page-link="reports">瀏覽報告</a>
-          <a class="secondary-link" href="#profile" data-page-link="profile">匿名背景</a>
+          <a class="secondary-link" href="#profile" data-page-link="profile">背景</a>
         </div>
       </div>
 
@@ -46,9 +46,6 @@
             <span id="latestDate">--</span>
             <strong>Latest</strong>
           </div>
-        </div>
-        <div id="chartPreview" class="chart-preview" aria-label="候選池圖表預覽">
-          <p>Chart preview loading</p>
         </div>
       </aside>
     </section>
@@ -124,6 +121,39 @@
           <p id="generatedAt" class="muted"></p>
         </div>
 
+        <section id="twInsightsPanel" class="tw-insights-panel" aria-label="台股互動圖表" hidden>
+          <div class="panel-header">
+            <div>
+              <p class="eyebrow">TW Candidate Lab</p>
+              <h2>台股互動圖表</h2>
+            </div>
+            <div class="tw-data-source">
+              <span>Candidate snapshot</span>
+              <strong id="twCandidateDate">--</strong>
+            </div>
+          </div>
+
+          <div class="tw-insight-toolbar">
+            <label class="ticker-compare">
+              <span>個股對照</span>
+              <input id="twTickerInput" type="text" list="twTickerList" maxlength="16" placeholder="2317 / 鴻海">
+              <datalist id="twTickerList"></datalist>
+            </label>
+            <div class="insight-view-switch" aria-label="圖表視角">
+              <button class="insight-view-button is-active" type="button" data-insight-view="growth">成長 × 估值</button>
+              <button class="insight-view-button" type="button" data-insight-view="momentum">動能 × 品質</button>
+              <button class="insight-view-button" type="button" data-insight-view="industry">產業熱區</button>
+            </div>
+          </div>
+
+          <div class="tw-insight-layout">
+            <div class="tw-chart-card">
+              <div id="twInsightChart" class="tw-insight-chart" role="img" aria-label="台股候選池互動圖表"></div>
+            </div>
+            <aside id="twStockPanel" class="tw-stock-panel" aria-label="個股對照"></aside>
+          </div>
+        </section>
+
         <section id="reportGrid" class="report-grid" aria-label="報告列表"></section>
         <section id="emptyState" class="empty-state" hidden>
           <h2>找不到符合條件的報告</h2>
@@ -132,14 +162,14 @@
       </section>
     </section>
 
-    <section id="profilePage" class="page-panel" data-page-panel="profile" aria-label="匿名研究背景" hidden>
+    <section id="profilePage" class="page-panel" data-page-panel="profile" aria-label="研究背景" hidden>
       <section class="profile-shell">
         <div class="section-heading">
           <div>
-            <p class="eyebrow">Anonymous Research Profile</p>
+            <p class="eyebrow">Research Profile</p>
             <h2>MD-PhD 資料科學與轉譯醫學背景</h2>
           </div>
-          <p class="profile-note">姓名、照片、學校與單位已省略；下列資訊保留學位、研究主題、技術軌跡與論文紀錄。</p>
+          <p class="profile-note">姓名、照片、學校與單位不顯示；下列資訊保留學位、研究主題、技術軌跡與論文紀錄。</p>
         </div>
 
         <div class="profile-grid">
@@ -184,11 +214,11 @@
           </div>
         </div>
 
-        <section class="publication-panel" aria-label="匿名論文紀錄">
+        <section class="publication-panel" aria-label="期刊紀錄">
           <div class="panel-header">
             <div>
               <p class="eyebrow">Peer-reviewed Publications</p>
-              <h2>匿名期刊紀錄與 2024 IF</h2>
+              <h2>期刊紀錄與 2024 IF</h2>
             </div>
             <p class="profile-note">Only journal level, field and author-role signals are shown. No paper titles, personal names, schools or affiliations are displayed.</p>
           </div>
@@ -237,11 +267,11 @@
           </div>
         </section>
 
-        <section class="trajectory-panel" aria-label="匿名經歷軌跡">
+        <section class="trajectory-panel" aria-label="經歷軌跡">
           <div class="panel-header">
             <div>
               <p class="eyebrow">Trajectory</p>
-              <h2>匿名化經歷軌跡</h2>
+              <h2>經歷軌跡</h2>
             </div>
           </div>
           <div class="trajectory-grid">
@@ -308,6 +338,7 @@
   </footer>
 
   <script src="assets/reports-data.js"></script>
+  <script src="assets/tw-candidates-data.js"></script>
   <script src="assets/site.js"></script>
 </body>
 </html>

@@ -212,13 +212,15 @@ h1 {
 }
 
 .secondary-link {
-  border: 1px solid rgba(200, 166, 93, 0.36);
-  background: rgba(200, 166, 93, 0.08);
-  color: #f3e8cd;
+  border: 1px solid rgba(39, 116, 95, 0.28);
+  background: rgba(255, 255, 255, 0.72);
+  color: var(--green-deep);
+  box-shadow: 0 8px 24px rgba(31, 55, 46, 0.08);
 }
 
 .secondary-link:hover {
-  background: rgba(200, 166, 93, 0.14);
+  border-color: rgba(39, 116, 95, 0.42);
+  background: rgba(39, 116, 95, 0.1);
 }
 
 .data-console {
@@ -260,7 +262,6 @@ h1 {
 .console-metrics {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  border-bottom: 1px solid var(--line);
 }
 
 .console-metrics div {
@@ -289,6 +290,11 @@ h1 {
   font-size: 12px;
   letter-spacing: 0;
   text-transform: uppercase;
+}
+
+#latestDate {
+  font-size: clamp(24px, 3vw, 34px);
+  word-break: keep-all;
 }
 
 .chart-preview {
@@ -503,7 +509,8 @@ main {
 
 .reports-panel,
 .publication-panel,
-.trajectory-panel {
+.trajectory-panel,
+.tw-insights-panel {
   padding: 18px;
 }
 
@@ -734,7 +741,7 @@ a:focus-visible {
 
 .badge.us {
   background: rgba(200, 166, 93, 0.12);
-  color: #e2c77f;
+  color: #80632c;
 }
 
 .badge.mixed {
@@ -813,6 +820,272 @@ time {
 .empty-state p {
   margin: 0;
   color: var(--muted);
+}
+
+.tw-insights-panel {
+  display: grid;
+  gap: 16px;
+  margin: 16px 0;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.68), transparent),
+    #f8faf7;
+}
+
+.tw-insights-panel[hidden] {
+  display: none;
+}
+
+.tw-data-source {
+  min-width: 180px;
+  padding: 10px 12px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--surface-soft);
+}
+
+.tw-data-source span,
+.stock-panel-head span,
+.stock-stat-grid span,
+.compare-item span,
+.compare-item small {
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 820;
+}
+
+.tw-data-source strong {
+  display: block;
+  color: var(--ink);
+  font-size: 14px;
+}
+
+.tw-insight-toolbar {
+  display: grid;
+  grid-template-columns: minmax(220px, 330px) 1fr;
+  gap: 12px;
+  align-items: end;
+  padding: 14px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--surface-soft);
+}
+
+.insight-view-switch {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: flex-end;
+}
+
+.insight-view-button {
+  width: auto;
+  min-height: 40px;
+  padding: 0 13px;
+  border-color: rgba(42, 72, 60, 0.16);
+  background: #ffffff;
+  color: #3e5349;
+  font-weight: 850;
+}
+
+.insight-view-button:hover,
+.insight-view-button.is-active {
+  border-color: rgba(39, 116, 95, 0.34);
+  background: rgba(39, 116, 95, 0.1);
+  color: var(--green);
+}
+
+.tw-insight-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(260px, 330px);
+  gap: 14px;
+  align-items: stretch;
+}
+
+.tw-chart-card,
+.tw-stock-panel {
+  min-width: 0;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: #ffffff;
+}
+
+.tw-chart-card {
+  overflow: auto;
+}
+
+.tw-insight-chart {
+  min-width: 720px;
+  padding: 12px;
+}
+
+.insight-svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.plot-bg {
+  fill: #fbfcfa;
+  stroke: rgba(42, 72, 60, 0.16);
+}
+
+.chart-title {
+  fill: var(--ink);
+  font-size: 22px;
+  font-weight: 900;
+}
+
+.chart-subtitle,
+.axis-label,
+.axis-tick text,
+.heat-head,
+.heat-label,
+.heat-value {
+  fill: #53665c;
+  font-size: 12px;
+  font-weight: 760;
+}
+
+.axis-tick line {
+  stroke: rgba(42, 72, 60, 0.1);
+}
+
+.axis-line {
+  stroke: rgba(42, 72, 60, 0.28);
+  stroke-width: 1.2;
+}
+
+.insight-point {
+  cursor: pointer;
+  opacity: 0.58;
+  stroke: rgba(255, 255, 255, 0.72);
+  stroke-width: 1;
+}
+
+.insight-point:hover,
+.insight-point.is-selected {
+  opacity: 1;
+  stroke: #13211c;
+  stroke-width: 2.2;
+}
+
+.selected-label line {
+  stroke: rgba(39, 116, 95, 0.58);
+  stroke-width: 1.4;
+}
+
+.selected-label rect {
+  fill: rgba(255, 255, 255, 0.94);
+  stroke: rgba(39, 116, 95, 0.26);
+  rx: 7;
+}
+
+.selected-label text {
+  fill: var(--ink);
+  font-size: 13px;
+  font-weight: 900;
+}
+
+.heat-row.is-selected rect {
+  stroke: #17211d;
+  stroke-width: 1.6;
+}
+
+.heat-value {
+  fill: #17211d;
+  font-size: 11px;
+  font-weight: 850;
+}
+
+.tw-stock-panel {
+  display: grid;
+  align-content: start;
+  gap: 14px;
+  padding: 16px;
+}
+
+.stock-panel-head h3 {
+  margin: 4px 0 2px;
+  color: var(--ink);
+  font-size: 24px;
+  line-height: 1.12;
+}
+
+.stock-panel-head p {
+  margin: 0;
+  color: #40534a;
+  font-size: 13px;
+}
+
+.stock-stat-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+.stock-stat-grid div {
+  min-width: 0;
+  padding: 10px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--surface-soft);
+}
+
+.stock-stat-grid strong {
+  display: block;
+  margin-top: 2px;
+  color: var(--ink);
+  font-size: 16px;
+  overflow-wrap: anywhere;
+}
+
+.compare-list {
+  display: grid;
+  gap: 12px;
+}
+
+.compare-item {
+  display: grid;
+  gap: 6px;
+}
+
+.compare-item > div:first-child {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.compare-item strong {
+  color: var(--green);
+  font-size: 13px;
+  font-variant-numeric: tabular-nums;
+}
+
+.compare-track {
+  position: relative;
+  height: 9px;
+  border-radius: 999px;
+  background: #e3ece7;
+  overflow: visible;
+}
+
+.compare-track i {
+  display: block;
+  height: 100%;
+  border-radius: inherit;
+  background: linear-gradient(90deg, #326f87, #27745f);
+}
+
+.compare-track b {
+  position: absolute;
+  top: -4px;
+  width: 3px;
+  height: 17px;
+  border-radius: 999px;
+  background: var(--gold);
+  transform: translateX(-50%);
 }
 
 .signal-card span {
@@ -1030,6 +1303,15 @@ footer p {
   .search-box {
     grid-column: 1 / -1;
   }
+
+  .tw-insight-toolbar,
+  .tw-insight-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .insight-view-switch {
+    justify-content: flex-start;
+  }
 }
 
 @media (max-width: 700px) {
@@ -1073,8 +1355,13 @@ footer p {
   .report-grid,
   .feedback-actions,
   .trajectory-grid,
-  .publication-item {
+  .publication-item,
+  .stock-stat-grid {
     grid-template-columns: 1fr;
+  }
+
+  .tw-insight-chart {
+    min-width: 640px;
   }
 
   .section-heading,
