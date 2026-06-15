@@ -26,6 +26,7 @@ const elements = {
   chartPreview: document.querySelector("#chartPreview"),
   searchInput: document.querySelector("#searchInput"),
   marketFilter: document.querySelector("#marketFilter"),
+  marketButtons: document.querySelectorAll("[data-market-button]"),
   typeFilter: document.querySelector("#typeFilter"),
   sortFilter: document.querySelector("#sortFilter"),
   resetButton: document.querySelector("#resetButton"),
@@ -83,7 +84,9 @@ function buildFilters() {
   const marketLabels = new Map(state.reports.map((report) => [report.market, report.marketLabel]));
   const typeLabels = new Map(state.reports.map((report) => [report.type, report.typeLabel]));
 
-  markets.sort().forEach((market) => createOption(elements.marketFilter, market, marketLabels.get(market) || market));
+  if (elements.marketFilter) {
+    markets.sort().forEach((market) => createOption(elements.marketFilter, market, marketLabels.get(market) || market));
+  }
   types.sort().forEach((type) => createOption(elements.typeFilter, type, typeLabels.get(type) || type));
 }
 
@@ -118,15 +121,39 @@ function renderChartPreviews(metadata) {
     return;
   }
 
+  const featured = document.createElement("article");
+  featured.className = "chart-feature";
+  featured.innerHTML = `
+    <img src="${escapeAttribute(charts[0].url)}" alt="${escapeAttribute(charts[0].label || charts[0].file)}" loading="lazy">
+    <div>
+      <span>Candidate signal</span>
+      <strong>${escapeHtml(charts[0].label || charts[0].file)}</strong>
+    </div>
+  `;
+  elements.chartPreview.appendChild(featured);
+
+  if (charts.length < 2) return;
+
+  const strip = document.createElement("div");
+  strip.className = "chart-strip";
   charts.forEach((chart) => {
-    const item = document.createElement("div");
+    const item = document.createElement("button");
+    item.type = "button";
     item.className = "chart-thumb";
+    if (chart === charts[0]) item.classList.add("is-active");
     item.innerHTML = `
       <img src="${escapeAttribute(chart.url)}" alt="${escapeAttribute(chart.label || chart.file)}" loading="lazy">
       <span>${escapeHtml(chart.label || chart.file)}</span>
     `;
-    elements.chartPreview.appendChild(item);
+    item.addEventListener("click", () => {
+      featured.querySelector("img").src = chart.url;
+      featured.querySelector("img").alt = chart.label || chart.file;
+      featured.querySelector("strong").textContent = chart.label || chart.file;
+      strip.querySelectorAll(".chart-thumb").forEach((button) => button.classList.toggle("is-active", button === item));
+    });
+    strip.appendChild(item);
   });
+  elements.chartPreview.appendChild(strip);
 }
 
 function renderTags() {
@@ -236,10 +263,23 @@ function escapeAttribute(value) {
 
 function render() {
   renderTags();
+  updateMarketButtons();
   const filtered = sortReports(state.reports.filter(reportMatches));
   elements.reportGrid.replaceChildren(...filtered.map(renderReportCard));
   elements.emptyState.hidden = filtered.length > 0;
   elements.resultCount.textContent = `${filtered.length} / ${state.reports.length} 份報告`;
+}
+
+function updateMarketButtons() {
+  elements.marketButtons.forEach((button) => {
+    button.classList.toggle("is-active", button.dataset.marketButton === state.market);
+  });
+}
+
+function setMarket(market) {
+  state.market = ["all", "tw", "us"].includes(market) ? market : "all";
+  if (elements.marketFilter) elements.marketFilter.value = state.market;
+  render();
 }
 
 function bindFilters() {
@@ -247,10 +287,12 @@ function bindFilters() {
     state.query = event.target.value;
     render();
   });
-  elements.marketFilter.addEventListener("change", (event) => {
-    state.market = event.target.value;
-    render();
+  elements.marketButtons.forEach((button) => {
+    button.addEventListener("click", () => setMarket(button.dataset.marketButton));
   });
+  if (elements.marketFilter) {
+    elements.marketFilter.addEventListener("change", (event) => setMarket(event.target.value));
+  }
   elements.typeFilter.addEventListener("change", (event) => {
     state.type = event.target.value;
     render();
@@ -266,7 +308,7 @@ function bindFilters() {
     state.sort = "date-desc";
     state.tag = "all";
     elements.searchInput.value = "";
-    elements.marketFilter.value = "all";
+    if (elements.marketFilter) elements.marketFilter.value = "all";
     elements.typeFilter.value = "all";
     elements.sortFilter.value = "date-desc";
     render();

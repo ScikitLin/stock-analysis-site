@@ -283,7 +283,15 @@ def copy_reports(config: dict, public_dir: Path, reports: list[dict]) -> None:
 
 def chart_label(path: Path) -> str:
     stem = path.stem.replace("_", " ")
-    return re.sub(r"\s+", " ", stem).strip()
+    stem = re.sub(r"^\d+\s+", "", stem)
+    stem = re.sub(r"\s+20\d{6}$", "", stem)
+    replacements = {
+        "tw candidate research map": "TW candidate research map",
+        "tw candidate valuation growth matrix": "TW valuation x growth matrix",
+        "tw candidate industry signal breadth": "TW industry signal breadth",
+    }
+    cleaned = re.sub(r"\s+", " ", stem).strip()
+    return replacements.get(cleaned, cleaned)
 
 
 def collect_chart_previews(config: dict) -> list[dict]:
@@ -305,7 +313,8 @@ def collect_chart_previews(config: dict) -> list[dict]:
                 "bytes": path.stat().st_size,
             }
         )
-    return charts
+    candidate_charts = [chart for chart in charts if re.match(r"^\d{2}_tw_candidate_", chart["file"])]
+    return candidate_charts or charts
 
 
 def write_metadata(config: dict, public_dir: Path, reports: list[dict], chart_previews: list[dict]) -> None:
