@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>股票分析報告庫</title>
+  <meta name="description" content="台股與美股個股分析 HTML 報告索引">
+  <link rel="stylesheet" href="assets/site.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <div>
+        <p class="eyebrow">Public Research Library</p>
+        <h1 id="siteTitle">股票分析報告庫</h1>
+        <p id="siteDescription" class="site-description">台股與美股個股分析 HTML 報告索引</p>
+      </div>
+      <div class="header-stats" aria-label="報告統計">
+        <div>
+          <span id="reportCount">0</span>
+          <strong>報告</strong>
+        </div>
+        <div>
+          <span id="latestDate">--</span>
+          <strong>最新日期</strong>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="controls" aria-label="報告篩選">
+      <label class="search-box">
+        <span>搜尋</span>
+        <input id="searchInput" type="search" placeholder="股票代號、公司、報告名稱、分類" autocomplete="off">
+      </label>
+      <label>
+        <span>市場</span>
+        <select id="marketFilter">
+          <option value="all">全部市場</option>
+        </select>
+      </label>
+      <label>
+        <span>類型</span>
+        <select id="typeFilter">
+          <option value="all">全部類型</option>
+        </select>
+      </label>
+      <label>
+        <span>排序</span>
+        <select id="sortFilter">
+          <option value="date-desc">日期新到舊</option>
+          <option value="date-asc">日期舊到新</option>
+          <option value="title-asc">標題 A-Z</option>
+        </select>
+      </label>
+      <button id="resetButton" class="ghost-button" type="button">清除</button>
+    </section>
+
+    <section class="overview" aria-label="市場統計">
+      <div class="metric">
+        <span id="twCount">0</span>
+        <strong>台股</strong>
+      </div>
+      <div class="metric">
+        <span id="usCount">0</span>
+        <strong>美股</strong>
+      </div>
+      <div class="metric">
+        <span id="symbolCount">0</span>
+        <strong>追蹤代號</strong>
+      </div>
+      <div class="metric">
+        <span id="typeCount">0</span>
+        <strong>分類</strong>
+      </div>
+    </section>
+
+    <section class="tag-band" aria-label="快速分類">
+      <div id="tagList" class="tag-list"></div>
+    </section>
+
+    <section class="result-bar" aria-live="polite">
+      <p id="resultCount">載入中</p>
+      <p id="generatedAt" class="muted"></p>
+    </section>
+
+    <section id="reportGrid" class="report-grid" aria-label="報告列表"></section>
+    <section id="emptyState" class="empty-state" hidden>
+      <h2>找不到符合條件的報告</h2>
+      <p>調整搜尋字或篩選條件後再試一次。</p>
+    </section>
+  </main>
+
+  <footer>
+    <p id="disclaimer">本網站內容僅供投資研究紀錄與討論，不構成個人化投資建議。資料可能延遲或不完整，請自行交叉驗證。</p>
+  </footer>
+
+  <script src="assets/reports-data.js"></script>
+  <script src="assets/site.js"></script>
+</body>
+</html>

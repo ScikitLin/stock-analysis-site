@@ -1,0 +1,328 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>BDC Belden 個股分析框架報告</title>
+  <style>
+    :root {
+      --ink: #17202a;
+      --muted: #5e6b78;
+      --line: #d9e0e7;
+      --bg: #f7f9fb;
+      --panel: #ffffff;
+      --blue: #1b5f9e;
+      --green: #1f7a55;
+      --amber: #9a5b00;
+      --red: #a13a3a;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans TC", sans-serif;
+      line-height: 1.62;
+    }
+    header {
+      background: #102033;
+      color: #fff;
+      padding: 28px clamp(18px, 4vw, 52px);
+      border-bottom: 4px solid #3a87c9;
+    }
+    header h1 {
+      margin: 0 0 8px;
+      font-size: clamp(28px, 4vw, 44px);
+      letter-spacing: 0;
+    }
+    header p { margin: 3px 0; color: #d9e6f2; }
+    main {
+      width: min(1180px, calc(100vw - 28px));
+      margin: 22px auto 48px;
+    }
+    section {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 22px;
+      margin: 16px 0;
+    }
+    h2 { margin: 0 0 12px; font-size: 22px; }
+    h3 { margin: 22px 0 10px; font-size: 18px; }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 12px 0;
+      font-size: 14px;
+    }
+    th, td {
+      border: 1px solid var(--line);
+      padding: 8px 10px;
+      vertical-align: top;
+    }
+    th { background: #eef4fa; text-align: left; }
+    td.num, th.num { text-align: right; font-variant-numeric: tabular-nums; }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 12px;
+    }
+    .metric {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 14px;
+      background: #fbfdff;
+    }
+    .metric strong { display: block; font-size: 24px; color: var(--blue); }
+    .tag {
+      display: inline-block;
+      border-radius: 999px;
+      padding: 3px 9px;
+      font-size: 12px;
+      font-weight: 700;
+      background: #eaf4ee;
+      color: var(--green);
+      margin-right: 6px;
+    }
+    .warn { color: var(--amber); font-weight: 700; }
+    .risk { color: var(--red); font-weight: 700; }
+    a { color: var(--blue); }
+    ul { padding-left: 20px; }
+    @media (max-width: 720px) {
+      section { padding: 16px; }
+      table { display: block; overflow-x: auto; white-space: nowrap; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>BDC Belden Inc. 個股分析框架報告</h1>
+    <p>基準日：2026-06-12 美股正式收盤 | 產出日：2026-06-14 台北時間</p>
+    <p>用途：投資研究與風險提示，不構成個人化財務建議。</p>
+  </header>
+
+  <main>
+    <section>
+      <h2>前置閘門總結</h2>
+      <div class="grid">
+        <div class="metric"><span>正式收盤</span><strong>115.04</strong><small>日漲 +2.60%</small></div>
+        <div class="metric"><span>相對成交量</span><strong>0.81x</strong><small>435,437 / 20 日均量 538,446</small></div>
+        <div class="metric"><span>P/E vs Forward P/E</span><strong>19.34 / 13.97</strong><small>TTM GAAP EPS vs FY2026E adjusted EPS</small></div>
+        <div class="metric"><span>框架結論</span><strong>偏多 / 續抱</strong><small>不急追，等 108-112 或站回 121 後確認</small></div>
+      </div>
+      <ul>
+        <li>Forward P/E 低很多，主因是 FY2026E adjusted EPS 約 8.06，高於 TTM GAAP EPS 約 5.95。</li>
+        <li>股價仍低於 200DMA 120.78，短線反彈尚未完全轉成中期多頭。</li>
+        <li>核心催化是 RUCKUS 收購、IT/OT 網通整合，以及 AI 高密度機櫃/散熱/連接方案。</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>快速結論表</h2>
+      <table>
+        <thead><tr><th>股票</th><th class="num">收盤價</th><th class="num">當日表現</th><th>核心結論</th><th>前景</th><th>持有建議</th></tr></thead>
+        <tbody>
+          <tr><td>BDC</td><td class="num">115.04</td><td class="num">+2.60%</td><td>forward 估值不貴，但 TTM 估值只算合理；收購與 AI/資料中心題材提供 rerating 可能</td><td><span class="tag">偏多</span></td><td><span class="tag">續抱</span></td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section>
+      <h2>公司白話介紹與一句話結論</h2>
+      <p>Belden 是工業網路、資料傳輸、連接線纜、企業網通與自動化基礎設施供應商。投資主軸不是單純線材，而是工業自動化、IT/OT convergence、資料中心與高密度 AI 基礎建設的「連接、機櫃、電力、散熱與網路」整合能力。</p>
+      <p><strong>一句話結論：</strong>BDC 不是便宜到閉眼買的低 P/E 股，但在 2026 forward adjusted EPS 基礎上約 14x，若 RUCKUS 收購順利、毛利率與 EPS 確實上修，115 美元附近仍有中期向 129-153 美元重估的空間。</p>
+    </section>
+
+    <section>
+      <h2>市場 Regime、價格與部位</h2>
+      <table>
+        <tbody>
+          <tr><th>大盤背景</th><td>2026-06-12 S&P 500 收 7,431.46，日漲 0.5%；風險偏好仍在，但 AI/高估值股波動仍大。</td></tr>
+          <tr><th>技術位置</th><td>收盤 115.04，低於 200DMA 120.78，接近 50DMA 115.97。</td></tr>
+          <tr><th>量能</th><td>當日成交量 435,437，低於 20 日均量 538,446，約 0.81x。</td></tr>
+          <tr><th>持股閘門</th><td>站回 121 且回測不破，才算技術面轉強；跌破 105 要重新檢查 thesis。</td></tr>
+        </tbody>
+      </table>
+      <p>若仍持有 18 股、平均成本約 109.47，則以 115.04 計算，市值約 2,070.72 美元，未實現損益約 +100.26 美元，約 +5.09%。</p>
+    </section>
+
+    <section>
+      <h2>來源數字表</h2>
+      <table>
+        <thead><tr><th>指標</th><th class="num">數字</th><th>說明</th></tr></thead>
+        <tbody>
+          <tr><td>TTM revenue</td><td class="num">2.787B</td><td>StockAnalysis TTM financials</td></tr>
+          <tr><td>TTM diluted EPS</td><td class="num">5.94-5.95</td><td>GAAP trailing EPS</td></tr>
+          <tr><td>FY2026E adjusted EPS</td><td class="num">8.06</td><td>StockAnalysis forecast，非 GAAP adjusted</td></tr>
+          <tr><td>FY2027E adjusted EPS</td><td class="num">8.89</td><td>StockAnalysis forecast，非 GAAP adjusted</td></tr>
+          <tr><td>TTM gross margin</td><td class="num">37.44%-37.46%</td><td>StockAnalysis financials/statistics</td></tr>
+          <tr><td>TTM FCF</td><td class="num">180.40M</td><td>StockAnalysis cash flow/statistics</td></tr>
+          <tr><td>Debt / Equity</td><td class="num">1.07</td><td>收購後需重新追蹤</td></tr>
+          <tr><td>Q1 adjusted EPS</td><td class="num">1.77</td><td>優於 consensus 1.70</td></tr>
+          <tr><td>Q2 guidance adjusted EPS</td><td class="num">1.95-2.05</td><td>consensus 1.98</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section>
+      <h2>EPS 橋接：P/E 19.34 為何 Forward P/E 13.97</h2>
+      <table>
+        <thead><tr><th>估值口徑</th><th class="num">EPS 分母</th><th class="num">計算</th><th class="num">結果</th></tr></thead>
+        <tbody>
+          <tr><td>TTM GAAP P/E</td><td class="num">約 5.95</td><td class="num">115.04 / 5.95</td><td class="num">約 19.34x</td></tr>
+          <tr><td>FY2026E adjusted Forward P/E</td><td class="num">約 8.06</td><td class="num">115.04 / 8.06</td><td class="num">約 14.27x</td></tr>
+          <tr><td>StockAnalysis forward P/E</td><td class="num">預估 adjusted EPS</td><td class="num">來源頁列示</td><td class="num">13.97x</td></tr>
+        </tbody>
+      </table>
+      <p>差異重點：TTM P/E 用過去 12 個月 GAAP EPS；Forward P/E 多半用未來年度 adjusted EPS。BDC 的 FY2026E adjusted EPS 8.06 比 TTM GAAP EPS 約 5.95 高約 35.5%，因此 forward P/E 會明顯低。</p>
+      <p class="warn">這不是無風險便宜，而是市場預期獲利改善。若 Q2/Q3 guidance 沒有跟上，13.97x 會回頭變成估值陷阱。</p>
+    </section>
+
+    <section>
+      <h2>估值模組</h2>
+      <h3>BDC 自身近期 TTM P/E Proxy</h3>
+      <p>本次實測 StockAnalysis 圖表 API 可取得 BDC 自 2004-07-16 到 2026-06-12 的價格資料，共 5,513 個交易日，約 21.9 年。這代表價格資料夠長；但真正歷史 P/E 需要每個日期對應當時已知的 TTM EPS。若用 2026 最新 TTM EPS 約 5.95 去除全部歷史股價，只能稱為 current-EPS price multiple proxy，不是正統歷史 P/E。</p>
+      <table>
+        <thead><tr><th>窗口</th><th class="num">價格資料筆數</th><th>起訖日</th><th class="num">P10</th><th class="num">P50</th><th class="num">P90</th><th>可信度</th></tr></thead>
+        <tbody>
+          <tr><td>約 3M</td><td class="num">64</td><td>2026-03-13 至 2026-06-12</td><td class="num">17.75x</td><td class="num">19.15x</td><td class="num">21.98x</td><td>中</td></tr>
+          <tr><td>約 6M</td><td class="num">126</td><td>2025-12-11 至 2026-06-12</td><td class="num">18.24x</td><td class="num">19.78x</td><td class="num">23.88x</td><td>中</td></tr>
+          <tr><td>約 1Y</td><td class="num">252</td><td>2025-06-12 至 2026-06-12</td><td class="num">18.46x</td><td class="num">19.95x</td><td class="num">22.15x</td><td>中</td></tr>
+          <tr><td>約 2Y</td><td class="num">502</td><td>2024-06-12 至 2026-06-12</td><td class="num">16.30x</td><td class="num">19.38x</td><td class="num">21.77x</td><td>中低</td></tr>
+          <tr><td>約 3Y</td><td class="num">754</td><td>2023-06-12 至 2026-06-12</td><td class="num">13.00x</td><td class="num">17.92x</td><td class="num">21.16x</td><td>低</td></tr>
+        </tbody>
+      </table>
+      <table>
+        <thead><tr><th>區間</th><th class="num">Proxy P/E</th><th class="num">對應價格</th></tr></thead>
+        <tbody>
+          <tr><td>1Y P10 壓力區</td><td class="num">18.46x</td><td class="num">109.8</td></tr>
+          <tr><td>6M P25 低估觀察</td><td class="num">約 18.9x</td><td class="num">約 112.5</td></tr>
+          <tr><td>6M-1Y P50 中位數</td><td class="num">19.78x-19.95x</td><td class="num">117.7-118.7</td></tr>
+          <tr><td>1Y P90 偏熱</td><td class="num">22.15x</td><td class="num">131.8</td></tr>
+          <tr><td>6M P90 過熱</td><td class="num">23.88x</td><td class="num">142.1</td></tr>
+        </tbody>
+      </table>
+      <h3>Forward Adjusted EPS 估值帶</h3>
+      <p>12x / 14x / 16x / 19x 不是官方倍數，也不是所有股票都套用的固定模板，而是本次針對 BDC 的研究判斷估值狀態。錨點來自目前 forward P/E 約 13.97x、BDC 6M/1Y current TTM proxy 中位數約 19.8x-20.0x、peer forward P/E 中位數約 25.75x，以及 BDC 槓桿、margin profile 與 RUCKUS 整合風險。因 BDC 尚未完全升級成高 margin 網通平台，所以 Base fair 不直接用 peer forward P/E 中位數 25.75x，也不把 19x 當基本情境；本報先用 16x forward adjusted EPS 作為 Base fair。這不是說 BDC 應該低於自己過去 TTM P/E 中位數，而是因為 forward adjusted EPS 8.06 明顯高於 TTM GAAP EPS 約 5.95，所以 forward multiple 要打折使用。</p>
+      <p><strong>口徑差異：</strong>TTM P/E proxy 19.8x 是用 TTM GAAP EPS 約 5.95 算，對應價格約 117.8；它是近期中位，不是 overheat。Forward adjusted EPS 19x 是用 FY2026E adjusted EPS 8.06 算，對應價格約 153.1；這才是 rerating 上緣。兩者同樣叫 19x，但分母不同，價格意義完全不同。</p>
+      <p><strong>更白話地說：</strong>Base fair = 8.06 x 16 = 129，可以理解成把 forward EPS 打折後再套接近過去的 19x P/E。若用 19x 當歷史錨點，折扣約 16 / 19 = 84.2%，接近 0.85；若用 19.8x 當 6M/1Y proxy 中位，折扣約 16 / 19.8 = 80.8%。</p>
+      <table>
+        <thead><tr><th>寫法</th><th>公式</th><th class="num">結果</th><th>意義</th></tr></thead>
+        <tbody>
+          <tr><td>折價 forward multiple</td><td>8.06 x 16.0x</td><td class="num">129.0</td><td>不直接給 19x forward，因 RUCKUS、margin、槓桿仍待驗證</td></tr>
+          <tr><td>對 19x 歷史錨點做 EPS haircut</td><td>8.06 x 84.2% x 19.0x</td><td class="num">129.0</td><td>等於只承認約 84% 的 FY2026E adjusted EPS / forward story</td></tr>
+          <tr><td>對 19.8x 近期 TTM proxy 中位做 EPS haircut</td><td>8.06 x 80.8% x 19.8x</td><td class="num">129.0</td><td>若用 19.8x 當錨點，折扣更接近 81%</td></tr>
+        </tbody>
+      </table>
+      <p>打折原因：8.06 是 FY2026E adjusted EPS，不是已實現的 TTM GAAP EPS；RUCKUS 收購、利息費用、整合成效、margin accretion 與需求能見度還沒完全被財報證明。因此 19x forward 先放在 rerating upper，而不是 Base fair。</p>
+      <table>
+        <thead><tr><th>價格錨點</th><th class="num">價格</th><th class="num">對 TTM GAAP EPS 5.95 的 P/E</th><th class="num">對 FY2026E adjusted EPS 8.06 的 P/E</th><th>解讀</th></tr></thead>
+        <tbody>
+          <tr><td>現價</td><td class="num">115.04</td><td class="num">19.3x</td><td class="num">14.3x</td><td>現價約等於 forward Entry</td></tr>
+          <tr><td>6M/1Y TTM proxy 中位</td><td class="num">約 117.8</td><td class="num">約 19.8x</td><td class="num">約 14.6x</td><td>TTM 中位，不是過熱</td></tr>
+          <tr><td>Base fair</td><td class="num">129.0</td><td class="num">約 21.7x</td><td class="num">16.0x</td><td>價格已高於 TTM 中位，但仍低於 peer forward premium</td></tr>
+          <tr><td>Rerating upper</td><td class="num">153.1</td><td class="num">約 25.7x</td><td class="num">19.0x</td><td>需要 EPS/margin/RUCKUS 兌現</td></tr>
+        </tbody>
+      </table>
+      <table>
+        <thead><tr><th>情境</th><th class="num">EPS 假設</th><th class="num">現價 implied P/E</th><th class="num">Stress 12x</th><th class="num">Entry 14x</th><th class="num">Fair 16x</th><th class="num">Rerating upper / Stretched if no revision 19x</th></tr></thead>
+        <tbody>
+          <tr><td>Bear</td><td class="num">7.20</td><td class="num">16.0x</td><td class="num">86.4</td><td class="num">100.8</td><td class="num">115.2</td><td class="num">136.8</td></tr>
+          <tr><td>Base</td><td class="num">8.06</td><td class="num">14.3x</td><td class="num">96.7</td><td class="num">112.8</td><td class="num">129.0</td><td class="num">153.1</td></tr>
+          <tr><td>Bull</td><td class="num">8.89</td><td class="num">12.9x</td><td class="num">106.7</td><td class="num">124.5</td><td class="num">142.2</td><td class="num">168.9</td></tr>
+        </tbody>
+      </table>
+      <p>目前 115.04 對 Base EPS 8.06 的 implied P/E 約 14.3x，等於 Base 情境的 Entry 區；但若 Bear EPS 只有 7.20，現價已經是 16.0x Fair 區。</p>
+      <h3>同業估值對照</h3>
+      <table>
+        <thead><tr><th>公司</th><th>主要產品/業務</th><th>相關性</th><th class="num">P/E</th><th class="num">Forward P/E</th><th class="num">P/FCF</th><th class="num">EV/EBITDA</th><th>納入理由</th></tr></thead>
+        <tbody>
+          <tr><td>BDC</td><td>工業網路、線纜、連接、資料中心基建、IT/OT 整合</td><td>本體</td><td class="num">19.34</td><td class="num">13.97</td><td class="num">24.84</td><td class="num">12.55</td><td>轉型與 RUCKUS 收購等待驗證</td></tr>
+          <tr><td>TEL</td><td>連接器、感測器、工業/汽車/資料中心互連</td><td>高</td><td class="num">21.46</td><td class="num">17.82</td><td class="num">18.11</td><td class="num">13.98</td><td>最接近的連接/工業互連品質 peer</td></tr>
+          <tr><td>APH</td><td>高階連接器、感測、天線、高速互連</td><td>中高</td><td class="num">44.25</td><td class="num">30.89</td><td class="num">40.85</td><td class="num">24.89</td><td>高品質連接器龍頭，可作 premium 上緣參考</td></tr>
+          <tr><td>ETN</td><td>電力管理、配電、UPS、資料中心電氣設備</td><td>中</td><td class="num">38.29</td><td class="num">27.81</td><td class="num">40.25</td><td class="num">27.28</td><td>同受資料中心與電力基建需求驅動，但商業模式不同</td></tr>
+          <tr><td>MSI</td><td>公共安全/企業通訊、網路與安全硬體+軟體</td><td>中低</td><td class="num">33.22</td><td class="num">23.92</td><td class="num">27.50</td><td class="num">22.08</td><td>RUCKUS 後 BDC 往企業網路平台靠近，可作部分參考</td></tr>
+          <tr><td>CSCO</td><td>企業網通、switch/router/security、軟體訂閱</td><td>中低</td><td class="num">40.36</td><td class="num">25.75</td><td class="num">40.49</td><td class="num">29.03</td><td>RUCKUS 的網通平台對照，但規模與軟體 mix 差距大</td></tr>
+        </tbody>
+      </table>
+      <table>
+        <thead><tr><th>同業組合</th><th class="num">P/E 中位數</th><th class="num">Forward P/E 中位數</th><th class="num">P/FCF 中位數</th><th class="num">EV/EBITDA 中位數</th></tr></thead>
+        <tbody>
+          <tr><td>不含 BDC 的 5 家 peer</td><td class="num">38.29</td><td class="num">25.75</td><td class="num">40.25</td><td class="num">24.89</td></tr>
+          <tr><td>BDC</td><td class="num">19.34</td><td class="num">13.97</td><td class="num">24.84</td><td class="num">12.55</td></tr>
+          <tr><td>BDC 相對 peer 中位數</td><td class="num">折價約 49%</td><td class="num">折價約 46%</td><td class="num">折價約 38%</td><td class="num">折價約 50%</td></tr>
+        </tbody>
+      </table>
+      <p>BDC 相對同業便宜，但折價有原因：規模較小、收購槓桿提高、margin profile 尚未完全升級，且 RUCKUS 整合尚未被財報驗證。因此同業中位數只能說明「有 rerating 空間」，不能直接拿 25.75x forward P/E 當 Base 目標。</p>
+    </section>
+
+    <section>
+      <h2>目標價階梯與操作建議</h2>
+      <table>
+        <thead><tr><th>價格區</th><th>判斷</th><th>操作</th></tr></thead>
+        <tbody>
+          <tr><td class="num">&lt;100</td><td>thesis 受傷、或大盤/類股壓縮到 Bear 估值</td><td class="risk">啟動停損審核；只有 thesis damaged 才直接停損/退出</td></tr>
+          <tr><td class="num">105-110</td><td>接近 1Y proxy 壓力區</td><td>若基本面未惡化且不是系統性風險擴散，可分批觀察加碼</td></tr>
+          <tr><td class="num">110-113</td><td>較合理的拉回加碼區</td><td>小量加碼或降低成本</td></tr>
+          <tr><td class="num">115 附近</td><td>目前價位，Base 14x 左右</td><td>續抱，不急追</td></tr>
+          <tr><td class="num">121 以上</td><td>站回 200DMA</td><td>若回測不破，可提高信心</td></tr>
+          <tr><td class="num">129-135</td><td>Base fair / TTM 偏高區</td><td>若沒有 EPS 上修，可部分停利</td></tr>
+          <tr><td class="num">150-153</td><td>分析師平均目標與 Base forward 19x</td><td>需要 RUCKUS 順利、EPS 上修、槓桿受控</td></tr>
+        </tbody>
+      </table>
+      <p><strong>建議：</strong><span class="tag">偏多</span><span class="tag">續抱</span>。現在不是需要賣掉的位置，但也不是看到 13.97x forward P/E 就直接大買的位置。</p>
+    </section>
+
+    <section>
+      <h2>風控、品質與下一驗證點</h2>
+      <ul>
+        <li><strong>短線防守/風險審核線：</strong>105-110 美元。這裡接近 1Y current TTM EPS proxy 的壓力區，跌破代表市場重新壓估值，但不是自動砍倉。</li>
+        <li><strong>嚴格停損候選：</strong>100 美元。若跌破且沒有基本面支撐，或同業沒跌但 BDC 自己弱，forward EPS 可信度被市場打折。</li>
+        <li><strong>第一停利：</strong>129-135 美元。若沒有 EPS 上修，可部分停利。</li>
+        <li><strong>第二停利：</strong>150-153 美元。需要 RUCKUS 順利 close、毛利率改善與 EPS 上修。</li>
+        <li><strong>品質：</strong>TTM OCF 328.76M 高於 net income 約 236.61M，現金轉換不差；但收購後槓桿與利息費用是最大風控點。</li>
+        <li><strong>下一驗證：</strong>2026-07-30 盤前財報、RUCKUS H2 2026 close、121 美元 200DMA 是否站回。</li>
+      </ul>
+      <h3>大盤大跌時，不機械停損</h3>
+      <table>
+        <thead><tr><th>檢查</th><th>若答案是「是」</th><th>BDC 動作</th></tr></thead>
+        <tbody>
+          <tr><td>S&P 500、Nasdaq、工業/電氣設備、同業也同步大跌？</td><td>偏系統性下跌</td><td>不因價格單點全砍；停止加碼，檢查總曝險</td></tr>
+          <tr><td>BDC 跌幅是否明顯比 TEL/APH/ETN/MSI/CSCO 更差 5-8 個百分點以上？</td><td>可能是公司特定問題</td><td>查新聞、估計修正、債務/收購風險，必要時減碼</td></tr>
+          <tr><td>EPS、guidance、毛利率、訂單/backlog、RUCKUS 交易是否變壞？</td><td>thesis damaged</td><td>即使大盤也跌，仍要減碼/退出</td></tr>
+          <tr><td>跌破後 2-3 個交易日能否收回 105 或重要均線？</td><td>技術修復成功</td><td>可保留核心倉；反彈無量且站不回才降低部位</td></tr>
+        </tbody>
+      </table>
+      <p>對 BDC：跌到 105 先做風險審核，不是自動停損；跌到 100 若只是大盤崩跌、同業同步、公司無壞消息，先降交易倉與總曝險，不急著賣光核心倉。若公司新聞或估計修正變壞，才升級為停損/退出。</p>
+    </section>
+
+    <section>
+      <h2>資料完整性</h2>
+      <table>
+        <tbody>
+          <tr><th>已取得</th><td>正式收盤價、成交量、TTM 財報、EPS、margin、現金流、槓桿、FY2026/FY2027 預估、Q1/Q2 guidance、RUCKUS 收購資訊、同業估值。</td></tr>
+          <tr><th>長期價格資料</th><td>已取得，StockAnalysis 圖表 API 可抓 2004-07-16 至 2026-06-12，共 5,513 個交易日。</td></tr>
+          <tr><th>Proxy</th><td>多年歷史 P/E 未完整取得，缺每一日期對應當時 TTM EPS；因此不把多年價格 / 最新 EPS 當正統歷史 P/E。6M/1Y current TTM EPS proxy 可用於近期估值參考。</td></tr>
+          <tr><th>未取得</th><td>RUCKUS audited financials、收購後 pro-forma interest expense、分部 backlog / 訂單能見度。</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section>
+      <h2>主要資料來源</h2>
+      <ul>
+        <li><a href="https://stockanalysis.com/stocks/bdc/history/">StockAnalysis - BDC historical prices</a></li>
+        <li><a href="https://stockanalysis.com/stocks/bdc/statistics/">StockAnalysis - BDC statistics</a></li>
+        <li><a href="https://stockanalysis.com/stocks/bdc/forecast/">StockAnalysis - BDC forecast</a></li>
+        <li><a href="https://stockanalysis.com/stocks/bdc/financials/">StockAnalysis - BDC financials</a></li>
+        <li><a href="https://stockanalysis.com/stocks/bdc/financials/cash-flow-statement/">StockAnalysis - BDC cash flow statement</a></li>
+        <li><a href="https://www.tipranks.com/news/the-fly/belden-reports-q1-adjusted-eps-1-77-consensus-1-70-thefly-news">TipRanks/The Fly - Belden reports Q1 adjusted EPS $1.77</a></li>
+        <li><a href="https://www.tipranks.com/news/the-fly/belden-sees-q2-adjusted-eps-1-95-2-05-consensus-1-98-thefly-news">TipRanks/The Fly - Belden sees Q2 adjusted EPS $1.95-$2.05</a></li>
+        <li><a href="https://www.tipranks.com/news/the-fly/belden-to-acquire-ruckus-from-vistance-networks-for-1-85b-thefly-news">TipRanks/The Fly - Belden to acquire RUCKUS for $1.85B</a></li>
+        <li><a href="https://www.tipranks.com/news/the-fly/belden-opticool-partner-to-offer-high-density-ai-infrastructure-thefly-news">TipRanks/The Fly - Belden/OptiCool high-density AI infrastructure</a></li>
+        <li><a href="https://apnews.com/article/f61ee2e7ec8ca8c95048cef76ed27214">AP - How major US stock indexes fared Friday 6/12/2026</a></li>
+      </ul>
+    </section>
+  </main>
+</body>
+</html>

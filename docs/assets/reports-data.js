@@ -1,0 +1,361 @@
+window.STOCK_REPORTS = {
+  "siteTitle": "股票分析報告庫",
+  "siteDescription": "台股與美股個股分析 HTML 報告索引",
+  "disclaimer": "本網站內容僅供投資研究紀錄與討論，不構成個人化投資建議。資料可能延遲或不完整，請自行交叉驗證。",
+  "generatedAt": "2026-06-15T09:09:24.946143+00:00",
+  "sourceDir": "output",
+  "reportCount": 6,
+  "reports": [
+    {
+      "id": "us_multi_stock_analysis_framework_cmg_tel_cohr_gev_ntap_20260615",
+      "title": "CMG TEL COHR GEV NTAP 美股個股分析框架報告",
+      "heading": "CMG、TEL、COHR、GEV、NTAP 美股個股分析框架報告",
+      "summary": "CMG、TEL、COHR、GEV、NTAP 美股個股分析框架報告 標的：CMG、TEL、COHR、GEV、NTAP 基準日：2026-06-12 美股正式收盤 | 產出日：2026-06-15 台北時間 用途：投資研究與風險提示，不構成個人化財務建議。 使用方式 這版每檔股票都是獨立頁面。點下方...",
+      "date": "2026-06-15",
+      "market": "us",
+      "marketLabel": "美股",
+      "type": "multi",
+      "typeLabel": "多檔個股",
+      "symbols": [
+        "CMG",
+        "TEL",
+        "COHR",
+        "GEV",
+        "NTAP"
+      ],
+      "symbolNames": [
+        {
+          "symbol": "CMG",
+          "name": ""
+        },
+        {
+          "symbol": "TEL",
+          "name": ""
+        },
+        {
+          "symbol": "COHR",
+          "name": ""
+        },
+        {
+          "symbol": "GEV",
+          "name": ""
+        },
+        {
+          "symbol": "NTAP",
+          "name": ""
+        }
+      ],
+      "tags": [
+        "美股",
+        "多檔個股",
+        "分析框架",
+        "Bear/Base/Bull"
+      ],
+      "sourceFile": "us_multi_stock_analysis_framework_cmg_tel_cohr_gev_ntap_20260615.html",
+      "url": "reports/us_multi_stock_analysis_framework_cmg_tel_cohr_gev_ntap_20260615.html",
+      "bytes": 77803
+    },
+    {
+      "id": "us_multi_stock_analysis_framework_20260614",
+      "title": "美股多檔個股分析框架報告",
+      "heading": "美股多檔個股分析框架報告",
+      "summary": "美股多檔個股分析框架報告 標的：BDC、ETN、NTAP、TSM、HPE、UNH、GEV、COHR、TEL、AVGO、QCOM 基準日：2026-06-12 美股正式收盤 | 產出日：2026-06-14 台北時間 用途：投資研究與風險提示，不構成個人化財務建議。 使用方式 這版每檔股票都是獨立頁...",
+      "date": "2026-06-14",
+      "market": "us",
+      "marketLabel": "美股",
+      "type": "multi",
+      "typeLabel": "多檔個股",
+      "symbols": [
+        "BDC",
+        "ETN",
+        "NTAP",
+        "TSM",
+        "HPE",
+        "UNH",
+        "GEV",
+        "COHR",
+        "TEL",
+        "AVGO",
+        "QCOM"
+      ],
+      "symbolNames": [
+        {
+          "symbol": "BDC",
+          "name": "Belden"
+        },
+        {
+          "symbol": "ETN",
+          "name": "Eaton"
+        },
+        {
+          "symbol": "NTAP",
+          "name": "NetApp"
+        },
+        {
+          "symbol": "TSM",
+          "name": "台積電 ADR"
+        },
+        {
+          "symbol": "HPE",
+          "name": "Hewlett Packard Enterprise"
+        },
+        {
+          "symbol": "UNH",
+          "name": "UnitedHealth"
+        },
+        {
+          "symbol": "GEV",
+          "name": "GE Vernova"
+        },
+        {
+          "symbol": "COHR",
+          "name": "Coherent"
+        },
+        {
+          "symbol": "TEL",
+          "name": "TE Connectivity"
+        },
+        {
+          "symbol": "AVGO",
+          "name": "Broadcom"
+        },
+        {
+          "symbol": "QCOM",
+          "name": "Qualcomm"
+        }
+      ],
+      "tags": [
+        "美股",
+        "多檔個股",
+        "分析框架",
+        "Bear/Base/Bull"
+      ],
+      "sourceFile": "us_multi_stock_analysis_framework_20260614.html",
+      "url": "reports/us_multi_stock_analysis_framework_20260614.html",
+      "bytes": 71569
+    },
+    {
+      "id": "us_bdc_stock_analysis_framework_20260614",
+      "title": "BDC Belden 個股分析框架報告",
+      "heading": "BDC Belden Inc. 個股分析框架報告",
+      "summary": "Belden 是工業網路、資料傳輸、連接線纜、企業網通與自動化基礎設施供應商。投資主軸不是單純線材，而是工業自動化、IT/OT convergence、資料中心與高密度 AI 基礎建設的「連接、機櫃、電力、散熱與網路」整合能力。 一句話結論： BDC 不是便宜到閉眼買的低 P/E 股，但在 202...",
+      "date": "2026-06-14",
+      "market": "us",
+      "marketLabel": "美股",
+      "type": "multi",
+      "typeLabel": "多檔個股",
+      "symbols": [
+        "2026",
+        "BDC"
+      ],
+      "symbolNames": [
+        {
+          "symbol": "2026",
+          "name": ""
+        },
+        {
+          "symbol": "BDC",
+          "name": ""
+        }
+      ],
+      "tags": [
+        "美股",
+        "多檔個股",
+        "分析框架",
+        "Bear/Base/Bull"
+      ],
+      "sourceFile": "us_bdc_stock_analysis_framework_20260614.html",
+      "url": "reports/us_bdc_stock_analysis_framework_20260614.html",
+      "bytes": 24185
+    },
+    {
+      "id": "tw_stock_custom_2317_4739_2379_stock_analysis_framework_20260613",
+      "title": "鴻海、康普、瑞昱指定個股分析 2026-06-13",
+      "heading": "鴻海、康普、瑞昱指定個股分析",
+      "summary": "不追 ；AI 伺服器題材強，但現價已偏 Bull/ 過熱 ，等回測或 EPS 上修。現價隱含情境：Bull 情境。理由：3M 營收 YoY 約 37.9% ，AI 伺服器與雲端網通題材支撐研究優先度，流動性高。 主要風險：毛利率與營益率偏低，股價若先反映 AI server 成長，EPS/marg...",
+      "date": "2026-06-13",
+      "market": "tw",
+      "marketLabel": "台股",
+      "type": "custom",
+      "typeLabel": "指定個股",
+      "symbols": [
+        "2317",
+        "4739",
+        "2379"
+      ],
+      "symbolNames": [
+        {
+          "symbol": "2317",
+          "name": "鴻海"
+        },
+        {
+          "symbol": "4739",
+          "name": "康普"
+        },
+        {
+          "symbol": "2379",
+          "name": "瑞昱"
+        }
+      ],
+      "tags": [
+        "台股",
+        "指定個股",
+        "分析框架",
+        "Bear/Base/Bull",
+        "自選清單"
+      ],
+      "sourceFile": "tw_stock_custom_2317_4739_2379_stock_analysis_framework_20260613.html",
+      "url": "reports/tw_stock_custom_2317_4739_2379_stock_analysis_framework_20260613.html",
+      "bytes": 73974
+    },
+    {
+      "id": "tw_stock_top10_detailed_analysis_20260613",
+      "title": "tw_stock_candidates_20260613 前 10 名個股詳細分析",
+      "heading": "tw_stock_candidates_20260613 前 10 名個股詳細分析",
+      "summary": "成長、獲利與題材都強，但 5 月營收月減與股價仍在高位；即使 market regime 為 Normal，也不適合用排名第一直接追價。 模組 核心數字 判斷 價格/時點 候選價 662.0（價格日 2026-06-12）；日價歷史參考 662.0（2026-06-12）；差異 0.0% 估值日與...",
+      "date": "2026-06-13",
+      "market": "tw",
+      "marketLabel": "台股",
+      "type": "top10",
+      "typeLabel": "Top 10 個股",
+      "symbols": [
+        "3406",
+        "6525",
+        "2303",
+        "2428",
+        "1342",
+        "1708",
+        "6214",
+        "6257",
+        "2606",
+        "2637"
+      ],
+      "symbolNames": [
+        {
+          "symbol": "3406",
+          "name": "玉晶光"
+        },
+        {
+          "symbol": "6525",
+          "name": "捷敏-KY"
+        },
+        {
+          "symbol": "2303",
+          "name": "聯電"
+        },
+        {
+          "symbol": "2428",
+          "name": "興勤"
+        },
+        {
+          "symbol": "1342",
+          "name": "八貫"
+        },
+        {
+          "symbol": "1708",
+          "name": "東鹼"
+        },
+        {
+          "symbol": "6214",
+          "name": "精誠"
+        },
+        {
+          "symbol": "6257",
+          "name": "矽格"
+        },
+        {
+          "symbol": "2606",
+          "name": "裕民"
+        },
+        {
+          "symbol": "2637",
+          "name": "慧洋-KY"
+        }
+      ],
+      "tags": [
+        "台股",
+        "Top 10 個股",
+        "候選池",
+        "詳細版"
+      ],
+      "sourceFile": "tw_stock_top10_detailed_analysis_20260613.html",
+      "url": "reports/tw_stock_top10_detailed_analysis_20260613.html",
+      "bytes": 26307
+    },
+    {
+      "id": "tw_stock_top10_stock_analysis_framework_20260613",
+      "title": "Top 10 個股分析 2026-06-13",
+      "heading": "Top 10 個股分析",
+      "summary": "觀望偏優先；半導體中較均衡，適合下一輪完整版。現價隱含情境： 接近 Bull 過熱 。理由：P/E、殖利率、營收成長與 Q1 margin 平衡度較好。 主要風險：6/12 參考價已比候選價高很多，短線安全邊際變差。 2. 市場 regime 與投資組合閘門 市場閘門：Normal。說明：本地篩選...",
+      "date": "2026-06-13",
+      "market": "tw",
+      "marketLabel": "台股",
+      "type": "top10",
+      "typeLabel": "Top 10 個股",
+      "symbols": [
+        "6525",
+        "3406",
+        "9945",
+        "3617",
+        "3706",
+        "2606",
+        "2637",
+        "2303",
+        "2618",
+        "4551"
+      ],
+      "symbolNames": [
+        {
+          "symbol": "6525",
+          "name": "捷敏-KY"
+        },
+        {
+          "symbol": "3406",
+          "name": "玉晶光"
+        },
+        {
+          "symbol": "9945",
+          "name": "潤泰新"
+        },
+        {
+          "symbol": "3617",
+          "name": "碩天"
+        },
+        {
+          "symbol": "3706",
+          "name": "神達"
+        },
+        {
+          "symbol": "2606",
+          "name": "裕民"
+        },
+        {
+          "symbol": "2637",
+          "name": "慧洋-KY"
+        },
+        {
+          "symbol": "2303",
+          "name": "聯電"
+        },
+        {
+          "symbol": "2618",
+          "name": "長榮航"
+        },
+        {
+          "symbol": "4551",
+          "name": "智伸科"
+        }
+      ],
+      "tags": [
+        "台股",
+        "Top 10 個股",
+        "分析框架",
+        "Bear/Base/Bull",
+        "候選池"
+      ],
+      "sourceFile": "tw_stock_top10_stock_analysis_framework_20260613.html",
+      "url": "reports/tw_stock_top10_stock_analysis_framework_20260613.html",
+      "bytes": 223778
+    }
+  ]
+};

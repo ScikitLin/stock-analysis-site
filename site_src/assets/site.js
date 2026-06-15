@@ -1,0 +1,253 @@
+const state = {
+  reports: [],
+  query: "",
+  market: "all",
+  type: "all",
+  sort: "date-desc",
+  tag: "all"
+};
+
+const elements = {
+  siteTitle: document.querySelector("#siteTitle"),
+  siteDescription: document.querySelector("#siteDescription"),
+  disclaimer: document.querySelector("#disclaimer"),
+  reportCount: document.querySelector("#reportCount"),
+  latestDate: document.querySelector("#latestDate"),
+  twCount: document.querySelector("#twCount"),
+  usCount: document.querySelector("#usCount"),
+  symbolCount: document.querySelector("#symbolCount"),
+  typeCount: document.querySelector("#typeCount"),
+  searchInput: document.querySelector("#searchInput"),
+  marketFilter: document.querySelector("#marketFilter"),
+  typeFilter: document.querySelector("#typeFilter"),
+  sortFilter: document.querySelector("#sortFilter"),
+  resetButton: document.querySelector("#resetButton"),
+  tagList: document.querySelector("#tagList"),
+  resultCount: document.querySelector("#resultCount"),
+  generatedAt: document.querySelector("#generatedAt"),
+  reportGrid: document.querySelector("#reportGrid"),
+  emptyState: document.querySelector("#emptyState")
+};
+
+function normalize(value) {
+  return String(value || "").toLowerCase().trim();
+}
+
+function unique(values) {
+  return Array.from(new Set(values.filter(Boolean)));
+}
+
+function formatDate(value) {
+  if (!value) return "未標日期";
+  return value;
+}
+
+function formatGeneratedAt(value) {
+  if (!value) return "";
+  const date = new Date(value);
+  if (Number.isNaN(date.getTime())) return "";
+  return `更新時間 ${date.toLocaleString("zh-TW", { hour12: false })}`;
+}
+
+function createOption(select, value, label) {
+  const option = document.createElement("option");
+  option.value = value;
+  option.textContent = label;
+  select.appendChild(option);
+}
+
+function buildFilters() {
+  const markets = unique(state.reports.map((report) => report.market));
+  const types = unique(state.reports.map((report) => report.type));
+  const marketLabels = new Map(state.reports.map((report) => [report.market, report.marketLabel]));
+  const typeLabels = new Map(state.reports.map((report) => [report.type, report.typeLabel]));
+
+  markets.sort().forEach((market) => createOption(elements.marketFilter, market, marketLabels.get(market) || market));
+  types.sort().forEach((type) => createOption(elements.typeFilter, type, typeLabels.get(type) || type));
+}
+
+function updateStats(metadata) {
+  const latest = state.reports.map((report) => report.date).filter(Boolean).sort().at(-1) || "--";
+  const symbols = unique(state.reports.flatMap((report) => report.symbols || []));
+  const types = unique(state.reports.map((report) => report.type));
+
+  document.title = metadata.siteTitle || "股票分析報告庫";
+  elements.siteTitle.textContent = metadata.siteTitle || "股票分析報告庫";
+  elements.siteDescription.textContent = metadata.siteDescription || "台股與美股個股分析 HTML 報告索引";
+  elements.disclaimer.textContent = metadata.disclaimer || elements.disclaimer.textContent;
+  elements.reportCount.textContent = state.reports.length;
+  elements.latestDate.textContent = latest;
+  elements.twCount.textContent = state.reports.filter((report) => report.market === "tw").length;
+  elements.usCount.textContent = state.reports.filter((report) => report.market === "us").length;
+  elements.symbolCount.textContent = symbols.length;
+  elements.typeCount.textContent = types.length;
+  elements.generatedAt.textContent = formatGeneratedAt(metadata.generatedAt);
+}
+
+function renderTags() {
+  const tagCounts = new Map();
+  state.reports.forEach((report) => {
+    (report.tags || []).forEach((tag) => tagCounts.set(tag, (tagCounts.get(tag) || 0) + 1));
+  });
+
+  const tags = Array.from(tagCounts.entries()).sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0], "zh-Hant"));
+  elements.tagList.replaceChildren();
+
+  const allButton = document.createElement("button");
+  allButton.type = "button";
+  allButton.className = `tag-button${state.tag === "all" ? " is-active" : ""}`;
+  allButton.textContent = "全部";
+  allButton.addEventListener("click", () => {
+    state.tag = "all";
+    render();
+  });
+  elements.tagList.appendChild(allButton);
+
+  tags.forEach(([tag, count]) => {
+    const button = document.createElement("button");
+    button.type = "button";
+    button.className = `tag-button${state.tag === tag ? " is-active" : ""}`;
+    button.textContent = `${tag} ${count}`;
+    button.addEventListener("click", () => {
+      state.tag = state.tag === tag ? "all" : tag;
+      render();
+    });
+    elements.tagList.appendChild(button);
+  });
+}
+
+function reportMatches(report) {
+  const query = normalize(state.query);
+  const haystack = normalize([
+    report.title,
+    report.summary,
+    report.marketLabel,
+    report.typeLabel,
+    report.sourceFile,
+    ...(report.symbols || []),
+    ...(report.symbolNames || []).map((item) => `${item.symbol} ${item.name}`),
+    ...(report.tags || [])
+  ].join(" "));
+
+  if (state.market !== "all" && report.market !== state.market) return false;
+  if (state.type !== "all" && report.type !== state.type) return false;
+  if (state.tag !== "all" && !(report.tags || []).includes(state.tag)) return false;
+  if (query && !haystack.includes(query)) return false;
+  return true;
+}
+
+function sortReports(reports) {
+  return [...reports].sort((a, b) => {
+    if (state.sort === "date-asc") return (a.date || "").localeCompare(b.date || "") || a.title.localeCompare(b.title, "zh-Hant");
+    if (state.sort === "title-asc") return a.title.localeCompare(b.title, "zh-Hant");
+    return (b.date || "").localeCompare(a.date || "") || a.title.localeCompare(b.title, "zh-Hant");
+  });
+}
+
+function renderSymbolPills(report) {
+  const symbols = (report.symbolNames && report.symbolNames.length)
+    ? report.symbolNames
+    : (report.symbols || []).map((symbol) => ({ symbol, name: "" }));
+
+  return symbols.slice(0, 12).map((item) => {
+    const label = item.name ? `${item.symbol} ${item.name}` : item.symbol;
+    return `<span class="symbol-pill">${escapeHtml(label)}</span>`;
+  }).join("");
+}
+
+function renderReportCard(report) {
+  const card = document.createElement("a");
+  card.className = "report-card";
+  card.href = report.url;
+  card.innerHTML = `
+    <div class="card-top">
+      <span class="badge ${escapeHtml(report.market)}">${escapeHtml(report.marketLabel)}</span>
+      <time>${escapeHtml(formatDate(report.date))}</time>
+    </div>
+    <h2>${escapeHtml(report.title)}</h2>
+    <p class="summary">${escapeHtml(report.summary)}</p>
+    <div class="symbol-list">${renderSymbolPills(report)}</div>
+    <div class="card-tags">${(report.tags || []).slice(0, 6).map((tag) => `<span class="mini-tag">${escapeHtml(tag)}</span>`).join("")}</div>
+    <div class="card-bottom">
+      <p class="card-source">${escapeHtml(report.sourceFile)}</p>
+      <span class="badge">${escapeHtml(report.typeLabel)}</span>
+    </div>
+  `;
+  return card;
+}
+
+function escapeHtml(value) {
+  return String(value || "")
+    .replaceAll("&", "&amp;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;")
+    .replaceAll('"', "&quot;")
+    .replaceAll("'", "&#039;");
+}
+
+function render() {
+  renderTags();
+  const filtered = sortReports(state.reports.filter(reportMatches));
+  elements.reportGrid.replaceChildren(...filtered.map(renderReportCard));
+  elements.emptyState.hidden = filtered.length > 0;
+  elements.resultCount.textContent = `${filtered.length} / ${state.reports.length} 份報告`;
+}
+
+function bindEvents() {
+  elements.searchInput.addEventListener("input", (event) => {
+    state.query = event.target.value;
+    render();
+  });
+  elements.marketFilter.addEventListener("change", (event) => {
+    state.market = event.target.value;
+    render();
+  });
+  elements.typeFilter.addEventListener("change", (event) => {
+    state.type = event.target.value;
+    render();
+  });
+  elements.sortFilter.addEventListener("change", (event) => {
+    state.sort = event.target.value;
+    render();
+  });
+  elements.resetButton.addEventListener("click", () => {
+    state.query = "";
+    state.market = "all";
+    state.type = "all";
+    state.sort = "date-desc";
+    state.tag = "all";
+    elements.searchInput.value = "";
+    elements.marketFilter.value = "all";
+    elements.typeFilter.value = "all";
+    elements.sortFilter.value = "date-desc";
+    render();
+  });
+}
+
+async function init() {
+  if (window.STOCK_REPORTS) {
+    const metadata = window.STOCK_REPORTS;
+    state.reports = metadata.reports || [];
+    buildFilters();
+    updateStats(metadata);
+    bindEvents();
+    render();
+    return;
+  }
+
+  const response = await fetch("reports.json");
+  if (!response.ok) throw new Error(`reports.json ${response.status}`);
+  const metadata = await response.json();
+  state.reports = metadata.reports || [];
+  buildFilters();
+  updateStats(metadata);
+  bindEvents();
+  render();
+}
+
+init().catch((error) => {
+  elements.resultCount.textContent = "報告索引載入失敗";
+  elements.emptyState.hidden = false;
+  elements.emptyState.querySelector("h2").textContent = "無法載入 reports.json";
+  elements.emptyState.querySelector("p").textContent = error.message;
+});
