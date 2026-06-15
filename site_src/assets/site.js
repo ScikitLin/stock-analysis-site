@@ -1,5 +1,9 @@
+const FEEDBACK_LIMIT = 500;
+const DEFAULT_ISSUE_URL = "https://github.com/ScikitLin/stock-analysis-site/issues/new";
+
 const state = {
   reports: [],
+  metadata: {},
   query: "",
   market: "all",
   type: "all",
@@ -17,6 +21,8 @@ const elements = {
   usCount: document.querySelector("#usCount"),
   symbolCount: document.querySelector("#symbolCount"),
   typeCount: document.querySelector("#typeCount"),
+  sourceFolder: document.querySelector("#sourceFolder"),
+  chartPreview: document.querySelector("#chartPreview"),
   searchInput: document.querySelector("#searchInput"),
   marketFilter: document.querySelector("#marketFilter"),
   typeFilter: document.querySelector("#typeFilter"),
@@ -26,7 +32,19 @@ const elements = {
   resultCount: document.querySelector("#resultCount"),
   generatedAt: document.querySelector("#generatedAt"),
   reportGrid: document.querySelector("#reportGrid"),
-  emptyState: document.querySelector("#emptyState")
+  emptyState: document.querySelector("#emptyState"),
+  feedbackOpen: document.querySelector("#feedbackOpen"),
+  feedbackFloating: document.querySelector("#feedbackFloating"),
+  feedbackOverlay: document.querySelector("#feedbackOverlay"),
+  feedbackPanel: document.querySelector("#feedbackPanel"),
+  feedbackClose: document.querySelector("#feedbackClose"),
+  feedbackForm: document.querySelector("#feedbackForm"),
+  feedbackCategory: document.querySelector("#feedbackCategory"),
+  feedbackSubject: document.querySelector("#feedbackSubject"),
+  feedbackMessage: document.querySelector("#feedbackMessage"),
+  feedbackCounter: document.querySelector("#feedbackCounter"),
+  feedbackCopy: document.querySelector("#feedbackCopy"),
+  feedbackStatus: document.querySelector("#feedbackStatus")
 };
 
 function normalize(value) {
@@ -70,10 +88,11 @@ function updateStats(metadata) {
   const latest = state.reports.map((report) => report.date).filter(Boolean).sort().at(-1) || "--";
   const symbols = unique(state.reports.flatMap((report) => report.symbols || []));
   const types = unique(state.reports.map((report) => report.type));
+  const sourceDir = metadata.sourceDir || metadata.publishedFolder || "published_reports";
 
-  document.title = metadata.siteTitle || "股票分析報告庫";
-  elements.siteTitle.textContent = metadata.siteTitle || "股票分析報告庫";
-  elements.siteDescription.textContent = metadata.siteDescription || "台股與美股個股分析 HTML 報告索引";
+  document.title = metadata.siteTitle || "股票研究資料分析庫";
+  elements.siteTitle.textContent = metadata.siteTitle || "股票研究資料分析庫";
+  elements.siteDescription.textContent = metadata.siteDescription || "以資料完整性、估值情境與風控紀律整理的公開個股研究索引。";
   elements.disclaimer.textContent = metadata.disclaimer || elements.disclaimer.textContent;
   elements.reportCount.textContent = state.reports.length;
   elements.latestDate.textContent = latest;
@@ -82,6 +101,29 @@ function updateStats(metadata) {
   elements.symbolCount.textContent = symbols.length;
   elements.typeCount.textContent = types.length;
   elements.generatedAt.textContent = formatGeneratedAt(metadata.generatedAt);
+  elements.sourceFolder.textContent = `${sourceDir.replace(/\/$/, "")}/`;
+}
+
+function renderChartPreviews(metadata) {
+  const charts = (metadata.chartPreviews || []).slice(0, 3);
+  elements.chartPreview.replaceChildren();
+
+  if (!charts.length) {
+    const empty = document.createElement("p");
+    empty.textContent = "No chart assets published";
+    elements.chartPreview.appendChild(empty);
+    return;
+  }
+
+  charts.forEach((chart) => {
+    const item = document.createElement("div");
+    item.className = "chart-thumb";
+    item.innerHTML = `
+      <img src="${escapeAttribute(chart.url)}" alt="${escapeAttribute(chart.label || chart.file)}" loading="lazy">
+      <span>${escapeHtml(chart.label || chart.file)}</span>
+    `;
+    elements.chartPreview.appendChild(item);
+  });
 }
 
 function renderTags() {
@@ -185,6 +227,10 @@ function escapeHtml(value) {
     .replaceAll("'", "&#039;");
 }
 
+function escapeAttribute(value) {
+  return escapeHtml(value).replaceAll("`", "&#096;");
+}
+
 function render() {
   renderTags();
   const filtered = sortReports(state.reports.filter(reportMatches));
@@ -193,7 +239,7 @@ function render() {
   elements.resultCount.textContent = `${filtered.length} / ${state.reports.length} 份報告`;
 }
 
-function bindEvents() {
+function bindFilters() {
   elements.searchInput.addEventListener("input", (event) => {
     state.query = event.target.value;
     render();
@@ -224,25 +270,112 @@ function bindEvents() {
   });
 }
 
-async function init() {
-  if (window.STOCK_REPORTS) {
-    const metadata = window.STOCK_REPORTS;
-    state.reports = metadata.reports || [];
-    buildFilters();
-    updateStats(metadata);
-    bindEvents();
-    render();
+function setFeedbackOpen(open) {
+  elements.feedbackPanel.hidden = !open;
+  elements.feedbackOverlay.hidden = !open;
+  document.body.classList.toggle("is-locked", open);
+  if (open) {
+    elements.feedbackMessage.focus();
+  }
+}
+
+function updateFeedbackCounter() {
+  const length = elements.feedbackMessage.value.length;
+  elements.feedbackCounter.textContent = `${length} / ${FEEDBACK_LIMIT}`;
+  elements.feedbackCounter.style.color = length > FEEDBACK_LIMIT * 0.9 ? "var(--amber)" : "";
+}
+
+function buildFeedbackPayload() {
+  const category = elements.feedbackCategory.value;
+  const subject = elements.feedbackSubject.value.trim();
+  const message = elements.feedbackMessage.value.trim();
+  const title = `[網站留言] ${subject || category}`;
+  const body = [
+    `分類：${category}`,
+    subject ? `相關報告或股票：${subject}` : "",
+    "",
+    "留言內容：",
+    message,
+    "",
+    `頁面：${window.location.href}`,
+    `時間：${new Date().toISOString()}`
+  ].filter((line) => line !== "").join("\n");
+
+  return { title, body, message };
+}
+
+async function copyFeedbackBody(body) {
+  if (navigator.clipboard && window.isSecureContext) {
+    await navigator.clipboard.writeText(body);
     return;
   }
+  const helper = document.createElement("textarea");
+  helper.value = body;
+  helper.setAttribute("readonly", "");
+  helper.style.position = "fixed";
+  helper.style.left = "-9999px";
+  document.body.appendChild(helper);
+  helper.select();
+  document.execCommand("copy");
+  helper.remove();
+}
 
-  const response = await fetch("reports.json");
-  if (!response.ok) throw new Error(`reports.json ${response.status}`);
-  const metadata = await response.json();
+function issueUrl(payload) {
+  const base = state.metadata.feedbackIssueUrl || DEFAULT_ISSUE_URL;
+  const params = new URLSearchParams({
+    title: payload.title,
+    body: payload.body
+  });
+  return `${base}?${params.toString()}`;
+}
+
+function bindFeedback() {
+  const openButtons = [elements.feedbackOpen, elements.feedbackFloating].filter(Boolean);
+  openButtons.forEach((button) => button.addEventListener("click", () => setFeedbackOpen(true)));
+  elements.feedbackClose.addEventListener("click", () => setFeedbackOpen(false));
+  elements.feedbackOverlay.addEventListener("click", () => setFeedbackOpen(false));
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape" && !elements.feedbackPanel.hidden) setFeedbackOpen(false);
+  });
+  elements.feedbackMessage.addEventListener("input", updateFeedbackCounter);
+  elements.feedbackCopy.addEventListener("click", async () => {
+    const payload = buildFeedbackPayload();
+    if (!payload.message) {
+      elements.feedbackStatus.textContent = "請先輸入留言內容。";
+      return;
+    }
+    await copyFeedbackBody(payload.body);
+    elements.feedbackStatus.textContent = "已複製留言內容。";
+  });
+  elements.feedbackForm.addEventListener("submit", (event) => {
+    event.preventDefault();
+    const payload = buildFeedbackPayload();
+    if (!payload.message) {
+      elements.feedbackStatus.textContent = "請先輸入留言內容。";
+      return;
+    }
+    window.open(issueUrl(payload), "_blank", "noopener");
+    elements.feedbackStatus.textContent = "已開啟 GitHub Issue 草稿。";
+  });
+  updateFeedbackCounter();
+}
+
+async function init() {
+  const metadata = window.STOCK_REPORTS || await fetchMetadata();
+  state.metadata = metadata;
   state.reports = metadata.reports || [];
   buildFilters();
   updateStats(metadata);
-  bindEvents();
+  renderChartPreviews(metadata);
+  bindFilters();
+  bindFeedback();
   render();
+}
+
+async function fetchMetadata() {
+  const response = await fetch("reports.json");
+  if (!response.ok) throw new Error(`reports.json ${response.status}`);
+  return response.json();
 }
 
 init().catch((error) => {

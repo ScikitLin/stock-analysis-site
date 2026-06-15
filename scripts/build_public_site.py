@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Build the public static stock-report site from output/*.html."""
+"""Build the public static stock-report site from published HTML files."""
 
 from __future__ import annotations
 
@@ -281,13 +281,44 @@ def copy_reports(config: dict, public_dir: Path, reports: list[dict]) -> None:
         shutil.copytree(charts_dir, report_dir / "charts", dirs_exist_ok=True)
 
 
-def write_metadata(config: dict, public_dir: Path, reports: list[dict]) -> None:
+def chart_label(path: Path) -> str:
+    stem = path.stem.replace("_", " ")
+    return re.sub(r"\s+", " ", stem).strip()
+
+
+def collect_chart_previews(config: dict) -> list[dict]:
+    source_dir = ROOT / config.get("sourceDir", "published_reports")
+    charts_dir = source_dir / "charts"
+    if not charts_dir.exists():
+        return []
+
+    image_exts = {".png", ".jpg", ".jpeg", ".webp", ".gif"}
+    charts: list[dict] = []
+    for path in sorted(charts_dir.iterdir()):
+        if path.suffix.lower() not in image_exts or not path.is_file():
+            continue
+        charts.append(
+            {
+                "file": path.name,
+                "label": chart_label(path),
+                "url": f"reports/charts/{path.name}",
+                "bytes": path.stat().st_size,
+            }
+        )
+    return charts
+
+
+def write_metadata(config: dict, public_dir: Path, reports: list[dict], chart_previews: list[dict]) -> None:
+    source_dir = config.get("sourceDir", "published_reports")
     metadata = {
-        "siteTitle": config.get("siteTitle", "股票分析報告庫"),
-        "siteDescription": config.get("siteDescription", "台股與美股個股分析 HTML 報告索引"),
+        "siteTitle": config.get("siteTitle", "股票研究資料分析庫"),
+        "siteDescription": config.get("siteDescription", "以資料完整性、估值情境與風控紀律整理的公開個股研究索引。"),
         "disclaimer": config.get("disclaimer", ""),
+        "feedbackIssueUrl": config.get("feedbackIssueUrl", ""),
         "generatedAt": datetime.now(timezone.utc).isoformat(),
-        "sourceDir": config.get("sourceDir", "output"),
+        "sourceDir": source_dir,
+        "publishedFolder": source_dir,
+        "chartPreviews": chart_previews,
         "reportCount": len(reports),
         "reports": sorted(reports, key=lambda item: (item.get("date", ""), item.get("title", "")), reverse=True),
     }
@@ -304,10 +335,11 @@ def main() -> None:
     config = load_config()
     public_dir = ROOT / config.get("publicDir", "docs")
     reports = collect_reports(config)
+    chart_previews = collect_chart_previews(config)
     public_dir.mkdir(parents=True, exist_ok=True)
     copy_site_assets(public_dir)
     copy_reports(config, public_dir, reports)
-    write_metadata(config, public_dir, reports)
+    write_metadata(config, public_dir, reports, chart_previews)
     print(f"Built {len(reports)} reports into {public_dir.relative_to(ROOT)}")
 
 

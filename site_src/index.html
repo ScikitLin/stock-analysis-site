@@ -3,58 +3,80 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>股票分析報告庫</title>
-  <meta name="description" content="台股與美股個股分析 HTML 報告索引">
+  <title>股票研究資料分析庫</title>
+  <meta name="description" content="以資料完整性、估值情境與風控紀律整理的公開個股研究索引">
   <link rel="stylesheet" href="assets/site.css">
 </head>
 <body>
   <header class="site-header">
-    <div class="header-inner">
-      <div>
-        <p class="eyebrow">Public Research Library</p>
-        <h1 id="siteTitle">股票分析報告庫</h1>
-        <p id="siteDescription" class="site-description">台股與美股個股分析 HTML 報告索引</p>
+    <nav class="topbar" aria-label="主要導覽">
+      <a class="brand" href="#top" aria-label="回到首頁">
+        <span class="brand-mark" aria-hidden="true">QA</span>
+        <span>Quant Archive</span>
+      </a>
+      <div class="nav-actions">
+        <a href="#reports">Reports</a>
+        <a href="#profile">Profile</a>
+        <button id="feedbackOpen" class="nav-button" type="button">留言</button>
       </div>
-      <div class="header-stats" aria-label="報告統計">
-        <div>
-          <span id="reportCount">0</span>
-          <strong>報告</strong>
-        </div>
-        <div>
-          <span id="latestDate">--</span>
-          <strong>最新日期</strong>
+    </nav>
+
+    <section id="top" class="hero-grid">
+      <div class="hero-copy">
+        <p class="eyebrow">Open Equity Research Archive</p>
+        <h1 id="siteTitle">股票研究資料分析庫</h1>
+        <p id="siteDescription" class="site-description">以資料完整性、估值情境與風控紀律整理的公開個股研究索引。</p>
+        <div class="hero-actions">
+          <a class="primary-link" href="#reports">瀏覽報告</a>
+          <a class="secondary-link" href="#profile">研究背景</a>
         </div>
       </div>
-    </div>
+
+      <aside class="data-console" aria-label="網站資料摘要">
+        <div class="console-header">
+          <span>Research Index</span>
+          <span class="status-pill">Auto Build</span>
+        </div>
+        <div class="console-metrics" aria-label="報告統計">
+          <div>
+            <span id="reportCount">0</span>
+            <strong>Reports</strong>
+          </div>
+          <div>
+            <span id="latestDate">--</span>
+            <strong>Latest</strong>
+          </div>
+        </div>
+        <div id="chartPreview" class="chart-preview" aria-label="圖表預覽">
+          <p>Chart preview loading</p>
+        </div>
+      </aside>
+    </section>
   </header>
 
   <main>
-    <section class="controls" aria-label="報告篩選">
-      <label class="search-box">
-        <span>搜尋</span>
-        <input id="searchInput" type="search" placeholder="股票代號、公司、報告名稱、分類" autocomplete="off">
-      </label>
-      <label>
-        <span>市場</span>
-        <select id="marketFilter">
-          <option value="all">全部市場</option>
-        </select>
-      </label>
-      <label>
-        <span>類型</span>
-        <select id="typeFilter">
-          <option value="all">全部類型</option>
-        </select>
-      </label>
-      <label>
-        <span>排序</span>
-        <select id="sortFilter">
-          <option value="date-desc">日期新到舊</option>
-          <option value="date-asc">日期舊到新</option>
-          <option value="title-asc">標題 A-Z</option>
-        </select>
-      </label>
-      <button id="resetButton" class="ghost-button" type="button">清除</button>
+    <section id="profile" class="profile-section" aria-label="匿名研究背景">
+      <div class="section-heading">
+        <p class="eyebrow">Anonymous Research Background</p>
+        <h2>匿名資料分析與生醫資訊研究背景</h2>
+      </div>
+      <div class="profile-grid">
+        <article class="profile-card">
+          <span class="profile-kicker">Domain</span>
+          <h3>Bioinformatics & Data Systems</h3>
+          <p>具生醫資料庫、特徵整理與跨資料源整合經驗，擅長把不完整資料轉成可追蹤、可比較、可更新的研究流程。</p>
+        </article>
+        <article class="profile-card">
+          <span class="profile-kicker">Research</span>
+          <h3>Lipidomics, HCC & Immunology</h3>
+          <p>公開發表主題涵蓋脂質功能資料庫、肝癌代謝機制、microRNA 與免疫檢查點/免疫浸潤關聯資料系統。</p>
+        </article>
+        <article class="profile-card">
+          <span class="profile-kicker">Publication</span>
+          <h3>First / Co-first Authorship</h3>
+          <p>具多篇 peer-reviewed 第一或共同第一作者經驗，研究輸出橫跨 Bioinformatics、Journal of Biomedical Science 與 Comput Struct Biotechnol J。</p>
+        </article>
+      </div>
     </section>
 
     <section class="overview" aria-label="市場統計">
@@ -76,21 +98,102 @@
       </div>
     </section>
 
-    <section class="tag-band" aria-label="快速分類">
-      <div id="tagList" class="tag-list"></div>
-    </section>
+    <section id="reports" class="reports-panel" aria-label="報告資料庫">
+      <div class="panel-header">
+        <div>
+          <p class="eyebrow">Report Explorer</p>
+          <h2>公開報告索引</h2>
+        </div>
+        <div class="publish-source">
+          <span>Public source</span>
+          <strong id="sourceFolder">published_reports/</strong>
+        </div>
+      </div>
 
-    <section class="result-bar" aria-live="polite">
-      <p id="resultCount">載入中</p>
-      <p id="generatedAt" class="muted"></p>
-    </section>
+      <div class="controls" aria-label="報告篩選">
+        <label class="search-box">
+          <span>搜尋</span>
+          <input id="searchInput" type="search" placeholder="股票代號、公司、報告名稱、分類" autocomplete="off">
+        </label>
+        <label>
+          <span>市場</span>
+          <select id="marketFilter">
+            <option value="all">全部市場</option>
+          </select>
+        </label>
+        <label>
+          <span>類型</span>
+          <select id="typeFilter">
+            <option value="all">全部類型</option>
+          </select>
+        </label>
+        <label>
+          <span>排序</span>
+          <select id="sortFilter">
+            <option value="date-desc">日期新到舊</option>
+            <option value="date-asc">日期舊到新</option>
+            <option value="title-asc">標題 A-Z</option>
+          </select>
+        </label>
+        <button id="resetButton" class="ghost-button" type="button">清除</button>
+      </div>
 
-    <section id="reportGrid" class="report-grid" aria-label="報告列表"></section>
-    <section id="emptyState" class="empty-state" hidden>
-      <h2>找不到符合條件的報告</h2>
-      <p>調整搜尋字或篩選條件後再試一次。</p>
+      <div class="tag-band" aria-label="快速分類">
+        <div id="tagList" class="tag-list"></div>
+      </div>
+
+      <div class="result-bar" aria-live="polite">
+        <p id="resultCount">載入中</p>
+        <p id="generatedAt" class="muted"></p>
+      </div>
+
+      <section id="reportGrid" class="report-grid" aria-label="報告列表"></section>
+      <section id="emptyState" class="empty-state" hidden>
+        <h2>找不到符合條件的報告</h2>
+        <p>調整搜尋字或篩選條件後再試一次。</p>
+      </section>
     </section>
   </main>
+
+  <button id="feedbackFloating" class="feedback-floating" type="button" aria-controls="feedbackPanel">留言</button>
+  <div id="feedbackOverlay" class="feedback-overlay" hidden></div>
+  <aside id="feedbackPanel" class="feedback-panel" role="dialog" aria-modal="true" aria-labelledby="feedbackTitle" hidden>
+    <div class="feedback-head">
+      <div>
+        <p class="eyebrow">Feedback</p>
+        <h2 id="feedbackTitle">研究留言</h2>
+      </div>
+      <button id="feedbackClose" class="close-button" type="button" aria-label="關閉留言窗">×</button>
+    </div>
+    <form id="feedbackForm" class="feedback-form">
+      <label>
+        <span>分類</span>
+        <select id="feedbackCategory">
+          <option value="報告問題">報告問題</option>
+          <option value="資料補充">資料補充</option>
+          <option value="股票/產業建議">股票/產業建議</option>
+          <option value="網站回饋">網站回饋</option>
+        </select>
+      </label>
+      <label>
+        <span>相關報告或股票</span>
+        <input id="feedbackSubject" type="text" maxlength="80" placeholder="例如 2317、GEV、Top10 報告">
+      </label>
+      <label>
+        <span>留言內容</span>
+        <textarea id="feedbackMessage" maxlength="500" rows="7" placeholder="最多 500 字，請避免留下個資、持股與帳戶資訊。"></textarea>
+      </label>
+      <div class="feedback-meta">
+        <span id="feedbackCounter">0 / 500</span>
+        <span>送出會開啟 GitHub Issue 草稿</span>
+      </div>
+      <p id="feedbackStatus" class="feedback-status" aria-live="polite"></p>
+      <div class="feedback-actions">
+        <button id="feedbackCopy" class="ghost-button" type="button">複製內容</button>
+        <button class="primary-button" type="submit">建立留言</button>
+      </div>
+    </form>
+  </aside>
 
   <footer>
     <p id="disclaimer">本網站內容僅供投資研究紀錄與討論，不構成個人化投資建議。資料可能延遲或不完整，請自行交叉驗證。</p>

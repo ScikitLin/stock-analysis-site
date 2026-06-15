@@ -6,8 +6,7 @@ on:
       - main
       - master
     paths:
-      - "output/**/*.html"
-      - "output/charts/**"
+      - "published_reports/**"
       - "site_src/**"
       - "site.config.json"
       - "scripts/build_public_site.py"

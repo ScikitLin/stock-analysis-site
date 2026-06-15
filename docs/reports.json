@@ -1,9 +1,37 @@
 {
-  "siteTitle": "股票分析報告庫",
-  "siteDescription": "台股與美股個股分析 HTML 報告索引",
+  "siteTitle": "股票研究資料分析庫",
+  "siteDescription": "以資料完整性、估值情境與風控紀律整理的公開個股研究索引。",
   "disclaimer": "本網站內容僅供投資研究紀錄與討論，不構成個人化投資建議。資料可能延遲或不完整，請自行交叉驗證。",
-  "generatedAt": "2026-06-15T09:09:24.946143+00:00",
-  "sourceDir": "output",
+  "feedbackIssueUrl": "https://github.com/ScikitLin/stock-analysis-site/issues/new",
+  "generatedAt": "2026-06-15T14:00:21.973746+00:00",
+  "sourceDir": "published_reports",
+  "publishedFolder": "published_reports",
+  "chartPreviews": [
+    {
+      "file": "tw_top10_growth_quality_20260613.png",
+      "label": "tw top10 growth quality 20260613",
+      "url": "reports/charts/tw_top10_growth_quality_20260613.png",
+      "bytes": 102763
+    },
+    {
+      "file": "tw_top10_momentum_20260613.png",
+      "label": "tw top10 momentum 20260613",
+      "url": "reports/charts/tw_top10_momentum_20260613.png",
+      "bytes": 92533
+    },
+    {
+      "file": "tw_top10_research_score_20260613.png",
+      "label": "tw top10 research score 20260613",
+      "url": "reports/charts/tw_top10_research_score_20260613.png",
+      "bytes": 90832
+    },
+    {
+      "file": "tw_top10_valuation_growth_20260613.png",
+      "label": "tw top10 valuation growth 20260613",
+      "url": "reports/charts/tw_top10_valuation_growth_20260613.png",
+      "bytes": 113734
+    }
+  ],
   "reportCount": 6,
   "reports": [
     {

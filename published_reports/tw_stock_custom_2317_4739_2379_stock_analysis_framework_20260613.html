@@ -1,0 +1,387 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>鴻海、康普、瑞昱指定個股分析 2026-06-13</title>
+<style>
+:root {
+  color-scheme: light;
+  --bg: #f6f7f9;
+  --panel: #ffffff;
+  --text: #1f2933;
+  --muted: #667085;
+  --line: #d9dee7;
+  --accent: #126c5b;
+  --accent-soft: #e3f3ef;
+  --risk: #9f3412;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans TC", sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+}
+.app {
+  display: grid;
+  grid-template-columns: 260px minmax(0, 1fr);
+  min-height: 100vh;
+}
+aside {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  padding: 18px;
+  border-right: 1px solid var(--line);
+  background: var(--panel);
+  overflow: auto;
+}
+main {
+  min-width: 0;
+  padding: 18px 24px 56px;
+}
+h1 { font-size: 24px; margin: 0 0 8px; }
+h2 { font-size: 24px; margin: 8px 0 16px; }
+h3 { font-size: 18px; margin: 24px 0 8px; padding-top: 8px; border-top: 1px solid var(--line); }
+p, li { font-size: 15px; }
+code { background: #eef1f5; padding: 1px 5px; border-radius: 4px; }
+.muted { color: var(--muted); font-size: 14px; }
+.hl {
+  display: inline-block;
+  padding: 0 5px;
+  border-radius: 5px;
+  font-weight: 800;
+  line-height: 1.45;
+}
+.hl-risk { color: #8a1f11; background: #fde8df; }
+.hl-action { color: #075985; background: #e0f2fe; }
+.hl-missing { color: #7c2d12; background: #ffedd5; }
+.hl-ok { color: #166534; background: #dcfce7; }
+.num {
+  display: inline-block;
+  padding: 0 4px;
+  border-radius: 4px;
+  font-weight: 750;
+  font-variant-numeric: tabular-nums;
+  line-height: 1.45;
+  background: #eef2ff;
+  color: #3730a3;
+}
+.num-up { color: #166534; background: #dcfce7; }
+.num-down { color: #991b1b; background: #fee2e2; }
+.num-percent { color: #075985; background: #e0f2fe; }
+.num-price { color: #6d28d9; background: #ede9fe; }
+.num-multiple { color: #854d0e; background: #fef3c7; }
+.num-date { color: #374151; background: #eef2f7; }
+.stock-list { display: grid; gap: 8px; margin-top: 16px; }
+.stock-tab {
+  text-align: left;
+  border: 1px solid var(--line);
+  background: #fff;
+  border-radius: 8px;
+  padding: 10px;
+  cursor: pointer;
+}
+.stock-tab span { display: block; color: var(--muted); font-size: 12px; }
+.stock-tab strong { display: block; font-size: 15px; }
+.stock-tab.active {
+  border-color: var(--accent);
+  background: var(--accent-soft);
+}
+.toolbar {
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  padding: 10px 0 12px;
+  background: var(--bg);
+  border-bottom: 1px solid var(--line);
+}
+.section-jump {
+  border: 1px solid var(--line);
+  background: #fff;
+  border-radius: 999px;
+  padding: 7px 10px;
+  cursor: pointer;
+  font-size: 13px;
+}
+.section-jump:hover { border-color: var(--accent); color: var(--accent); }
+.summary {
+  margin: 18px 0;
+  padding: 14px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--panel);
+}
+.stock-report {
+  display: none;
+  max-width: 1120px;
+  margin: 18px auto 0;
+  padding: 22px 26px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--panel);
+}
+.stock-report.active { display: block; }
+.table-wrap { overflow-x: auto; margin: 12px 0; border: 1px solid var(--line); border-radius: 8px; }
+table { width: 100%; border-collapse: collapse; min-width: 760px; }
+th, td { padding: 9px 10px; border-bottom: 1px solid var(--line); text-align: left; vertical-align: top; font-size: 14px; }
+th { background: #f0f3f7; font-weight: 700; }
+tr:last-child td { border-bottom: 0; }
+@media (max-width: 860px) {
+  .app { grid-template-columns: 1fr; }
+  aside { position: static; height: auto; border-right: 0; border-bottom: 1px solid var(--line); }
+  .stock-list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  main { padding: 12px; }
+  .stock-report { padding: 16px; }
+}
+</style>
+</head>
+<body>
+<div class="app">
+<aside>
+  <h1>鴻海、康普、瑞昱指定個股分析</h1>
+  <div class="muted">流程依據：tw-stock-analysis-framework.md。點選個股只顯示該檔；快捷鍵：1-9 跳章節，0 到最後建議，[] 切換個股。</div>
+  <div class="stock-list"><button class="stock-tab active" data-code="2317"><span>1. 2317</span><strong>鴻海</strong></button><button class="stock-tab" data-code="4739"><span>2. 4739</span><strong>康普</strong></button><button class="stock-tab" data-code="2379"><span>3. 2379</span><strong>瑞昱</strong></button></div>
+</aside>
+<main>
+  <div class="toolbar"><button class="section-jump" data-section="intro">公司</button><button class="section-jump" data-section="1">1 結論</button><button class="section-jump" data-section="2">2 閘門</button><button class="section-jump" data-section="3">3 產業</button><button class="section-jump" data-section="4">4 風險</button><button class="section-jump" data-section="6">6 數字</button><button class="section-jump" data-section="8">8 估值</button><button class="section-jump" data-section="9">9 目標</button><button class="section-jump" data-section="10">10 操作</button><button class="section-jump" data-section="11">11 停損</button><button class="section-jump" data-section="19">19 缺口</button></div>
+  <section class="summary">
+    <h2>快速結論表</h2>
+    <div class="table-wrap"><table><thead><tr><th>Rank</th><th>代號</th><th>公司</th><th>產業</th><th>最新價</th><th>近日漲跌 5D/20D/60D</th><th>大盤日漲跌</th><th>大盤Regime</th><th><span class="hl hl-action">估值進場區</span></th><th>技術<span class="hl hl-action">試單</span></th><th><span class="hl hl-risk">過熱減碼</span></th><th>現價動作</th><th>單股情境 Bear/Base/Bull</th><th>P/E</th><th>3M營收YoY</th><th>52W位置</th></tr></thead><tbody><tr><td>1</td><td>2317</td><td>鴻海</td><td>其他電子</td><td><span class="num num-key">260.5</span></td><td>5D <span class="num num-down">-8.4%</span> / 20D <span class="num num-percent">6.5%</span> / 60D <span class="num num-percent">20.3%</span></td><td><span class="num num-date">2026-06-12</span> <span class="num num-up">+2.4%</span></td><td>Normal</td><td><span class="num num-price">161.0-194.2</span></td><td><span class="num num-price">&lt;= 239.7</span></td><td><span class="num num-price">&gt;= 251.9</span></td><td>已進<span class="hl hl-risk">過熱減碼區</span>；現價<span class="hl hl-risk">不追</span>，偏<span class="hl hl-action">續抱</span>/<span class="hl hl-risk">減碼</span>檢查</td><td>Bull 情境</td><td><span class="num num-key">18.7</span></td><td><span class="num num-percent">37.9%</span></td><td><span class="num num-percent">67.0%</span></td></tr><tr><td>2</td><td>4739</td><td>康普</td><td>化學工業</td><td><span class="num num-key">121.5</span></td><td>5D <span class="num num-percent">3.0%</span> / 20D <span class="num num-percent">19.7%</span> / 60D <span class="num num-percent">55.4%</span></td><td><span class="num num-date">2026-06-12</span> <span class="num num-up">+2.4%</span></td><td>Normal</td><td><span class="num num-price">47.9-47.9</span></td><td><span class="num num-price">&lt;= 96.5</span></td><td><span class="num num-price">&gt;= 69.5</span></td><td>已進<span class="hl hl-risk">過熱減碼區</span>；現價<span class="hl hl-risk">不追</span>，偏<span class="hl hl-action">續抱</span>/<span class="hl hl-risk">減碼</span>檢查</td><td><span class="hl hl-risk">高於 Bull 過熱</span></td><td><span class="num num-key">38.9</span></td><td><span class="num num-percent">113.7%</span></td><td><span class="num num-percent">85.6%</span></td></tr><tr><td>3</td><td>2379</td><td>瑞昱</td><td>半導體</td><td><span class="num num-key">618.0</span></td><td>5D <span class="num num-down">-3.9%</span> / 20D <span class="num num-percent">7.7%</span> / 60D <span class="num num-percent">28.8%</span></td><td><span class="num num-date">2026-06-12</span> <span class="num num-up">+2.4%</span></td><td>Normal</td><td><span class="num num-price">432.6-506.8</span></td><td><span class="num num-price">&lt;= 561.8</span></td><td><span class="num num-price">&gt;= 580.0</span></td><td>已進<span class="hl hl-risk">過熱減碼區</span>；現價<span class="hl hl-risk">不追</span>，偏<span class="hl hl-action">續抱</span>/<span class="hl hl-risk">減碼</span>檢查</td><td><span class="hl hl-risk">Base 過熱、往 Bull 定價</span></td><td><span class="num num-key">23.2</span></td><td><span class="num num-percent">12.1%</span></td><td><span class="num num-percent">71.7%</span></td></tr></tbody></table></div>
+  </section>
+  <article id="stock-2317" class="stock-report active" data-code="2317"><h2>1. 2317 鴻海 - <span class="hl hl-risk">不追</span>；AI 伺服器題材強，但現價已偏 Bull/<span class="hl hl-risk">過熱</span>，等回測或 EPS 上修</h2>
+<section class="report-section" data-section="intro"><h3>公司白話介紹</h3>
+<p>鴻海是全球大型電子製造服務公司，最熟悉的角色是幫品牌客戶大量生產手機、電腦、伺服器與各種電子產品。白話說，它像是全球科技品牌背後的超大型製造與組裝平台；近年重點從消費電子延伸到 AI 伺服器、雲端網通、電動車與零組件。</p>
+</section>
+<section class="report-section" data-section="1"><h3>1. 一句話結論</h3>
+<p><span class="hl hl-risk">不追</span>；AI 伺服器題材強，但現價已偏 Bull/<span class="hl hl-risk">過熱</span>，等回測或 EPS 上修。現價隱含情境：Bull 情境。理由：3M 營收 YoY 約 <span class="num num-percent">37.9%</span>，AI 伺服器與雲端網通題材支撐研究優先度，流動性高。 主要風險：毛利率與營益率偏低，股價若先反映 AI server 成長，EPS/margin 沒跟上時容易 de-rating。</p>
+</section>
+<section class="report-section" data-section="2"><h3>2. 市場 regime 與投資組合閘門</h3>
+<ul><li>市場閘門：Normal。說明：本地篩選報告已更新加權指數至 <span class="num num-date">2026-06-12</span>，當天發行量加權股價指數 <span class="num num-up">+2.4%</span>，未觸發單日風險閘門。但多數候選仍有價格日/估值日與日價歷史不同步，操作上仍<span class="hl hl-risk">不追</span>高，等回測或新資料確認。</li><li>De-risk 白話：市場風險升高時，先降低追價與新買速度；不是所有股票都要賣，而是買點要更嚴格。</li><li>投資組合：本輪是台股分析，只檢查台股可用現金、台股持股與同產業曝險；美股部位不納入此台股單股判斷。</li><li>目前<span class="hl hl-missing">缺口</span>：<span class="hl hl-missing">未取得</span>台幣可用現金、現有台股持股與交易額度，因此<span class="hl hl-missing">不能計算</span>可買股數。</li></ul>
+</section>
+<section class="report-section" data-section="3"><h3>3. 產業與國際情勢</h3>
+<ul><li>產業：其他電子；白話類型：EMS/AI 伺服器/大型製造平台。</li><li>這類股票主要看：營收是否延續、毛利率/營益率是否撐住、股價是否已先反映太多好消息。</li><li>國際變數：電子/半導體看全球科技景氣與客戶拉貨；航運看運價與大宗物料需求；化工看原料與產品報價；資訊服務看企業 IT 預算。</li><li>結論：產業題材可以加分，但不能取代 EPS、現金流與估值位置。</li></ul>
+</section>
+<section class="report-section" data-section="4"><h3>4. Bear case first</h3>
+<ol><li>AI 伺服器營收成長若毛利率不高，營收放大不一定等於 EPS 大幅上修。</li><li>大型電子製造受客戶集中、匯率、地緣與產能調度影響，估值不該只看營收成長。</li><li>現價已進<span class="hl hl-risk">過熱</span>/Bull 定價，若下次月營收或 margin 不接，容易先被資金<span class="hl hl-action">停利</span>。</li></ol>
+<p>Bear case first 白話：先問「我會錯在哪裡」。它不是看空，而是避免只找支持買進的理由。若任一項發生：不加碼；若已持有同族群，先降風險或等正式月營收/季報確認。</p>
+</section>
+<section class="report-section" data-section="5"><h3>5. 價格與部位</h3>
+<ul><li>正式候選價格：<span class="num num-key">260.5</span>，價格日 <span class="num num-date">2026-06-12</span>，來源為候選 CSV 展開欄位。</li><li>日價歷史參考：<span class="num num-key">260.5</span>，日期 <span class="num num-date">2026-06-12</span>，來源為本地日價歷史快取。</li><li>目前部位：<span class="hl hl-missing">未取得</span>此台股持股；若沒有持股，所有「<span class="hl hl-risk">減碼</span>」只代表若已持有時的風控動作。</li></ul>
+</section>
+<section class="report-section" data-section="6"><h3>6. 來源數字表</h3>
+<div class="table-wrap"><table><thead><tr><th>模組</th><th>核心數字</th><th>判斷</th></tr></thead><tbody><tr><td>價格/時點</td><td>候選價 <span class="num num-key">260.5</span>（<span class="num num-date">2026-06-12</span>）；日價歷史參考 <span class="num num-key">260.5</span>（<span class="num num-date">2026-06-12</span>）；差異 <span class="num num-percent">0.0%</span></td><td>價格日與最新日價不同，估值只能視為候選日參考</td></tr><tr><td>成長</td><td>月營收 YoY <span class="num num-percent">39.6%</span>、MoM <span class="num num-percent">3.3%</span>、3M YoY <span class="num num-percent">37.9%</span>、加速度 <span class="num num-down">-6.0</span></td><td>月營收是先行線索；要搭配毛利率、營益率與現金流確認有沒有真的變成獲利</td></tr><tr><td>品質</td><td>Q1 毛利率 <span class="num num-percent">6.2%</span>、營益率 <span class="num num-percent">3.6%</span>、淨利率 <span class="num num-percent">2.4%</span>、EPS <span class="num num-key">3.56</span></td><td>OCF/NI、應收與存貨<span class="hl hl-missing">未取得</span>，品質分不能升級為完整 A-List</td></tr><tr><td>估值</td><td>P/E <span class="num num-key">18.7</span>、P/B <span class="num num-key">2.07</span>、殖利率 <span class="num num-percent">2.7%</span>、推算 TTM EPS <span class="num num-key">13.95</span></td><td>P/E 是股價相對獲利，P/B 是股價相對淨值；已補同業 P/E 與 <span class="num num-key">204</span> 日 proxy 歷史 P/E</td></tr><tr><td>股價/籌碼</td><td>5D <span class="num num-down">-8.4%</span> / 20D <span class="num num-percent">6.5%</span> / 60D <span class="num num-percent">20.3%</span>；52W 位置 <span class="num num-percent">67.0%</span>、融資使用率 <span class="num num-percent">1.3%</span></td><td><span class="hl hl-risk">高風險</span>；越接近高位，越需要等回測或新財報確認，不用排名去追價</td></tr><tr><td>大盤</td><td>發行量加權股價指數 <span class="num num-date">2026-06-12</span> 日漲跌 <span class="num num-up">+2.4%</span>；regime Normal</td><td>大盤當日為正，但個股若已進 Bull/<span class="hl hl-risk">過熱</span>定價，仍不等於可追價</td></tr><tr><td>現價情境</td><td>Bull 情境</td><td>這是單股現價隱含的 Bear/Base/Bull 定價情境，不是大盤 regime；用來判斷現在是<span class="hl hl-ok">低估</span>、合理、偏熱或<span class="hl hl-risk">過熱</span></td></tr></tbody></table></div>
+</section>
+<section class="report-section" data-section="7"><h3>7. EPS 模組</h3>
+<ul><li>TTM EPS（計算）：<span class="num num-key">13.95</span>，由候選價 / 官方 P/E 反推。</li><li>最新單季 EPS（來源）：<span class="num num-key">3.56</span>，財報季度 115Q1。</li><li>最新單季年化 EPS（計算）：<span class="num num-key">14.24</span>；僅作轉折檢查，不作全年預測。</li><li>近兩季年化 EPS：<span class="hl hl-missing">未取得</span>。</li><li>Bear/Base/Bull EPS（判斷）：Bear = TTM EPS x <span class="num num-key">0.85</span>；Base = TTM EPS；Bull = TTM EPS x <span class="num num-key">1.15</span>。因缺 OCF/NI 與近兩季 EPS，bull 只作敏感度，不作目標價承諾。</li></ul>
+</section>
+<section class="report-section" data-section="8"><h3>8. 估值模組</h3>
+<div class="table-wrap"><table><thead><tr><th>區間</th><th>P/E 依據</th><th>價格範圍/價格</th><th>動作</th></tr></thead><tbody><tr><td>最新估值</td><td>最新價 / TTM EPS = <span class="num num-multiple">18.7x</span>；官方 P/E <span class="num num-multiple">18.7x</span></td><td><span class="num num-key">260.5</span></td><td>P/E 白話：市場願意為每 1 元獲利付幾倍價格</td></tr><tr><td>同業 P/E</td><td>其他電子 樣本 33 檔；低位 Q1 <span class="num num-key">14.7</span> / 中位數 <span class="num num-key">20.8</span> / 高位 Q3 <span class="num num-key">31.9</span></td><td>-</td><td>用同產業股票當尺，檢查這檔是比同業便宜還是貴</td></tr><tr><td><span class="num num-key">204</span>日 proxy 歷史 P/E</td><td>用 <span class="num num-key">204</span> 日收盤價 / 目前推算 TTM EPS；P10 <span class="num num-key">11.5</span> / P25 <span class="num num-key">13.9</span> / P50 <span class="num num-key">15.5</span> / P75 <span class="num num-key">16.9</span> / P90 <span class="num num-key">18.1</span></td><td>-</td><td>proxy 是替代算法；正式歷史 EPS 不足時，先用同一個 EPS 去看股價落在過去高低位置</td></tr><tr><td>Stress / 超跌研究區</td><td>取 proxy P10、同業 Q1、最新 P/E 打 7 折三者中最保守者 = <span class="num num-multiple">11.5x</span></td><td><span class="num num-price">&lt;= 161.0</span></td><td>這是研究反轉區，不是自動買點；thesis 壞掉就不接</td></tr><tr><td><span class="hl hl-action">估值進場區</span></td><td>取 proxy P25、同業 Q1、最新 P/E 打 82 折三者中最保守者 = <span class="num num-multiple">13.9x</span></td><td><span class="num num-price">161.0 - 194.2</span></td><td>比合理價更便宜，才有小量 <span class="hl hl-action">starter</span> 的風險報酬</td></tr><tr><td><span class="hl hl-action">技術試單區</span></td><td>50D 或最新價 <span class="num num-down">-8%</span> 兩者中較低者</td><td><span class="num num-price">&lt;= 239.7</span></td><td>50D 是約 50 個交易日平均成本；用較低者避免太早追進</td></tr><tr><td><span class="hl hl-ok">合理區</span></td><td>proxy P50 到 P75/同業中位數較保守者</td><td><span class="num num-price">216.0 - 235.5</span></td><td>P50 是中位數，P75 是偏高但未必極端；在這裡多半是<span class="hl hl-action">續抱</span>/等待</td></tr><tr><td><span class="hl hl-risk">過熱減碼區</span></td><td>取 proxy P90、同業中位數/Q3 中較保守者 = <span class="num num-multiple">18.1x</span></td><td><span class="num num-price">&gt;= 251.9</span></td><td>P90 代表過去樣本偏高位置；沒有 EPS/margin 上修就<span class="hl hl-risk">不追</span>，持有者檢查<span class="hl hl-risk">減碼</span></td></tr></tbody></table></div>
+<ul><li>估值結論：不是低 P/E；是大型 AI server beta 與製造平台候選，安全邊際要靠回測或 EPS 上修。</li><li>現價動作：已進<span class="hl hl-risk">過熱減碼區</span>；現價<span class="hl hl-risk">不追</span>，偏<span class="hl hl-action">續抱</span>/<span class="hl hl-risk">減碼</span>檢查</li><li>P/B 白話：股價相對每股淨值，常用來看資產型、循環股或高位股是不是已經太貴。</li></ul>
+</section>
+<section class="report-section" data-section="9"><h3>9. 目標價階梯</h3>
+<p>Section 8 的價格帶是風險控管階梯，不是無條件目標價：</p>
+<div class="table-wrap"><table><thead><tr><th>階梯</th><th>價格</th><th>白話</th></tr></thead><tbody><tr><td>超跌研究區</td><td><span class="num num-price">&lt;= 161.0</span></td><td>便宜到值得重新研究，但要先確認基本面沒有壞</td></tr><tr><td><span class="hl hl-action">估值進場區</span></td><td><span class="num num-price">161.0-194.2</span></td><td>風險報酬比較好的小量 <span class="hl hl-action">starter</span> 區</td></tr><tr><td><span class="hl hl-action">技術試單區</span></td><td><span class="num num-price">&lt;= 239.7</span></td><td>還不到便宜，但回測到中期均線/折價位置，可觀察小量</td></tr><tr><td><span class="hl hl-ok">合理區</span></td><td><span class="num num-price">216.0-235.5</span></td><td>適合<span class="hl hl-action">續抱</span>或等待，不適合追價</td></tr><tr><td><span class="hl hl-risk">過熱減碼區</span></td><td><span class="num num-price">&gt;= 251.9</span></td><td>沒有 EPS/margin 上修就<span class="hl hl-risk">不追</span>，持有者檢查<span class="hl hl-action">停利</span></td></tr></tbody></table></div>
+<p>情境價格矩陣：同一組 P/E 階梯，分別套 Bear/Base/Bull EPS，用來看市場現在到底在押哪一種獲利情境。</p>
+<div class="table-wrap"><table><thead><tr><th>情境</th><th>EPS</th><th>Stress <span class="num num-multiple">11.5x</span></th><th>Entry <span class="num num-multiple">13.9x</span></th><th>Fair <span class="num num-multiple">15.5x</span></th><th>Overheat <span class="num num-multiple">18.1x</span></th><th>最新 P/E <span class="num num-multiple">18.7x</span></th><th>現價 <span class="num num-key">260.5</span> 對比</th></tr></thead><tbody><tr><td>Bear</td><td><span class="num num-key">11.86</span></td><td><span class="num num-key">136.9</span></td><td><span class="num num-key">165.1</span></td><td><span class="num num-key">183.6</span></td><td><span class="num num-key">214.1</span></td><td><span class="num num-key">221.4</span></td><td>高於 Overheat <span class="num num-up">+21.7%</span></td></tr><tr><td>Base</td><td><span class="num num-key">13.95</span></td><td><span class="num num-key">161.0</span></td><td><span class="num num-key">194.2</span></td><td><span class="num num-key">216.0</span></td><td><span class="num num-key">251.9</span></td><td><span class="num num-key">260.5</span></td><td>高於 Overheat <span class="num num-up">+3.4%</span></td></tr><tr><td>Bull</td><td><span class="num num-key">16.04</span></td><td><span class="num num-key">185.1</span></td><td><span class="num num-key">223.4</span></td><td><span class="num num-key">248.4</span></td><td><span class="num num-key">289.7</span></td><td><span class="num num-key">299.6</span></td><td>Fair~Overheat</td></tr></tbody></table></div>
+<ul><li>現價隱含定價情境：Bull 情境；最接近 Bull Fair 價。市場在押樂觀 EPS 或估值重評，後續要靠財報兌現。</li><li>注意：這裡的 Bear/Base/Bull 是單股現價隱含的定價情境，不是大盤 market regime。</li></ul>
+</section>
+<section class="report-section" data-section="10"><h3>10. 最後操作建議</h3>
+<p>本週最佳動作：已進<span class="hl hl-risk">過熱減碼區</span>；現價<span class="hl hl-risk">不追</span>，偏<span class="hl hl-action">續抱</span>/<span class="hl hl-risk">減碼</span>檢查。若要交易，必須先更新台股可用現金、<span class="hl hl-risk">停損</span>價與單筆風險預算。</p>
+</section>
+<section class="report-section" data-section="11"><h3>11. <span class="hl hl-risk">停損</span>與<span class="hl hl-action">停利</span></h3>
+<ul><li>若在<span class="hl hl-action">估值進場區</span>小量 <span class="hl hl-action">starter</span>：初始風控價約 <span class="num num-key">156.2</span>，並以基本面壞掉優先於價格。</li><li>若只是技術<span class="hl hl-action">試單</span>：跌破 50D/<span class="hl hl-action">技術試單區</span>後，若接下來 <span class="num num-price">2-3</span> 個交易日站不回去，代表市場不願意接，停止新增風險。</li><li><span class="hl hl-action">停利</span>/降風險：<span class="num num-price">&gt;= 251.9</span> 且沒有 EPS/margin 上修，<span class="hl hl-action">分批停利</span>或<span class="hl hl-risk">減碼</span>檢查；高檔爆量長黑也先降風險。</li></ul>
+</section>
+<section class="report-section" data-section="12"><h3>12. 品質與財報風險</h3>
+<ul><li>Margin：Q1 毛利率 <span class="num num-percent">6.2%</span>、營益率 <span class="num num-percent">3.6%</span>、淨利率 <span class="num num-percent">2.4%</span>。</li><li>資產負債：流動比率 <span class="num num-key">1.45</span>、負債權益比 <span class="num num-key">1.63</span>。</li><li>OCF/NI 白話：營業現金流 / 淨利，用來確認帳上賺到的錢有沒有真的收成現金。</li><li>強制<span class="hl hl-missing">缺口</span>：OCF/NI、應收、存貨<span class="hl hl-missing">未取得</span>；不能確認盈餘品質，也不能排除塞貨、庫存或回款風險。</li></ul>
+</section>
+<section class="report-section" data-section="13"><h3>13. 低本益比高成長檢查</h3>
+<p>不是低 P/E；是大型 AI server beta 與製造平台候選，安全邊際要靠回測或 EPS 上修。 必要條件中的 OCF/NI、應收、存貨與近兩季 EPS <span class="hl hl-missing">未取得</span>，所以只能列 Watch，<span class="hl hl-missing">不可判定</span>為真<span class="hl hl-ok">低估</span>成長。</p>
+</section>
+<section class="report-section" data-section="14"><h3>14. Rerating / De-rating 檢查</h3>
+<p>AI Server Rerating Watch；需要 EPS/margin 上修把題材轉成財報。 Rerating 白話是「市場願意給更高估值」；De-rating 是「市場把估值打回低一階」。若價格跌破 50D 或下次月營收/margin 不接上，用 Section 8 的 Stress/<span class="hl hl-action">估值進場區</span>重估；若 EPS/margin 明確上修，才重新抬高 overheat price。</p>
+</section>
+<section class="report-section" data-section="15"><h3>15. 強勢股/崩盤股分類</h3>
+<ul><li>趨勢狀態：mixed；20D <span class="num num-percent">6.5%</span>，60D <span class="num num-percent">20.3%</span>，52W 位置 <span class="num num-percent">67.0%</span>。</li><li>50D 白話：最近約 50 個交易日的平均價格，可粗略看中期市場成本。</li><li>分類：強勢股觀察，不是崩盤股；但若市場轉弱或跌破 20D/50D，先降追價意願。</li></ul>
+</section>
+<section class="report-section" data-section="16"><h3>16. 部位與風險預算</h3>
+<ul><li>未驗證 thesis <span class="hl hl-action">starter</span>：單筆虧損上限以總資產 <span class="num num-percent">0.1%</span><span class="num num-down">-0.3%</span> 為上限。</li><li>台股可用現金、匯率、手續費、現有台股部位：<span class="hl hl-missing">未取得</span>，因此不能算股數。</li><li>若一定要做，必須先定<span class="hl hl-risk">停損</span>價，再用 <code>可買股數 = 單筆最大可承受虧損 / (買進價 - 停損價)</code>。</li></ul>
+</section>
+<section class="report-section" data-section="17"><h3>17. 價格 x thesis 決策矩陣</h3>
+<div class="table-wrap"><table><thead><tr><th>價格/基本面狀態</th><th>Thesis intact：基本面故事還成立</th><th>Thesis damaged：基本面故事被破壞</th></tr></thead><tbody><tr><td>現價 <span class="num num-key">260.5</span></td><td>已進<span class="hl hl-risk">過熱減碼區</span>；現價<span class="hl hl-risk">不追</span>，偏<span class="hl hl-action">續抱</span>/<span class="hl hl-risk">減碼</span>檢查</td><td>不買；若已持有則<span class="hl hl-risk">減碼</span>/<span class="hl hl-risk">退出</span></td></tr><tr><td>技術<span class="hl hl-action">試單</span> <span class="num num-price">&lt;= 239.7</span></td><td>只有在月營收與 margin 驗證後，才可考慮極小 <span class="hl hl-action">starter</span></td><td>不接刀，等待新財報證據</td></tr><tr><td>估值進場 <span class="num num-price">161.0-194.2</span></td><td><span class="hl hl-ok">thesis intact</span> 且市場不再 de-risk 時，才是較好風險報酬區</td><td>若 thesis 壞，低價不是買點</td></tr><tr><td>超跌 <span class="num num-price">&lt;= 161.0</span></td><td>只研究反轉，不直接接刀</td><td><span class="hl hl-risk">退出</span>觀察名單或只保留追蹤</td></tr><tr><td><span class="hl hl-risk">過熱</span> <span class="num num-price">&gt;= 251.9</span></td><td>沒有 EPS/margin 上修就<span class="hl hl-action">分批停利</span>或<span class="hl hl-risk">不追</span></td><td>Thesis damaged 時優先降風險</td></tr></tbody></table></div>
+</section>
+<section class="report-section" data-section="18"><h3>18. 下一個驗證點</h3>
+<p>補雲端網通/AI 伺服器營收占比、毛利率走勢、OCF/NI 與法人籌碼；價格回測 20D/50D 後再評估 <span class="hl hl-action">starter</span>。 同時補 OCF/NI、應收、存貨、法人/投信、自營、借券與事件日曆。</p>
+</section>
+<section class="report-section" data-section="19"><h3>19. 資料完整性檢查</h3>
+<ul><li>已取得：價格/成交值、P/E、P/B、殖利率、月營收、3M rolling 營收、Q1 margin/EPS、20D/60D/均線/52W 位置、融資融券 proxy。</li><li>已補估值：同產業 current peer P/E，以及 <span class="num num-key">204</span> 個交易日「收盤價 / 目前推算 TTM EPS」proxy 歷史 P/E。</li><li><span class="hl hl-missing">未取得/待補</span>：台股持股與可用現金、OCF/NI、應收帳款、存貨、正式歷史 P/E 序列、forward P/E、EV/EBITDA、FCF yield、外資/投信/自營、借券、事件日曆、近兩季 EPS 序列。</li><li>影響：資料信心 <span class="num num-percent">80%</span>；缺 P0 現金流品質資料，因此買進只能是條件式，不升級成無條件 A-List。</li></ul>
+</section></article><article id="stock-4739" class="stock-report" data-code="4739"><h2>2. 4739 康普 - <span class="hl hl-risk">不追</span>；營收動能很強但估值<span class="hl hl-risk">高於 Bull 過熱</span>，等大幅回測或 EPS 明確上修</h2>
+<section class="report-section" data-section="intro"><h3>公司白話介紹</h3>
+<p>康普是化學材料公司，產品包含觸媒、特用化學品、肥料與電池材料相關產品。白話說，它不是做消費品牌，而是供應工業與電池供應鏈需要的化學材料，景氣會跟化工報價、電池材料需求與產能利用率連動。</p>
+</section>
+<section class="report-section" data-section="1"><h3>1. 一句話結論</h3>
+<p><span class="hl hl-risk">不追</span>；營收動能很強但估值<span class="hl hl-risk">高於 Bull 過熱</span>，等大幅回測或 EPS 明確上修。現價隱含情境：<span class="hl hl-risk">高於 Bull 過熱</span>。理由：3M 營收 YoY 超過 <span class="num num-percent">100%</span>，Q1 營益率約 <span class="num num-percent">13%</span>，題材與基本面短線都強。 主要風險：P/E 約 39 倍、60D 漲幅逾 <span class="num num-percent">55%</span>，若電池材料報價或出貨不如預期，估值會先修正。</p>
+</section>
+<section class="report-section" data-section="2"><h3>2. 市場 regime 與投資組合閘門</h3>
+<ul><li>市場閘門：Normal。說明：本地篩選報告已更新加權指數至 <span class="num num-date">2026-06-12</span>，當天發行量加權股價指數 <span class="num num-up">+2.4%</span>，未觸發單日風險閘門。但多數候選仍有價格日/估值日與日價歷史不同步，操作上仍<span class="hl hl-risk">不追</span>高，等回測或新資料確認。</li><li>De-risk 白話：市場風險升高時，先降低追價與新買速度；不是所有股票都要賣，而是買點要更嚴格。</li><li>投資組合：本輪是台股分析，只檢查台股可用現金、台股持股與同產業曝險；美股部位不納入此台股單股判斷。</li><li>目前<span class="hl hl-missing">缺口</span>：<span class="hl hl-missing">未取得</span>台幣可用現金、現有台股持股與交易額度，因此<span class="hl hl-missing">不能計算</span>可買股數。</li></ul>
+</section>
+<section class="report-section" data-section="3"><h3>3. 產業與國際情勢</h3>
+<ul><li>產業：化學工業；白話類型：化學材料/電池材料題材股。</li><li>這類股票主要看：營收是否延續、毛利率/營益率是否撐住、股價是否已先反映太多好消息。</li><li>國際變數：電子/半導體看全球科技景氣與客戶拉貨；航運看運價與大宗物料需求；化工看原料與產品報價；資訊服務看企業 IT 預算。</li><li>結論：產業題材可以加分，但不能取代 EPS、現金流與估值位置。</li></ul>
+</section>
+<section class="report-section" data-section="4"><h3>4. Bear case first</h3>
+<ol><li>3M 營收高成長可能受低基期、報價或出貨節奏影響，不一定能長期延續。</li><li>化工/電池材料容易受原料價、客戶拉貨與產能週期影響，P/E 高時容錯率低。</li><li>現價<span class="hl hl-risk">高於 Bull 過熱</span>，沒有 EPS/margin 再上修就不適合追價。</li></ol>
+<p>Bear case first 白話：先問「我會錯在哪裡」。它不是看空，而是避免只找支持買進的理由。若任一項發生：不加碼；若已持有同族群，先降風險或等正式月營收/季報確認。</p>
+</section>
+<section class="report-section" data-section="5"><h3>5. 價格與部位</h3>
+<ul><li>正式候選價格：<span class="num num-key">121.5</span>，價格日 <span class="num num-date">2026-06-12</span>，來源為候選 CSV 展開欄位。</li><li>日價歷史參考：<span class="num num-key">121.5</span>，日期 <span class="num num-date">2026-06-12</span>，來源為本地日價歷史快取。</li><li>目前部位：<span class="hl hl-missing">未取得</span>此台股持股；若沒有持股，所有「<span class="hl hl-risk">減碼</span>」只代表若已持有時的風控動作。</li></ul>
+</section>
+<section class="report-section" data-section="6"><h3>6. 來源數字表</h3>
+<div class="table-wrap"><table><thead><tr><th>模組</th><th>核心數字</th><th>判斷</th></tr></thead><tbody><tr><td>價格/時點</td><td>候選價 <span class="num num-key">121.5</span>（<span class="num num-date">2026-06-12</span>）；日價歷史參考 <span class="num num-key">121.5</span>（<span class="num num-date">2026-06-12</span>）；差異 <span class="num num-percent">0.0%</span></td><td>價格日與最新日價不同，估值只能視為候選日參考</td></tr><tr><td>成長</td><td>月營收 YoY <span class="num num-percent">141.0%</span>、MoM <span class="num num-percent">12.9%</span>、3M YoY <span class="num num-percent">113.7%</span>、加速度 <span class="num num-key">37.3</span></td><td>月營收是先行線索；要搭配毛利率、營益率與現金流確認有沒有真的變成獲利</td></tr><tr><td>品質</td><td>Q1 毛利率 <span class="num num-percent">17.9%</span>、營益率 <span class="num num-percent">13.2%</span>、淨利率 <span class="num num-percent">7.8%</span>、EPS <span class="num num-key">1.51</span></td><td>OCF/NI、應收與存貨<span class="hl hl-missing">未取得</span>，品質分不能升級為完整 A-List</td></tr><tr><td>估值</td><td>P/E <span class="num num-key">38.9</span>、P/B <span class="num num-key">2.51</span>、殖利率 <span class="num num-percent">0.8%</span>、推算 TTM EPS <span class="num num-key">3.12</span></td><td>P/E 是股價相對獲利，P/B 是股價相對淨值；已補同業 P/E 與 <span class="num num-key">204</span> 日 proxy 歷史 P/E</td></tr><tr><td>股價/籌碼</td><td>5D <span class="num num-percent">3.0%</span> / 20D <span class="num num-percent">19.7%</span> / 60D <span class="num num-percent">55.4%</span>；52W 位置 <span class="num num-percent">85.6%</span>、融資使用率 <span class="num num-percent">28.7%</span></td><td><span class="hl hl-risk">高風險</span>；越接近高位，越需要等回測或新財報確認，不用排名去追價</td></tr><tr><td>大盤</td><td>發行量加權股價指數 <span class="num num-date">2026-06-12</span> 日漲跌 <span class="num num-up">+2.4%</span>；regime Normal</td><td>大盤當日為正，但個股若已進 Bull/<span class="hl hl-risk">過熱</span>定價，仍不等於可追價</td></tr><tr><td>現價情境</td><td><span class="hl hl-risk">高於 Bull 過熱</span></td><td>這是單股現價隱含的 Bear/Base/Bull 定價情境，不是大盤 regime；用來判斷現在是<span class="hl hl-ok">低估</span>、合理、偏熱或<span class="hl hl-risk">過熱</span></td></tr></tbody></table></div>
+</section>
+<section class="report-section" data-section="7"><h3>7. EPS 模組</h3>
+<ul><li>TTM EPS（計算）：<span class="num num-key">3.12</span>，由候選價 / 官方 P/E 反推。</li><li>最新單季 EPS（來源）：<span class="num num-key">1.51</span>，財報季度 115Q1。</li><li>最新單季年化 EPS（計算）：<span class="num num-key">6.04</span>；僅作轉折檢查，不作全年預測。</li><li>近兩季年化 EPS：<span class="hl hl-missing">未取得</span>。</li><li>Bear/Base/Bull EPS（判斷）：Bear = TTM EPS x <span class="num num-key">0.85</span>；Base = TTM EPS；Bull = TTM EPS x <span class="num num-key">1.15</span>。因缺 OCF/NI 與近兩季 EPS，bull 只作敏感度，不作目標價承諾。</li></ul>
+</section>
+<section class="report-section" data-section="8"><h3>8. 估值模組</h3>
+<div class="table-wrap"><table><thead><tr><th>區間</th><th>P/E 依據</th><th>價格範圍/價格</th><th>動作</th></tr></thead><tbody><tr><td>最新估值</td><td>最新價 / TTM EPS = <span class="num num-multiple">38.9x</span>；官方 P/E <span class="num num-multiple">38.9x</span></td><td><span class="num num-key">121.5</span></td><td>P/E 白話：市場願意為每 1 元獲利付幾倍價格</td></tr><tr><td>同業 P/E</td><td>化學工業 樣本 22 檔；低位 Q1 <span class="num num-key">15.4</span> / 中位數 <span class="num num-key">22.3</span> / 高位 Q3 <span class="num num-key">36.9</span></td><td>-</td><td>用同產業股票當尺，檢查這檔是比同業便宜還是貴</td></tr><tr><td><span class="num num-key">204</span>日 proxy 歷史 P/E</td><td>用 <span class="num num-key">204</span> 日收盤價 / 目前推算 TTM EPS；P10 <span class="num num-key">16.1</span> / P25 <span class="num num-key">18.3</span> / P50 <span class="num num-key">21.7</span> / P75 <span class="num num-key">26.5</span> / P90 <span class="num num-key">30.6</span></td><td>-</td><td>proxy 是替代算法；正式歷史 EPS 不足時，先用同一個 EPS 去看股價落在過去高低位置</td></tr><tr><td>Stress / 超跌研究區</td><td>取 proxy P10、同業 Q1、最新 P/E 打 7 折三者中最保守者 = <span class="num num-multiple">15.4x</span></td><td><span class="num num-price">&lt;= 47.9</span></td><td>這是研究反轉區，不是自動買點；thesis 壞掉就不接</td></tr><tr><td><span class="hl hl-action">估值進場區</span></td><td>取 proxy P25、同業 Q1、最新 P/E 打 82 折三者中最保守者 = <span class="num num-multiple">15.4x</span></td><td><span class="num num-price">47.9 - 47.9</span></td><td>比合理價更便宜，才有小量 <span class="hl hl-action">starter</span> 的風險報酬</td></tr><tr><td><span class="hl hl-action">技術試單區</span></td><td>50D 或最新價 <span class="num num-down">-8%</span> 兩者中較低者</td><td><span class="num num-price">&lt;= 96.5</span></td><td>50D 是約 50 個交易日平均成本；用較低者避免太早追進</td></tr><tr><td><span class="hl hl-ok">合理區</span></td><td>proxy P50 到 P75/同業中位數較保守者</td><td><span class="num num-price">67.9 - 69.5</span></td><td>P50 是中位數，P75 是偏高但未必極端；在這裡多半是<span class="hl hl-action">續抱</span>/等待</td></tr><tr><td><span class="hl hl-risk">過熱減碼區</span></td><td>取 proxy P90、同業中位數/Q3 中較保守者 = <span class="num num-multiple">22.3x</span></td><td><span class="num num-price">&gt;= 69.5</span></td><td>P90 代表過去樣本偏高位置；沒有 EPS/margin 上修就<span class="hl hl-risk">不追</span>，持有者檢查<span class="hl hl-risk">減碼</span></td></tr></tbody></table></div>
+<ul><li>估值結論：不是低 P/E；是高成長高估值題材股，重點是驗證成長能不能轉 EPS。</li><li>現價動作：已進<span class="hl hl-risk">過熱減碼區</span>；現價<span class="hl hl-risk">不追</span>，偏<span class="hl hl-action">續抱</span>/<span class="hl hl-risk">減碼</span>檢查</li><li>P/B 白話：股價相對每股淨值，常用來看資產型、循環股或高位股是不是已經太貴。</li></ul>
+</section>
+<section class="report-section" data-section="9"><h3>9. 目標價階梯</h3>
+<p>Section 8 的價格帶是風險控管階梯，不是無條件目標價：</p>
+<div class="table-wrap"><table><thead><tr><th>階梯</th><th>價格</th><th>白話</th></tr></thead><tbody><tr><td>超跌研究區</td><td><span class="num num-price">&lt;= 47.9</span></td><td>便宜到值得重新研究，但要先確認基本面沒有壞</td></tr><tr><td><span class="hl hl-action">估值進場區</span></td><td><span class="num num-price">47.9-47.9</span></td><td>風險報酬比較好的小量 <span class="hl hl-action">starter</span> 區</td></tr><tr><td><span class="hl hl-action">技術試單區</span></td><td><span class="num num-price">&lt;= 96.5</span></td><td>還不到便宜，但回測到中期均線/折價位置，可觀察小量</td></tr><tr><td><span class="hl hl-ok">合理區</span></td><td><span class="num num-price">67.9-69.5</span></td><td>適合<span class="hl hl-action">續抱</span>或等待，不適合追價</td></tr><tr><td><span class="hl hl-risk">過熱減碼區</span></td><td><span class="num num-price">&gt;= 69.5</span></td><td>沒有 EPS/margin 上修就<span class="hl hl-risk">不追</span>，持有者檢查<span class="hl hl-action">停利</span></td></tr></tbody></table></div>
+<p>情境價格矩陣：同一組 P/E 階梯，分別套 Bear/Base/Bull EPS，用來看市場現在到底在押哪一種獲利情境。</p>
+<div class="table-wrap"><table><thead><tr><th>情境</th><th>EPS</th><th>Stress <span class="num num-multiple">15.4x</span></th><th>Entry <span class="num num-multiple">15.4x</span></th><th>Fair <span class="num num-multiple">21.7x</span></th><th>Overheat <span class="num num-multiple">22.3x</span></th><th>最新 P/E <span class="num num-multiple">38.9x</span></th><th>現價 <span class="num num-key">121.5</span> 對比</th></tr></thead><tbody><tr><td>Bear</td><td><span class="num num-key">2.65</span></td><td><span class="num num-key">40.7</span></td><td><span class="num num-key">40.7</span></td><td><span class="num num-key">57.7</span></td><td><span class="num num-key">59.1</span></td><td><span class="num num-key">103.3</span></td><td>高於 Overheat <span class="num num-up">+105.5%</span></td></tr><tr><td>Base</td><td><span class="num num-key">3.12</span></td><td><span class="num num-key">47.9</span></td><td><span class="num num-key">47.9</span></td><td><span class="num num-key">67.9</span></td><td><span class="num num-key">69.5</span></td><td><span class="num num-key">121.5</span></td><td>高於 Overheat <span class="num num-up">+74.7%</span></td></tr><tr><td>Bull</td><td><span class="num num-key">3.59</span></td><td><span class="num num-key">55.1</span></td><td><span class="num num-key">55.1</span></td><td><span class="num num-key">78.0</span></td><td><span class="num num-key">80.0</span></td><td><span class="num num-key">139.7</span></td><td>高於 Overheat <span class="num num-up">+51.9%</span></td></tr></tbody></table></div>
+<ul><li>現價隱含定價情境：<span class="hl hl-risk">高於 Bull 過熱</span>；最接近 Bull Fair 價。市場定價比樂觀情境還激進；除非 EPS/margin 再上修，否則<span class="hl hl-risk">不追</span>。</li><li>注意：這裡的 Bear/Base/Bull 是單股現價隱含的定價情境，不是大盤 market regime。</li></ul>
+</section>
+<section class="report-section" data-section="10"><h3>10. 最後操作建議</h3>
+<p>本週最佳動作：已進<span class="hl hl-risk">過熱減碼區</span>；現價<span class="hl hl-risk">不追</span>，偏<span class="hl hl-action">續抱</span>/<span class="hl hl-risk">減碼</span>檢查。若要交易，必須先更新台股可用現金、<span class="hl hl-risk">停損</span>價與單筆風險預算。</p>
+</section>
+<section class="report-section" data-section="11"><h3>11. <span class="hl hl-risk">停損</span>與<span class="hl hl-action">停利</span></h3>
+<ul><li>若在<span class="hl hl-action">估值進場區</span>小量 <span class="hl hl-action">starter</span>：初始風控價約 <span class="num num-key">46.5</span>，並以基本面壞掉優先於價格。</li><li>若只是技術<span class="hl hl-action">試單</span>：跌破 50D/<span class="hl hl-action">技術試單區</span>後，若接下來 <span class="num num-price">2-3</span> 個交易日站不回去，代表市場不願意接，停止新增風險。</li><li><span class="hl hl-action">停利</span>/降風險：<span class="num num-price">&gt;= 69.5</span> 且沒有 EPS/margin 上修，<span class="hl hl-action">分批停利</span>或<span class="hl hl-risk">減碼</span>檢查；高檔爆量長黑也先降風險。</li></ul>
+</section>
+<section class="report-section" data-section="12"><h3>12. 品質與財報風險</h3>
+<ul><li>Margin：Q1 毛利率 <span class="num num-percent">17.9%</span>、營益率 <span class="num num-percent">13.2%</span>、淨利率 <span class="num num-percent">7.8%</span>。</li><li>資產負債：流動比率 <span class="num num-key">1.69</span>、負債權益比 <span class="num num-key">0.95</span>。</li><li>OCF/NI 白話：營業現金流 / 淨利，用來確認帳上賺到的錢有沒有真的收成現金。</li><li>強制<span class="hl hl-missing">缺口</span>：OCF/NI、應收、存貨<span class="hl hl-missing">未取得</span>；不能確認盈餘品質，也不能排除塞貨、庫存或回款風險。</li></ul>
+</section>
+<section class="report-section" data-section="13"><h3>13. 低本益比高成長檢查</h3>
+<p>不是低 P/E；是高成長高估值題材股，重點是驗證成長能不能轉 EPS。 必要條件中的 OCF/NI、應收、存貨與近兩季 EPS <span class="hl hl-missing">未取得</span>，所以只能列 Watch，<span class="hl hl-missing">不可判定</span>為真<span class="hl hl-ok">低估</span>成長。</p>
+</section>
+<section class="report-section" data-section="14"><h3>14. Rerating / De-rating 檢查</h3>
+<p>Momentum Risk；除非 EPS 上修速度高於股價漲幅，否則先用 de-rating 風險看待。 Rerating 白話是「市場願意給更高估值」；De-rating 是「市場把估值打回低一階」。若價格跌破 50D 或下次月營收/margin 不接上，用 Section 8 的 Stress/<span class="hl hl-action">估值進場區</span>重估；若 EPS/margin 明確上修，才重新抬高 overheat price。</p>
+</section>
+<section class="report-section" data-section="15"><h3>15. 強勢股/崩盤股分類</h3>
+<ul><li>趨勢狀態：uptrend_confirmed；20D <span class="num num-percent">19.7%</span>，60D <span class="num num-percent">55.4%</span>，52W 位置 <span class="num num-percent">85.6%</span>。</li><li>50D 白話：最近約 50 個交易日的平均價格，可粗略看中期市場成本。</li><li>分類：強勢股觀察，不是崩盤股；但若市場轉弱或跌破 20D/50D，先降追價意願。</li></ul>
+</section>
+<section class="report-section" data-section="16"><h3>16. 部位與風險預算</h3>
+<ul><li>未驗證 thesis <span class="hl hl-action">starter</span>：單筆虧損上限以總資產 <span class="num num-percent">0.1%</span><span class="num num-down">-0.3%</span> 為上限。</li><li>台股可用現金、匯率、手續費、現有台股部位：<span class="hl hl-missing">未取得</span>，因此不能算股數。</li><li>若一定要做，必須先定<span class="hl hl-risk">停損</span>價，再用 <code>可買股數 = 單筆最大可承受虧損 / (買進價 - 停損價)</code>。</li></ul>
+</section>
+<section class="report-section" data-section="17"><h3>17. 價格 x thesis 決策矩陣</h3>
+<div class="table-wrap"><table><thead><tr><th>價格/基本面狀態</th><th>Thesis intact：基本面故事還成立</th><th>Thesis damaged：基本面故事被破壞</th></tr></thead><tbody><tr><td>現價 <span class="num num-key">121.5</span></td><td>已進<span class="hl hl-risk">過熱減碼區</span>；現價<span class="hl hl-risk">不追</span>，偏<span class="hl hl-action">續抱</span>/<span class="hl hl-risk">減碼</span>檢查</td><td>不買；若已持有則<span class="hl hl-risk">減碼</span>/<span class="hl hl-risk">退出</span></td></tr><tr><td>技術<span class="hl hl-action">試單</span> <span class="num num-price">&lt;= 96.5</span></td><td>只有在月營收與 margin 驗證後，才可考慮極小 <span class="hl hl-action">starter</span></td><td>不接刀，等待新財報證據</td></tr><tr><td>估值進場 <span class="num num-price">47.9-47.9</span></td><td><span class="hl hl-ok">thesis intact</span> 且市場不再 de-risk 時，才是較好風險報酬區</td><td>若 thesis 壞，低價不是買點</td></tr><tr><td>超跌 <span class="num num-price">&lt;= 47.9</span></td><td>只研究反轉，不直接接刀</td><td><span class="hl hl-risk">退出</span>觀察名單或只保留追蹤</td></tr><tr><td><span class="hl hl-risk">過熱</span> <span class="num num-price">&gt;= 69.5</span></td><td>沒有 EPS/margin 上修就<span class="hl hl-action">分批停利</span>或<span class="hl hl-risk">不追</span></td><td>Thesis damaged 時優先降風險</td></tr></tbody></table></div>
+</section>
+<section class="report-section" data-section="18"><h3>18. 下一個驗證點</h3>
+<p>補電池材料出貨、報價、越南/新產能進度、OCF/NI、存貨與應收；若回到<span class="hl hl-ok">合理區</span>再研究。 同時補 OCF/NI、應收、存貨、法人/投信、自營、借券與事件日曆。</p>
+</section>
+<section class="report-section" data-section="19"><h3>19. 資料完整性檢查</h3>
+<ul><li>已取得：價格/成交值、P/E、P/B、殖利率、月營收、3M rolling 營收、Q1 margin/EPS、20D/60D/均線/52W 位置、融資融券 proxy。</li><li>已補估值：同產業 current peer P/E，以及 <span class="num num-key">204</span> 個交易日「收盤價 / 目前推算 TTM EPS」proxy 歷史 P/E。</li><li><span class="hl hl-missing">未取得/待補</span>：台股持股與可用現金、OCF/NI、應收帳款、存貨、正式歷史 P/E 序列、forward P/E、EV/EBITDA、FCF yield、外資/投信/自營、借券、事件日曆、近兩季 EPS 序列。</li><li>影響：資料信心 <span class="num num-percent">80%</span>；缺 P0 現金流品質資料，因此買進只能是條件式，不升級成無條件 A-List。</li></ul>
+</section></article><article id="stock-2379" class="stock-report" data-code="2379"><h2>3. 2379 瑞昱 - <span class="hl hl-risk">不追</span>；品質佳但現價已 Base <span class="hl hl-risk">過熱</span>往 Bull，等回測或營收/EPS 加速</h2>
+<section class="report-section" data-section="intro"><h3>公司白話介紹</h3>
+<p>瑞昱是 IC 設計公司，主要做網路、音訊、電腦週邊與多媒體相關晶片。白話說，很多電腦、主機板、網通設備、耳機或顯示裝置裡的小晶片，可能就有瑞昱的產品；它靠設計晶片賺錢，不自己蓋晶圓廠大量製造。</p>
+</section>
+<section class="report-section" data-section="1"><h3>1. 一句話結論</h3>
+<p><span class="hl hl-risk">不追</span>；品質佳但現價已 Base <span class="hl hl-risk">過熱</span>往 Bull，等回測或營收/EPS 加速。現價隱含情境：<span class="hl hl-risk">Base 過熱、往 Bull 定價</span>。理由：毛利率接近 <span class="num num-percent">50%</span>，品牌與產品線穩，3M 營收 YoY 仍正成長。 主要風險：P/E 約 23 倍、估值溫度<span class="hl hl-risk">過熱</span>；若 PC/網通需求或產品組合沒有上修，新增部位安全邊際不足。</p>
+</section>
+<section class="report-section" data-section="2"><h3>2. 市場 regime 與投資組合閘門</h3>
+<ul><li>市場閘門：Normal。說明：本地篩選報告已更新加權指數至 <span class="num num-date">2026-06-12</span>，當天發行量加權股價指數 <span class="num num-up">+2.4%</span>，未觸發單日風險閘門。但多數候選仍有價格日/估值日與日價歷史不同步，操作上仍<span class="hl hl-risk">不追</span>高，等回測或新資料確認。</li><li>De-risk 白話：市場風險升高時，先降低追價與新買速度；不是所有股票都要賣，而是買點要更嚴格。</li><li>投資組合：本輪是台股分析，只檢查台股可用現金、台股持股與同產業曝險；美股部位不納入此台股單股判斷。</li><li>目前<span class="hl hl-missing">缺口</span>：<span class="hl hl-missing">未取得</span>台幣可用現金、現有台股持股與交易額度，因此<span class="hl hl-missing">不能計算</span>可買股數。</li></ul>
+</section>
+<section class="report-section" data-section="3"><h3>3. 產業與國際情勢</h3>
+<ul><li>產業：半導體；白話類型：IC 設計/網通與電腦週邊晶片。</li><li>這類股票主要看：營收是否延續、毛利率/營益率是否撐住、股價是否已先反映太多好消息。</li><li>國際變數：電子/半導體看全球科技景氣與客戶拉貨；航運看運價與大宗物料需求；化工看原料與產品報價；資訊服務看企業 IT 預算。</li><li>結論：產業題材可以加分，但不能取代 EPS、現金流與估值位置。</li></ul>
+</section>
+<section class="report-section" data-section="4"><h3>4. Bear case first</h3>
+<ol><li>IC 設計毛利高，但景氣循環下庫存與客戶拉貨會讓營收/EPS 波動。</li><li>3M 營收 YoY 約 <span class="num num-percent">12%</span>，成長不算爆發，若估值已提前反映，容易進入盤整或 de-rating。</li><li>缺 OCF/NI、存貨與應收資料，還不能完整確認本輪成長品質。</li></ol>
+<p>Bear case first 白話：先問「我會錯在哪裡」。它不是看空，而是避免只找支持買進的理由。若任一項發生：不加碼；若已持有同族群，先降風險或等正式月營收/季報確認。</p>
+</section>
+<section class="report-section" data-section="5"><h3>5. 價格與部位</h3>
+<ul><li>正式候選價格：<span class="num num-key">618.0</span>，價格日 <span class="num num-date">2026-06-12</span>，來源為候選 CSV 展開欄位。</li><li>日價歷史參考：<span class="num num-key">618.0</span>，日期 <span class="num num-date">2026-06-12</span>，來源為本地日價歷史快取。</li><li>目前部位：<span class="hl hl-missing">未取得</span>此台股持股；若沒有持股，所有「<span class="hl hl-risk">減碼</span>」只代表若已持有時的風控動作。</li></ul>
+</section>
+<section class="report-section" data-section="6"><h3>6. 來源數字表</h3>
+<div class="table-wrap"><table><thead><tr><th>模組</th><th>核心數字</th><th>判斷</th></tr></thead><tbody><tr><td>價格/時點</td><td>候選價 <span class="num num-key">618.0</span>（<span class="num num-date">2026-06-12</span>）；日價歷史參考 <span class="num num-key">618.0</span>（<span class="num num-date">2026-06-12</span>）；差異 <span class="num num-percent">0.0%</span></td><td>價格日與最新日價不同，估值只能視為候選日參考</td></tr><tr><td>成長</td><td>月營收 YoY <span class="num num-percent">21.9%</span>、MoM <span class="num num-down">-1.5%</span>、3M YoY <span class="num num-percent">12.1%</span>、加速度 <span class="num num-key">17.4</span></td><td>月營收是先行線索；要搭配毛利率、營益率與現金流確認有沒有真的變成獲利</td></tr><tr><td>品質</td><td>Q1 毛利率 <span class="num num-percent">49.7%</span>、營益率 <span class="num num-percent">11.9%</span>、淨利率 <span class="num num-percent">11.9%</span>、EPS <span class="num num-key">8.44</span></td><td>OCF/NI、應收與存貨<span class="hl hl-missing">未取得</span>，品質分不能升級為完整 A-List</td></tr><tr><td>估值</td><td>P/E <span class="num num-key">23.2</span>、P/B <span class="num num-key">7.36</span>、殖利率 <span class="num num-percent">3.9%</span>、推算 TTM EPS <span class="num num-key">26.61</span></td><td>P/E 是股價相對獲利，P/B 是股價相對淨值；已補同業 P/E 與 <span class="num num-key">204</span> 日 proxy 歷史 P/E</td></tr><tr><td>股價/籌碼</td><td>5D <span class="num num-down">-3.9%</span> / 20D <span class="num num-percent">7.7%</span> / 60D <span class="num num-percent">28.8%</span>；52W 位置 <span class="num num-percent">71.7%</span>、融資使用率 <span class="num num-percent">2.1%</span></td><td><span class="hl hl-risk">高風險</span>；越接近高位，越需要等回測或新財報確認，不用排名去追價</td></tr><tr><td>大盤</td><td>發行量加權股價指數 <span class="num num-date">2026-06-12</span> 日漲跌 <span class="num num-up">+2.4%</span>；regime Normal</td><td>大盤當日為正，但個股若已進 Bull/<span class="hl hl-risk">過熱</span>定價，仍不等於可追價</td></tr><tr><td>現價情境</td><td><span class="hl hl-risk">Base 過熱、往 Bull 定價</span></td><td>這是單股現價隱含的 Bear/Base/Bull 定價情境，不是大盤 regime；用來判斷現在是<span class="hl hl-ok">低估</span>、合理、偏熱或<span class="hl hl-risk">過熱</span></td></tr></tbody></table></div>
+</section>
+<section class="report-section" data-section="7"><h3>7. EPS 模組</h3>
+<ul><li>TTM EPS（計算）：<span class="num num-key">26.61</span>，由候選價 / 官方 P/E 反推。</li><li>最新單季 EPS（來源）：<span class="num num-key">8.44</span>，財報季度 115Q1。</li><li>最新單季年化 EPS（計算）：<span class="num num-key">33.76</span>；僅作轉折檢查，不作全年預測。</li><li>近兩季年化 EPS：<span class="hl hl-missing">未取得</span>。</li><li>Bear/Base/Bull EPS（判斷）：Bear = TTM EPS x <span class="num num-key">0.85</span>；Base = TTM EPS；Bull = TTM EPS x <span class="num num-key">1.15</span>。因缺 OCF/NI 與近兩季 EPS，bull 只作敏感度，不作目標價承諾。</li></ul>
+</section>
+<section class="report-section" data-section="8"><h3>8. 估值模組</h3>
+<div class="table-wrap"><table><thead><tr><th>區間</th><th>P/E 依據</th><th>價格範圍/價格</th><th>動作</th></tr></thead><tbody><tr><td>最新估值</td><td>最新價 / TTM EPS = <span class="num num-multiple">23.2x</span>；官方 P/E <span class="num num-multiple">23.2x</span></td><td><span class="num num-key">618.0</span></td><td>P/E 白話：市場願意為每 1 元獲利付幾倍價格</td></tr><tr><td>同業 P/E</td><td>半導體 樣本 68 檔；低位 Q1 <span class="num num-key">19.6</span> / 中位數 <span class="num num-key">34.5</span> / 高位 Q3 <span class="num num-key">59.5</span></td><td>-</td><td>用同產業股票當尺，檢查這檔是比同業便宜還是貴</td></tr><tr><td><span class="num num-key">204</span>日 proxy 歷史 P/E</td><td>用 <span class="num num-key">204</span> 日收盤價 / 目前推算 TTM EPS；P10 <span class="num num-key">18.3</span> / P25 <span class="num num-key">19.3</span> / P50 <span class="num num-key">20.3</span> / P75 <span class="num num-key">21.0</span> / P90 <span class="num num-key">21.8</span></td><td>-</td><td>proxy 是替代算法；正式歷史 EPS 不足時，先用同一個 EPS 去看股價落在過去高低位置</td></tr><tr><td>Stress / 超跌研究區</td><td>取 proxy P10、同業 Q1、最新 P/E 打 7 折三者中最保守者 = <span class="num num-multiple">16.3x</span></td><td><span class="num num-price">&lt;= 432.6</span></td><td>這是研究反轉區，不是自動買點；thesis 壞掉就不接</td></tr><tr><td><span class="hl hl-action">估值進場區</span></td><td>取 proxy P25、同業 Q1、最新 P/E 打 82 折三者中最保守者 = <span class="num num-multiple">19.0x</span></td><td><span class="num num-price">432.6 - 506.8</span></td><td>比合理價更便宜，才有小量 <span class="hl hl-action">starter</span> 的風險報酬</td></tr><tr><td><span class="hl hl-action">技術試單區</span></td><td>50D 或最新價 <span class="num num-down">-8%</span> 兩者中較低者</td><td><span class="num num-price">&lt;= 561.8</span></td><td>50D 是約 50 個交易日平均成本；用較低者避免太早追進</td></tr><tr><td><span class="hl hl-ok">合理區</span></td><td>proxy P50 到 P75/同業中位數較保守者</td><td><span class="num num-price">539.0 - 559.2</span></td><td>P50 是中位數，P75 是偏高但未必極端；在這裡多半是<span class="hl hl-action">續抱</span>/等待</td></tr><tr><td><span class="hl hl-risk">過熱減碼區</span></td><td>取 proxy P90、同業中位數/Q3 中較保守者 = <span class="num num-multiple">21.8x</span></td><td><span class="num num-price">&gt;= 580.0</span></td><td>P90 代表過去樣本偏高位置；沒有 EPS/margin 上修就<span class="hl hl-risk">不追</span>，持有者檢查<span class="hl hl-risk">減碼</span></td></tr></tbody></table></div>
+<ul><li>估值結論：不是低 P/E；是高毛利 IC 設計品質股，但目前估值偏熱。</li><li>現價動作：已進<span class="hl hl-risk">過熱減碼區</span>；現價<span class="hl hl-risk">不追</span>，偏<span class="hl hl-action">續抱</span>/<span class="hl hl-risk">減碼</span>檢查</li><li>P/B 白話：股價相對每股淨值，常用來看資產型、循環股或高位股是不是已經太貴。</li></ul>
+</section>
+<section class="report-section" data-section="9"><h3>9. 目標價階梯</h3>
+<p>Section 8 的價格帶是風險控管階梯，不是無條件目標價：</p>
+<div class="table-wrap"><table><thead><tr><th>階梯</th><th>價格</th><th>白話</th></tr></thead><tbody><tr><td>超跌研究區</td><td><span class="num num-price">&lt;= 432.6</span></td><td>便宜到值得重新研究，但要先確認基本面沒有壞</td></tr><tr><td><span class="hl hl-action">估值進場區</span></td><td><span class="num num-price">432.6-506.8</span></td><td>風險報酬比較好的小量 <span class="hl hl-action">starter</span> 區</td></tr><tr><td><span class="hl hl-action">技術試單區</span></td><td><span class="num num-price">&lt;= 561.8</span></td><td>還不到便宜，但回測到中期均線/折價位置，可觀察小量</td></tr><tr><td><span class="hl hl-ok">合理區</span></td><td><span class="num num-price">539.0-559.2</span></td><td>適合<span class="hl hl-action">續抱</span>或等待，不適合追價</td></tr><tr><td><span class="hl hl-risk">過熱減碼區</span></td><td><span class="num num-price">&gt;= 580.0</span></td><td>沒有 EPS/margin 上修就<span class="hl hl-risk">不追</span>，持有者檢查<span class="hl hl-action">停利</span></td></tr></tbody></table></div>
+<p>情境價格矩陣：同一組 P/E 階梯，分別套 Bear/Base/Bull EPS，用來看市場現在到底在押哪一種獲利情境。</p>
+<div class="table-wrap"><table><thead><tr><th>情境</th><th>EPS</th><th>Stress <span class="num num-multiple">16.3x</span></th><th>Entry <span class="num num-multiple">19.0x</span></th><th>Fair <span class="num num-multiple">20.3x</span></th><th>Overheat <span class="num num-multiple">21.8x</span></th><th>最新 P/E <span class="num num-multiple">23.2x</span></th><th>現價 <span class="num num-key">618.0</span> 對比</th></tr></thead><tbody><tr><td>Bear</td><td><span class="num num-key">22.62</span></td><td><span class="num num-key">367.7</span></td><td><span class="num num-key">430.7</span></td><td><span class="num num-key">458.1</span></td><td><span class="num num-key">493.0</span></td><td><span class="num num-key">525.3</span></td><td>高於 Overheat <span class="num num-up">+25.4%</span></td></tr><tr><td>Base</td><td><span class="num num-key">26.61</span></td><td><span class="num num-key">432.6</span></td><td><span class="num num-key">506.8</span></td><td><span class="num num-key">539.0</span></td><td><span class="num num-key">580.0</span></td><td><span class="num num-key">618.0</span></td><td>高於 Overheat <span class="num num-up">+6.6%</span></td></tr><tr><td>Bull</td><td><span class="num num-key">30.60</span></td><td><span class="num num-key">497.5</span></td><td><span class="num num-key">582.8</span></td><td><span class="num num-key">619.8</span></td><td><span class="num num-key">667.0</span></td><td><span class="num num-key">710.7</span></td><td>Entry~Fair</td></tr></tbody></table></div>
+<ul><li>現價隱含定價情境：<span class="hl hl-risk">Base 過熱、往 Bull 定價</span>；最接近 Bull Fair 價。以基本 EPS 看已偏熱，但還沒完全進入 Bull <span class="hl hl-ok">合理區</span>。</li><li>注意：這裡的 Bear/Base/Bull 是單股現價隱含的定價情境，不是大盤 market regime。</li></ul>
+</section>
+<section class="report-section" data-section="10"><h3>10. 最後操作建議</h3>
+<p>本週最佳動作：已進<span class="hl hl-risk">過熱減碼區</span>；現價<span class="hl hl-risk">不追</span>，偏<span class="hl hl-action">續抱</span>/<span class="hl hl-risk">減碼</span>檢查。若要交易，必須先更新台股可用現金、<span class="hl hl-risk">停損</span>價與單筆風險預算。</p>
+</section>
+<section class="report-section" data-section="11"><h3>11. <span class="hl hl-risk">停損</span>與<span class="hl hl-action">停利</span></h3>
+<ul><li>若在<span class="hl hl-action">估值進場區</span>小量 <span class="hl hl-action">starter</span>：初始風控價約 <span class="num num-key">419.6</span>，並以基本面壞掉優先於價格。</li><li>若只是技術<span class="hl hl-action">試單</span>：跌破 50D/<span class="hl hl-action">技術試單區</span>後，若接下來 <span class="num num-price">2-3</span> 個交易日站不回去，代表市場不願意接，停止新增風險。</li><li><span class="hl hl-action">停利</span>/降風險：<span class="num num-price">&gt;= 580.0</span> 且沒有 EPS/margin 上修，<span class="hl hl-action">分批停利</span>或<span class="hl hl-risk">減碼</span>檢查；高檔爆量長黑也先降風險。</li></ul>
+</section>
+<section class="report-section" data-section="12"><h3>12. 品質與財報風險</h3>
+<ul><li>Margin：Q1 毛利率 <span class="num num-percent">49.7%</span>、營益率 <span class="num num-percent">11.9%</span>、淨利率 <span class="num num-percent">11.9%</span>。</li><li>資產負債：流動比率 <span class="num num-key">1.15</span>、負債權益比 <span class="num num-key">2.16</span>。</li><li>OCF/NI 白話：營業現金流 / 淨利，用來確認帳上賺到的錢有沒有真的收成現金。</li><li>強制<span class="hl hl-missing">缺口</span>：OCF/NI、應收、存貨<span class="hl hl-missing">未取得</span>；不能確認盈餘品質，也不能排除塞貨、庫存或回款風險。</li></ul>
+</section>
+<section class="report-section" data-section="13"><h3>13. 低本益比高成長檢查</h3>
+<p>不是低 P/E；是高毛利 IC 設計品質股，但目前估值偏熱。 必要條件中的 OCF/NI、應收、存貨與近兩季 EPS <span class="hl hl-missing">未取得</span>，所以只能列 Watch，<span class="hl hl-missing">不可判定</span>為真<span class="hl hl-ok">低估</span>成長。</p>
+</section>
+<section class="report-section" data-section="14"><h3>14. Rerating / De-rating 檢查</h3>
+<p>Quality Watch；需要營收加速或 margin 上修支撐更高 multiple。 Rerating 白話是「市場願意給更高估值」；De-rating 是「市場把估值打回低一階」。若價格跌破 50D 或下次月營收/margin 不接上，用 Section 8 的 Stress/<span class="hl hl-action">估值進場區</span>重估；若 EPS/margin 明確上修，才重新抬高 overheat price。</p>
+</section>
+<section class="report-section" data-section="15"><h3>15. 強勢股/崩盤股分類</h3>
+<ul><li>趨勢狀態：uptrend_confirmed；20D <span class="num num-percent">7.7%</span>，60D <span class="num num-percent">28.8%</span>，52W 位置 <span class="num num-percent">71.7%</span>。</li><li>50D 白話：最近約 50 個交易日的平均價格，可粗略看中期市場成本。</li><li>分類：強勢股觀察，不是崩盤股；但若市場轉弱或跌破 20D/50D，先降追價意願。</li></ul>
+</section>
+<section class="report-section" data-section="16"><h3>16. 部位與風險預算</h3>
+<ul><li>未驗證 thesis <span class="hl hl-action">starter</span>：單筆虧損上限以總資產 <span class="num num-percent">0.1%</span><span class="num num-down">-0.3%</span> 為上限。</li><li>台股可用現金、匯率、手續費、現有台股部位：<span class="hl hl-missing">未取得</span>，因此不能算股數。</li><li>若一定要做，必須先定<span class="hl hl-risk">停損</span>價，再用 <code>可買股數 = 單筆最大可承受虧損 / (買進價 - 停損價)</code>。</li></ul>
+</section>
+<section class="report-section" data-section="17"><h3>17. 價格 x thesis 決策矩陣</h3>
+<div class="table-wrap"><table><thead><tr><th>價格/基本面狀態</th><th>Thesis intact：基本面故事還成立</th><th>Thesis damaged：基本面故事被破壞</th></tr></thead><tbody><tr><td>現價 <span class="num num-key">618.0</span></td><td>已進<span class="hl hl-risk">過熱減碼區</span>；現價<span class="hl hl-risk">不追</span>，偏<span class="hl hl-action">續抱</span>/<span class="hl hl-risk">減碼</span>檢查</td><td>不買；若已持有則<span class="hl hl-risk">減碼</span>/<span class="hl hl-risk">退出</span></td></tr><tr><td>技術<span class="hl hl-action">試單</span> <span class="num num-price">&lt;= 561.8</span></td><td>只有在月營收與 margin 驗證後，才可考慮極小 <span class="hl hl-action">starter</span></td><td>不接刀，等待新財報證據</td></tr><tr><td>估值進場 <span class="num num-price">432.6-506.8</span></td><td><span class="hl hl-ok">thesis intact</span> 且市場不再 de-risk 時，才是較好風險報酬區</td><td>若 thesis 壞，低價不是買點</td></tr><tr><td>超跌 <span class="num num-price">&lt;= 432.6</span></td><td>只研究反轉，不直接接刀</td><td><span class="hl hl-risk">退出</span>觀察名單或只保留追蹤</td></tr><tr><td><span class="hl hl-risk">過熱</span> <span class="num num-price">&gt;= 580.0</span></td><td>沒有 EPS/margin 上修就<span class="hl hl-action">分批停利</span>或<span class="hl hl-risk">不追</span></td><td>Thesis damaged 時優先降風險</td></tr></tbody></table></div>
+</section>
+<section class="report-section" data-section="18"><h3>18. 下一個驗證點</h3>
+<p>補產品線需求、庫存水位、毛利率/營益率趨勢、OCF/NI；若價格回測且月營收加速，再提高優先級。 同時補 OCF/NI、應收、存貨、法人/投信、自營、借券與事件日曆。</p>
+</section>
+<section class="report-section" data-section="19"><h3>19. 資料完整性檢查</h3>
+<ul><li>已取得：價格/成交值、P/E、P/B、殖利率、月營收、3M rolling 營收、Q1 margin/EPS、20D/60D/均線/52W 位置、融資融券 proxy。</li><li>已補估值：同產業 current peer P/E，以及 <span class="num num-key">204</span> 個交易日「收盤價 / 目前推算 TTM EPS」proxy 歷史 P/E。</li><li><span class="hl hl-missing">未取得/待補</span>：台股持股與可用現金、OCF/NI、應收帳款、存貨、正式歷史 P/E 序列、forward P/E、EV/EBITDA、FCF yield、外資/投信/自營、借券、事件日曆、近兩季 EPS 序列。</li><li>影響：資料信心 <span class="num num-percent">80%</span>；缺 P0 現金流品質資料，因此買進只能是條件式，不升級成無條件 A-List。</li></ul>
+</section></article>
+</main>
+</div>
+<script>
+const tabs = Array.from(document.querySelectorAll('.stock-tab'));
+const reports = Array.from(document.querySelectorAll('.stock-report'));
+let activeIndex = 0;
+function showStock(index) {
+  activeIndex = (index + tabs.length) % tabs.length;
+  const code = tabs[activeIndex].dataset.code;
+  tabs.forEach(t => t.classList.toggle('active', t.dataset.code === code));
+  reports.forEach(r => r.classList.toggle('active', r.dataset.code === code));
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+tabs.forEach((tab, idx) => tab.addEventListener('click', () => showStock(idx)));
+function activeReport() { return document.querySelector('.stock-report.active'); }
+function jumpSection(section) {
+  const target = activeReport()?.querySelector(`[data-section="${section}"]`);
+  if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+document.querySelectorAll('.section-jump').forEach(btn => {
+  btn.addEventListener('click', () => jumpSection(btn.dataset.section));
+});
+document.addEventListener('keydown', event => {
+  if (event.target.matches('input, textarea')) return;
+  if (event.key === '[') showStock(activeIndex - 1);
+  if (event.key === ']') showStock(activeIndex + 1);
+  if (/^[1-9]$/.test(event.key)) jumpSection(event.key);
+  if (event.key === '0') jumpSection('10');
+});
+</script>
+</body>
+</html>

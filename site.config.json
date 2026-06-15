@@ -1,11 +1,12 @@
 {
-  "siteTitle": "股票分析報告庫",
-  "siteDescription": "台股與美股個股分析 HTML 報告索引",
-  "sourceDir": "output",
+  "siteTitle": "股票研究資料分析庫",
+  "siteDescription": "以資料完整性、估值情境與風控紀律整理的公開個股研究索引。",
+  "sourceDir": "published_reports",
   "publicDir": "docs",
   "includeHtml": [
     "*.html"
   ],
   "excludeHtml": [],
+  "feedbackIssueUrl": "https://github.com/ScikitLin/stock-analysis-site/issues/new",
   "disclaimer": "本網站內容僅供投資研究紀錄與討論，不構成個人化投資建議。資料可能延遲或不完整，請自行交叉驗證。"
 }

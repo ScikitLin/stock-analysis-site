@@ -1,45 +1,48 @@
 # 股票分析網站發布流程
 
-這個專案的公開網站採用靜態網站架構：報告來源放在 `output/`，網站輸出放在 `docs/`。
+這個專案的公開網站採用靜態網站架構：
+
+- `published_reports/`：真正公開的 HTML 報告來源。
+- `published_reports/charts/`：公開報告會引用到的圖表圖片。
+- `docs/`：建置後的網站輸出資料夾，由 GitHub Pages 發布。
+- `output/`：可作為分析產出或草稿區，不會直接公開。
+
+## 決定哪些報告要公開
+
+要上架的 HTML 放進 `published_reports/`。
+
+要下架的 HTML 從 `published_reports/` 刪除。
+
+如果報告有圖片，放在 `published_reports/charts/`，並在 HTML 裡使用 `charts/檔名.png`。
 
 ## 本機更新
-
-1. 將新的 HTML 報告放進 `output/`。
-2. 如果報告有圖片，放在 `output/charts/`，並在 HTML 裡使用 `charts/檔名.png`。
-3. 執行：
 
 ```bash
 python3 scripts/build_public_site.py
 ```
 
-4. 打開 `docs/index.html` 檢查首頁。
-
-## 排除不想公開的報告
-
-全公開網站代表任何知道網址的人都可能看見內容。若某些報告含有持股、均價、券商資訊或你不想公開的資料，請在 `site.config.json` 的 `excludeHtml` 加入檔名，例如：
-
-```json
-"excludeHtml": [
-  "us_bdc_stock_analysis_framework_20260614.html"
-]
-```
-
-更新設定後再執行建站腳本。
+建置完成後檢查 `docs/index.html`，確認首頁、搜尋、分類與報告連結正常。
 
 ## GitHub Pages 免費網址
 
-1. 在 GitHub 建立一個 public repository。
-2. 將此資料夾 push 到 GitHub。
-3. 到 repository 的 `Settings > Pages`。
-4. Source 選 `GitHub Actions`。
-5. 之後每次 push 新報告到 `output/`，GitHub Actions 會自動發布。
+目前網站設定為 GitHub Actions 自動發布。每次 push 到 GitHub 後，只要變更包含以下內容，就會重新建置並更新免費網址：
 
-發布成功後，網址通常會是：
+- `published_reports/**`
+- `site_src/**`
+- `site.config.json`
+- `scripts/build_public_site.py`
+- `.github/workflows/pages.yml`
+
+公開網址：
 
 ```text
-https://你的帳號.github.io/你的repo名稱/
+https://scikitlin.github.io/stock-analysis-site/
 ```
 
-## 手動發布
+## 留言功能
 
-如果暫時不想使用 GitHub Actions，也可以只把 `docs/` 這個資料夾上傳到 Netlify Drop、Cloudflare Pages 或其他靜態網站服務。
+首頁留言窗會限制 500 字，送出後開啟 GitHub Issue 草稿。這個做法不需要付費後端，也不會在網站本身保存留言資料。使用者若送出 Issue，GitHub 可能顯示其 GitHub 帳號。
+
+## 隱私檢查
+
+全公開網站代表任何知道網址的人都可能看見內容。放進 `published_reports/` 前，請先確認報告不含個人持股、均價、券商資訊、帳戶截圖或其他不想公開的內容。
