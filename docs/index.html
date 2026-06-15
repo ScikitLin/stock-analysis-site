@@ -10,25 +10,25 @@
 <body>
   <header class="site-header">
     <nav class="topbar" aria-label="主要導覽">
-      <a class="brand" href="#top" aria-label="回到首頁">
-        <span class="brand-mark" aria-hidden="true">QA</span>
-        <span>Quant Archive</span>
+      <a class="brand" href="#reports" data-page-link="reports" aria-label="回到報告頁">
+        <span class="brand-mark" aria-hidden="true">SV</span>
+        <span>Signal Vault</span>
       </a>
-      <div class="nav-actions">
-        <a href="#reports">Reports</a>
-        <a href="#profile">Profile</a>
+      <div class="nav-actions" role="tablist" aria-label="頁面切換">
+        <a href="#reports" class="nav-tab is-active" data-page-link="reports" role="tab" aria-selected="true">Reports</a>
+        <a href="#profile" class="nav-tab" data-page-link="profile" role="tab" aria-selected="false">Profile</a>
         <button id="feedbackOpen" class="nav-button" type="button">留言</button>
       </div>
     </nav>
 
-    <section id="top" class="hero-grid">
+    <section class="hero-grid">
       <div class="hero-copy">
         <p class="eyebrow">Open Equity Research Archive</p>
         <h1 id="siteTitle">股票研究資料分析庫</h1>
         <p id="siteDescription" class="site-description">以資料完整性、估值情境與風控紀律整理的公開個股研究索引。</p>
         <div class="hero-actions">
-          <a class="primary-link" href="#reports">瀏覽報告</a>
-          <a class="secondary-link" href="#profile">研究背景</a>
+          <a class="primary-link" href="#reports" data-page-link="reports">瀏覽報告</a>
+          <a class="secondary-link" href="#profile" data-page-link="profile">匿名背景</a>
         </div>
       </div>
 
@@ -55,102 +55,210 @@
   </header>
 
   <main>
-    <section id="profile" class="profile-section" aria-label="匿名研究背景">
-      <div class="section-heading">
-        <p class="eyebrow">Anonymous Research Background</p>
-        <h2>匿名資料分析與生醫資訊研究背景</h2>
-      </div>
-      <div class="profile-grid">
-        <article class="profile-card">
-          <span class="profile-kicker">Domain</span>
-          <h3>Bioinformatics & Data Systems</h3>
-          <p>具生醫資料庫、特徵整理與跨資料源整合經驗，擅長把不完整資料轉成可追蹤、可比較、可更新的研究流程。</p>
-        </article>
-        <article class="profile-card">
-          <span class="profile-kicker">Research</span>
-          <h3>Lipidomics, HCC & Immunology</h3>
-          <p>公開發表主題涵蓋脂質功能資料庫、肝癌代謝機制、microRNA 與免疫檢查點/免疫浸潤關聯資料系統。</p>
-        </article>
-        <article class="profile-card">
-          <span class="profile-kicker">Publication</span>
-          <h3>First / Co-first Authorship</h3>
-          <p>具多篇 peer-reviewed 第一或共同第一作者經驗，研究輸出橫跨 Bioinformatics、Journal of Biomedical Science 與 Comput Struct Biotechnol J。</p>
-        </article>
-      </div>
+    <section id="reportsPage" class="page-panel is-active" data-page-panel="reports" aria-label="公開報告">
+      <section class="overview" aria-label="市場統計">
+        <div class="metric">
+          <span id="twCount">0</span>
+          <strong>台股</strong>
+        </div>
+        <div class="metric">
+          <span id="usCount">0</span>
+          <strong>美股</strong>
+        </div>
+        <div class="metric">
+          <span id="symbolCount">0</span>
+          <strong>追蹤代號</strong>
+        </div>
+        <div class="metric">
+          <span id="typeCount">0</span>
+          <strong>分類</strong>
+        </div>
+      </section>
+
+      <section id="reports" class="reports-panel" aria-label="報告資料庫">
+        <div class="panel-header">
+          <div>
+            <p class="eyebrow">Report Explorer</p>
+            <h2>公開報告索引</h2>
+          </div>
+          <div class="publish-source">
+            <span>Public source</span>
+            <strong id="sourceFolder">published_reports/</strong>
+          </div>
+        </div>
+
+        <div class="controls" aria-label="報告篩選">
+          <label class="search-box">
+            <span>搜尋</span>
+            <input id="searchInput" type="search" placeholder="股票代號、公司、報告名稱、分類" autocomplete="off">
+          </label>
+          <label>
+            <span>市場</span>
+            <select id="marketFilter">
+              <option value="all">全部市場</option>
+            </select>
+          </label>
+          <label>
+            <span>類型</span>
+            <select id="typeFilter">
+              <option value="all">全部類型</option>
+            </select>
+          </label>
+          <label>
+            <span>排序</span>
+            <select id="sortFilter">
+              <option value="date-desc">日期新到舊</option>
+              <option value="date-asc">日期舊到新</option>
+              <option value="title-asc">標題 A-Z</option>
+            </select>
+          </label>
+          <button id="resetButton" class="ghost-button" type="button">清除</button>
+        </div>
+
+        <div class="tag-band" aria-label="快速分類">
+          <div id="tagList" class="tag-list"></div>
+        </div>
+
+        <div class="result-bar" aria-live="polite">
+          <p id="resultCount">載入中</p>
+          <p id="generatedAt" class="muted"></p>
+        </div>
+
+        <section id="reportGrid" class="report-grid" aria-label="報告列表"></section>
+        <section id="emptyState" class="empty-state" hidden>
+          <h2>找不到符合條件的報告</h2>
+          <p>調整搜尋字或篩選條件後再試一次。</p>
+        </section>
+      </section>
     </section>
 
-    <section class="overview" aria-label="市場統計">
-      <div class="metric">
-        <span id="twCount">0</span>
-        <strong>台股</strong>
-      </div>
-      <div class="metric">
-        <span id="usCount">0</span>
-        <strong>美股</strong>
-      </div>
-      <div class="metric">
-        <span id="symbolCount">0</span>
-        <strong>追蹤代號</strong>
-      </div>
-      <div class="metric">
-        <span id="typeCount">0</span>
-        <strong>分類</strong>
-      </div>
-    </section>
-
-    <section id="reports" class="reports-panel" aria-label="報告資料庫">
-      <div class="panel-header">
-        <div>
-          <p class="eyebrow">Report Explorer</p>
-          <h2>公開報告索引</h2>
+    <section id="profilePage" class="page-panel" data-page-panel="profile" aria-label="匿名研究背景" hidden>
+      <section class="profile-shell">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Anonymous Research Profile</p>
+            <h2>MD-PhD 資料科學與轉譯醫學背景</h2>
+          </div>
+          <p class="profile-note">姓名、照片、學校與單位已省略；下列資訊保留學位、研究主題、技術軌跡與論文紀錄。</p>
         </div>
-        <div class="publish-source">
-          <span>Public source</span>
-          <strong id="sourceFolder">published_reports/</strong>
+
+        <div class="profile-grid">
+          <article class="profile-card">
+            <span class="profile-kicker">Credential</span>
+            <h3>MD-PhD / Physician-Scientist</h3>
+            <p>兼具臨床醫學訓練與生醫科學博士研究背景，熟悉從臨床問題、分子機制到資料產品化的轉譯路徑。</p>
+          </article>
+          <article class="profile-card">
+            <span class="profile-kicker">Core Stack</span>
+            <h3>Bioinformatics & Multi-omics Systems</h3>
+            <p>長期建置 lipidomics、multi-omics、precision oncology 與資料庫/網頁工具，重視資料結構、可追溯性與可重現分析。</p>
+          </article>
+          <article class="profile-card">
+            <span class="profile-kicker">Research Domain</span>
+            <h3>Lipidomics, HCC & Immunology</h3>
+            <p>研究主軸涵蓋肝癌代謝、ether-lipids、PPARα、microRNA、immune checkpoints 與免疫浸潤資料整合。</p>
+          </article>
+          <article class="profile-card">
+            <span class="profile-kicker">Review / Signal</span>
+            <h3>Peer Review & Research Triage</h3>
+            <p>具 precision oncology、digital medicine、lipidomics workflow 與 computational biology 相關審稿經驗。</p>
+          </article>
         </div>
-      </div>
 
-      <div class="controls" aria-label="報告篩選">
-        <label class="search-box">
-          <span>搜尋</span>
-          <input id="searchInput" type="search" placeholder="股票代號、公司、報告名稱、分類" autocomplete="off">
-        </label>
-        <label>
-          <span>市場</span>
-          <select id="marketFilter">
-            <option value="all">全部市場</option>
-          </select>
-        </label>
-        <label>
-          <span>類型</span>
-          <select id="typeFilter">
-            <option value="all">全部類型</option>
-          </select>
-        </label>
-        <label>
-          <span>排序</span>
-          <select id="sortFilter">
-            <option value="date-desc">日期新到舊</option>
-            <option value="date-asc">日期舊到新</option>
-            <option value="title-asc">標題 A-Z</option>
-          </select>
-        </label>
-        <button id="resetButton" class="ghost-button" type="button">清除</button>
-      </div>
+        <div class="signal-grid" aria-label="研究量化摘要">
+          <div class="signal-card">
+            <span>5</span>
+            <strong>第一 / 共同第一作者</strong>
+          </div>
+          <div class="signal-card">
+            <span>2</span>
+            <strong>Nucleic Acids Research 論文</strong>
+          </div>
+          <div class="signal-card">
+            <span>10+</span>
+            <strong>peer-reviewed publications</strong>
+          </div>
+          <div class="signal-card">
+            <span>13.1</span>
+            <strong>最高 2024 JIF</strong>
+          </div>
+        </div>
 
-      <div class="tag-band" aria-label="快速分類">
-        <div id="tagList" class="tag-list"></div>
-      </div>
+        <section class="publication-panel" aria-label="匿名論文紀錄">
+          <div class="panel-header">
+            <div>
+              <p class="eyebrow">Selected Publications</p>
+              <h2>匿名論文紀錄與最新 IF</h2>
+            </div>
+            <p class="profile-note">Author names omitted. JIF shown as latest 2024 journal metric checked on 2026-06-15.</p>
+          </div>
 
-      <div class="result-bar" aria-live="polite">
-        <p id="resultCount">載入中</p>
-        <p id="generatedAt" class="muted"></p>
-      </div>
+          <div class="publication-list">
+            <article class="publication-item highlight">
+              <div>
+                <span class="pub-year">2024</span>
+                <h3>LipidSig 2.0: integrating lipid characteristic insights into advanced lipidomics data analysis</h3>
+                <p>Nucleic Acids Research · co-first authorship · lipidomics workflow / web resource</p>
+              </div>
+              <strong>JIF 13.1</strong>
+            </article>
+            <article class="publication-item highlight">
+              <div>
+                <span class="pub-year">2021</span>
+                <h3>LipidSig: a web-based tool for lipidomic data analysis</h3>
+                <p>Nucleic Acids Research · first authorship · lipidomics web server</p>
+              </div>
+              <strong>JIF 13.1</strong>
+            </article>
+            <article class="publication-item">
+              <div>
+                <span class="pub-year">2025</span>
+                <h3>Ether-lipids accumulation promotes hepatocellular carcinoma progression linked to PPARα deficiency</h3>
+                <p>Journal of Biomedical Science · co-first authorship · HCC metabolism</p>
+              </div>
+              <strong>JIF 12.1</strong>
+            </article>
+            <article class="publication-item">
+              <div>
+                <span class="pub-year">2025</span>
+                <h3>LipidFun: a database of lipid functions</h3>
+                <p>Bioinformatics · first authorship · lipid function database</p>
+              </div>
+              <strong>JIF 5.4</strong>
+            </article>
+            <article class="publication-item">
+              <div>
+                <span class="pub-year">2025</span>
+                <h3>ImmiR: a database of microRNAs associated with immune checkpoints and infiltrates</h3>
+                <p>Computational and Structural Biotechnology Journal · first authorship · immunology database</p>
+              </div>
+              <strong>JIF 4.1</strong>
+            </article>
+          </div>
+        </section>
 
-      <section id="reportGrid" class="report-grid" aria-label="報告列表"></section>
-      <section id="emptyState" class="empty-state" hidden>
-        <h2>找不到符合條件的報告</h2>
-        <p>調整搜尋字或篩選條件後再試一次。</p>
+        <section class="trajectory-panel" aria-label="匿名經歷軌跡">
+          <div class="panel-header">
+            <div>
+              <p class="eyebrow">Trajectory</p>
+              <h2>匿名化經歷軌跡</h2>
+            </div>
+          </div>
+          <div class="trajectory-grid">
+            <article>
+              <span>Clinical</span>
+              <p>臨床醫學與 PGY/ clerkship 訓練，聚焦疾病機制、臨床資料限制與轉譯問題定義。</p>
+            </article>
+            <article>
+              <span>Research</span>
+              <p>博士與博士後階段累積 multi-omics、cancer biology、lipid metabolism 與資料庫建置能力。</p>
+            </article>
+            <article>
+              <span>Analytics</span>
+              <p>將資料完整性、情境假設、風控紀律與可追蹤報告流程導入公開股票研究資料庫。</p>
+            </article>
+          </div>
+        </section>
       </section>
     </section>
   </main>

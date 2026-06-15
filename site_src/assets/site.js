@@ -8,7 +8,8 @@ const state = {
   market: "all",
   type: "all",
   sort: "date-desc",
-  tag: "all"
+  tag: "all",
+  page: "reports"
 };
 
 const elements = {
@@ -44,7 +45,9 @@ const elements = {
   feedbackMessage: document.querySelector("#feedbackMessage"),
   feedbackCounter: document.querySelector("#feedbackCounter"),
   feedbackCopy: document.querySelector("#feedbackCopy"),
-  feedbackStatus: document.querySelector("#feedbackStatus")
+  feedbackStatus: document.querySelector("#feedbackStatus"),
+  pageLinks: document.querySelectorAll("[data-page-link]"),
+  pagePanels: document.querySelectorAll("[data-page-panel]")
 };
 
 function normalize(value) {
@@ -270,6 +273,47 @@ function bindFilters() {
   });
 }
 
+function setActivePage(page, options = {}) {
+  const nextPage = page === "profile" ? "profile" : "reports";
+  state.page = nextPage;
+
+  elements.pagePanels.forEach((panel) => {
+    const active = panel.dataset.pagePanel === nextPage;
+    panel.hidden = !active;
+    panel.classList.toggle("is-active", active);
+  });
+
+  elements.pageLinks.forEach((link) => {
+    const active = link.dataset.pageLink === nextPage;
+    link.classList.toggle("is-active", active);
+    if (link.getAttribute("role") === "tab") {
+      link.setAttribute("aria-selected", active ? "true" : "false");
+    }
+  });
+
+  if (options.updateHash !== false && window.location.hash !== `#${nextPage}`) {
+    history.pushState(null, "", `#${nextPage}`);
+  }
+  if (options.scroll !== false) {
+    document.querySelector("main")?.scrollIntoView({ block: "start" });
+  }
+}
+
+function bindPageNavigation() {
+  elements.pageLinks.forEach((link) => {
+    link.addEventListener("click", (event) => {
+      event.preventDefault();
+      setActivePage(link.dataset.pageLink, { scroll: true });
+    });
+  });
+
+  window.addEventListener("hashchange", () => {
+    setActivePage(window.location.hash.replace("#", ""), { updateHash: false, scroll: false });
+  });
+
+  setActivePage(window.location.hash.replace("#", ""), { updateHash: false, scroll: false });
+}
+
 function setFeedbackOpen(open) {
   elements.feedbackPanel.hidden = !open;
   elements.feedbackOverlay.hidden = !open;
@@ -368,6 +412,7 @@ async function init() {
   updateStats(metadata);
   renderChartPreviews(metadata);
   bindFilters();
+  bindPageNavigation();
   bindFeedback();
   render();
 }
