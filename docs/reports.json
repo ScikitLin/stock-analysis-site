@@ -3,7 +3,7 @@
   "siteDescription": "以資料完整性、估值情境與風控紀律整理的公開個股研究索引。",
   "disclaimer": "本網站內容僅供投資研究紀錄與討論，不構成個人化投資建議。資料可能延遲或不完整，請自行交叉驗證。",
   "feedbackIssueUrl": "https://github.com/ScikitLin/stock-analysis-site/issues/new",
-  "generatedAt": "2026-06-16T03:11:21.657145+00:00",
+  "generatedAt": "2026-06-16T03:18:42.769285+00:00",
   "sourceDir": "published_reports",
   "publishedFolder": "published_reports",
   "chartPreviews": [
@@ -26,87 +26,8 @@
       "bytes": 169757
     }
   ],
-  "reportCount": 9,
+  "reportCount": 7,
   "reports": [
-    {
-      "id": "tw_stock_top10_detailed_analysis_20260615",
-      "title": "tw_stock_candidates_20260615 前 10 名個股詳細分析",
-      "heading": "tw_stock_candidates_20260615 前 10 名個股詳細分析",
-      "summary": "9945 潤泰新 進入本輪前十，但尚未有人工個股模板；先按 其他 候選處理，不把分數當買進訊號。 模組 核心數字 判斷 價格/時點 候選價 27.1（價格日 2026-06-15）；日價歷史參考 27.1（2026-06-15）；差異 0.0% 估值日與價格日不同時，估值只能視為估值日參考 成長...",
-      "date": "2026-06-15",
-      "market": "tw",
-      "marketLabel": "台股",
-      "type": "top10",
-      "typeLabel": "Top 10 個股",
-      "symbols": [
-        "9945",
-        "2637",
-        "3617",
-        "3706",
-        "1342",
-        "1708",
-        "2101",
-        "3025",
-        "2476",
-        "2606",
-        "6257"
-      ],
-      "symbolNames": [
-        {
-          "symbol": "9945",
-          "name": "潤泰新"
-        },
-        {
-          "symbol": "2637",
-          "name": "慧洋-KY"
-        },
-        {
-          "symbol": "3617",
-          "name": "碩天"
-        },
-        {
-          "symbol": "3706",
-          "name": "神達"
-        },
-        {
-          "symbol": "1342",
-          "name": "八貫"
-        },
-        {
-          "symbol": "1708",
-          "name": "東鹼"
-        },
-        {
-          "symbol": "2101",
-          "name": "南港"
-        },
-        {
-          "symbol": "3025",
-          "name": "星通"
-        },
-        {
-          "symbol": "2476",
-          "name": "鉅祥"
-        },
-        {
-          "symbol": "2606",
-          "name": "裕民"
-        },
-        {
-          "symbol": "6257",
-          "name": ""
-        }
-      ],
-      "tags": [
-        "台股",
-        "Top 10 個股",
-        "候選池",
-        "詳細版"
-      ],
-      "sourceFile": "tw_stock_top10_detailed_analysis_20260615.html",
-      "url": "reports/tw_stock_top10_detailed_analysis_20260615.html",
-      "bytes": 26385
-    },
     {
       "id": "tw_stock_top16_stock_analysis_framework_20260615",
       "title": "Top 16 台股候選個股分析 2026-06-15",
@@ -487,80 +408,6 @@
       "sourceFile": "tw_stock_custom_2317_4739_2379_stock_analysis_framework_20260613.html",
       "url": "reports/tw_stock_custom_2317_4739_2379_stock_analysis_framework_20260613.html",
       "bytes": 73974
-    },
-    {
-      "id": "tw_stock_top10_detailed_analysis_20260613",
-      "title": "tw_stock_candidates_20260613 前 10 名個股詳細分析",
-      "heading": "tw_stock_candidates_20260613 前 10 名個股詳細分析",
-      "summary": "成長、獲利與題材都強，但 5 月營收月減與股價仍在高位；即使 market regime 為 Normal，也不適合用排名第一直接追價。 模組 核心數字 判斷 價格/時點 候選價 662.0（價格日 2026-06-12）；日價歷史參考 662.0（2026-06-12）；差異 0.0% 估值日與...",
-      "date": "2026-06-13",
-      "market": "tw",
-      "marketLabel": "台股",
-      "type": "top10",
-      "typeLabel": "Top 10 個股",
-      "symbols": [
-        "3406",
-        "6525",
-        "2303",
-        "2428",
-        "1342",
-        "1708",
-        "6214",
-        "6257",
-        "2606",
-        "2637"
-      ],
-      "symbolNames": [
-        {
-          "symbol": "3406",
-          "name": "玉晶光"
-        },
-        {
-          "symbol": "6525",
-          "name": "捷敏-KY"
-        },
-        {
-          "symbol": "2303",
-          "name": "聯電"
-        },
-        {
-          "symbol": "2428",
-          "name": "興勤"
-        },
-        {
-          "symbol": "1342",
-          "name": "八貫"
-        },
-        {
-          "symbol": "1708",
-          "name": "東鹼"
-        },
-        {
-          "symbol": "6214",
-          "name": "精誠"
-        },
-        {
-          "symbol": "6257",
-          "name": "矽格"
-        },
-        {
-          "symbol": "2606",
-          "name": "裕民"
-        },
-        {
-          "symbol": "2637",
-          "name": "慧洋-KY"
-        }
-      ],
-      "tags": [
-        "台股",
-        "Top 10 個股",
-        "候選池",
-        "詳細版"
-      ],
-      "sourceFile": "tw_stock_top10_detailed_analysis_20260613.html",
-      "url": "reports/tw_stock_top10_detailed_analysis_20260613.html",
-      "bytes": 26307
     },
     {
       "id": "tw_stock_top10_stock_analysis_framework_20260613",
