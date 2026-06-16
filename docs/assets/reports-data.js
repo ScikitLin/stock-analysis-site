@@ -3,7 +3,7 @@ window.STOCK_REPORTS = {
   "siteDescription": "以資料完整性、估值情境與風控紀律整理的公開個股研究索引。",
   "disclaimer": "本網站內容僅供投資研究紀錄與討論，不構成個人化投資建議。資料可能延遲或不完整，請自行交叉驗證。",
   "feedbackIssueUrl": "https://github.com/ScikitLin/stock-analysis-site/issues/new",
-  "generatedAt": "2026-06-15T16:03:40.422644+00:00",
+  "generatedAt": "2026-06-16T03:11:21.657145+00:00",
   "sourceDir": "published_reports",
   "publishedFolder": "published_reports",
   "chartPreviews": [
@@ -26,7 +26,7 @@ window.STOCK_REPORTS = {
       "bytes": 169757
     }
   ],
-  "reportCount": 8,
+  "reportCount": 9,
   "reports": [
     {
       "id": "tw_stock_top10_detailed_analysis_20260615",
@@ -106,6 +106,110 @@ window.STOCK_REPORTS = {
       "sourceFile": "tw_stock_top10_detailed_analysis_20260615.html",
       "url": "reports/tw_stock_top10_detailed_analysis_20260615.html",
       "bytes": 26385
+    },
+    {
+      "id": "tw_stock_top16_stock_analysis_framework_20260615",
+      "title": "Top 16 台股候選個股分析 2026-06-15",
+      "heading": "Top 16 台股候選個股分析",
+      "summary": "觀望偏優先；估值相對合理，但先確認營收來源與資產價值。現價隱含情境：Base 情境偏高。理由：P/E 與 P/B 偏低、殖利率有支撐，3M 營收 YoY 與最新月營收都強。 主要風險：低 P/E/P/B 可能來自市場對資產折價、建案認列波動或一次性收益的折價。 2. 市場 regime 與投資組合...",
+      "date": "2026-06-15",
+      "market": "tw",
+      "marketLabel": "台股",
+      "type": "multi",
+      "typeLabel": "多檔個股",
+      "symbols": [
+        "9945",
+        "2637",
+        "3617",
+        "3706",
+        "1342",
+        "1708",
+        "2101",
+        "3025",
+        "2476",
+        "2606",
+        "6191",
+        "6206",
+        "3034",
+        "3413",
+        "3592",
+        "6525"
+      ],
+      "symbolNames": [
+        {
+          "symbol": "9945",
+          "name": "潤泰新"
+        },
+        {
+          "symbol": "2637",
+          "name": "慧洋-KY"
+        },
+        {
+          "symbol": "3617",
+          "name": "碩天"
+        },
+        {
+          "symbol": "3706",
+          "name": "神達"
+        },
+        {
+          "symbol": "1342",
+          "name": "八貫"
+        },
+        {
+          "symbol": "1708",
+          "name": "東鹼"
+        },
+        {
+          "symbol": "2101",
+          "name": "南港"
+        },
+        {
+          "symbol": "3025",
+          "name": "星通"
+        },
+        {
+          "symbol": "2476",
+          "name": "鉅祥"
+        },
+        {
+          "symbol": "2606",
+          "name": "裕民"
+        },
+        {
+          "symbol": "6191",
+          "name": "精成科"
+        },
+        {
+          "symbol": "6206",
+          "name": "飛捷"
+        },
+        {
+          "symbol": "3034",
+          "name": "聯詠"
+        },
+        {
+          "symbol": "3413",
+          "name": "京鼎"
+        },
+        {
+          "symbol": "3592",
+          "name": "瑞鼎"
+        },
+        {
+          "symbol": "6525",
+          "name": "捷敏-KY"
+        }
+      ],
+      "tags": [
+        "台股",
+        "多檔個股",
+        "分析框架",
+        "Bear/Base/Bull"
+      ],
+      "sourceFile": "tw_stock_top16_stock_analysis_framework_20260615.html",
+      "url": "reports/tw_stock_top16_stock_analysis_framework_20260615.html",
+      "bytes": 352965
     },
     {
       "id": "tw_stock_top10_stock_analysis_framework_20260615",
@@ -229,7 +333,7 @@ window.STOCK_REPORTS = {
       ],
       "sourceFile": "us_multi_stock_analysis_framework_cmg_tel_cohr_gev_ntap_20260615.html",
       "url": "reports/us_multi_stock_analysis_framework_cmg_tel_cohr_gev_ntap_20260615.html",
-      "bytes": 77803
+      "bytes": 82878
     },
     {
       "id": "us_multi_stock_analysis_framework_20260614",
@@ -308,7 +412,7 @@ window.STOCK_REPORTS = {
       ],
       "sourceFile": "us_multi_stock_analysis_framework_20260614.html",
       "url": "reports/us_multi_stock_analysis_framework_20260614.html",
-      "bytes": 71569
+      "bytes": 76644
     },
     {
       "id": "us_bdc_stock_analysis_framework_20260614",
