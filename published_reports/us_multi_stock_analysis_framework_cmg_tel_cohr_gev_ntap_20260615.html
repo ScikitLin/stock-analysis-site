@@ -60,11 +60,26 @@
     }
     .metric {
       border: 1px solid var(--line);
+      border-left: 4px solid #3a87c9;
       border-radius: 8px;
       padding: 14px;
       background: #fbfdff;
     }
     .metric strong { display: block; font-size: 24px; color: var(--blue); }
+    .metric small strong { display: inline; font-size: inherit; }
+    .key { color: var(--blue); font-weight: 800; }
+    .positive { color: var(--green); font-weight: 800; }
+    .negative, .risk-text { color: var(--red); font-weight: 800; }
+    .watch-text { color: var(--amber); font-weight: 800; }
+    .muted-chip {
+      display: inline-block;
+      border-radius: 999px;
+      padding: 1px 7px;
+      background: #edf1f5;
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 700;
+    }
     .tag {
       display: inline-block;
       border-radius: 999px;
@@ -78,6 +93,8 @@
     }
     .tag.watch { background: #fff4dc; color: var(--amber); }
     .tag.risk { background: #f9e7e7; color: var(--red); }
+    .tag.key { background: #e8f2fb; color: var(--blue); }
+    .tag.muted { background: #edf1f5; color: var(--muted); }
     .tabs {
       position: sticky;
       top: 0;
@@ -118,6 +135,12 @@
     }
     th { background: #eef4fa; text-align: left; }
     td.num, th.num { text-align: right; font-variant-numeric: tabular-nums; }
+    td.num { color: #163e63; font-weight: 700; }
+    tr.current-row td { background: #f4f9ff; }
+    tr.entry-row td { background: #f3faf5; }
+    tr.watch-row td { background: #fffaf0; }
+    tr.risk-row td { background: #fff5f5; }
+    tr.upper-row td { background: #fff8ee; }
     .stock-head {
       display: flex;
       align-items: flex-start;
@@ -134,6 +157,13 @@
       padding: 8px 12px;
       background: #f4f8fc;
       color: #31465c;
+    }
+    .warn {
+      border-left: 4px solid var(--amber);
+      padding: 8px 12px;
+      background: #fff8e8;
+      color: #5d3a00;
+      font-weight: 650;
     }
     .two-col {
       display: grid;
@@ -855,7 +885,21 @@
     const ttmPeAt = (s, price) => price / s.epsTtm;
     const fwdPeAt = (s, price) => price / valuationEps(s);
     const haircut = (s) => s.multiples.fair / s.multiples.anchor;
-    const tagClass = (text) => /觀望|不追|小倉|等|中性/.test(String(text)) ? "watch" : /退出|風險|偏空/.test(String(text)) ? "risk" : "";
+    const tagClass = (text) => /退出|減碼|風險|偏空|damaged|stretched/.test(String(text)) ? "risk" : /觀望|不追|小倉|等|中性|Bear\/Base/.test(String(text)) ? "watch" : "";
+    const signalClass = (text) => {
+      const value = String(text);
+      if (/未取得|待補|n\/a/i.test(value)) return "muted-chip";
+      if (/^-|−|退出|減碼|風險|偏空|damaged|stretched|不追|受壓|破/.test(value)) return "negative";
+      if (/^\+|上漲|偏多|續抱|上修|折價|高於|thesis intact/i.test(value)) return "positive";
+      if (/觀望|等待|中性|Bear\/Base/.test(value)) return "watch-text";
+      return "key";
+    };
+    const emph = (value, cls) => `<strong class="${cls || signalClass(value)}">${value}</strong>`;
+    const moneyKey = (x, cls = "key") => emph(money(x), cls);
+    const ratioKey = (x, cls = "key") => emph(ratio(x), /未取得|n\/a/i.test(ratio(x)) ? "muted-chip" : cls);
+    const move = (value) => emph(value, signalClass(value));
+    const zone = (value, cls = "key") => emph(value, cls);
+    const scenarioBadge = (text) => `<span class="tag ${tagClass(text) || "key"}">${text}</span>`;
     const list = (items) => `<ul>${items.map(x => `<li>${x}</li>`).join("")}</ul>`;
     const pctDiscount = (self, peer) => {
       if (!self || !peer) return "未取得";
@@ -885,15 +929,15 @@
               <td><button class="tab-button" type="button" data-jump="${s.ticker}">${s.ticker}</button></td>
               <td>${s.company}</td>
               <td>${meta(s).industry}</td>
-              <td class="num">${money(s.price)}</td>
-              <td class="num">${s.d5} / ${s.d20} / ${s.d60}</td>
-              <td class="num">${ratio(s.pe)} / ${ratio(s.fpe)}</td>
-              <td>${s.zones.buy}</td>
-              <td>${s.zones.repair}</td>
-              <td>${s.zones.reduce}</td>
+              <td class="num">${moneyKey(s.price)}</td>
+              <td class="num">${move(s.d5)} / ${move(s.d20)} / ${move(s.d60)}</td>
+              <td class="num">${ratioKey(s.pe)} / ${ratioKey(s.fpe)}</td>
+              <td>${zone(s.zones.buy, "positive")}</td>
+              <td>${zone(s.zones.repair, "key")}</td>
+              <td>${zone(s.zones.reduce, "watch-text")}</td>
               <td><span class="tag ${tagClass(s.action)}">${s.action}</span></td>
-              <td>${priceScenario(s)}</td>
-              <td class="num">${s.w52}</td>
+              <td>${scenarioBadge(priceScenario(s))}</td>
+              <td class="num">${move(s.w52)}</td>
             </tr>`).join("")}
           </tbody>
         </table>
@@ -905,13 +949,13 @@
         <table>
           <thead><tr><th>模組</th><th>核心數字</th><th>判斷</th></tr></thead>
           <tbody>
-            <tr><td>價格/時點</td><td>2026-06-12 正式收盤 ${money(s.price)}，日漲跌 ${s.day}，成交量 ${s.volume}，相對量 ${meta(s).rvol}</td><td>正式收盤與盤後/盤前分開；本頁不把盤後價當收盤。</td></tr>
-            <tr><td>股價/技術</td><td>5D ${s.d5} / 20D ${s.d20} / 60D ${s.d60}；50DMA ${money(s.dma50)} / 200DMA ${money(s.dma200)}；52W ${s.w52}</td><td>${s.price >= s.dma200 ? "高於 200DMA，趨勢尚可" : "低於 200DMA，需等修復確認"}；短線追價需看成交量與 EPS 上修。</td></tr>
-            <tr><td>EPS</td><td>TTM EPS ${money(s.epsTtm)}；Forward P/E implied EPS ${money(impliedFwd(s))}；FY26E/可得 forecast EPS ${s.eps26 ? money(s.eps26) : "未直接使用，改用 forward implied EPS"}</td><td>TTM 是已實現；forward 多為 adjusted/non-GAAP 或 NTM，不能直接混用。</td></tr>
-            <tr><td>估值</td><td>P/E ${ratio(s.pe)}；Forward P/E ${ratio(s.fpe)}；P/FCF ${ratio(s.pfcf)}；EV/EBITDA ${ratio(s.evebitda)}</td><td>用 P/E、Forward P/E、P/FCF、EV/EBITDA 四個角度交叉檢查。</td></tr>
-            <tr><td>品質</td><td>毛利率 ${s.gm}；營益率 ${s.om}；Debt/Equity ${s.debt}</td><td>${meta(s).quality}</td></tr>
-            <tr><td>大盤</td><td>2026-06-12 S&P 500 上漲約 0.5%；regime：Normal / selective risk-on</td><td>大盤可承擔風險，但高估值 AI/電力/光通訊仍要分批與風控。</td></tr>
-            <tr><td>現價情境</td><td>${priceScenario(s)}</td><td>這是單股 Bear/Base/Bull 定價情境，不是大盤 regime。</td></tr>
+            <tr><td>價格/時點</td><td>2026-06-12 正式收盤 ${moneyKey(s.price)}，日漲跌 ${move(s.day)}，成交量 ${emph(s.volume)}，相對量 ${emph(meta(s).rvol)}</td><td>正式收盤與盤後/盤前分開；本頁不把盤後價當收盤。</td></tr>
+            <tr><td>股價/技術</td><td>5D ${move(s.d5)} / 20D ${move(s.d20)} / 60D ${move(s.d60)}；50DMA ${moneyKey(s.dma50)} / 200DMA ${moneyKey(s.dma200)}；52W ${move(s.w52)}</td><td>${s.price >= s.dma200 ? emph("高於 200DMA，趨勢尚可", "positive") : emph("低於 200DMA，需等修復確認", "watch-text")}；短線追價需看成交量與 EPS 上修。</td></tr>
+            <tr><td>EPS</td><td>TTM EPS ${moneyKey(s.epsTtm)}；Forward P/E implied EPS ${moneyKey(impliedFwd(s))}；FY26E/可得 forecast EPS ${s.eps26 ? moneyKey(s.eps26) : emph("未直接使用，改用 forward implied EPS", "muted-chip")}</td><td>TTM 是已實現；forward 多為 adjusted/non-GAAP 或 NTM，不能直接混用。</td></tr>
+            <tr><td>估值</td><td>P/E ${ratioKey(s.pe)}；Forward P/E ${ratioKey(s.fpe)}；P/FCF ${ratioKey(s.pfcf)}；EV/EBITDA ${ratioKey(s.evebitda)}</td><td>用 P/E、Forward P/E、P/FCF、EV/EBITDA 四個角度交叉檢查。</td></tr>
+            <tr><td>品質</td><td>毛利率 ${emph(s.gm)}；營益率 ${emph(s.om)}；Debt/Equity ${emph(s.debt)}</td><td>${meta(s).quality}</td></tr>
+            <tr><td>大盤</td><td>2026-06-12 S&P 500 ${emph("上漲約 0.5%", "positive")}；regime：${emph("Normal / selective risk-on", "key")}</td><td>大盤可承擔風險，但高估值 AI/電力/光通訊仍要分批與風控。</td></tr>
+            <tr><td>現價情境</td><td>${scenarioBadge(priceScenario(s))}</td><td>這是單股 Bear/Base/Bull 定價情境，不是大盤 regime。</td></tr>
           </tbody>
         </table>
       `;
@@ -924,12 +968,12 @@
         <table>
           <thead><tr><th>估值口徑</th><th class="num">EPS 分母</th><th class="num">計算</th><th class="num">結果</th><th>說明</th></tr></thead>
           <tbody>
-            <tr><td>TTM GAAP / trailing P/E</td><td class="num">${money(s.epsTtm)}</td><td class="num">${money(s.price)} / ${money(s.epsTtm)}</td><td class="num">${ratio(s.pe)}</td><td>過去 12 個月已實現 EPS。</td></tr>
-            <tr><td>Forward P/E implied EPS</td><td class="num">${money(impliedFwd(s))}</td><td class="num">${money(s.price)} / ${ratio(s.fpe)}</td><td class="num">${ratio(s.fpe)}</td><td>資料商 forward P/E 反推，通常偏 adjusted/NTM。</td></tr>
-            <tr><td>本報 valuation EPS</td><td class="num">${money(base)}</td><td class="num">${s.eps26 ? "採 FY26E / 可得 forecast EPS" : "用 forward implied EPS"}</td><td class="num">${ratio(s.price / base)}</td><td>與 TTM EPS 差 ${Number.isFinite(growth) ? growth.toFixed(1) + "%" : "未確認"}；這就是 trailing 與 forward P/E 差異來源。</td></tr>
+            <tr><td>TTM GAAP / trailing P/E</td><td class="num">${moneyKey(s.epsTtm)}</td><td class="num">${moneyKey(s.price)} / ${moneyKey(s.epsTtm)}</td><td class="num">${ratioKey(s.pe)}</td><td>過去 12 個月已實現 EPS。</td></tr>
+            <tr><td>Forward P/E implied EPS</td><td class="num">${moneyKey(impliedFwd(s))}</td><td class="num">${moneyKey(s.price)} / ${ratioKey(s.fpe)}</td><td class="num">${ratioKey(s.fpe)}</td><td>資料商 forward P/E 反推，通常偏 adjusted/NTM。</td></tr>
+            <tr class="watch-row"><td>本報 valuation EPS</td><td class="num">${moneyKey(base)}</td><td class="num">${s.eps26 ? emph("採 FY26E / 可得 forecast EPS", "key") : emph("用 forward implied EPS", "watch-text")}</td><td class="num">${ratioKey(s.price / base)}</td><td>與 TTM EPS 差 ${Number.isFinite(growth) ? move(growth.toFixed(1) + "%") : emph("未確認", "muted-chip")}；這就是 trailing 與 forward P/E 差異來源。</td></tr>
           </tbody>
         </table>
-        <p class="warn">重點：Forward P/E 低，不等於無風險便宜；它代表市場預期未來 EPS 改善。若 EPS/guidance/margin 沒跟上，forward 估值會變成陷阱。</p>
+        <p class="warn"><strong>重點：</strong>Forward P/E 低，不等於無風險便宜；它代表市場預期未來 EPS 改善。若 <strong>EPS / guidance / margin</strong> 沒跟上，forward 估值會變成陷阱。</p>
         ${meta(s).forwardNote ? `<p class="note">${meta(s).forwardNote}</p>` : ""}
       `;
     }
@@ -949,15 +993,15 @@
         <table>
           <thead><tr><th>窗口</th><th class="num">價格資料筆數</th><th>起訖日</th><th class="num">P10</th><th class="num">P50</th><th class="num">P90</th><th>可信度</th></tr></thead>
           <tbody>
-            ${rows.map(r => `<tr><td>${r[0]}</td><td class="num">${r[1]}</td><td>${r[2]}</td><td class="num">${ratio(r[3])}</td><td class="num">${ratio(r[4])}</td><td class="num">${ratio(r[5])}</td><td>${r[6]}</td></tr>`).join("")}
+            ${rows.map(r => `<tr class="${/待補/.test(String(r[6])) ? "watch-row" : ""}"><td>${r[0]}</td><td class="num">${emph(r[1])}</td><td>${r[2]}</td><td class="num">${ratioKey(r[3])}</td><td class="num">${ratioKey(r[4])}</td><td class="num">${ratioKey(r[5])}</td><td>${emph(r[6])}</td></tr>`).join("")}
           </tbody>
         </table>
         <table>
           <thead><tr><th>區間</th><th class="num">Proxy P/E</th><th class="num">對應價格</th><th>解讀</th></tr></thead>
           <tbody>
-            <tr><td>${anchorLabel} P10 壓力區</td><td class="num">${ratio(p10)}</td><td class="num">${money(p10 * s.epsTtm)}</td><td>接近近期低位；若 thesis intact 才能研究。</td></tr>
-            <tr><td>${anchorLabel} P50 中位數</td><td class="num">${ratio(p50)}</td><td class="num">${money(p50 * s.epsTtm)}</td><td>近期中位，不是 overheat。</td></tr>
-            <tr><td>${anchorLabel} P90 偏熱區</td><td class="num">${ratio(p90)}</td><td class="num">${money(p90 * s.epsTtm)}</td><td>若 EPS 沒上修，進入偏熱/停利檢查。</td></tr>
+            <tr class="risk-row"><td>${anchorLabel} P10 壓力區</td><td class="num">${ratioKey(p10, "risk-text")}</td><td class="num">${moneyKey(p10 * s.epsTtm, "risk-text")}</td><td>接近近期低位；若 thesis intact 才能研究。</td></tr>
+            <tr class="current-row"><td>${anchorLabel} P50 中位數</td><td class="num">${ratioKey(p50)}</td><td class="num">${moneyKey(p50 * s.epsTtm)}</td><td>近期中位，不是 overheat。</td></tr>
+            <tr class="upper-row"><td>${anchorLabel} P90 偏熱區</td><td class="num">${ratioKey(p90, "watch-text")}</td><td class="num">${moneyKey(p90 * s.epsTtm, "watch-text")}</td><td>若 EPS 沒上修，進入偏熱/停利檢查。</td></tr>
           </tbody>
         </table>
       `;
@@ -972,22 +1016,22 @@
       const h = haircut(s);
       const relation = h < 1 ? `只承認約 ${(h * 100).toFixed(1)}% 的 forward story` : `給予約 ${(h * 100).toFixed(1)}% 的 forward premium`;
       return `
-        <p>${ratio(s.multiples.stress)} / ${ratio(s.multiples.entry)} / ${ratio(s.multiples.fair)} / ${ratio(s.multiples.upper)} 不是官方倍數，也不是所有股票通用模板，而是本次針對 ${s.ticker} 的研究判斷。錨點來自目前估值、6M/1Y proxy、同業中位數、margin、FCF、槓桿與題材兌現度。</p>
+        <p>${ratioKey(s.multiples.stress, "risk-text")} / ${ratioKey(s.multiples.entry, "positive")} / ${ratioKey(s.multiples.fair)} / ${ratioKey(s.multiples.upper, "watch-text")} 不是官方倍數，也不是所有股票通用模板，而是本次針對 ${emph(s.ticker)} 的研究判斷。錨點來自目前估值、6M/1Y proxy、同業中位數、margin、FCF、槓桿與題材兌現度。</p>
         <table>
           <thead><tr><th>價格錨點</th><th class="num">價格</th><th class="num">對 TTM EPS 的 P/E</th><th class="num">對 valuation EPS 的 P/E</th><th>解讀</th></tr></thead>
           <tbody>
-            <tr><td>現價</td><td class="num">${money(s.price)}</td><td class="num">${ratio(s.pe)}</td><td class="num">${ratio(s.price / base)}</td><td>市場目前定價；${priceScenario(s)}</td></tr>
-            <tr><td>Stress</td><td class="num">${money(stress)}</td><td class="num">${ratio(ttmPeAt(s, stress))}</td><td class="num">${ratio(s.multiples.stress)}</td><td>thesis 受壓檢查，不是自動買點。</td></tr>
-            <tr><td>Entry</td><td class="num">${money(entry)}</td><td class="num">${ratio(ttmPeAt(s, entry))}</td><td class="num">${ratio(s.multiples.entry)}</td><td>thesis intact 時可研究。</td></tr>
-            <tr><td>Base fair</td><td class="num">${money(fair)}</td><td class="num">${ratio(ttmPeAt(s, fair))}</td><td class="num">${ratio(s.multiples.fair)}</td><td>合理估值，不等於追價買點。</td></tr>
-            <tr><td>Rerating upper</td><td class="num">${money(upper)}</td><td class="num">${ratio(ttmPeAt(s, upper))}</td><td class="num">${ratio(s.multiples.upper)}</td><td>需要 EPS/margin/backlog 或估計上修。</td></tr>
+            <tr class="current-row"><td>現價</td><td class="num">${moneyKey(s.price)}</td><td class="num">${ratioKey(s.pe)}</td><td class="num">${ratioKey(s.price / base)}</td><td>市場目前定價；${scenarioBadge(priceScenario(s))}</td></tr>
+            <tr class="risk-row"><td>Stress</td><td class="num">${moneyKey(stress, "risk-text")}</td><td class="num">${ratioKey(ttmPeAt(s, stress), "risk-text")}</td><td class="num">${ratioKey(s.multiples.stress, "risk-text")}</td><td>thesis 受壓檢查，不是自動買點。</td></tr>
+            <tr class="entry-row"><td>Entry</td><td class="num">${moneyKey(entry, "positive")}</td><td class="num">${ratioKey(ttmPeAt(s, entry), "positive")}</td><td class="num">${ratioKey(s.multiples.entry, "positive")}</td><td>thesis intact 時可研究。</td></tr>
+            <tr class="current-row"><td>Base fair</td><td class="num">${moneyKey(fair)}</td><td class="num">${ratioKey(ttmPeAt(s, fair))}</td><td class="num">${ratioKey(s.multiples.fair)}</td><td>合理估值，不等於追價買點。</td></tr>
+            <tr class="upper-row"><td>Rerating upper</td><td class="num">${moneyKey(upper, "watch-text")}</td><td class="num">${ratioKey(ttmPeAt(s, upper), "watch-text")}</td><td class="num">${ratioKey(s.multiples.upper, "watch-text")}</td><td>需要 EPS/margin/backlog 或估計上修。</td></tr>
           </tbody>
         </table>
         <table>
           <thead><tr><th>寫法</th><th>公式</th><th class="num">結果</th><th>意義</th></tr></thead>
           <tbody>
-            <tr><td>Base fair</td><td>${money(base)} x ${ratio(s.multiples.fair)}</td><td class="num">${money(fair)}</td><td>用 valuation EPS 建立合理價。</td></tr>
-            <tr><td>相對錨點折溢價</td><td>${money(base)} x ${(h * 100).toFixed(1)}% x anchor ${ratio(s.multiples.anchor)}</td><td class="num">${money(fair)}</td><td>${relation}；這是研究判斷，不是官方來源。</td></tr>
+            <tr class="current-row"><td>Base fair</td><td>${moneyKey(base)} x ${ratioKey(s.multiples.fair)}</td><td class="num">${moneyKey(fair)}</td><td>用 valuation EPS 建立合理價。</td></tr>
+            <tr class="watch-row"><td>相對錨點折溢價</td><td>${moneyKey(base)} x ${emph((h * 100).toFixed(1) + "%", "watch-text")} x anchor ${ratioKey(s.multiples.anchor)}</td><td class="num">${moneyKey(fair)}</td><td>${emph(relation, "watch-text")}；這是研究判斷，不是官方來源。</td></tr>
           </tbody>
         </table>
       `;
@@ -1003,7 +1047,11 @@
         <table>
           <thead><tr><th>情境</th><th class="num">EPS 假設</th><th class="num">現價 implied P/E</th><th class="num">Stress ${ratio(m.stress)}</th><th class="num">Entry ${ratio(m.entry)}</th><th class="num">Fair ${ratio(m.fair)}</th><th class="num">Rerating upper / Stretched ${ratio(m.upper)}</th><th>現價對比</th></tr></thead>
           <tbody>
-            ${rows.map(([name, eps]) => `<tr><td>${name}</td><td class="num">${money(eps)}</td><td class="num">${ratio(s.price / eps)}</td><td class="num">${money(eps * m.stress)}</td><td class="num">${money(eps * m.entry)}</td><td class="num">${money(eps * m.fair)}</td><td class="num">${money(eps * m.upper)}</td><td>${name === "Base" ? priceScenario(s) : "用來檢查上下行情境，不是預測。"}</td></tr>`).join("")}
+            ${rows.map(([name, eps]) => {
+              const rowClass = name === "Bear" ? "risk-row" : name === "Base" ? "current-row" : "upper-row";
+              const tone = name === "Bear" ? "risk-text" : name === "Base" ? "key" : "watch-text";
+              return `<tr class="${rowClass}"><td>${emph(name, tone)}</td><td class="num">${moneyKey(eps, tone)}</td><td class="num">${ratioKey(s.price / eps, tone)}</td><td class="num">${moneyKey(eps * m.stress, "risk-text")}</td><td class="num">${moneyKey(eps * m.entry, "positive")}</td><td class="num">${moneyKey(eps * m.fair)}</td><td class="num">${moneyKey(eps * m.upper, "watch-text")}</td><td>${name === "Base" ? scenarioBadge(priceScenario(s)) : "用來檢查上下行情境，不是預測。"}</td></tr>`;
+            }).join("")}
           </tbody>
         </table>
       `;
@@ -1031,16 +1079,16 @@
             ${peers.map(t => {
               const v = peerValues(t);
               const rel = t === s.ticker ? "本體" : ((relationOverride[s.ticker] || {})[t] || "中");
-              return `<tr><td>${t}</td><td>${v.business}</td><td>${rel}</td><td class="num">${ratio(v.pe)}</td><td class="num">${ratio(v.fpe)}</td><td class="num">${ratio(v.pfcf)}</td><td class="num">${ratio(v.evebitda)}</td><td>${v.reason}</td></tr>`;
+              return `<tr class="${t === s.ticker ? "current-row" : ""}"><td>${emph(t)}</td><td>${v.business}</td><td>${rel}</td><td class="num">${ratioKey(v.pe)}</td><td class="num">${ratioKey(v.fpe)}</td><td class="num">${ratioKey(v.pfcf)}</td><td class="num">${ratioKey(v.evebitda)}</td><td>${v.reason}</td></tr>`;
             }).join("")}
           </tbody>
         </table>
         <table>
           <thead><tr><th>同業組合</th><th class="num">P/E 中位數</th><th class="num">Forward P/E 中位數</th><th class="num">P/FCF 中位數</th><th class="num">EV/EBITDA 中位數</th></tr></thead>
           <tbody>
-            <tr><td>${s.peers.set}</td><td class="num">${ratio(s.peers.pe)}</td><td class="num">${ratio(s.peers.fpe)}</td><td class="num">${ratio(s.peers.pfcf)}</td><td class="num">${ratio(s.peers.evebitda)}</td></tr>
-            <tr><td>${s.ticker}</td><td class="num">${ratio(s.pe)}</td><td class="num">${ratio(s.fpe)}</td><td class="num">${ratio(s.pfcf)}</td><td class="num">${ratio(s.evebitda)}</td></tr>
-            <tr><td>${s.ticker} 相對 peer 中位數</td><td class="num">${pctDiscount(s.pe, s.peers.pe)}</td><td class="num">${pctDiscount(s.fpe, s.peers.fpe)}</td><td class="num">${pctDiscount(s.pfcf, s.peers.pfcf)}</td><td class="num">${pctDiscount(s.evebitda, s.peers.evebitda)}</td></tr>
+            <tr><td>${s.peers.set}</td><td class="num">${ratioKey(s.peers.pe)}</td><td class="num">${ratioKey(s.peers.fpe)}</td><td class="num">${ratioKey(s.peers.pfcf)}</td><td class="num">${ratioKey(s.peers.evebitda)}</td></tr>
+            <tr class="current-row"><td>${emph(s.ticker)}</td><td class="num">${ratioKey(s.pe)}</td><td class="num">${ratioKey(s.fpe)}</td><td class="num">${ratioKey(s.pfcf)}</td><td class="num">${ratioKey(s.evebitda)}</td></tr>
+            <tr class="watch-row"><td>${s.ticker} 相對 peer 中位數</td><td class="num">${emph(pctDiscount(s.pe, s.peers.pe))}</td><td class="num">${emph(pctDiscount(s.fpe, s.peers.fpe))}</td><td class="num">${emph(pctDiscount(s.pfcf, s.peers.pfcf))}</td><td class="num">${emph(pctDiscount(s.evebitda, s.peers.evebitda))}</td></tr>
           </tbody>
         </table>
         <p>同業中位數只能說明折價/溢價，不可直接拿來當目標價；仍要依 growth、margin、FCF、槓桿、規模與估計修正調整。表內 n/a 代表資料商因虧損、FCF 不適用或 EV/EBITDA 無意義而不給值，不是漏抓。</p>
@@ -1054,13 +1102,13 @@
         <table>
           <thead><tr><th>價格區</th><th>判斷</th><th>操作</th></tr></thead>
           <tbody>
-            <tr><td>${money(val(s, s.multiples.stress))} 附近或以下</td><td>Stress / 超跌研究區</td><td>不是自動買點；先檢查 thesis 是否受傷。</td></tr>
-            <tr><td>${s.zones.buy}</td><td>估值進場/研究區</td><td>若 market regime 可承擔風險且 thesis intact，可小量或分批。</td></tr>
-            <tr><td>${s.zones.repair}</td><td>技術試單/修復區</td><td>站回後回測不破，信心提高；反彈無量則不追。</td></tr>
-            <tr><td>${money(baseFair)} 附近</td><td>Base fair</td><td>已有部位可續抱；新買要看安全邊際。</td></tr>
-            <tr><td>${s.zones.reduce}</td><td>過熱/停利檢查區</td><td>若 EPS/margin 未上修，可部分停利或不追。</td></tr>
-            <tr><td>${money(upper)} 以上</td><td>Rerating upper / stretched</td><td>需要明確 EPS revision、backlog 或供給吃緊證據。</td></tr>
-            <tr><td>${s.zones.risk}</td><td>風險審核線</td><td>先分辨系統性下跌還是公司 thesis damaged。</td></tr>
+            <tr class="risk-row"><td>${moneyKey(val(s, s.multiples.stress), "risk-text")} 附近或以下</td><td>${emph("Stress / 超跌研究區", "risk-text")}</td><td>不是自動買點；先檢查 thesis 是否受傷。</td></tr>
+            <tr class="entry-row"><td>${zone(s.zones.buy, "positive")}</td><td>${emph("估值進場/研究區", "positive")}</td><td>若 market regime 可承擔風險且 thesis intact，可小量或分批。</td></tr>
+            <tr class="current-row"><td>${zone(s.zones.repair)}</td><td>${emph("技術試單/修復區")}</td><td>站回後回測不破，信心提高；反彈無量則不追。</td></tr>
+            <tr class="current-row"><td>${moneyKey(baseFair)} 附近</td><td>${emph("Base fair")}</td><td>已有部位可續抱；新買要看安全邊際。</td></tr>
+            <tr class="upper-row"><td>${zone(s.zones.reduce, "watch-text")}</td><td>${emph("過熱/停利檢查區", "watch-text")}</td><td>若 EPS/margin 未上修，可部分停利或不追。</td></tr>
+            <tr class="upper-row"><td>${moneyKey(upper, "watch-text")} 以上</td><td>${emph("Rerating upper / stretched", "watch-text")}</td><td>需要明確 EPS revision、backlog 或供給吃緊證據。</td></tr>
+            <tr class="risk-row"><td>${zone(s.zones.risk, "risk-text")}</td><td>${emph("風險審核線", "risk-text")}</td><td>先分辨系統性下跌還是公司 thesis damaged。</td></tr>
           </tbody>
         </table>
       `;
@@ -1071,10 +1119,10 @@
         <table>
           <thead><tr><th>價格/狀態</th><th>Thesis intact</th><th>Thesis damaged</th><th>要看的證據</th></tr></thead>
           <tbody>
-            <tr><td>${s.zones.buy}</td><td>可研究/小量，或降低成本。</td><td>不接，保留現金。</td><td>EPS、guidance、margin、同業是否同步轉弱。</td></tr>
-            <tr><td>${s.zones.repair}</td><td>提高信心或續抱。</td><td>反彈減碼。</td><td>是否有量能、估計上修與事件催化。</td></tr>
-            <tr><td>${s.zones.risk}</td><td>風險審核，不機械停損。</td><td>減碼/退出。</td><td>跌破後 2-3 日能否收回、是否明顯弱於 peers。</td></tr>
-            <tr><td>${s.zones.reduce}</td><td>若 EPS 上修可續抱部分。</td><td>賣出。</td><td>價格進入 rerating 區但基本面沒跟上。</td></tr>
+            <tr class="entry-row"><td>${zone(s.zones.buy, "positive")}</td><td>${emph("可研究/小量，或降低成本。", "positive")}</td><td>不接，保留現金。</td><td>EPS、guidance、margin、同業是否同步轉弱。</td></tr>
+            <tr class="current-row"><td>${zone(s.zones.repair)}</td><td>${emph("提高信心或續抱。")}</td><td>反彈減碼。</td><td>是否有量能、估計上修與事件催化。</td></tr>
+            <tr class="risk-row"><td>${zone(s.zones.risk, "risk-text")}</td><td>${emph("風險審核，不機械停損。", "risk-text")}</td><td>${emph("減碼/退出。", "risk-text")}</td><td>跌破後 2-3 日能否收回、是否明顯弱於 peers。</td></tr>
+            <tr class="upper-row"><td>${zone(s.zones.reduce, "watch-text")}</td><td>若 EPS 上修可續抱部分。</td><td>${emph("賣出。", "risk-text")}</td><td>價格進入 rerating 區但基本面沒跟上。</td></tr>
           </tbody>
         </table>
       `;
@@ -1134,29 +1182,29 @@
 
           <h2>前置閘門總結</h2>
           <div class="grid">
-            <div class="metric"><span>正式收盤</span><strong>${money(s.price)}</strong><small>日漲跌 ${s.day}</small></div>
-            <div class="metric"><span>相對成交量</span><strong>${m.rvol}</strong><small>${s.volume} / 20 日均量 ${m.avgVol}</small></div>
-            <div class="metric"><span>P/E vs Forward P/E</span><strong>${ratio(s.pe)} / ${ratio(s.fpe)}</strong><small>TTM EPS ${money(s.epsTtm)} vs valuation EPS ${money(valuationEps(s))}</small></div>
-            <div class="metric"><span>框架結論</span><strong>${m.outlook} / ${s.action}</strong><small>${s.status}；${s.zones.buy} 或 ${s.zones.repair}</small></div>
+            <div class="metric"><span>正式收盤</span><strong>${money(s.price)}</strong><small>日漲跌 ${move(s.day)}</small></div>
+            <div class="metric"><span>相對成交量</span><strong>${m.rvol}</strong><small>${emph(s.volume)} / 20 日均量 ${emph(m.avgVol)}</small></div>
+            <div class="metric"><span>P/E vs Forward P/E</span><strong>${ratio(s.pe)} / ${ratio(s.fpe)}</strong><small>TTM EPS ${moneyKey(s.epsTtm)} vs valuation EPS ${moneyKey(valuationEps(s))}</small></div>
+            <div class="metric"><span>框架結論</span><strong>${m.outlook} / ${s.action}</strong><small>${emph(s.status, tagClass(s.status) === "risk" ? "risk-text" : tagClass(s.status) === "watch" ? "watch-text" : "key")}；${zone(s.zones.buy, "positive")} 或 ${zone(s.zones.repair)}</small></div>
           </div>
           <ul>
-            <li>${s.thesis}</li>
-            <li>目前現價隱含情境：${priceScenario(s)}。</li>
-            <li>主要驗證點：${s.next.join("、")}。</li>
+            <li>${emph("核心 thesis：")} ${s.thesis}</li>
+            <li>目前現價隱含情境：${scenarioBadge(priceScenario(s))}。</li>
+            <li>${emph("主要驗證點：")} ${s.next.join("、")}。</li>
           </ul>
 
           <h2>公司白話介紹</h2>
           <p>${m.companyPlain}</p>
 
           <h2>一句話結論</h2>
-          <p><strong>${s.action}：</strong>${s.thesis} 目前不把單一價格線當成自動停損；若跌到 ${s.zones.risk}，先做 thesis 審核與同業相對強弱檢查。</p>
+          <p><strong>${s.action}：</strong>${s.thesis} 目前不把單一價格線當成自動停損；若跌到 ${zone(s.zones.risk, "risk-text")}，先做 thesis 審核與同業相對強弱檢查。</p>
 
           <h2>1. 市場 Regime 與持股閘門</h2>
           <table>
             <tbody>
               <tr><th>大盤背景</th><td>2026-06-12 S&P 500 上漲約 0.5%；regime 暫列 Normal / selective risk-on。可承擔風險，但高估值 AI、電力、光通訊股仍需分批。</td></tr>
-              <tr><th>${s.ticker} 技術位置</th><td>收盤 ${money(s.price)}；50DMA ${money(s.dma50)}；200DMA ${money(s.dma200)}；5D/20D/60D = ${s.d5} / ${s.d20} / ${s.d60}。</td></tr>
-              <tr><th>量能</th><td>成交量 ${s.volume}；相對成交量 ${m.rvol}。</td></tr>
+              <tr><th>${s.ticker} 技術位置</th><td>收盤 ${moneyKey(s.price)}；50DMA ${moneyKey(s.dma50)}；200DMA ${moneyKey(s.dma200)}；5D/20D/60D = ${move(s.d5)} / ${move(s.d20)} / ${move(s.d60)}。</td></tr>
+              <tr><th>量能</th><td>成交量 ${emph(s.volume)}；相對成交量 ${emph(m.rvol)}。</td></tr>
               <tr><th>持股/候選閘門</th><td>${m.position}</td></tr>
             </tbody>
           </table>
@@ -1175,11 +1223,11 @@
           <h2>4. 價格與部位</h2>
           <table>
             <tbody>
-              <tr><th>2026-06-12 收盤</th><td class="num">${money(s.price)}</td></tr>
-              <tr><th>日漲跌幅</th><td class="num">${s.day}</td></tr>
-              <tr><th>成交量 / 相對量</th><td class="num">${s.volume} / ${m.rvol}</td></tr>
-              <tr><th>50DMA / 200DMA</th><td class="num">${money(s.dma50)} / ${money(s.dma200)}</td></tr>
-              <tr><th>52 週漲跌幅 / 平均目標價</th><td class="num">${s.w52} / ${s.pt}</td></tr>
+              <tr><th>2026-06-12 收盤</th><td class="num">${moneyKey(s.price)}</td></tr>
+              <tr><th>日漲跌幅</th><td class="num">${move(s.day)}</td></tr>
+              <tr><th>成交量 / 相對量</th><td class="num">${emph(s.volume)} / ${emph(m.rvol)}</td></tr>
+              <tr><th>50DMA / 200DMA</th><td class="num">${moneyKey(s.dma50)} / ${moneyKey(s.dma200)}</td></tr>
+              <tr><th>52 週漲跌幅 / 平均目標價</th><td class="num">${move(s.w52)} / ${emph(s.pt)}</td></tr>
             </tbody>
           </table>
 
@@ -1204,19 +1252,19 @@
           <h2>9. 最後操作建議</h2>
           <table>
             <tbody>
-              <tr><th>前景</th><td>${m.outlook}</td></tr>
-              <tr><th>持有/觀察建議</th><td>${s.action}</td></tr>
-              <tr><th>加碼/研究條件</th><td>${s.zones.buy}，或 ${s.zones.repair} 且回測不破。</td></tr>
-              <tr><th>減碼條件</th><td>${s.zones.reduce} 但 EPS/margin/backlog 沒有上修。</td></tr>
-              <tr><th>停損/退出</th><td>${s.zones.risk} 先啟動風險審核；只有 thesis damaged 或明顯弱於同業才升級退出。</td></tr>
+              <tr><th>前景</th><td><span class="tag ${tagClass(m.outlook)}">${m.outlook}</span></td></tr>
+              <tr><th>持有/觀察建議</th><td><span class="tag ${tagClass(s.action)}">${s.action}</span></td></tr>
+              <tr class="entry-row"><th>加碼/研究條件</th><td>${zone(s.zones.buy, "positive")}，或 ${zone(s.zones.repair)} 且回測不破。</td></tr>
+              <tr class="upper-row"><th>減碼條件</th><td>${zone(s.zones.reduce, "watch-text")} 但 EPS/margin/backlog 沒有上修。</td></tr>
+              <tr class="risk-row"><th>停損/退出</th><td>${zone(s.zones.risk, "risk-text")} 先啟動風險審核；只有 thesis damaged 或明顯弱於同業才升級退出。</td></tr>
             </tbody>
           </table>
 
           <h2>10. 停損停利</h2>
           <ul>
-            <li><strong>風險審核線：</strong>${s.zones.risk}。這是檢查點，不是自動賣出指令。</li>
-            <li><strong>第一停利/檢查：</strong>${money(val(s, s.multiples.fair))} 或 ${s.zones.reduce} 下緣，若 EPS 未上修可部分停利。</li>
-            <li><strong>第二停利/過熱：</strong>${money(val(s, s.multiples.upper))} 或 ${s.zones.reduce} 上緣，需要 rerating 證據。</li>
+            <li><strong>風險審核線：</strong>${zone(s.zones.risk, "risk-text")}。這是檢查點，不是自動賣出指令。</li>
+            <li><strong>第一停利/檢查：</strong>${moneyKey(val(s, s.multiples.fair), "watch-text")} 或 ${zone(s.zones.reduce, "watch-text")} 下緣，若 EPS 未上修可部分停利。</li>
+            <li><strong>第二停利/過熱：</strong>${moneyKey(val(s, s.multiples.upper), "watch-text")} 或 ${zone(s.zones.reduce, "watch-text")} 上緣，需要 rerating 證據。</li>
           </ul>
           <h3>10.1 大盤大跌時，不機械停損</h3>
           ${crashTable(s)}
@@ -1225,10 +1273,10 @@
           <p>${m.quality}</p>
           <table>
             <tbody>
-              <tr><th>毛利率 / 營益率</th><td class="num">${s.gm} / ${s.om}</td></tr>
-              <tr><th>P/FCF / EV/EBITDA</th><td class="num">${ratio(s.pfcf)} / ${ratio(s.evebitda)}</td></tr>
-              <tr><th>Debt/Equity</th><td class="num">${s.debt}</td></tr>
-              <tr><th>財報風險</th><td>Forward EPS 需用下一季 EPS、guidance、margin、FCF 與 backlog/訂單證明。</td></tr>
+              <tr><th>毛利率 / 營益率</th><td class="num">${emph(s.gm)} / ${emph(s.om)}</td></tr>
+              <tr><th>P/FCF / EV/EBITDA</th><td class="num">${ratioKey(s.pfcf)} / ${ratioKey(s.evebitda)}</td></tr>
+              <tr><th>Debt/Equity</th><td class="num">${emph(s.debt)}</td></tr>
+              <tr class="watch-row"><th>財報風險</th><td>Forward EPS 需用下一季 <strong>EPS、guidance、margin、FCF 與 backlog/訂單</strong> 證明。</td></tr>
             </tbody>
           </table>
 
@@ -1252,8 +1300,8 @@
             <tbody>
               <tr><th>已取得</th><td>2026-06-12 正式收盤、日漲跌、成交量、5D/20D/60D、TTM EPS、P/E、Forward P/E、P/FCF/EV/EBITDA、margin、Debt/Equity、6M/1Y current-EPS P/E proxy、同業中位數、主要事件來源。</td></tr>
               <tr><th>已補版型</th><td>本頁已補齊和 BDC 原稿一致的主要段落：前置閘門、公司白話介紹、市場/部位、來源數字表、EPS 口徑橋、估值模組、同業業務表、目標價階梯、停損停利、大盤大跌風控、資料完整性與來源。</td></tr>
-              <tr><th>仍待補</th><td>${m.gaps} 3M/6M proxy 與主要 peer valuation 已補；1Y 盡量採既有完整序列。2Y/3Y 需 Max history API 重新驗證，若未取得會保留欄位並明確標示待補，不硬填。</td></tr>
-              <tr><th>影響</th><td>${s.completeness} 本次不因資料缺口刪段落；缺口會下修信心，並使操作建議偏保守。</td></tr>
+              <tr class="watch-row"><th>仍待補</th><td>${emph(m.gaps, "watch-text")} 3M/6M proxy 與主要 peer valuation 已補；1Y 盡量採既有完整序列。2Y/3Y 需 Max history API 重新驗證，若未取得會保留欄位並明確標示 ${emph("待補", "muted-chip")}，不硬填。</td></tr>
+              <tr class="watch-row"><th>影響</th><td>${emph(s.completeness, "watch-text")} 本次不因資料缺口刪段落；缺口會下修信心，並使操作建議偏保守。</td></tr>
             </tbody>
           </table>
 
