@@ -3,7 +3,7 @@
   "siteDescription": "以資料完整性、估值情境與風控紀律整理的公開個股研究索引。",
   "disclaimer": "本網站內容僅供投資研究紀錄與討論，不構成個人化投資建議。資料可能延遲或不完整，請自行交叉驗證。",
   "feedbackIssueUrl": "https://github.com/ScikitLin/stock-analysis-site/issues/new",
-  "generatedAt": "2026-06-17T02:54:07.123674+00:00",
+  "generatedAt": "2026-06-17T07:07:05.085426+00:00",
   "sourceDir": "published_reports",
   "publishedFolder": "published_reports",
   "chartPreviews": [
@@ -26,7 +26,7 @@
       "bytes": 169757
     }
   ],
-  "reportCount": 7,
+  "reportCount": 9,
   "reports": [
     {
       "id": "us_watchlist_full_analysis_20260616",
@@ -59,6 +59,216 @@
       "sourceFile": "us_watchlist_full_analysis_20260616.html",
       "url": "reports/us_watchlist_full_analysis_20260616.html",
       "bytes": 589402
+    },
+    {
+      "id": "tw_stock_custom_6531_8027_7734_2467_6907_6683_2301_6282_6781_2421_4931_8028_1560_5434_stock_analysis_framework_20260616",
+      "title": "愛普、鈦昇、印能、志聖、雅特力-KY、雍智、光寶科、康舒、AES-KY、建準、新盛力、昇陽半導體、中砂、崇越個股分析（資料基準日 2026-06-16） 資料基準日 2026-06-16，更新 2026-06-17",
+      "heading": "愛普、鈦昇、印能、志聖、雅特力-KY、雍智、光寶科、康舒、AES-KY、建準、新盛力、昇陽半導體、中砂、崇越個股分析（資料基準日 2026-06-16）",
+      "summary": "觀望；資料足夠排序，但公司質化資料需補。現價隱含情境： 高於 Bull 過熱 。理由：篩選分數靠營收、估值、價格趨勢與最新季財報 proxy 支撐。 主要風險：產品結構、主要客戶、OCF/NI、應收與存貨 未取得 ，不能把排序分數直接當買進理由。 2. 市場 regime 與投資組合閘門 市場閘門...",
+      "date": "2026-06-16",
+      "market": "tw",
+      "marketLabel": "台股",
+      "type": "custom",
+      "typeLabel": "指定個股",
+      "symbols": [
+        "6531",
+        "8027",
+        "7734",
+        "2467",
+        "6907",
+        "6683",
+        "2301",
+        "6282",
+        "6781",
+        "2421",
+        "4931",
+        "8028",
+        "1560",
+        "5434",
+        "KY",
+        "AES"
+      ],
+      "symbolNames": [
+        {
+          "symbol": "6531",
+          "name": "愛普*"
+        },
+        {
+          "symbol": "8027",
+          "name": "鈦昇"
+        },
+        {
+          "symbol": "7734",
+          "name": "印能科技"
+        },
+        {
+          "symbol": "2467",
+          "name": "志聖"
+        },
+        {
+          "symbol": "6907",
+          "name": "雅特力"
+        },
+        {
+          "symbol": "6683",
+          "name": "雍智科技"
+        },
+        {
+          "symbol": "2301",
+          "name": "光寶科"
+        },
+        {
+          "symbol": "6282",
+          "name": "康舒"
+        },
+        {
+          "symbol": "6781",
+          "name": "AES"
+        },
+        {
+          "symbol": "2421",
+          "name": "建準"
+        },
+        {
+          "symbol": "4931",
+          "name": "新盛力"
+        },
+        {
+          "symbol": "8028",
+          "name": "昇陽半導體"
+        },
+        {
+          "symbol": "1560",
+          "name": "中砂"
+        },
+        {
+          "symbol": "5434",
+          "name": "崇越"
+        },
+        {
+          "symbol": "KY",
+          "name": ""
+        },
+        {
+          "symbol": "AES",
+          "name": ""
+        }
+      ],
+      "tags": [
+        "台股",
+        "指定個股",
+        "分析框架",
+        "Bear/Base/Bull",
+        "自選清單"
+      ],
+      "sourceFile": "tw_stock_custom_6531_8027_7734_2467_6907_6683_2301_6282_6781_2421_4931_8028_1560_5434_stock_analysis_framework_20260616.html",
+      "url": "reports/tw_stock_custom_6531_8027_7734_2467_6907_6683_2301_6282_6781_2421_4931_8028_1560_5434_stock_analysis_framework_20260616.html",
+      "bytes": 307892
+    },
+    {
+      "id": "tw_stock_custom_6531_8027_7734_2467_6907_6683_2301_6282_6781_2421_4931_8028_1560_5434_stock_analysis_framework_20260615",
+      "title": "愛普、鈦昇、印能、志聖、雅特力-KY、雍智、光寶科、康舒、AES-KY、建準、新盛力、昇陽半導體、中砂、崇越個股分析 2026-06-17",
+      "heading": "愛普、鈦昇、印能、志聖、雅特力-KY、雍智、光寶科、康舒、AES-KY、建準、新盛力、昇陽半導體、中砂、崇越個股分析",
+      "summary": "觀望；資料足夠排序，但公司質化資料需補。現價隱含情境： 高於 Bull 過熱 。理由：篩選分數靠營收、估值、價格趨勢與最新季財報 proxy 支撐。 主要風險：產品結構、主要客戶、OCF/NI、應收與存貨 未取得 ，不能把排序分數直接當買進理由。 2. 市場 regime 與投資組合閘門 市場閘門...",
+      "date": "2026-06-15",
+      "market": "tw",
+      "marketLabel": "台股",
+      "type": "custom",
+      "typeLabel": "指定個股",
+      "symbols": [
+        "6531",
+        "8027",
+        "7734",
+        "2467",
+        "6907",
+        "6683",
+        "2301",
+        "6282",
+        "6781",
+        "2421",
+        "4931",
+        "8028",
+        "1560",
+        "5434",
+        "KY",
+        "AES"
+      ],
+      "symbolNames": [
+        {
+          "symbol": "6531",
+          "name": "愛普*"
+        },
+        {
+          "symbol": "8027",
+          "name": "鈦昇"
+        },
+        {
+          "symbol": "7734",
+          "name": "印能科技"
+        },
+        {
+          "symbol": "2467",
+          "name": "志聖"
+        },
+        {
+          "symbol": "6907",
+          "name": "雅特力"
+        },
+        {
+          "symbol": "6683",
+          "name": "雍智科技"
+        },
+        {
+          "symbol": "2301",
+          "name": "光寶科"
+        },
+        {
+          "symbol": "6282",
+          "name": "康舒"
+        },
+        {
+          "symbol": "6781",
+          "name": "AES"
+        },
+        {
+          "symbol": "2421",
+          "name": "建準"
+        },
+        {
+          "symbol": "4931",
+          "name": "新盛力"
+        },
+        {
+          "symbol": "8028",
+          "name": "昇陽半導體"
+        },
+        {
+          "symbol": "1560",
+          "name": "中砂"
+        },
+        {
+          "symbol": "5434",
+          "name": "崇越"
+        },
+        {
+          "symbol": "KY",
+          "name": ""
+        },
+        {
+          "symbol": "AES",
+          "name": ""
+        }
+      ],
+      "tags": [
+        "台股",
+        "指定個股",
+        "分析框架",
+        "Bear/Base/Bull",
+        "自選清單"
+      ],
+      "sourceFile": "tw_stock_custom_6531_8027_7734_2467_6907_6683_2301_6282_6781_2421_4931_8028_1560_5434_stock_analysis_framework_20260615.html",
+      "url": "reports/tw_stock_custom_6531_8027_7734_2467_6907_6683_2301_6282_6781_2421_4931_8028_1560_5434_stock_analysis_framework_20260615.html",
+      "bytes": 307853
     },
     {
       "id": "tw_stock_top16_stock_analysis_framework_20260615",
