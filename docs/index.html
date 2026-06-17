@@ -16,6 +16,7 @@
       </a>
       <div class="nav-actions" role="tablist" aria-label="頁面切換">
         <a href="#reports" class="nav-tab is-active" data-page-link="reports" role="tab" aria-selected="true">Reports</a>
+        <a href="#trading" class="nav-tab" data-page-link="trading" role="tab" aria-selected="false">交易實戰</a>
         <a href="#profile" class="nav-tab" data-page-link="profile" role="tab" aria-selected="false">背景</a>
         <button id="feedbackOpen" class="nav-button" type="button">留言</button>
       </div>
@@ -28,6 +29,7 @@
         <p id="siteDescription" class="site-description">以資料完整性、估值情境與風控紀律整理的公開個股研究索引。</p>
         <div class="hero-actions">
           <a class="primary-link" href="#reports" data-page-link="reports">瀏覽報告</a>
+          <a class="secondary-link" href="#trading" data-page-link="trading">交易實戰</a>
           <a class="secondary-link" href="#profile" data-page-link="profile">背景</a>
         </div>
       </div>
@@ -158,6 +160,94 @@
         <section id="emptyState" class="empty-state" hidden>
           <h2>找不到符合條件的報告</h2>
           <p>調整搜尋字或篩選條件後再試一次。</p>
+        </section>
+      </section>
+    </section>
+
+    <section id="tradingPage" class="page-panel" data-page-panel="trading" aria-label="交易實戰" hidden>
+      <section class="trading-shell">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Trading Desk</p>
+            <h2>交易實戰</h2>
+          </div>
+          <p class="profile-note">台股以台幣 1,000,000 本金計算；美股以美元 20,000 本金計算。兩個 section 獨立驗算、獨立產圖。</p>
+        </div>
+
+        <div class="trading-market-switch" aria-label="交易市場切換">
+          <button class="trading-market-button is-active" type="button" data-trading-market="tw">台股</button>
+          <button class="trading-market-button" type="button" data-trading-market="us">美股</button>
+        </div>
+
+        <section id="tradingQuality" class="trading-quality" aria-label="資料驗算"></section>
+        <section id="tradingSummaryGrid" class="trading-summary-grid" aria-label="交易總覽"></section>
+
+        <section class="trading-chart-grid" aria-label="交易圖表">
+          <article class="trading-panel trading-panel-wide">
+            <div class="trading-panel-head">
+              <div>
+                <p class="eyebrow">Equity Curve</p>
+                <h3>總資產曲線</h3>
+              </div>
+              <span id="tradingEquityLabel" class="trading-pill"></span>
+            </div>
+            <div id="tradingEquityChart" class="trading-chart" role="img" aria-label="總資產曲線"></div>
+          </article>
+
+          <article class="trading-panel trading-panel-wide">
+            <div class="trading-panel-head">
+              <div>
+                <p class="eyebrow">PnL Curve</p>
+                <h3>已實現 / 未實現損益曲線</h3>
+              </div>
+              <span id="tradingPnlLabel" class="trading-pill"></span>
+            </div>
+            <div id="tradingPnlChart" class="trading-chart" role="img" aria-label="已實現與未實現損益曲線"></div>
+          </article>
+
+          <article class="trading-panel trading-panel-wide">
+            <div class="trading-panel-head">
+              <div>
+                <p class="eyebrow">Contribution</p>
+                <h3>個股損益貢獻排行</h3>
+              </div>
+              <span id="tradingContributionLabel" class="trading-pill"></span>
+            </div>
+            <div id="tradingContributionChart" class="trading-chart" role="img" aria-label="個股損益貢獻排行"></div>
+          </article>
+
+          <article class="trading-panel">
+            <div class="trading-panel-head">
+              <div>
+                <p class="eyebrow">Drawdown</p>
+                <h3>最大回撤</h3>
+              </div>
+              <span id="tradingDrawdownLabel" class="trading-pill"></span>
+            </div>
+            <div id="tradingDrawdownChart" class="trading-chart" role="img" aria-label="最大回撤"></div>
+          </article>
+
+          <article class="trading-panel">
+            <div class="trading-panel-head">
+              <div>
+                <p class="eyebrow">Exposure</p>
+                <h3>現金 / 持股曝險</h3>
+              </div>
+              <span id="tradingExposureLabel" class="trading-pill"></span>
+            </div>
+            <div id="tradingExposurePanel" class="trading-exposure"></div>
+          </article>
+
+          <article class="trading-panel trading-panel-wide">
+            <div class="trading-panel-head">
+              <div>
+                <p class="eyebrow">Closed Trades</p>
+                <h3>已結案交易品質</h3>
+              </div>
+              <span id="tradingReturnLabel" class="trading-pill"></span>
+            </div>
+            <div id="tradingReturnPanel" class="trading-returns"></div>
+          </article>
         </section>
       </section>
     </section>
@@ -339,6 +429,7 @@
 
   <script src="assets/reports-data.js"></script>
   <script src="assets/tw-candidates-data.js"></script>
+  <script src="assets/trading-data.js"></script>
   <script src="assets/site.js"></script>
 </body>
 </html>

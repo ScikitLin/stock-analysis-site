@@ -30,7 +30,9 @@ const state = {
   page: "reports",
   candidates: [],
   selectedTicker: TW_INSIGHT_DEFAULT,
-  insightView: "growth"
+  insightView: "growth",
+  trading: null,
+  tradingMarket: "tw"
 };
 
 const elements = {
@@ -75,7 +77,22 @@ const elements = {
   twTickerList: document.querySelector("#twTickerList"),
   twInsightChart: document.querySelector("#twInsightChart"),
   twStockPanel: document.querySelector("#twStockPanel"),
-  insightViewButtons: document.querySelectorAll("[data-insight-view]")
+  insightViewButtons: document.querySelectorAll("[data-insight-view]"),
+  tradingMarketButtons: document.querySelectorAll("[data-trading-market]"),
+  tradingQuality: document.querySelector("#tradingQuality"),
+  tradingSummaryGrid: document.querySelector("#tradingSummaryGrid"),
+  tradingEquityLabel: document.querySelector("#tradingEquityLabel"),
+  tradingPnlLabel: document.querySelector("#tradingPnlLabel"),
+  tradingContributionLabel: document.querySelector("#tradingContributionLabel"),
+  tradingDrawdownLabel: document.querySelector("#tradingDrawdownLabel"),
+  tradingExposureLabel: document.querySelector("#tradingExposureLabel"),
+  tradingReturnLabel: document.querySelector("#tradingReturnLabel"),
+  tradingEquityChart: document.querySelector("#tradingEquityChart"),
+  tradingPnlChart: document.querySelector("#tradingPnlChart"),
+  tradingContributionChart: document.querySelector("#tradingContributionChart"),
+  tradingDrawdownChart: document.querySelector("#tradingDrawdownChart"),
+  tradingExposurePanel: document.querySelector("#tradingExposurePanel"),
+  tradingReturnPanel: document.querySelector("#tradingReturnPanel")
 };
 
 function normalize(value) {
@@ -204,6 +221,322 @@ function formatMarketCap(value) {
   if (Math.abs(value) >= 1_0000_0000_0000) return `${(value / 1_0000_0000_0000).toFixed(1)} 兆`;
   if (Math.abs(value) >= 1_0000_0000) return `${(value / 1_0000_0000).toFixed(1)} 億`;
   return value.toLocaleString("zh-TW", { maximumFractionDigits: 0 });
+}
+
+function currentTradingMarket() {
+  return state.trading?.markets?.[state.tradingMarket] || state.trading?.markets?.tw || null;
+}
+
+function tradingCurrencyOptions(market) {
+  const decimals = market?.currency === "USD" ? 2 : 0;
+  return {
+    maximumFractionDigits: decimals,
+    minimumFractionDigits: decimals
+  };
+}
+
+function formatTradingMoney(value, market, options = {}) {
+  if (!Number.isFinite(value)) return "--";
+  const prefix = market?.currency === "USD" ? "$" : "NT$";
+  const sign = value < 0 ? "-" : options.sign && value > 0 ? "+" : "";
+  return `${sign}${prefix}${Math.abs(value).toLocaleString("zh-TW", tradingCurrencyOptions(market))}`;
+}
+
+function formatTradingPct(value, options = {}) {
+  if (!Number.isFinite(value)) return "--";
+  const sign = options.sign && value > 0 ? "+" : "";
+  return `${sign}${value.toLocaleString("zh-TW", { maximumFractionDigits: 2, minimumFractionDigits: 2 })}%`;
+}
+
+function formatTradingNumber(value, decimals = 0) {
+  if (!Number.isFinite(value)) return "--";
+  return value.toLocaleString("zh-TW", { maximumFractionDigits: decimals, minimumFractionDigits: decimals });
+}
+
+function tradingChartDomain(values, includeZero = false) {
+  const clean = values.filter((value) => Number.isFinite(value));
+  if (!clean.length) return [0, 1];
+  let min = Math.min(...clean);
+  let max = Math.max(...clean);
+  if (includeZero) {
+    min = Math.min(min, 0);
+    max = Math.max(max, 0);
+  }
+  if (min === max) {
+    const offset = Math.max(Math.abs(min) * 0.08, 1);
+    min -= offset;
+    max += offset;
+  }
+  const pad = (max - min) * 0.1;
+  return [min - pad, max + pad];
+}
+
+function tradingScale(value, domain, range) {
+  const [d0, d1] = domain;
+  const [r0, r1] = range;
+  if (!Number.isFinite(value) || d0 === d1) return (r0 + r1) / 2;
+  return r0 + ((value - d0) / (d1 - d0)) * (r1 - r0);
+}
+
+function tradingLinePoints(series, valueFn, yDomain, dims) {
+  const xDomain = [0, Math.max(series.length - 1, 1)];
+  return series.map((point, index) => {
+    const x = tradingScale(index, xDomain, [dims.left, dims.right]);
+    const y = tradingScale(valueFn(point), yDomain, [dims.bottom, dims.top]);
+    return `${x.toFixed(2)},${y.toFixed(2)}`;
+  }).join(" ");
+}
+
+function renderTradingLineChart(container, market, series, definitions, options = {}) {
+  if (!container) return;
+  if (!series?.length) {
+    container.innerHTML = "<p class=\"muted\">尚無資料</p>";
+    return;
+  }
+
+  const dims = { width: 780, height: 320, left: 72, right: 742, top: 38, bottom: 254 };
+  const values = definitions.flatMap((definition) => series.map((point) => definition.value(point)));
+  const yDomain = options.domain || tradingChartDomain(values, options.includeZero);
+  const yTicks = Array.from({ length: 4 }, (_, index) => yDomain[0] + ((yDomain[1] - yDomain[0]) * index) / 3);
+  const xIndexes = Array.from(new Set([0, Math.floor((series.length - 1) / 2), series.length - 1])).sort((a, b) => a - b);
+  const xDomain = [0, Math.max(series.length - 1, 1)];
+
+  container.innerHTML = `
+    <svg class="trading-svg" viewBox="0 0 ${dims.width} ${dims.height}" aria-label="${escapeAttribute(options.label || "trading chart")}">
+      <rect class="trading-plot-bg" x="${dims.left}" y="${dims.top}" width="${dims.right - dims.left}" height="${dims.bottom - dims.top}"></rect>
+      ${yTicks.map((tick) => {
+        const y = tradingScale(tick, yDomain, [dims.bottom, dims.top]);
+        return `
+          <g class="trading-axis-tick">
+            <line x1="${dims.left}" x2="${dims.right}" y1="${y}" y2="${y}"></line>
+            <text x="${dims.left - 10}" y="${y + 4}" text-anchor="end">${escapeHtml(options.percentAxis ? formatTradingPct(tick) : formatTradingMoney(tick, market))}</text>
+          </g>
+        `;
+      }).join("")}
+      ${xIndexes.map((index) => {
+        const x = tradingScale(index, xDomain, [dims.left, dims.right]);
+        return `<text class="trading-x-label" x="${x}" y="${dims.bottom + 30}" text-anchor="middle">${escapeHtml(series[index]?.date || "")}</text>`;
+      }).join("")}
+      ${definitions.map((definition) => `
+        <polyline class="trading-line" points="${tradingLinePoints(series, definition.value, yDomain, dims)}" stroke="${definition.color}"></polyline>
+        ${series.map((point, index) => {
+          const x = tradingScale(index, xDomain, [dims.left, dims.right]);
+          const y = tradingScale(definition.value(point), yDomain, [dims.bottom, dims.top]);
+          const label = definition.tooltip ? definition.tooltip(point, market) : `${point.date} ${definition.label}`;
+          return `
+            <circle class="trading-dot" cx="${x.toFixed(2)}" cy="${y.toFixed(2)}" r="3.7" fill="${definition.color}">
+              <title>${escapeHtml(label)}</title>
+            </circle>
+          `;
+        }).join("")}
+      `).join("")}
+      <g class="trading-legend">
+        ${definitions.map((definition, index) => `
+          <g transform="translate(${dims.left + index * 132} 292)">
+            <line x1="0" x2="22" y1="0" y2="0" stroke="${definition.color}" stroke-width="3"></line>
+            <text x="30" y="4">${escapeHtml(definition.label)}</text>
+          </g>
+        `).join("")}
+      </g>
+    </svg>
+  `;
+}
+
+function renderTradingContributionChart(market) {
+  const rows = market?.computed?.contributions || [];
+  if (!elements.tradingContributionChart) return;
+  if (!rows.length) {
+    elements.tradingContributionChart.innerHTML = "<p class=\"muted\">尚無資料</p>";
+    return;
+  }
+  const visibleRows = rows.slice(0, 14);
+  const dims = { width: 780, left: 154, right: 692, top: 28, row: 28 };
+  const height = dims.top + visibleRows.length * dims.row + 34;
+  const values = visibleRows.map((row) => row.totalPnl);
+  const domain = tradingChartDomain(values, true);
+  const zeroX = tradingScale(0, domain, [dims.left, dims.right]);
+
+  elements.tradingContributionChart.innerHTML = `
+    <svg class="trading-svg contribution-svg" viewBox="0 0 ${dims.width} ${height}" aria-label="contribution ranking">
+      <line class="trading-zero-line" x1="${zeroX}" x2="${zeroX}" y1="${dims.top - 10}" y2="${height - 20}"></line>
+      ${visibleRows.map((row, index) => {
+        const y = dims.top + index * dims.row;
+        const valueX = tradingScale(row.totalPnl, domain, [dims.left, dims.right]);
+        const x = Math.min(zeroX, valueX);
+        const width = Math.max(2, Math.abs(valueX - zeroX));
+        const tone = row.totalPnl >= 0 ? "positive" : "negative";
+        return `
+          <g class="contribution-row">
+            <text class="contribution-name" x="18" y="${y + 17}">${escapeHtml(`${row.symbol} ${row.name}`)}</text>
+            <rect class="contribution-bar ${tone}" x="${x}" y="${y + 3}" width="${width}" height="17" rx="5"></rect>
+            <text class="contribution-value" x="${row.totalPnl >= 0 ? valueX + 8 : valueX - 8}" y="${y + 17}" text-anchor="${row.totalPnl >= 0 ? "start" : "end"}">${escapeHtml(formatTradingMoney(row.totalPnl, market, { sign: true }))}</text>
+            <title>${escapeHtml(`${row.symbol} 已實現 ${formatTradingMoney(row.realizedPnl, market, { sign: true })} / 未實現 ${formatTradingMoney(row.unrealizedPnl, market, { sign: true })}`)}</title>
+          </g>
+        `;
+      }).join("")}
+    </svg>
+  `;
+}
+
+function renderTradingExposure(market) {
+  if (!elements.tradingExposurePanel) return;
+  const summary = market.summary;
+  const total = summary.currentAssets || 1;
+  const cashPct = (summary.cash / total) * 100;
+  const stockPct = (summary.marketValue / total) * 100;
+  elements.tradingExposurePanel.innerHTML = `
+    <div class="exposure-stack" aria-label="asset allocation">
+      <span class="cash" style="width:${cashPct.toFixed(2)}%"></span>
+      <span class="stock" style="width:${stockPct.toFixed(2)}%"></span>
+    </div>
+    <div class="exposure-split">
+      <div><span>現金</span><strong>${escapeHtml(formatTradingMoney(summary.cash, market))}</strong><small>${escapeHtml(formatTradingPct(cashPct))}</small></div>
+      <div><span>持股市值</span><strong>${escapeHtml(formatTradingMoney(summary.marketValue, market))}</strong><small>${escapeHtml(formatTradingPct(stockPct))}</small></div>
+    </div>
+    <div class="position-list">
+      ${market.positions.map((position) => `
+        <div class="position-row">
+          <div>
+            <strong>${escapeHtml(`${position.symbol} ${position.name}`)}</strong>
+            <span>${escapeHtml(formatTradingNumber(position.shares, market.currency === "USD" ? 2 : 0))} 股</span>
+          </div>
+          <div>
+            <strong class="${position.unrealizedPnl >= 0 ? "gain" : "loss"}">${escapeHtml(formatTradingMoney(position.unrealizedPnl, market, { sign: true }))}</strong>
+            <span>${escapeHtml(formatTradingPct(position.returnPct, { sign: true }))}</span>
+          </div>
+        </div>
+      `).join("")}
+    </div>
+  `;
+}
+
+function renderTradingReturns(market) {
+  if (!elements.tradingReturnPanel) return;
+  const stats = market.computed?.stats || {};
+  const trades = market.realizedTrades || [];
+  const maxAbsReturn = Math.max(...trades.map((trade) => Math.abs(trade.returnPct || 0)), 1);
+  elements.tradingReturnPanel.innerHTML = `
+    <div class="return-stat-grid">
+      <div><span>勝率</span><strong>${escapeHtml(formatTradingPct(stats.winRatePct || 0))}</strong></div>
+      <div><span>Profit Factor</span><strong>${stats.profitFactor ? escapeHtml(formatTradingNumber(stats.profitFactor, 2)) : "--"}</strong></div>
+      <div><span>平均獲利</span><strong>${escapeHtml(formatTradingMoney(stats.avgWin || 0, market, { sign: true }))}</strong></div>
+      <div><span>平均虧損</span><strong>${escapeHtml(formatTradingMoney(stats.avgLoss || 0, market, { sign: true }))}</strong></div>
+    </div>
+    <div class="return-bars">
+      ${trades.map((trade) => {
+        const width = Math.max(2, (Math.abs(trade.returnPct || 0) / maxAbsReturn) * 48);
+        const tone = trade.realizedPnl >= 0 ? "gain" : "loss";
+        return `
+          <div class="return-row">
+            <span>${escapeHtml(`${trade.sellDate} ${trade.symbol}`)}</span>
+            <div class="return-track">
+              <i class="${tone}" style="width:${width.toFixed(1)}%"></i>
+            </div>
+            <strong class="${tone}">${escapeHtml(formatTradingPct(trade.returnPct, { sign: true }))}</strong>
+          </div>
+        `;
+      }).join("")}
+    </div>
+  `;
+}
+
+function renderTradingQuality(market) {
+  if (!elements.tradingQuality) return;
+  const validation = market.validation || {};
+  const passed = (validation.checks || []).filter((check) => check.ok).length;
+  const total = (validation.checks || []).length;
+  const warnings = validation.warnings || [];
+  elements.tradingQuality.innerHTML = `
+    <div>
+      <span class="quality-status ${warnings.length ? "warning" : "pass"}">${warnings.length ? "需確認" : "已驗算"}</span>
+      <strong>${escapeHtml(market.label)}資料驗算：${passed} / ${total} 項通過</strong>
+    </div>
+    <ul>
+      ${(market.dataQuality || []).concat(warnings).slice(0, 5).map((item) => `<li>${escapeHtml(item)}</li>`).join("")}
+    </ul>
+  `;
+}
+
+function renderTradingSummary(market) {
+  if (!elements.tradingSummaryGrid) return;
+  const summary = market.summary;
+  const cards = [
+    ["初始本金", formatTradingMoney(market.initialCapital, market)],
+    ["目前總資產", formatTradingMoney(summary.currentAssets, market)],
+    ["總報酬率", formatTradingPct(summary.totalReturnPct, { sign: true })],
+    ["總損益", formatTradingMoney(summary.totalPnl, market, { sign: true })],
+    ["已實現", formatTradingMoney(summary.realizedPnl, market, { sign: true })],
+    ["未實現", formatTradingMoney(summary.unrealizedPnl, market, { sign: true })]
+  ];
+  elements.tradingSummaryGrid.replaceChildren(...cards.map(([label, value]) => {
+    const node = document.createElement("article");
+    node.className = "trading-summary-card";
+    node.innerHTML = `<span>${escapeHtml(label)}</span><strong>${escapeHtml(value)}</strong>`;
+    return node;
+  }));
+}
+
+function renderTrading() {
+  if (!elements.tradingSummaryGrid) return;
+  const market = currentTradingMarket();
+  if (!market) {
+    elements.tradingSummaryGrid.innerHTML = "<p class=\"muted\">尚無交易資料</p>";
+    return;
+  }
+
+  elements.tradingMarketButtons.forEach((button) => {
+    button.classList.toggle("is-active", button.dataset.tradingMarket === state.tradingMarket);
+  });
+
+  const series = market.computed?.equitySeries || [];
+  const stats = market.computed?.stats || {};
+  renderTradingQuality(market);
+  renderTradingSummary(market);
+
+  if (elements.tradingEquityLabel) elements.tradingEquityLabel.textContent = `${market.currencyLabel} · ${market.currentDate}`;
+  renderTradingLineChart(elements.tradingEquityChart, market, series, [
+    {
+      label: "總資產",
+      color: "#27745f",
+      value: (point) => point.equity,
+      tooltip: (point, itemMarket) => `${point.date} 總資產 ${formatTradingMoney(point.equity, itemMarket)}`
+    }
+  ], { label: "總資產曲線" });
+
+  if (elements.tradingPnlLabel) elements.tradingPnlLabel.textContent = `${formatTradingMoney(market.summary.totalPnl, market, { sign: true })}`;
+  renderTradingLineChart(elements.tradingPnlChart, market, series, [
+    {
+      label: "已實現",
+      color: "#326f87",
+      value: (point) => point.realizedPnl,
+      tooltip: (point, itemMarket) => `${point.date} 已實現 ${formatTradingMoney(point.realizedPnl, itemMarket, { sign: true })}`
+    },
+    {
+      label: "含未實現",
+      color: "#9a7433",
+      value: (point) => point.realizedPnl + (point.unrealizedPnl || 0),
+      tooltip: (point, itemMarket) => `${point.date} 總損益 ${formatTradingMoney(point.realizedPnl + (point.unrealizedPnl || 0), itemMarket, { sign: true })}`
+    }
+  ], { label: "損益曲線", includeZero: true });
+
+  if (elements.tradingContributionLabel) elements.tradingContributionLabel.textContent = `${(market.computed?.contributions || []).length} 檔`;
+  renderTradingContributionChart(market);
+
+  if (elements.tradingDrawdownLabel) elements.tradingDrawdownLabel.textContent = formatTradingPct(stats.maxDrawdownPct || 0);
+  renderTradingLineChart(elements.tradingDrawdownChart, market, series, [
+    {
+      label: "回撤",
+      color: "#a55353",
+      value: (point) => point.drawdownPct || 0,
+      tooltip: (point) => `${point.date} 回撤 ${formatTradingPct(point.drawdownPct || 0)}`
+    }
+  ], { label: "最大回撤", includeZero: true, percentAxis: true, domain: [Math.min(stats.maxDrawdownPct || 0, -0.2), 0.2] });
+
+  if (elements.tradingExposureLabel) elements.tradingExposureLabel.textContent = `${formatTradingPct((market.summary.marketValue / market.summary.currentAssets) * 100)} 持股`;
+  renderTradingExposure(market);
+
+  if (elements.tradingReturnLabel) elements.tradingReturnLabel.textContent = `${stats.tradeCount || 0} 筆`;
+  renderTradingReturns(market);
 }
 
 function selectedCandidate() {
@@ -703,8 +1036,26 @@ function bindTwInsights() {
   });
 }
 
+function initializeTrading() {
+  state.trading = window.TRADING_DASHBOARD || null;
+  if (!state.trading?.markets?.[state.tradingMarket]) {
+    state.tradingMarket = Object.keys(state.trading?.markets || {})[0] || "tw";
+  }
+}
+
+function bindTrading() {
+  elements.tradingMarketButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      const market = button.dataset.tradingMarket;
+      if (!state.trading?.markets?.[market]) return;
+      state.tradingMarket = market;
+      renderTrading();
+    });
+  });
+}
+
 function setActivePage(page, options = {}) {
-  const nextPage = page === "profile" ? "profile" : "reports";
+  const nextPage = ["reports", "profile", "trading"].includes(page) ? page : "reports";
   state.page = nextPage;
 
   elements.pagePanels.forEach((panel) => {
@@ -839,13 +1190,16 @@ async function init() {
   state.metadata = metadata;
   state.reports = metadata.reports || [];
   initializeCandidates();
+  initializeTrading();
   buildFilters();
   updateStats(metadata);
   bindFilters();
   bindTwInsights();
+  bindTrading();
   bindPageNavigation();
   bindFeedback();
   render();
+  renderTrading();
 }
 
 async function fetchMetadata() {

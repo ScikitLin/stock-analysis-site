@@ -11,10 +11,13 @@ import shutil
 from datetime import datetime, timezone
 from pathlib import Path
 
+from validate_trading_dashboard_data import validate_payload
+
 
 ROOT = Path(__file__).resolve().parents[1]
 CONFIG_PATH = ROOT / "site.config.json"
 SITE_SRC = ROOT / "site_src"
+TRADING_DATA_PATH = ROOT / "data" / "trading" / "trading_dashboard_data.json"
 
 
 MARKET_LABELS = {
@@ -340,6 +343,15 @@ def write_metadata(config: dict, public_dir: Path, reports: list[dict], chart_pr
     (public_dir / ".nojekyll").write_text("", encoding="utf-8")
 
 
+def write_trading_data(public_dir: Path) -> None:
+    if not TRADING_DATA_PATH.exists():
+        return
+    with TRADING_DATA_PATH.open("r", encoding="utf-8") as handle:
+        payload = validate_payload(json.load(handle))
+    data_js = "window.TRADING_DASHBOARD = " + json.dumps(payload, ensure_ascii=False, indent=2) + ";\n"
+    (public_dir / "assets" / "trading-data.js").write_text(data_js, encoding="utf-8")
+
+
 def main() -> None:
     config = load_config()
     public_dir = ROOT / config.get("publicDir", "docs")
@@ -349,6 +361,7 @@ def main() -> None:
     copy_site_assets(public_dir)
     copy_reports(config, public_dir, reports)
     write_metadata(config, public_dir, reports, chart_previews)
+    write_trading_data(public_dir)
     print(f"Built {len(reports)} reports into {public_dir.relative_to(ROOT)}")
 
 
