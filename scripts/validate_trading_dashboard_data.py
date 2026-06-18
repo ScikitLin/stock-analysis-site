@@ -83,20 +83,43 @@ def build_contributions(market: dict) -> list[dict]:
         symbol = trade["symbol"]
         rows.setdefault(
             symbol,
-            {"symbol": symbol, "name": trade.get("name", symbol), "realizedPnl": 0.0, "unrealizedPnl": 0.0},
+            {
+                "symbol": symbol,
+                "name": trade.get("name", symbol),
+                "realizedPnl": 0.0,
+                "unrealizedPnl": 0.0,
+                "realizedCost": 0.0,
+                "positionCost": 0.0,
+            },
         )
         rows[symbol]["realizedPnl"] += float(trade.get("realizedPnl") or 0)
+        investment_cost = trade.get("investmentCost")
+        if investment_cost is None:
+            return_pct = float(trade.get("returnPct") or 0)
+            realized_pnl = float(trade.get("realizedPnl") or 0)
+            investment_cost = realized_pnl / (return_pct / 100) if return_pct else 0
+        rows[symbol]["realizedCost"] += abs(float(investment_cost or 0))
     for position in market.get("positions", []):
         symbol = position["symbol"]
         rows.setdefault(
             symbol,
-            {"symbol": symbol, "name": position.get("name", symbol), "realizedPnl": 0.0, "unrealizedPnl": 0.0},
+            {
+                "symbol": symbol,
+                "name": position.get("name", symbol),
+                "realizedPnl": 0.0,
+                "unrealizedPnl": 0.0,
+                "realizedCost": 0.0,
+                "positionCost": 0.0,
+            },
         )
         rows[symbol]["name"] = position.get("name", rows[symbol]["name"])
         rows[symbol]["unrealizedPnl"] += float(position.get("unrealizedPnl") or 0)
+        rows[symbol]["positionCost"] += float(position.get("cost") or 0)
     result = []
     for item in rows.values():
         item["totalPnl"] = item["realizedPnl"] + item["unrealizedPnl"]
+        item["totalCost"] = item["realizedCost"] + item["positionCost"]
+        item["returnPct"] = (item["totalPnl"] / item["totalCost"] * 100) if item["totalCost"] else 0
         result.append(item)
     return sorted(result, key=lambda item: (-item["totalPnl"], item["symbol"]))
 

@@ -1,6 +1,6 @@
 window.TRADING_DASHBOARD = {
   "version": 1,
-  "updatedAt": "2026-06-17",
+  "updatedAt": "2026-06-18",
   "sourceNote": "User-provided ChatGPT整理交易紀錄; dashboard validation checks internal reconciliation only, not broker screenshot fidelity.",
   "markets": {
     "tw": {
@@ -8,372 +8,151 @@ window.TRADING_DASHBOARD = {
       "label": "台股",
       "currency": "TWD",
       "currencyLabel": "台幣",
-      "initialCapital": 1000000,
-      "currentDate": "2026-06-17",
+      "initialCapital": 2000000,
+      "currentDate": "2026-06-18",
+      "currentTimestamp": "2026-06-18 10:10",
       "orderLogComplete": false,
       "dataQuality": [
-        "總覽、庫存合計、已實現損益合計可內部驗算。",
-        "成交/委託紀錄不是完整台帳；多筆已實現交易的買入日與買入均價是依規則推估。",
-        "台股第一版資產曲線採已實現損益事件 + 最新未實現庫存快照，不代表完整逐日市值曲線。"
+        "2026/06/18 10:10 持倉快照與已實現損益可內部驗算。",
+        "券商總市值為 999,904；本頁採可與損益對帳的庫存總淨值 997,323。",
+        "成交/委託紀錄不是完整台帳；資產曲線採已實現損益事件 + 最新未實現庫存快照，不代表完整逐日市值曲線。"
       ],
       "summary": {
-        "realizedPnl": 87053,
-        "unrealizedPnl": -107,
-        "totalPnl": 86946,
-        "currentAssets": 1086946,
-        "totalReturnPct": 8.69,
-        "cash": 788541,
-        "marketValue": 298405
+        "realizedPnl": 117085,
+        "unrealizedPnl": 181496,
+        "totalPnl": 298581,
+        "currentAssets": 2298581,
+        "totalReturnPct": 14.93,
+        "cash": 1301258,
+        "marketValue": 997323,
+        "brokerGrossMarketValue": 999904,
+        "brokerPositionReturnPct": 21.88
       },
       "positions": [
         {
-          "symbol": "2317",
-          "name": "鴻海",
-          "shares": 300,
-          "marketValue": 81241,
-          "cost": 80563,
-          "unrealizedPnl": 678,
-          "returnPct": 0.84
+          "symbol": "00757",
+          "name": "統一 FANG+",
+          "shares": 7273,
+          "averagePrice": 99.68,
+          "currentPrice": 129.25,
+          "marketValue": 937756,
+          "cost": 725915,
+          "unrealizedPnl": 211841,
+          "returnPct": 29.18
         },
         {
-          "symbol": "4739",
-          "name": "康普",
-          "shares": 500,
-          "marketValue": 61229,
-          "cost": 43061,
-          "unrealizedPnl": 18168,
-          "returnPct": 42.19
+          "symbol": "1760",
+          "name": "寶齡富錦",
+          "shares": 577,
+          "averagePrice": 106.99,
+          "currentPrice": 60.5,
+          "marketValue": 34755,
+          "cost": 61838,
+          "unrealizedPnl": -27083,
+          "returnPct": -43.8
         },
         {
-          "symbol": "6732",
-          "name": "昇佳電子",
-          "shares": 1004,
-          "marketValue": 155935,
-          "cost": 174888,
-          "unrealizedPnl": -18953,
-          "returnPct": -10.84
+          "symbol": "1904",
+          "name": "正隆",
+          "shares": 1,
+          "averagePrice": 18,
+          "currentPrice": 23.3,
+          "marketValue": 3,
+          "cost": 38,
+          "unrealizedPnl": -35,
+          "returnPct": -92.11
+        },
+        {
+          "symbol": "2880",
+          "name": "華南金",
+          "shares": 1,
+          "averagePrice": 16,
+          "currentPrice": 38.8,
+          "marketValue": 18,
+          "cost": 36,
+          "unrealizedPnl": -18,
+          "returnPct": -50
+        },
+        {
+          "symbol": "4166",
+          "name": "友霖",
+          "shares": 1000,
+          "averagePrice": 28,
+          "currentPrice": 24.9,
+          "marketValue": 24791,
+          "cost": 28000,
+          "unrealizedPnl": -3209,
+          "returnPct": -11.46
         }
       ],
       "realizedTrades": [
         {
-          "buyDate": "2026-03-08",
-          "sellDate": "2026-04-08",
-          "symbol": "00830",
-          "name": "國泰費城半導體",
-          "shares": 1000,
-          "estimatedBuyPrice": 56.06,
-          "sellPrice": 58.65,
-          "realizedPnl": 2461,
-          "returnPct": 4.39,
-          "source": "推估補入"
-        },
-        {
-          "buyDate": "2026-03-08",
-          "sellDate": "2026-04-08",
-          "symbol": "00830",
-          "name": "國泰費城半導體",
-          "shares": 845,
-          "estimatedBuyPrice": 55.04,
-          "sellPrice": 58.55,
-          "realizedPnl": 2874,
-          "returnPct": 6.18,
-          "source": "推估補入"
-        },
-        {
-          "buyDate": "2026-03-08",
-          "sellDate": "2026-04-08",
-          "symbol": "2353",
-          "name": "宏碁",
-          "shares": 2000,
-          "estimatedBuyPrice": 27.41,
-          "sellPrice": 27.35,
-          "realizedPnl": -318,
-          "returnPct": -0.58,
-          "source": "推估補入"
-        },
-        {
-          "buyDate": "2026-03-08",
-          "sellDate": "2026-04-08",
-          "symbol": "2353",
-          "name": "宏碁",
-          "shares": 2000,
-          "estimatedBuyPrice": 26.82,
-          "sellPrice": 27.35,
-          "realizedPnl": 633,
-          "returnPct": 1.18,
-          "source": "推估補入"
-        },
-        {
-          "buyDate": "2026-03-10",
-          "sellDate": "2026-04-10",
-          "symbol": "6488",
-          "name": "環球晶",
-          "shares": 250,
-          "estimatedBuyPrice": 432.52,
-          "sellPrice": 486,
-          "realizedPnl": 12835,
-          "returnPct": 11.87,
-          "source": "推估補入"
-        },
-        {
-          "buyDate": "2026-03-24",
-          "sellDate": "2026-04-24",
-          "symbol": "00830",
-          "name": "國泰費城半導體",
-          "shares": 309,
-          "estimatedBuyPrice": 64.15,
-          "sellPrice": 71.55,
-          "realizedPnl": 2238,
-          "returnPct": 11.29,
-          "source": "已實現損益底稿"
-        },
-        {
-          "buyDate": "2026-03-29",
-          "sellDate": "2026-04-29",
-          "symbol": "00757",
-          "name": "統一 FANG+",
-          "shares": 2000,
-          "estimatedBuyPrice": 116.36,
-          "sellPrice": 120.9,
-          "realizedPnl": 256,
-          "returnPct": 0.11,
-          "source": "已實現損益底稿"
-        },
-        {
-          "buyDate": "2026-03-29",
-          "sellDate": "2026-04-29",
-          "symbol": "2377",
-          "name": "微星",
-          "shares": 500,
-          "estimatedBuyPrice": 93.38,
-          "sellPrice": 100,
-          "realizedPnl": 3063,
-          "returnPct": 6.56,
-          "source": "已實現損益底稿"
-        },
-        {
-          "buyDate": "2026-04-13",
-          "sellDate": "2026-05-13",
-          "symbol": "2377",
-          "name": "微星",
-          "shares": 500,
-          "estimatedBuyPrice": 93.43,
-          "sellPrice": 113,
-          "realizedPnl": 9535,
-          "returnPct": 20.41,
-          "source": "已實現損益底稿"
-        },
-        {
-          "buyDate": "2026-04-22",
-          "sellDate": "2026-05-22",
-          "symbol": "6907",
-          "name": "雅特力-KY",
-          "shares": 1000,
-          "estimatedBuyPrice": 110.72,
-          "sellPrice": 119.5,
-          "realizedPnl": 8315,
-          "returnPct": 7.51,
-          "source": "已實現損益底稿"
-        },
-        {
-          "buyDate": "2026-04-28",
-          "sellDate": "2026-05-28",
-          "symbol": "6143",
-          "name": "振曜",
-          "shares": 1000,
-          "estimatedBuyPrice": 99.18,
-          "sellPrice": 102.5,
-          "realizedPnl": 2906,
-          "returnPct": 2.93,
-          "source": "已實現損益底稿"
-        },
-        {
-          "buyDate": "2026-05-08",
-          "sellDate": "2026-06-08",
-          "symbol": "3141",
-          "name": "晶宏",
-          "shares": 1000,
-          "estimatedBuyPrice": 81.73,
-          "sellPrice": 66.9,
-          "realizedPnl": -15111,
-          "returnPct": -18.49,
-          "source": "已實現損益底稿"
-        },
-        {
-          "buyDate": "2026-05-08",
-          "sellDate": "2026-06-08",
-          "symbol": "4739",
-          "name": "康普",
-          "shares": 1000,
-          "estimatedBuyPrice": 83.72,
-          "sellPrice": 115,
-          "realizedPnl": 30774,
-          "returnPct": 36.76,
-          "source": "已實現損益底稿"
-        },
-        {
-          "buyDate": "2026-05-09",
-          "sellDate": "2026-06-09",
-          "symbol": "2379",
-          "name": "瑞昱",
-          "shares": 55,
-          "estimatedBuyPrice": 595.46,
-          "sellPrice": 631,
-          "realizedPnl": 1798,
-          "returnPct": 5.49,
-          "source": "已實現損益底稿"
-        },
-        {
-          "buyDate": "2026-05-12",
-          "sellDate": "2026-06-12",
-          "symbol": "6907",
-          "name": "雅特力-KY",
-          "shares": 50,
-          "estimatedBuyPrice": 132.15,
-          "sellPrice": 142.5,
-          "realizedPnl": 485,
-          "returnPct": 7.34,
-          "source": "已實現損益底稿"
-        },
-        {
-          "buyDate": "2026-05-15",
           "sellDate": "2026-06-15",
           "symbol": "00830",
           "name": "國泰費城半導體",
-          "shares": 673,
-          "estimatedBuyPrice": 82.36,
-          "sellPrice": 97.6,
-          "realizedPnl": 10093,
-          "returnPct": 18.21,
-          "source": "已實現損益底稿"
+          "shares": 561,
+          "estimatedBuyPrice": 81.47,
+          "sellPrice": 97.65,
+          "investmentCost": 45894,
+          "realizedPnl": 8884,
+          "returnPct": 19.35,
+          "source": "2026/06/18 使用者提供"
         },
         {
-          "buyDate": "2026-05-16",
-          "sellDate": "2026-06-16",
+          "sellDate": "2026-04-24",
           "symbol": "00830",
           "name": "國泰費城半導體",
-          "shares": 41,
-          "estimatedBuyPrice": 96.43,
-          "sellPrice": 98.15,
-          "realizedPnl": 17,
-          "returnPct": 0.43,
-          "source": "已實現損益底稿"
+          "shares": 363,
+          "estimatedBuyPrice": 65.62,
+          "sellPrice": 71.55,
+          "investmentCost": 23916,
+          "realizedPnl": 2056,
+          "returnPct": 8.59,
+          "source": "2026/06/18 使用者提供"
         },
         {
-          "buyDate": "2026-05-16",
-          "sellDate": "2026-06-16",
-          "symbol": "2317",
-          "name": "鴻海",
-          "shares": 300,
-          "estimatedBuyPrice": 273.02,
-          "sellPrice": 270,
-          "realizedPnl": -172,
-          "returnPct": -0.21,
-          "source": "已實現損益底稿"
+          "sellDate": "2026-04-08",
+          "symbol": "00830",
+          "name": "國泰費城半導體",
+          "shares": 1396,
+          "estimatedBuyPrice": 55.43,
+          "sellPrice": 58.69,
+          "investmentCost": 77689,
+          "realizedPnl": 4230,
+          "returnPct": 5.44,
+          "source": "2026/06/18 使用者提供"
         },
         {
-          "buyDate": "2026-05-17",
-          "sellDate": "2026-06-17",
-          "symbol": "4739",
-          "name": "康普",
-          "shares": 500,
-          "estimatedBuyPrice": 91.22,
-          "sellPrice": 120.5,
-          "realizedPnl": 14371,
-          "returnPct": 31.51,
-          "source": "已實現損益底稿"
+          "sellDate": "2026-03-25",
+          "symbol": "6907",
+          "name": "雅特力-KY",
+          "shares": 1000,
+          "estimatedBuyPrice": 30,
+          "sellPrice": 132.5,
+          "investmentCost": 30585,
+          "realizedPnl": 101915,
+          "returnPct": 333.21,
+          "source": "2026/06/18 使用者提供"
         }
       ],
       "orders": [
         {
-          "date": "2026-03-08",
-          "symbol": "00830",
-          "name": "國泰費城半導體",
-          "action": "buy",
-          "price": 56.06,
+          "date": "2026-03-25",
+          "symbol": "6907",
+          "name": "雅特力-KY",
+          "action": "sell",
+          "price": 132.5,
           "shares": 1000,
-          "status": "推估補入"
-        },
-        {
-          "date": "2026-03-08",
-          "symbol": "00830",
-          "name": "國泰費城半導體",
-          "action": "buy",
-          "price": 55.04,
-          "shares": 845,
-          "status": "推估補入"
-        },
-        {
-          "date": "2026-03-08",
-          "symbol": "2353",
-          "name": "宏碁",
-          "action": "buy",
-          "price": 27.41,
-          "shares": 2000,
-          "status": "推估補入"
-        },
-        {
-          "date": "2026-03-08",
-          "symbol": "2353",
-          "name": "宏碁",
-          "action": "buy",
-          "price": 26.82,
-          "shares": 2000,
-          "status": "推估補入"
-        },
-        {
-          "date": "2026-03-10",
-          "symbol": "6488",
-          "name": "環球晶",
-          "action": "buy",
-          "price": 432.52,
-          "shares": 250,
-          "status": "推估補入"
+          "status": "2026/06/18 使用者提供"
         },
         {
           "date": "2026-04-08",
           "symbol": "00830",
           "name": "國泰費城半導體",
           "action": "sell",
-          "price": 58.65,
-          "shares": 1000,
-          "status": "已實現補入"
-        },
-        {
-          "date": "2026-04-08",
-          "symbol": "00830",
-          "name": "國泰費城半導體",
-          "action": "sell",
-          "price": 58.55,
-          "shares": 845,
-          "status": "已實現補入"
-        },
-        {
-          "date": "2026-04-08",
-          "symbol": "2353",
-          "name": "宏碁",
-          "action": "sell",
-          "price": 27.35,
-          "shares": 2000,
-          "status": "已實現補入"
-        },
-        {
-          "date": "2026-04-08",
-          "symbol": "2353",
-          "name": "宏碁",
-          "action": "sell",
-          "price": 27.35,
-          "shares": 2000,
-          "status": "已實現補入"
-        },
-        {
-          "date": "2026-04-10",
-          "symbol": "6488",
-          "name": "環球晶",
-          "action": "sell",
-          "price": 486,
-          "shares": 250,
-          "status": "已實現補入"
+          "price": 58.69,
+          "shares": 1396,
+          "status": "2026/06/18 使用者提供"
         },
         {
           "date": "2026-04-24",
@@ -381,566 +160,180 @@ window.TRADING_DASHBOARD = {
           "name": "國泰費城半導體",
           "action": "sell",
           "price": 71.55,
-          "shares": 309,
-          "status": "截圖可見"
-        },
-        {
-          "date": "2026-04-27",
-          "symbol": "00757",
-          "name": "統一 FANG+",
-          "action": "buy",
-          "price": 120.4,
-          "shares": 350,
-          "status": "截圖可見"
-        },
-        {
-          "date": "2026-04-27",
-          "symbol": "00757",
-          "name": "統一 FANG+",
-          "action": "buy",
-          "price": 120.4,
-          "shares": 150,
-          "status": "截圖可見"
-        },
-        {
-          "date": "2026-04-27",
-          "symbol": "00757",
-          "name": "統一 FANG+",
-          "action": "buy",
-          "price": 120.4,
-          "shares": 500,
-          "status": "截圖可見"
-        },
-        {
-          "date": "2026-04-27",
-          "symbol": "00757",
-          "name": "統一 FANG+",
-          "action": "buy",
-          "price": 120.35,
-          "shares": 681,
-          "status": "截圖可見"
-        },
-        {
-          "date": "2026-04-27",
-          "symbol": "4739",
-          "name": "康普",
-          "action": "buy",
-          "price": 83.1,
-          "shares": 500,
-          "status": "截圖可見"
-        },
-        {
-          "date": "2026-04-27",
-          "symbol": "4739",
-          "name": "康普",
-          "action": "buy",
-          "price": 84.1,
-          "shares": 500,
-          "status": "截圖可見"
-        },
-        {
-          "date": "2026-04-29",
-          "symbol": "00757",
-          "name": "統一 FANG+",
-          "action": "sell",
-          "price": 120.9,
-          "shares": 2000,
-          "status": "截圖可見"
-        },
-        {
-          "date": "2026-04-29",
-          "symbol": "2377",
-          "name": "微星",
-          "action": "sell",
-          "price": 100,
-          "shares": 500,
-          "status": "截圖可見"
-        },
-        {
-          "date": "2026-05-06",
-          "symbol": "4739",
-          "name": "康普",
-          "action": "buy",
-          "price": 91.1,
-          "shares": 500,
-          "status": "截圖可見"
-        },
-        {
-          "date": "2026-05-08",
-          "symbol": "4739",
-          "name": "康普",
-          "action": "buy",
-          "price": 86,
-          "shares": 500,
-          "status": "截圖可見"
-        },
-        {
-          "date": "2026-05-13",
-          "symbol": "2377",
-          "name": "微星",
-          "action": "sell",
-          "price": 113,
-          "shares": 500,
-          "status": "截圖可見"
-        },
-        {
-          "date": "2026-05-14",
-          "symbol": "6143",
-          "name": "振曜",
-          "action": "buy",
-          "price": 99,
-          "shares": 1000,
-          "status": "截圖可見"
-        },
-        {
-          "date": "2026-05-20",
-          "symbol": "6907",
-          "name": "雅特力-KY",
-          "action": "buy",
-          "price": 110.5,
-          "shares": 1000,
-          "status": "截圖可見"
-        },
-        {
-          "date": "2026-05-22",
-          "symbol": "6907",
-          "name": "雅特力-KY",
-          "action": "sell",
-          "price": 119.5,
-          "shares": 1000,
-          "status": "截圖可見"
-        },
-        {
-          "date": "2026-05-26",
-          "symbol": "6732",
-          "name": "昇佳電子",
-          "action": "buy",
-          "price": 181.5,
-          "shares": 104,
-          "status": "部分成交"
-        },
-        {
-          "date": "2026-05-27",
-          "symbol": "6732",
-          "name": "昇佳電子",
-          "action": "buy",
-          "price": 182,
-          "shares": 400,
-          "status": "截圖可見"
-        },
-        {
-          "date": "2026-05-28",
-          "symbol": "6732",
-          "name": "昇佳電子",
-          "action": "buy",
-          "price": 171.467,
-          "shares": 500,
-          "status": "截圖可見"
-        },
-        {
-          "date": "2026-05-28",
-          "symbol": "6143",
-          "name": "振曜",
-          "action": "sell",
-          "price": 102.5,
-          "shares": 1000,
-          "status": "截圖可見"
-        },
-        {
-          "date": "2026-05-28",
-          "symbol": "3141",
-          "name": "晶宏",
-          "action": "buy",
-          "price": 81.6,
-          "shares": 1000,
-          "status": "截圖可見"
-        },
-        {
-          "date": "2026-06-08",
-          "symbol": "2317",
-          "name": "鴻海",
-          "action": "buy",
-          "price": 264.5,
-          "shares": 100,
-          "status": "截圖可見"
-        },
-        {
-          "date": "2026-06-08",
-          "symbol": "4739",
-          "name": "康普",
-          "action": "sell",
-          "price": 115,
-          "shares": 1000,
-          "status": "截圖可見"
-        },
-        {
-          "date": "2026-06-08",
-          "symbol": "3141",
-          "name": "晶宏",
-          "action": "sell",
-          "price": 66.9,
-          "shares": 1000,
-          "status": "截圖可見"
-        },
-        {
-          "date": "2026-06-08",
-          "symbol": "2379",
-          "name": "瑞昱",
-          "action": "buy",
-          "price": 594.709,
-          "shares": 55,
-          "status": "截圖可見"
-        },
-        {
-          "date": "2026-06-09",
-          "symbol": "2317",
-          "name": "鴻海",
-          "action": "buy",
-          "price": 272,
-          "shares": 150,
-          "status": "截圖可見"
-        },
-        {
-          "date": "2026-06-09",
-          "symbol": "2379",
-          "name": "瑞昱",
-          "action": "sell",
-          "price": 631,
-          "shares": 55,
-          "status": "截圖可見"
-        },
-        {
-          "date": "2026-06-10",
-          "symbol": "2317",
-          "name": "鴻海",
-          "action": "buy",
-          "price": 266.5,
-          "shares": 100,
-          "status": "截圖可見"
-        },
-        {
-          "date": "2026-06-10",
-          "symbol": "2317",
-          "name": "鴻海",
-          "action": "buy",
-          "price": 269,
-          "shares": 250,
-          "status": "截圖可見"
-        },
-        {
-          "date": "2026-06-12",
-          "symbol": "6907",
-          "name": "雅特力-KY",
-          "action": "sell",
-          "price": 142.5,
-          "shares": 50,
-          "status": "截圖可見"
+          "shares": 363,
+          "status": "2026/06/18 使用者提供"
         },
         {
           "date": "2026-06-15",
           "symbol": "00830",
           "name": "國泰費城半導體",
           "action": "sell",
-          "price": 97.6,
-          "shares": 673,
-          "status": "截圖可見"
-        },
-        {
-          "date": "2026-06-16",
-          "symbol": "00830",
-          "name": "國泰費城半導體",
-          "action": "sell",
-          "price": 98.15,
-          "shares": 41,
-          "status": "截圖可見"
-        },
-        {
-          "date": "2026-06-16",
-          "symbol": "2317",
-          "name": "鴻海",
-          "action": "sell",
-          "price": 270,
-          "shares": 300,
-          "status": "截圖可見"
-        },
-        {
-          "date": "2026-06-17",
-          "symbol": "4739",
-          "name": "康普",
-          "action": "sell",
-          "price": 120.5,
-          "shares": 500,
-          "status": "截圖可見"
+          "price": 97.65,
+          "shares": 561,
+          "status": "2026/06/18 使用者提供"
         }
       ],
       "computed": {
-        "positionCost": 298512.0,
+        "positionCost": 815827.0,
         "realizedByDate": [
           {
-            "date": "2026-04-08",
-            "realizedPnl": 5650.0
+            "date": "2026-03-25",
+            "realizedPnl": 101915.0
           },
           {
-            "date": "2026-04-10",
-            "realizedPnl": 12835.0
+            "date": "2026-04-08",
+            "realizedPnl": 4230.0
           },
           {
             "date": "2026-04-24",
-            "realizedPnl": 2238.0
-          },
-          {
-            "date": "2026-04-29",
-            "realizedPnl": 3319.0
-          },
-          {
-            "date": "2026-05-13",
-            "realizedPnl": 9535.0
-          },
-          {
-            "date": "2026-05-22",
-            "realizedPnl": 8315.0
-          },
-          {
-            "date": "2026-05-28",
-            "realizedPnl": 2906.0
-          },
-          {
-            "date": "2026-06-08",
-            "realizedPnl": 15663.0
-          },
-          {
-            "date": "2026-06-09",
-            "realizedPnl": 1798.0
-          },
-          {
-            "date": "2026-06-12",
-            "realizedPnl": 485.0
+            "realizedPnl": 2056.0
           },
           {
             "date": "2026-06-15",
-            "realizedPnl": 10093.0
-          },
-          {
-            "date": "2026-06-16",
-            "realizedPnl": -155.0
-          },
-          {
-            "date": "2026-06-17",
-            "realizedPnl": 14371.0
+            "realizedPnl": 8884.0
           }
         ],
         "equitySeries": [
           {
-            "date": "2026-03-08",
+            "date": "2026-03-25",
             "realizedPnl": 0.0,
             "unrealizedPnl": 0.0,
-            "equity": 1000000.0,
+            "equity": 2000000.0,
+            "drawdown": 0.0,
+            "drawdownPct": 0.0
+          },
+          {
+            "date": "2026-03-25",
+            "realizedPnl": 101915.0,
+            "unrealizedPnl": 0.0,
+            "equity": 2101915.0,
             "drawdown": 0.0,
             "drawdownPct": 0.0
           },
           {
             "date": "2026-04-08",
-            "realizedPnl": 5650.0,
+            "realizedPnl": 106145.0,
             "unrealizedPnl": 0.0,
-            "equity": 1005650.0,
-            "drawdown": 0.0,
-            "drawdownPct": 0.0
-          },
-          {
-            "date": "2026-04-10",
-            "realizedPnl": 18485.0,
-            "unrealizedPnl": 0.0,
-            "equity": 1018485.0,
+            "equity": 2106145.0,
             "drawdown": 0.0,
             "drawdownPct": 0.0
           },
           {
             "date": "2026-04-24",
-            "realizedPnl": 20723.0,
+            "realizedPnl": 108201.0,
             "unrealizedPnl": 0.0,
-            "equity": 1020723.0,
-            "drawdown": 0.0,
-            "drawdownPct": 0.0
-          },
-          {
-            "date": "2026-04-29",
-            "realizedPnl": 24042.0,
-            "unrealizedPnl": 0.0,
-            "equity": 1024042.0,
-            "drawdown": 0.0,
-            "drawdownPct": 0.0
-          },
-          {
-            "date": "2026-05-13",
-            "realizedPnl": 33577.0,
-            "unrealizedPnl": 0.0,
-            "equity": 1033577.0,
-            "drawdown": 0.0,
-            "drawdownPct": 0.0
-          },
-          {
-            "date": "2026-05-22",
-            "realizedPnl": 41892.0,
-            "unrealizedPnl": 0.0,
-            "equity": 1041892.0,
-            "drawdown": 0.0,
-            "drawdownPct": 0.0
-          },
-          {
-            "date": "2026-05-28",
-            "realizedPnl": 44798.0,
-            "unrealizedPnl": 0.0,
-            "equity": 1044798.0,
-            "drawdown": 0.0,
-            "drawdownPct": 0.0
-          },
-          {
-            "date": "2026-06-08",
-            "realizedPnl": 60461.0,
-            "unrealizedPnl": 0.0,
-            "equity": 1060461.0,
-            "drawdown": 0.0,
-            "drawdownPct": 0.0
-          },
-          {
-            "date": "2026-06-09",
-            "realizedPnl": 62259.0,
-            "unrealizedPnl": 0.0,
-            "equity": 1062259.0,
-            "drawdown": 0.0,
-            "drawdownPct": 0.0
-          },
-          {
-            "date": "2026-06-12",
-            "realizedPnl": 62744.0,
-            "unrealizedPnl": 0.0,
-            "equity": 1062744.0,
+            "equity": 2108201.0,
             "drawdown": 0.0,
             "drawdownPct": 0.0
           },
           {
             "date": "2026-06-15",
-            "realizedPnl": 72837.0,
+            "realizedPnl": 117085.0,
             "unrealizedPnl": 0.0,
-            "equity": 1072837.0,
+            "equity": 2117085.0,
             "drawdown": 0.0,
             "drawdownPct": 0.0
           },
           {
-            "date": "2026-06-16",
-            "realizedPnl": 72682.0,
-            "unrealizedPnl": 0.0,
-            "equity": 1072682.0,
-            "drawdown": -155.0,
-            "drawdownPct": -0.014447674716662457
-          },
-          {
-            "date": "2026-06-17",
-            "realizedPnl": 87053.0,
-            "unrealizedPnl": -107.0,
-            "equity": 1086946.0,
+            "date": "2026-06-18",
+            "realizedPnl": 117085.0,
+            "unrealizedPnl": 181496.0,
+            "equity": 2298581.0,
             "drawdown": 0.0,
             "drawdownPct": 0.0
           }
         ],
         "contributions": [
           {
-            "symbol": "4739",
-            "name": "康普",
-            "realizedPnl": 45145.0,
-            "unrealizedPnl": 18168.0,
-            "totalPnl": 63313.0
-          },
-          {
-            "symbol": "00830",
-            "name": "國泰費城半導體",
-            "realizedPnl": 17683.0,
-            "unrealizedPnl": 0.0,
-            "totalPnl": 17683.0
-          },
-          {
-            "symbol": "6488",
-            "name": "環球晶",
-            "realizedPnl": 12835.0,
-            "unrealizedPnl": 0.0,
-            "totalPnl": 12835.0
-          },
-          {
-            "symbol": "2377",
-            "name": "微星",
-            "realizedPnl": 12598.0,
-            "unrealizedPnl": 0.0,
-            "totalPnl": 12598.0
+            "symbol": "00757",
+            "name": "統一 FANG+",
+            "realizedPnl": 0.0,
+            "unrealizedPnl": 211841.0,
+            "realizedCost": 0.0,
+            "positionCost": 725915.0,
+            "totalPnl": 211841.0,
+            "totalCost": 725915.0,
+            "returnPct": 29.18261779960464
           },
           {
             "symbol": "6907",
             "name": "雅特力-KY",
-            "realizedPnl": 8800.0,
+            "realizedPnl": 101915.0,
             "unrealizedPnl": 0.0,
-            "totalPnl": 8800.0
+            "realizedCost": 30585.0,
+            "positionCost": 0.0,
+            "totalPnl": 101915.0,
+            "totalCost": 30585.0,
+            "returnPct": 333.21889815268923
           },
           {
-            "symbol": "6143",
-            "name": "振曜",
-            "realizedPnl": 2906.0,
+            "symbol": "00830",
+            "name": "國泰費城半導體",
+            "realizedPnl": 15170.0,
             "unrealizedPnl": 0.0,
-            "totalPnl": 2906.0
+            "realizedCost": 147499.0,
+            "positionCost": 0.0,
+            "totalPnl": 15170.0,
+            "totalCost": 147499.0,
+            "returnPct": 10.284815490274509
           },
           {
-            "symbol": "2379",
-            "name": "瑞昱",
-            "realizedPnl": 1798.0,
-            "unrealizedPnl": 0.0,
-            "totalPnl": 1798.0
-          },
-          {
-            "symbol": "2317",
-            "name": "鴻海",
-            "realizedPnl": -172.0,
-            "unrealizedPnl": 678.0,
-            "totalPnl": 506.0
-          },
-          {
-            "symbol": "2353",
-            "name": "宏碁",
-            "realizedPnl": 315.0,
-            "unrealizedPnl": 0.0,
-            "totalPnl": 315.0
-          },
-          {
-            "symbol": "00757",
-            "name": "統一 FANG+",
-            "realizedPnl": 256.0,
-            "unrealizedPnl": 0.0,
-            "totalPnl": 256.0
-          },
-          {
-            "symbol": "3141",
-            "name": "晶宏",
-            "realizedPnl": -15111.0,
-            "unrealizedPnl": 0.0,
-            "totalPnl": -15111.0
-          },
-          {
-            "symbol": "6732",
-            "name": "昇佳電子",
+            "symbol": "2880",
+            "name": "華南金",
             "realizedPnl": 0.0,
-            "unrealizedPnl": -18953.0,
-            "totalPnl": -18953.0
+            "unrealizedPnl": -18.0,
+            "realizedCost": 0.0,
+            "positionCost": 36.0,
+            "totalPnl": -18.0,
+            "totalCost": 36.0,
+            "returnPct": -50.0
+          },
+          {
+            "symbol": "1904",
+            "name": "正隆",
+            "realizedPnl": 0.0,
+            "unrealizedPnl": -35.0,
+            "realizedCost": 0.0,
+            "positionCost": 38.0,
+            "totalPnl": -35.0,
+            "totalCost": 38.0,
+            "returnPct": -92.10526315789474
+          },
+          {
+            "symbol": "4166",
+            "name": "友霖",
+            "realizedPnl": 0.0,
+            "unrealizedPnl": -3209.0,
+            "realizedCost": 0.0,
+            "positionCost": 28000.0,
+            "totalPnl": -3209.0,
+            "totalCost": 28000.0,
+            "returnPct": -11.460714285714285
+          },
+          {
+            "symbol": "1760",
+            "name": "寶齡富錦",
+            "realizedPnl": 0.0,
+            "unrealizedPnl": -27083.0,
+            "realizedCost": 0.0,
+            "positionCost": 61838.0,
+            "totalPnl": -27083.0,
+            "totalCost": 61838.0,
+            "returnPct": -43.796694589087615
           }
         ],
         "stats": {
-          "tradeCount": 19,
-          "winCount": 16,
-          "lossCount": 3,
-          "winRatePct": 84.21052631578947,
-          "avgWin": 6415.875,
-          "avgLoss": -5200.333333333333,
-          "profitFactor": 6.579962822895968,
-          "bestTrade": 30774.0,
-          "worstTrade": -15111.0,
-          "maxDrawdown": -155.0,
-          "maxDrawdownPct": -0.014447674716662457
+          "tradeCount": 4,
+          "winCount": 4,
+          "lossCount": 0,
+          "winRatePct": 100.0,
+          "avgWin": 29271.25,
+          "avgLoss": 0,
+          "profitFactor": null,
+          "bestTrade": 101915.0,
+          "worstTrade": 2056.0,
+          "maxDrawdown": 0.0,
+          "maxDrawdownPct": 0.0
         }
       },
       "validation": {
@@ -949,71 +342,85 @@ window.TRADING_DASHBOARD = {
           {
             "label": "已實現損益合計",
             "ok": true,
-            "actual": 87053.0,
-            "expected": 87053.0,
+            "actual": 117085.0,
+            "expected": 117085.0,
             "diff": 0.0
           },
           {
             "label": "未實現損益合計",
             "ok": true,
-            "actual": -107.0,
-            "expected": -107.0,
+            "actual": 181496.0,
+            "expected": 181496.0,
             "diff": 0.0
           },
           {
             "label": "股票庫存市值合計",
             "ok": true,
-            "actual": 298405.0,
-            "expected": 298405.0,
+            "actual": 997323.0,
+            "expected": 997323.0,
             "diff": 0.0
           },
           {
             "label": "總損益",
             "ok": true,
-            "actual": 86946.0,
-            "expected": 86946.0,
+            "actual": 298581.0,
+            "expected": 298581.0,
             "diff": 0.0
           },
           {
             "label": "目前推估總資產",
             "ok": true,
-            "actual": 1086946.0,
-            "expected": 1086946.0,
+            "actual": 2298581.0,
+            "expected": 2298581.0,
             "diff": 0.0
           },
           {
             "label": "推估現金",
             "ok": true,
-            "actual": 788541.0,
-            "expected": 788541.0,
+            "actual": 1301258.0,
+            "expected": 1301258.0,
             "diff": 0.0
           },
           {
             "label": "總報酬率",
             "ok": true,
-            "actual": 8.6946,
-            "expected": 8.69,
-            "diff": 0.0046
+            "actual": 14.9291,
+            "expected": 14.93,
+            "diff": -0.0009
           },
           {
-            "label": "2317 庫存損益",
+            "label": "00757 庫存損益",
             "ok": true,
-            "actual": 678.0,
-            "expected": 678.0,
+            "actual": 211841.0,
+            "expected": 211841.0,
             "diff": 0.0
           },
           {
-            "label": "4739 庫存損益",
+            "label": "1760 庫存損益",
             "ok": true,
-            "actual": 18168.0,
-            "expected": 18168.0,
+            "actual": -27083.0,
+            "expected": -27083.0,
             "diff": 0.0
           },
           {
-            "label": "6732 庫存損益",
+            "label": "1904 庫存損益",
             "ok": true,
-            "actual": -18953.0,
-            "expected": -18953.0,
+            "actual": -35.0,
+            "expected": -35.0,
+            "diff": 0.0
+          },
+          {
+            "label": "2880 庫存損益",
+            "ok": true,
+            "actual": -18.0,
+            "expected": -18.0,
+            "diff": 0.0
+          },
+          {
+            "label": "4166 庫存損益",
+            "ok": true,
+            "actual": -3209.0,
+            "expected": -3209.0,
             "diff": 0.0
           }
         ],
@@ -1924,49 +1331,77 @@ window.TRADING_DASHBOARD = {
             "name": "NetApp",
             "realizedPnl": 489.13,
             "unrealizedPnl": 0.0,
-            "totalPnl": 489.13
+            "realizedCost": 4061.5199361195073,
+            "positionCost": 0.0,
+            "totalPnl": 489.13,
+            "totalCost": 4061.5199361195073,
+            "returnPct": 12.043028415301313
           },
           {
             "symbol": "BDC",
             "name": "百通",
             "realizedPnl": 0.0,
             "unrealizedPnl": 321.25,
-            "totalPnl": 321.25
+            "realizedCost": 0.0,
+            "positionCost": 2611.79,
+            "totalPnl": 321.25,
+            "totalCost": 2611.79,
+            "returnPct": 12.299993491054028
           },
           {
             "symbol": "GEV",
             "name": "奇異維諾瓦",
             "realizedPnl": 187.01999999999998,
             "unrealizedPnl": 109.86,
-            "totalPnl": 296.88
+            "realizedCost": 5695.355571148494,
+            "positionCost": 901.72,
+            "totalPnl": 296.88,
+            "totalCost": 6597.075571148494,
+            "returnPct": 4.50017582485137
           },
           {
             "symbol": "COHR",
             "name": "Coherent",
             "realizedPnl": 290.08000000000004,
             "unrealizedPnl": 0.0,
-            "totalPnl": 290.08000000000004
+            "realizedCost": 7027.0570790917545,
+            "positionCost": 0.0,
+            "totalPnl": 290.08000000000004,
+            "totalCost": 7027.0570790917545,
+            "returnPct": 4.128043884304022
           },
           {
             "symbol": "HPE",
             "name": "HP Enterprise",
             "realizedPnl": 192.68,
             "unrealizedPnl": 0.0,
-            "totalPnl": 192.68
+            "realizedCost": 1138.0980507974011,
+            "positionCost": 0.0,
+            "totalPnl": 192.68,
+            "totalCost": 1138.0980507974011,
+            "returnPct": 16.93
           },
           {
             "symbol": "QCOM",
             "name": "Qualcomm",
             "realizedPnl": 59.91,
             "unrealizedPnl": 0.0,
-            "totalPnl": 59.91
+            "realizedCost": 2316.3664647126247,
+            "positionCost": 0.0,
+            "totalPnl": 59.91,
+            "totalCost": 2316.3664647126247,
+            "returnPct": 2.5863783176222337
           },
           {
             "symbol": "ETN",
             "name": "Eaton",
             "realizedPnl": -13.82,
             "unrealizedPnl": 0.0,
-            "totalPnl": -13.82
+            "realizedCost": 3246.938775510204,
+            "positionCost": 0.0,
+            "totalPnl": -13.82,
+            "totalCost": 3246.938775510204,
+            "returnPct": -0.4256316781898178
           }
         ],
         "stats": {
@@ -2112,71 +1547,85 @@ window.TRADING_DASHBOARD = {
         {
           "label": "已實現損益合計",
           "ok": true,
-          "actual": 87053.0,
-          "expected": 87053.0,
+          "actual": 117085.0,
+          "expected": 117085.0,
           "diff": 0.0
         },
         {
           "label": "未實現損益合計",
           "ok": true,
-          "actual": -107.0,
-          "expected": -107.0,
+          "actual": 181496.0,
+          "expected": 181496.0,
           "diff": 0.0
         },
         {
           "label": "股票庫存市值合計",
           "ok": true,
-          "actual": 298405.0,
-          "expected": 298405.0,
+          "actual": 997323.0,
+          "expected": 997323.0,
           "diff": 0.0
         },
         {
           "label": "總損益",
           "ok": true,
-          "actual": 86946.0,
-          "expected": 86946.0,
+          "actual": 298581.0,
+          "expected": 298581.0,
           "diff": 0.0
         },
         {
           "label": "目前推估總資產",
           "ok": true,
-          "actual": 1086946.0,
-          "expected": 1086946.0,
+          "actual": 2298581.0,
+          "expected": 2298581.0,
           "diff": 0.0
         },
         {
           "label": "推估現金",
           "ok": true,
-          "actual": 788541.0,
-          "expected": 788541.0,
+          "actual": 1301258.0,
+          "expected": 1301258.0,
           "diff": 0.0
         },
         {
           "label": "總報酬率",
           "ok": true,
-          "actual": 8.6946,
-          "expected": 8.69,
-          "diff": 0.0046
+          "actual": 14.9291,
+          "expected": 14.93,
+          "diff": -0.0009
         },
         {
-          "label": "2317 庫存損益",
+          "label": "00757 庫存損益",
           "ok": true,
-          "actual": 678.0,
-          "expected": 678.0,
+          "actual": 211841.0,
+          "expected": 211841.0,
           "diff": 0.0
         },
         {
-          "label": "4739 庫存損益",
+          "label": "1760 庫存損益",
           "ok": true,
-          "actual": 18168.0,
-          "expected": 18168.0,
+          "actual": -27083.0,
+          "expected": -27083.0,
           "diff": 0.0
         },
         {
-          "label": "6732 庫存損益",
+          "label": "1904 庫存損益",
           "ok": true,
-          "actual": -18953.0,
-          "expected": -18953.0,
+          "actual": -35.0,
+          "expected": -35.0,
+          "diff": 0.0
+        },
+        {
+          "label": "2880 庫存損益",
+          "ok": true,
+          "actual": -18.0,
+          "expected": -18.0,
+          "diff": 0.0
+        },
+        {
+          "label": "4166 庫存損益",
+          "ok": true,
+          "actual": -3209.0,
+          "expected": -3209.0,
           "diff": 0.0
         }
       ],

@@ -86,13 +86,11 @@ const elements = {
   tradingEquityLabel: document.querySelector("#tradingEquityLabel"),
   tradingPnlLabel: document.querySelector("#tradingPnlLabel"),
   tradingContributionLabel: document.querySelector("#tradingContributionLabel"),
-  tradingDrawdownLabel: document.querySelector("#tradingDrawdownLabel"),
   tradingExposureLabel: document.querySelector("#tradingExposureLabel"),
   tradingReturnLabel: document.querySelector("#tradingReturnLabel"),
   tradingEquityChart: document.querySelector("#tradingEquityChart"),
   tradingPnlChart: document.querySelector("#tradingPnlChart"),
   tradingContributionChart: document.querySelector("#tradingContributionChart"),
-  tradingDrawdownChart: document.querySelector("#tradingDrawdownChart"),
   tradingExposurePanel: document.querySelector("#tradingExposurePanel"),
   tradingReturnPanel: document.querySelector("#tradingReturnPanel"),
   tradingTooltip: document.querySelector("#tradingTooltip"),
@@ -258,6 +256,14 @@ function formatTradingNumber(value, decimals = 0) {
   return value.toLocaleString("zh-TW", { maximumFractionDigits: decimals, minimumFractionDigits: decimals });
 }
 
+function formatTradingShares(value) {
+  if (!Number.isFinite(value)) return "--";
+  return value.toLocaleString("zh-TW", {
+    maximumFractionDigits: Number.isInteger(value) ? 0 : 2,
+    minimumFractionDigits: 0
+  });
+}
+
 function tradingChartDomain(values, includeZero = false) {
   const clean = values.filter((value) => Number.isFinite(value));
   if (!clean.length) return [0, 1];
@@ -311,7 +317,8 @@ function tradingEventsByDate(market) {
 function tradingEventTooltip(trades, market) {
   return trades.map((trade) => [
     `<strong>${escapeHtml(`${trade.symbol} ${trade.name || ""}`)}</strong>`,
-    `<span>賣出 ${escapeHtml(formatTradingNumber(trade.shares, market.currency === "USD" ? 2 : 0))} 股</span>`,
+    `<span>結案時間 ${escapeHtml(trade.sellDate || "--")}</span>`,
+    `<span>賣出 ${escapeHtml(formatTradingShares(trade.shares))} 股</span>`,
     `<span class="${trade.realizedPnl >= 0 ? "gain" : "loss"}">${escapeHtml(formatTradingMoney(trade.realizedPnl, market, { sign: true }))} · ${escapeHtml(formatTradingPct(trade.returnPct, { sign: true }))}</span>`
   ].join("")).join("<hr>");
 }
@@ -388,15 +395,17 @@ function renderTradingLineChart(container, market, series, definitions, options 
         }).join("")}
       `).join("")}
       ${Array.from(eventMap.entries()).map(([date, trades]) => {
-        const index = series.findIndex((point) => point.date === date);
+        const index = series.map((point) => point.date).lastIndexOf(date);
         if (index < 0) return "";
         const x = tradingScale(index, xDomain, [dims.left, dims.right]);
         const y = tradingScale(definitions[0].value(series[index]), yDomain, [dims.bottom, dims.top]);
-        const label = trades.length === 1 ? trades[0].symbol : `${trades[0].symbol} +${trades.length - 1}`;
+        const eventName = market.market === "tw" ? trades[0].name : trades[0].symbol;
+        const label = trades.length === 1 ? eventName : `${eventName} +${trades.length - 1}`;
+        const labelWidth = Math.min(154, Math.max(72, label.length * 13 + 22));
         return `
           <g class="trading-event" tabindex="0" data-tooltip="${escapeAttribute(tradingEventTooltip(trades, market))}" transform="translate(${x.toFixed(2)} ${y.toFixed(2)})">
             <line x1="0" x2="0" y1="-8" y2="-34"></line>
-            <rect x="-36" y="-56" width="72" height="24" rx="4"></rect>
+            <rect x="${(-labelWidth / 2).toFixed(1)}" y="-56" width="${labelWidth}" height="24" rx="4"></rect>
             <text x="0" y="-40" text-anchor="middle">${escapeHtml(label)}</text>
             <circle r="7"></circle>
           </g>
@@ -422,13 +431,14 @@ function renderTradingContributionChart(market) {
     elements.tradingContributionChart.innerHTML = "<p class=\"muted\">尚無資料</p>";
     return;
   }
-  rows.sort(state.tradingContributionSort === "symbol"
-    ? (a, b) => a.symbol.localeCompare(b.symbol)
+  const showReturn = state.tradingContributionSort === "return";
+  rows.sort(showReturn
+    ? (a, b) => b.returnPct - a.returnPct
     : (a, b) => b.totalPnl - a.totalPnl);
   const visibleRows = rows.slice(0, 14);
   const dims = { width: 920, left: 184, right: 790, top: 28, row: 32 };
   const height = dims.top + visibleRows.length * dims.row + 34;
-  const values = visibleRows.map((row) => row.totalPnl);
+  const values = visibleRows.map((row) => showReturn ? row.returnPct : row.totalPnl);
   const domain = tradingChartDomain(values, true);
   const zeroX = tradingScale(0, domain, [dims.left, dims.right]);
 
@@ -437,15 +447,16 @@ function renderTradingContributionChart(market) {
       <line class="trading-zero-line" x1="${zeroX}" x2="${zeroX}" y1="${dims.top - 10}" y2="${height - 20}"></line>
       ${visibleRows.map((row, index) => {
         const y = dims.top + index * dims.row;
-        const valueX = tradingScale(row.totalPnl, domain, [dims.left, dims.right]);
+        const metricValue = showReturn ? row.returnPct : row.totalPnl;
+        const valueX = tradingScale(metricValue, domain, [dims.left, dims.right]);
         const x = Math.min(zeroX, valueX);
         const width = Math.max(2, Math.abs(valueX - zeroX));
-        const tone = row.totalPnl >= 0 ? "positive" : "negative";
+        const tone = metricValue >= 0 ? "positive" : "negative";
         return `
-          <g class="contribution-row" tabindex="0" data-tooltip="${escapeAttribute(`<strong>${escapeHtml(`${row.symbol} ${row.name}`)}</strong><span>已實現 ${escapeHtml(formatTradingMoney(row.realizedPnl, market, { sign: true }))}</span><span>未實現 ${escapeHtml(formatTradingMoney(row.unrealizedPnl, market, { sign: true }))}</span><span>合計 ${escapeHtml(formatTradingMoney(row.totalPnl, market, { sign: true }))}</span>`)}">
+          <g class="contribution-row" tabindex="0" data-tooltip="${escapeAttribute(`<strong>${escapeHtml(`${row.symbol} ${row.name}`)}</strong><span>已實現 ${escapeHtml(formatTradingMoney(row.realizedPnl, market, { sign: true }))}</span><span>未實現 ${escapeHtml(formatTradingMoney(row.unrealizedPnl, market, { sign: true }))}</span><span>合計 ${escapeHtml(formatTradingMoney(row.totalPnl, market, { sign: true }))}</span><span>投入成本 ${escapeHtml(formatTradingMoney(row.totalCost, market))}</span><span>總報酬率 ${escapeHtml(formatTradingPct(row.returnPct, { sign: true }))}</span>`)}">
             <text class="contribution-name" x="18" y="${y + 19}">${escapeHtml(`${row.symbol} ${row.name}`)}</text>
             <rect class="contribution-bar ${tone}" x="${x}" y="${y + 3}" width="${width}" height="17" rx="5"></rect>
-            <text class="contribution-value" x="${row.totalPnl >= 0 ? valueX + 8 : valueX - 8}" y="${y + 17}" text-anchor="${row.totalPnl >= 0 ? "start" : "end"}">${escapeHtml(formatTradingMoney(row.totalPnl, market, { sign: true }))}</text>
+            <text class="contribution-value" x="${metricValue >= 0 ? valueX + 8 : valueX - 8}" y="${y + 17}" text-anchor="${metricValue >= 0 ? "start" : "end"}">${escapeHtml(showReturn ? formatTradingPct(row.returnPct, { sign: true }) : formatTradingMoney(row.totalPnl, market, { sign: true }))}</text>
           </g>
         `;
       }).join("")}
@@ -474,7 +485,7 @@ function renderTradingExposure(market) {
         <div class="position-row">
           <div>
             <strong>${escapeHtml(`${position.symbol} ${position.name}`)}</strong>
-            <span>${escapeHtml(formatTradingNumber(position.shares, market.currency === "USD" ? 2 : 0))} 股</span>
+            <span>${escapeHtml(formatTradingShares(position.shares))} 股${Number.isFinite(position.averagePrice) && Number.isFinite(position.currentPrice) ? ` · 均價 ${escapeHtml(formatTradingNumber(position.averagePrice, 2))} → 現價 ${escapeHtml(formatTradingNumber(position.currentPrice, 2))}` : ""}</span>
           </div>
           <div>
             <strong class="${position.unrealizedPnl >= 0 ? "gain" : "loss"}">${escapeHtml(formatTradingMoney(position.unrealizedPnl, market, { sign: true }))}</strong>
@@ -510,7 +521,7 @@ function renderTradingReturns(market) {
         const tone = trade.realizedPnl >= 0 ? "gain" : "loss";
         return `
           <div class="return-row">
-            <span class="return-identity"><b>${escapeHtml(trade.symbol)}</b><small>${escapeHtml(tradingDateLabel(trade.sellDate))} · ${escapeHtml(formatTradingNumber(trade.shares, market.currency === "USD" ? 2 : 0))} 股</small></span>
+            <span class="return-identity"><b>${escapeHtml(`${trade.symbol} ${trade.name || ""}`)}</b><small>${escapeHtml(tradingDateLabel(trade.sellDate))} · ${escapeHtml(formatTradingShares(trade.shares))} 股</small></span>
             <div class="return-track" data-tooltip="${escapeAttribute(tradingEventTooltip([trade], market))}" tabindex="0">
               <i class="${tone}" style="width:${width.toFixed(1)}%;${trade.realizedPnl >= 0 ? "left:50%;" : `right:50%;`}"></i>
             </div>
@@ -582,7 +593,7 @@ function renderTrading() {
   renderTradingQuality(market);
   renderTradingSummary(market);
 
-  if (elements.tradingEquityLabel) elements.tradingEquityLabel.textContent = `${market.currencyLabel} · ${market.currentDate}`;
+  if (elements.tradingEquityLabel) elements.tradingEquityLabel.textContent = `${market.currencyLabel} · ${market.currentTimestamp || market.currentDate}`;
   renderTradingLineChart(elements.tradingEquityChart, market, series, [
     {
       label: "總資產",
@@ -610,16 +621,6 @@ function renderTrading() {
 
   if (elements.tradingContributionLabel) elements.tradingContributionLabel.textContent = `${(market.computed?.contributions || []).length} 檔`;
   renderTradingContributionChart(market);
-
-  if (elements.tradingDrawdownLabel) elements.tradingDrawdownLabel.textContent = formatTradingPct(stats.maxDrawdownPct || 0);
-  renderTradingLineChart(elements.tradingDrawdownChart, market, series, [
-    {
-      label: "回撤",
-      color: "#a55353",
-      value: (point) => point.drawdownPct || 0,
-      tooltip: (point) => `${point.date} 回撤 ${formatTradingPct(point.drawdownPct || 0)}`
-    }
-  ], { label: "最大回撤", includeZero: true, percentAxis: true, domain: [Math.min(stats.maxDrawdownPct || 0, -0.2), 0.2] });
 
   if (elements.tradingExposureLabel) elements.tradingExposureLabel.textContent = `${formatTradingPct((market.summary.marketValue / market.summary.currentAssets) * 100)} 持股`;
   renderTradingExposure(market);

@@ -171,7 +171,7 @@
             <p class="eyebrow">Trading Desk</p>
             <h2>交易實戰</h2>
           </div>
-          <p class="profile-note">台股以台幣 1,000,000 本金計算；美股以美元 20,000 本金計算。兩個 section 獨立驗算、獨立產圖。</p>
+          <p class="profile-note">台股以台幣 2,000,000 本金計算；美股以美元 20,000 本金計算。兩個 section 獨立驗算、獨立產圖。</p>
         </div>
 
         <div class="trading-market-switch" aria-label="交易市場切換">
@@ -214,7 +214,7 @@
               <div class="trading-panel-actions">
                 <div class="trading-sort-control" aria-label="個股貢獻排序">
                   <button type="button" class="is-active" data-contribution-sort="pnl">損益</button>
-                  <button type="button" data-contribution-sort="symbol">代號</button>
+                  <button type="button" data-contribution-sort="return">報酬率</button>
                 </div>
                 <span id="tradingContributionLabel" class="trading-pill"></span>
               </div>
@@ -222,18 +222,7 @@
             <div id="tradingContributionChart" class="trading-chart" role="img" aria-label="個股損益貢獻排行"></div>
           </article>
 
-          <article class="trading-panel">
-            <div class="trading-panel-head">
-              <div>
-                <p class="eyebrow">Drawdown</p>
-                <h3>最大回撤</h3>
-              </div>
-              <span id="tradingDrawdownLabel" class="trading-pill"></span>
-            </div>
-            <div id="tradingDrawdownChart" class="trading-chart" role="img" aria-label="最大回撤"></div>
-          </article>
-
-          <article class="trading-panel">
+          <article class="trading-panel trading-panel-wide">
             <div class="trading-panel-head">
               <div>
                 <p class="eyebrow">Exposure</p>
