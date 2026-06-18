@@ -32,7 +32,9 @@ const state = {
   selectedTicker: TW_INSIGHT_DEFAULT,
   insightView: "growth",
   trading: null,
-  tradingMarket: "tw"
+  tradingMarket: "tw",
+  tradingContributionSort: "pnl",
+  tradingReturnSort: "date"
 };
 
 const elements = {
@@ -92,7 +94,10 @@ const elements = {
   tradingContributionChart: document.querySelector("#tradingContributionChart"),
   tradingDrawdownChart: document.querySelector("#tradingDrawdownChart"),
   tradingExposurePanel: document.querySelector("#tradingExposurePanel"),
-  tradingReturnPanel: document.querySelector("#tradingReturnPanel")
+  tradingReturnPanel: document.querySelector("#tradingReturnPanel"),
+  tradingTooltip: document.querySelector("#tradingTooltip"),
+  tradingContributionSortButtons: document.querySelectorAll("[data-contribution-sort]"),
+  tradingReturnSortButtons: document.querySelectorAll("[data-return-sort]")
 };
 
 function normalize(value) {
@@ -287,6 +292,57 @@ function tradingLinePoints(series, valueFn, yDomain, dims) {
   }).join(" ");
 }
 
+function tradingDateLabel(value) {
+  if (!value) return "";
+  const parts = value.split("-");
+  return parts.length === 3 ? `${parts[1]}/${parts[2]}` : value;
+}
+
+function tradingEventsByDate(market) {
+  const events = new Map();
+  (market.realizedTrades || []).forEach((trade) => {
+    const list = events.get(trade.sellDate) || [];
+    list.push(trade);
+    events.set(trade.sellDate, list);
+  });
+  return events;
+}
+
+function tradingEventTooltip(trades, market) {
+  return trades.map((trade) => [
+    `<strong>${escapeHtml(`${trade.symbol} ${trade.name || ""}`)}</strong>`,
+    `<span>賣出 ${escapeHtml(formatTradingNumber(trade.shares, market.currency === "USD" ? 2 : 0))} 股</span>`,
+    `<span class="${trade.realizedPnl >= 0 ? "gain" : "loss"}">${escapeHtml(formatTradingMoney(trade.realizedPnl, market, { sign: true }))} · ${escapeHtml(formatTradingPct(trade.returnPct, { sign: true }))}</span>`
+  ].join("")).join("<hr>");
+}
+
+function bindTradingTooltips(container) {
+  if (!container || !elements.tradingTooltip) return;
+  const tooltip = elements.tradingTooltip;
+  const show = (target, event) => {
+    const html = target.dataset.tooltip;
+    if (!html) return;
+    tooltip.innerHTML = html;
+    tooltip.hidden = false;
+    const rect = container.getBoundingClientRect();
+    const x = event?.clientX ?? (target.getBoundingClientRect().left + target.getBoundingClientRect().width / 2);
+    const y = event?.clientY ?? target.getBoundingClientRect().top;
+    const left = Math.min(Math.max(x - rect.left + 12, 8), Math.max(rect.width - 238, 8));
+    tooltip.style.left = `${rect.left + left}px`;
+    tooltip.style.top = `${Math.max(y - tooltip.offsetHeight - 14, 8)}px`;
+  };
+  const hide = () => {
+    tooltip.hidden = true;
+  };
+  container.querySelectorAll("[data-tooltip]").forEach((target) => {
+    target.addEventListener("pointerenter", (event) => show(target, event));
+    target.addEventListener("pointermove", (event) => show(target, event));
+    target.addEventListener("pointerleave", hide);
+    target.addEventListener("focus", (event) => show(target, event));
+    target.addEventListener("blur", hide);
+  });
+}
+
 function renderTradingLineChart(container, market, series, definitions, options = {}) {
   if (!container) return;
   if (!series?.length) {
@@ -294,12 +350,13 @@ function renderTradingLineChart(container, market, series, definitions, options 
     return;
   }
 
-  const dims = { width: 780, height: 320, left: 72, right: 742, top: 38, bottom: 254 };
+  const dims = { width: 920, height: 360, left: 118, right: 888, top: 42, bottom: 278 };
   const values = definitions.flatMap((definition) => series.map((point) => definition.value(point)));
   const yDomain = options.domain || tradingChartDomain(values, options.includeZero);
   const yTicks = Array.from({ length: 4 }, (_, index) => yDomain[0] + ((yDomain[1] - yDomain[0]) * index) / 3);
   const xIndexes = Array.from(new Set([0, Math.floor((series.length - 1) / 2), series.length - 1])).sort((a, b) => a - b);
   const xDomain = [0, Math.max(series.length - 1, 1)];
+  const eventMap = options.showTradeEvents ? tradingEventsByDate(market) : new Map();
 
   container.innerHTML = `
     <svg class="trading-svg" viewBox="0 0 ${dims.width} ${dims.height}" aria-label="${escapeAttribute(options.label || "trading chart")}">
@@ -315,7 +372,7 @@ function renderTradingLineChart(container, market, series, definitions, options 
       }).join("")}
       ${xIndexes.map((index) => {
         const x = tradingScale(index, xDomain, [dims.left, dims.right]);
-        return `<text class="trading-x-label" x="${x}" y="${dims.bottom + 30}" text-anchor="middle">${escapeHtml(series[index]?.date || "")}</text>`;
+        return `<text class="trading-x-label" x="${x}" y="${dims.bottom + 28}" text-anchor="middle">${escapeHtml(tradingDateLabel(series[index]?.date || ""))}</text>`;
       }).join("")}
       ${definitions.map((definition) => `
         <polyline class="trading-line" points="${tradingLinePoints(series, definition.value, yDomain, dims)}" stroke="${definition.color}"></polyline>
@@ -330,9 +387,24 @@ function renderTradingLineChart(container, market, series, definitions, options 
           `;
         }).join("")}
       `).join("")}
+      ${Array.from(eventMap.entries()).map(([date, trades]) => {
+        const index = series.findIndex((point) => point.date === date);
+        if (index < 0) return "";
+        const x = tradingScale(index, xDomain, [dims.left, dims.right]);
+        const y = tradingScale(definitions[0].value(series[index]), yDomain, [dims.bottom, dims.top]);
+        const label = trades.length === 1 ? trades[0].symbol : `${trades[0].symbol} +${trades.length - 1}`;
+        return `
+          <g class="trading-event" tabindex="0" data-tooltip="${escapeAttribute(tradingEventTooltip(trades, market))}" transform="translate(${x.toFixed(2)} ${y.toFixed(2)})">
+            <line x1="0" x2="0" y1="-8" y2="-34"></line>
+            <rect x="-36" y="-56" width="72" height="24" rx="4"></rect>
+            <text x="0" y="-40" text-anchor="middle">${escapeHtml(label)}</text>
+            <circle r="7"></circle>
+          </g>
+        `;
+      }).join("")}
       <g class="trading-legend">
         ${definitions.map((definition, index) => `
-          <g transform="translate(${dims.left + index * 132} 292)">
+          <g transform="translate(${dims.left + index * 150} 330)">
             <line x1="0" x2="22" y1="0" y2="0" stroke="${definition.color}" stroke-width="3"></line>
             <text x="30" y="4">${escapeHtml(definition.label)}</text>
           </g>
@@ -340,17 +412,21 @@ function renderTradingLineChart(container, market, series, definitions, options 
       </g>
     </svg>
   `;
+  bindTradingTooltips(container);
 }
 
 function renderTradingContributionChart(market) {
-  const rows = market?.computed?.contributions || [];
+  const rows = [...(market?.computed?.contributions || [])];
   if (!elements.tradingContributionChart) return;
   if (!rows.length) {
     elements.tradingContributionChart.innerHTML = "<p class=\"muted\">尚無資料</p>";
     return;
   }
+  rows.sort(state.tradingContributionSort === "symbol"
+    ? (a, b) => a.symbol.localeCompare(b.symbol)
+    : (a, b) => b.totalPnl - a.totalPnl);
   const visibleRows = rows.slice(0, 14);
-  const dims = { width: 780, left: 154, right: 692, top: 28, row: 28 };
+  const dims = { width: 920, left: 184, right: 790, top: 28, row: 32 };
   const height = dims.top + visibleRows.length * dims.row + 34;
   const values = visibleRows.map((row) => row.totalPnl);
   const domain = tradingChartDomain(values, true);
@@ -366,16 +442,16 @@ function renderTradingContributionChart(market) {
         const width = Math.max(2, Math.abs(valueX - zeroX));
         const tone = row.totalPnl >= 0 ? "positive" : "negative";
         return `
-          <g class="contribution-row">
-            <text class="contribution-name" x="18" y="${y + 17}">${escapeHtml(`${row.symbol} ${row.name}`)}</text>
+          <g class="contribution-row" tabindex="0" data-tooltip="${escapeAttribute(`<strong>${escapeHtml(`${row.symbol} ${row.name}`)}</strong><span>已實現 ${escapeHtml(formatTradingMoney(row.realizedPnl, market, { sign: true }))}</span><span>未實現 ${escapeHtml(formatTradingMoney(row.unrealizedPnl, market, { sign: true }))}</span><span>合計 ${escapeHtml(formatTradingMoney(row.totalPnl, market, { sign: true }))}</span>`)}">
+            <text class="contribution-name" x="18" y="${y + 19}">${escapeHtml(`${row.symbol} ${row.name}`)}</text>
             <rect class="contribution-bar ${tone}" x="${x}" y="${y + 3}" width="${width}" height="17" rx="5"></rect>
             <text class="contribution-value" x="${row.totalPnl >= 0 ? valueX + 8 : valueX - 8}" y="${y + 17}" text-anchor="${row.totalPnl >= 0 ? "start" : "end"}">${escapeHtml(formatTradingMoney(row.totalPnl, market, { sign: true }))}</text>
-            <title>${escapeHtml(`${row.symbol} 已實現 ${formatTradingMoney(row.realizedPnl, market, { sign: true })} / 未實現 ${formatTradingMoney(row.unrealizedPnl, market, { sign: true })}`)}</title>
           </g>
         `;
       }).join("")}
     </svg>
   `;
+  bindTradingTooltips(elements.tradingContributionChart);
 }
 
 function renderTradingExposure(market) {
@@ -413,7 +489,13 @@ function renderTradingExposure(market) {
 function renderTradingReturns(market) {
   if (!elements.tradingReturnPanel) return;
   const stats = market.computed?.stats || {};
-  const trades = market.realizedTrades || [];
+  const trades = [...(market.realizedTrades || [])];
+  const sorters = {
+    date: (a, b) => b.sellDate.localeCompare(a.sellDate),
+    return: (a, b) => b.returnPct - a.returnPct,
+    pnl: (a, b) => b.realizedPnl - a.realizedPnl
+  };
+  trades.sort(sorters[state.tradingReturnSort] || sorters.date);
   const maxAbsReturn = Math.max(...trades.map((trade) => Math.abs(trade.returnPct || 0)), 1);
   elements.tradingReturnPanel.innerHTML = `
     <div class="return-stat-grid">
@@ -422,22 +504,23 @@ function renderTradingReturns(market) {
       <div><span>平均獲利</span><strong>${escapeHtml(formatTradingMoney(stats.avgWin || 0, market, { sign: true }))}</strong></div>
       <div><span>平均虧損</span><strong>${escapeHtml(formatTradingMoney(stats.avgLoss || 0, market, { sign: true }))}</strong></div>
     </div>
-    <div class="return-bars">
+    <div class="return-bars" aria-label="已結案交易雙向長條圖">
       ${trades.map((trade) => {
-        const width = Math.max(2, (Math.abs(trade.returnPct || 0) / maxAbsReturn) * 48);
+        const width = Math.max(1.5, (Math.abs(trade.returnPct || 0) / maxAbsReturn) * 50);
         const tone = trade.realizedPnl >= 0 ? "gain" : "loss";
         return `
           <div class="return-row">
-            <span>${escapeHtml(`${trade.sellDate} ${trade.symbol}`)}</span>
-            <div class="return-track">
-              <i class="${tone}" style="width:${width.toFixed(1)}%"></i>
+            <span class="return-identity"><b>${escapeHtml(trade.symbol)}</b><small>${escapeHtml(tradingDateLabel(trade.sellDate))} · ${escapeHtml(formatTradingNumber(trade.shares, market.currency === "USD" ? 2 : 0))} 股</small></span>
+            <div class="return-track" data-tooltip="${escapeAttribute(tradingEventTooltip([trade], market))}" tabindex="0">
+              <i class="${tone}" style="width:${width.toFixed(1)}%;${trade.realizedPnl >= 0 ? "left:50%;" : `right:50%;`}"></i>
             </div>
-            <strong class="${tone}">${escapeHtml(formatTradingPct(trade.returnPct, { sign: true }))}</strong>
+            <strong class="${tone}"><span>${escapeHtml(formatTradingPct(trade.returnPct, { sign: true }))}</span><small>${escapeHtml(formatTradingMoney(trade.realizedPnl, market, { sign: true }))}</small></strong>
           </div>
         `;
       }).join("")}
     </div>
   `;
+  bindTradingTooltips(elements.tradingReturnPanel);
 }
 
 function renderTradingQuality(market) {
@@ -487,6 +570,12 @@ function renderTrading() {
   elements.tradingMarketButtons.forEach((button) => {
     button.classList.toggle("is-active", button.dataset.tradingMarket === state.tradingMarket);
   });
+  elements.tradingContributionSortButtons.forEach((button) => {
+    button.classList.toggle("is-active", button.dataset.contributionSort === state.tradingContributionSort);
+  });
+  elements.tradingReturnSortButtons.forEach((button) => {
+    button.classList.toggle("is-active", button.dataset.returnSort === state.tradingReturnSort);
+  });
 
   const series = market.computed?.equitySeries || [];
   const stats = market.computed?.stats || {};
@@ -501,7 +590,7 @@ function renderTrading() {
       value: (point) => point.equity,
       tooltip: (point, itemMarket) => `${point.date} 總資產 ${formatTradingMoney(point.equity, itemMarket)}`
     }
-  ], { label: "總資產曲線" });
+  ], { label: "總資產曲線", showTradeEvents: true });
 
   if (elements.tradingPnlLabel) elements.tradingPnlLabel.textContent = `${formatTradingMoney(market.summary.totalPnl, market, { sign: true })}`;
   renderTradingLineChart(elements.tradingPnlChart, market, series, [
@@ -517,7 +606,7 @@ function renderTrading() {
       value: (point) => point.realizedPnl + (point.unrealizedPnl || 0),
       tooltip: (point, itemMarket) => `${point.date} 總損益 ${formatTradingMoney(point.realizedPnl + (point.unrealizedPnl || 0), itemMarket, { sign: true })}`
     }
-  ], { label: "損益曲線", includeZero: true });
+  ], { label: "損益曲線", includeZero: true, showTradeEvents: true });
 
   if (elements.tradingContributionLabel) elements.tradingContributionLabel.textContent = `${(market.computed?.contributions || []).length} 檔`;
   renderTradingContributionChart(market);
@@ -1049,6 +1138,18 @@ function bindTrading() {
       const market = button.dataset.tradingMarket;
       if (!state.trading?.markets?.[market]) return;
       state.tradingMarket = market;
+      renderTrading();
+    });
+  });
+  elements.tradingContributionSortButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      state.tradingContributionSort = button.dataset.contributionSort || "pnl";
+      renderTrading();
+    });
+  });
+  elements.tradingReturnSortButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      state.tradingReturnSort = button.dataset.returnSort || "date";
       renderTrading();
     });
   });

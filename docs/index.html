@@ -211,7 +211,13 @@
                 <p class="eyebrow">Contribution</p>
                 <h3>個股損益貢獻排行</h3>
               </div>
-              <span id="tradingContributionLabel" class="trading-pill"></span>
+              <div class="trading-panel-actions">
+                <div class="trading-sort-control" aria-label="個股貢獻排序">
+                  <button type="button" class="is-active" data-contribution-sort="pnl">損益</button>
+                  <button type="button" data-contribution-sort="symbol">代號</button>
+                </div>
+                <span id="tradingContributionLabel" class="trading-pill"></span>
+              </div>
             </div>
             <div id="tradingContributionChart" class="trading-chart" role="img" aria-label="個股損益貢獻排行"></div>
           </article>
@@ -244,13 +250,22 @@
                 <p class="eyebrow">Closed Trades</p>
                 <h3>已結案交易品質</h3>
               </div>
-              <span id="tradingReturnLabel" class="trading-pill"></span>
+              <div class="trading-panel-actions">
+                <div class="trading-sort-control" aria-label="已結案交易排序">
+                  <button type="button" class="is-active" data-return-sort="date">時間</button>
+                  <button type="button" data-return-sort="return">報酬率</button>
+                  <button type="button" data-return-sort="pnl">損益</button>
+                </div>
+                <span id="tradingReturnLabel" class="trading-pill"></span>
+              </div>
             </div>
             <div id="tradingReturnPanel" class="trading-returns"></div>
           </article>
         </section>
       </section>
     </section>
+
+    <div id="tradingTooltip" class="trading-tooltip" role="tooltip" hidden></div>
 
     <section id="profilePage" class="page-panel" data-page-panel="profile" aria-label="研究背景" hidden>
       <section class="profile-shell">
