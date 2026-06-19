@@ -289,10 +289,25 @@ function tradingScale(value, domain, range) {
   return r0 + ((value - d0) / (d1 - d0)) * (r1 - r0);
 }
 
-function tradingLinePoints(series, valueFn, yDomain, dims) {
-  const xDomain = [0, Math.max(series.length - 1, 1)];
+function tradingDateValue(point, index = 0) {
+  const value = Date.parse(`${point?.date || ""}T00:00:00Z`);
+  return Number.isFinite(value) ? value : index;
+}
+
+function tradingTimeDomain(series) {
+  const values = series.map((point, index) => tradingDateValue(point, index));
+  const min = Math.min(...values);
+  const max = Math.max(...values);
+  return min === max ? [min, min + 86400000] : [min, max];
+}
+
+function tradingPointX(point, index, xDomain, dims) {
+  return tradingScale(tradingDateValue(point, index), xDomain, [dims.left, dims.right]);
+}
+
+function tradingLinePoints(series, valueFn, xDomain, yDomain, dims) {
   return series.map((point, index) => {
-    const x = tradingScale(index, xDomain, [dims.left, dims.right]);
+    const x = tradingPointX(point, index, xDomain, dims);
     const y = tradingScale(valueFn(point), yDomain, [dims.bottom, dims.top]);
     return `${x.toFixed(2)},${y.toFixed(2)}`;
   }).join(" ");
@@ -362,7 +377,7 @@ function renderTradingLineChart(container, market, series, definitions, options 
   const yDomain = options.domain || tradingChartDomain(values, options.includeZero);
   const yTicks = Array.from({ length: 4 }, (_, index) => yDomain[0] + ((yDomain[1] - yDomain[0]) * index) / 3);
   const xIndexes = Array.from(new Set([0, Math.floor((series.length - 1) / 2), series.length - 1])).sort((a, b) => a - b);
-  const xDomain = [0, Math.max(series.length - 1, 1)];
+  const xDomain = tradingTimeDomain(series);
   const eventMap = options.showTradeEvents ? tradingEventsByDate(market) : new Map();
 
   container.innerHTML = `
@@ -378,13 +393,13 @@ function renderTradingLineChart(container, market, series, definitions, options 
         `;
       }).join("")}
       ${xIndexes.map((index) => {
-        const x = tradingScale(index, xDomain, [dims.left, dims.right]);
+        const x = tradingPointX(series[index], index, xDomain, dims);
         return `<text class="trading-x-label" x="${x}" y="${dims.bottom + 28}" text-anchor="middle">${escapeHtml(tradingDateLabel(series[index]?.date || ""))}</text>`;
       }).join("")}
       ${definitions.map((definition) => `
-        <polyline class="trading-line" points="${tradingLinePoints(series, definition.value, yDomain, dims)}" stroke="${definition.color}"></polyline>
+        <polyline class="trading-line" points="${tradingLinePoints(series, definition.value, xDomain, yDomain, dims)}" stroke="${definition.color}"></polyline>
         ${series.map((point, index) => {
-          const x = tradingScale(index, xDomain, [dims.left, dims.right]);
+          const x = tradingPointX(point, index, xDomain, dims);
           const y = tradingScale(definition.value(point), yDomain, [dims.bottom, dims.top]);
           const label = definition.tooltip ? definition.tooltip(point, market) : `${point.date} ${definition.label}`;
           return `
@@ -397,7 +412,7 @@ function renderTradingLineChart(container, market, series, definitions, options 
       ${Array.from(eventMap.entries()).map(([date, trades]) => {
         const index = series.map((point) => point.date).lastIndexOf(date);
         if (index < 0) return "";
-        const x = tradingScale(index, xDomain, [dims.left, dims.right]);
+        const x = tradingPointX(series[index], index, xDomain, dims);
         const y = tradingScale(definitions[0].value(series[index]), yDomain, [dims.bottom, dims.top]);
         const eventName = market.market === "tw" ? trades[0].name : trades[0].symbol;
         const label = trades.length === 1 ? eventName : `${eventName} +${trades.length - 1}`;

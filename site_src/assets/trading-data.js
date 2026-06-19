@@ -13,20 +13,20 @@ window.TRADING_DASHBOARD = {
       "currentTimestamp": "2026-06-18 10:10",
       "orderLogComplete": false,
       "dataQuality": [
-        "2026/06/18 10:10 持倉快照與已實現損益可內部驗算。",
-        "券商總市值為 999,904；本頁採可與損益對帳的庫存總淨值 997,323。",
+        "舊交易紀錄與 2026/06/18 新增交易已合併累計。",
+        "2026/06/18 10:10 持倉快照已排除 2880 華南金與 1904 正隆零股。",
         "成交/委託紀錄不是完整台帳；資產曲線採已實現損益事件 + 最新未實現庫存快照，不代表完整逐日市值曲線。"
       ],
       "summary": {
-        "realizedPnl": 117085,
-        "unrealizedPnl": 181496,
-        "totalPnl": 298581,
-        "currentAssets": 2298581,
-        "totalReturnPct": 14.93,
-        "cash": 1301258,
-        "marketValue": 997323,
-        "brokerGrossMarketValue": 999904,
-        "brokerPositionReturnPct": 21.88
+        "realizedPnl": 204138,
+        "unrealizedPnl": 181549,
+        "totalPnl": 385687,
+        "currentAssets": 2385687,
+        "totalReturnPct": 19.28,
+        "cash": 1388385,
+        "marketValue": 997302,
+        "brokerGrossMarketValue": 999883,
+        "brokerPositionReturnPct": 22.25
       },
       "positions": [
         {
@@ -52,28 +52,6 @@ window.TRADING_DASHBOARD = {
           "returnPct": -43.8
         },
         {
-          "symbol": "1904",
-          "name": "正隆",
-          "shares": 1,
-          "averagePrice": 18,
-          "currentPrice": 23.3,
-          "marketValue": 3,
-          "cost": 38,
-          "unrealizedPnl": -35,
-          "returnPct": -92.11
-        },
-        {
-          "symbol": "2880",
-          "name": "華南金",
-          "shares": 1,
-          "averagePrice": 16,
-          "currentPrice": 38.8,
-          "marketValue": 18,
-          "cost": 36,
-          "unrealizedPnl": -18,
-          "returnPct": -50
-        },
-        {
           "symbol": "4166",
           "name": "友霖",
           "shares": 1000,
@@ -86,6 +64,234 @@ window.TRADING_DASHBOARD = {
         }
       ],
       "realizedTrades": [
+        {
+          "buyDate": "2026-03-08",
+          "sellDate": "2026-04-08",
+          "symbol": "00830",
+          "name": "國泰費城半導體",
+          "shares": 1000,
+          "estimatedBuyPrice": 56.06,
+          "sellPrice": 58.65,
+          "realizedPnl": 2461,
+          "returnPct": 4.39,
+          "source": "舊交易紀錄"
+        },
+        {
+          "buyDate": "2026-03-08",
+          "sellDate": "2026-04-08",
+          "symbol": "00830",
+          "name": "國泰費城半導體",
+          "shares": 845,
+          "estimatedBuyPrice": 55.04,
+          "sellPrice": 58.55,
+          "realizedPnl": 2874,
+          "returnPct": 6.18,
+          "source": "舊交易紀錄"
+        },
+        {
+          "buyDate": "2026-03-08",
+          "sellDate": "2026-04-08",
+          "symbol": "2353",
+          "name": "宏碁",
+          "shares": 2000,
+          "estimatedBuyPrice": 27.41,
+          "sellPrice": 27.35,
+          "realizedPnl": -318,
+          "returnPct": -0.58,
+          "source": "舊交易紀錄"
+        },
+        {
+          "buyDate": "2026-03-08",
+          "sellDate": "2026-04-08",
+          "symbol": "2353",
+          "name": "宏碁",
+          "shares": 2000,
+          "estimatedBuyPrice": 26.82,
+          "sellPrice": 27.35,
+          "realizedPnl": 633,
+          "returnPct": 1.18,
+          "source": "舊交易紀錄"
+        },
+        {
+          "buyDate": "2026-03-10",
+          "sellDate": "2026-04-10",
+          "symbol": "6488",
+          "name": "環球晶",
+          "shares": 250,
+          "estimatedBuyPrice": 432.52,
+          "sellPrice": 486,
+          "realizedPnl": 12835,
+          "returnPct": 11.87,
+          "source": "舊交易紀錄"
+        },
+        {
+          "buyDate": "2026-03-24",
+          "sellDate": "2026-04-24",
+          "symbol": "00830",
+          "name": "國泰費城半導體",
+          "shares": 309,
+          "estimatedBuyPrice": 64.15,
+          "sellPrice": 71.55,
+          "realizedPnl": 2238,
+          "returnPct": 11.29,
+          "source": "舊交易紀錄"
+        },
+        {
+          "buyDate": "2026-03-29",
+          "sellDate": "2026-04-29",
+          "symbol": "00757",
+          "name": "統一 FANG+",
+          "shares": 2000,
+          "estimatedBuyPrice": 116.36,
+          "sellPrice": 120.9,
+          "realizedPnl": 256,
+          "returnPct": 0.11,
+          "source": "舊交易紀錄"
+        },
+        {
+          "buyDate": "2026-03-29",
+          "sellDate": "2026-04-29",
+          "symbol": "2377",
+          "name": "微星",
+          "shares": 500,
+          "estimatedBuyPrice": 93.38,
+          "sellPrice": 100,
+          "realizedPnl": 3063,
+          "returnPct": 6.56,
+          "source": "舊交易紀錄"
+        },
+        {
+          "buyDate": "2026-04-13",
+          "sellDate": "2026-05-13",
+          "symbol": "2377",
+          "name": "微星",
+          "shares": 500,
+          "estimatedBuyPrice": 93.43,
+          "sellPrice": 113,
+          "realizedPnl": 9535,
+          "returnPct": 20.41,
+          "source": "舊交易紀錄"
+        },
+        {
+          "buyDate": "2026-04-22",
+          "sellDate": "2026-05-22",
+          "symbol": "6907",
+          "name": "雅特力-KY",
+          "shares": 1000,
+          "estimatedBuyPrice": 110.72,
+          "sellPrice": 119.5,
+          "realizedPnl": 8315,
+          "returnPct": 7.51,
+          "source": "舊交易紀錄"
+        },
+        {
+          "buyDate": "2026-04-28",
+          "sellDate": "2026-05-28",
+          "symbol": "6143",
+          "name": "振曜",
+          "shares": 1000,
+          "estimatedBuyPrice": 99.18,
+          "sellPrice": 102.5,
+          "realizedPnl": 2906,
+          "returnPct": 2.93,
+          "source": "舊交易紀錄"
+        },
+        {
+          "buyDate": "2026-05-08",
+          "sellDate": "2026-06-08",
+          "symbol": "3141",
+          "name": "晶宏",
+          "shares": 1000,
+          "estimatedBuyPrice": 81.73,
+          "sellPrice": 66.9,
+          "realizedPnl": -15111,
+          "returnPct": -18.49,
+          "source": "舊交易紀錄"
+        },
+        {
+          "buyDate": "2026-05-08",
+          "sellDate": "2026-06-08",
+          "symbol": "4739",
+          "name": "康普",
+          "shares": 1000,
+          "estimatedBuyPrice": 83.72,
+          "sellPrice": 115,
+          "realizedPnl": 30774,
+          "returnPct": 36.76,
+          "source": "舊交易紀錄"
+        },
+        {
+          "buyDate": "2026-05-09",
+          "sellDate": "2026-06-09",
+          "symbol": "2379",
+          "name": "瑞昱",
+          "shares": 55,
+          "estimatedBuyPrice": 595.46,
+          "sellPrice": 631,
+          "realizedPnl": 1798,
+          "returnPct": 5.49,
+          "source": "舊交易紀錄"
+        },
+        {
+          "buyDate": "2026-05-12",
+          "sellDate": "2026-06-12",
+          "symbol": "6907",
+          "name": "雅特力-KY",
+          "shares": 50,
+          "estimatedBuyPrice": 132.15,
+          "sellPrice": 142.5,
+          "realizedPnl": 485,
+          "returnPct": 7.34,
+          "source": "舊交易紀錄"
+        },
+        {
+          "buyDate": "2026-05-15",
+          "sellDate": "2026-06-15",
+          "symbol": "00830",
+          "name": "國泰費城半導體",
+          "shares": 673,
+          "estimatedBuyPrice": 82.36,
+          "sellPrice": 97.6,
+          "realizedPnl": 10093,
+          "returnPct": 18.21,
+          "source": "舊交易紀錄"
+        },
+        {
+          "buyDate": "2026-05-16",
+          "sellDate": "2026-06-16",
+          "symbol": "00830",
+          "name": "國泰費城半導體",
+          "shares": 41,
+          "estimatedBuyPrice": 96.43,
+          "sellPrice": 98.15,
+          "realizedPnl": 17,
+          "returnPct": 0.43,
+          "source": "舊交易紀錄"
+        },
+        {
+          "buyDate": "2026-05-16",
+          "sellDate": "2026-06-16",
+          "symbol": "2317",
+          "name": "鴻海",
+          "shares": 300,
+          "estimatedBuyPrice": 273.02,
+          "sellPrice": 270,
+          "realizedPnl": -172,
+          "returnPct": -0.21,
+          "source": "舊交易紀錄"
+        },
+        {
+          "buyDate": "2026-05-17",
+          "sellDate": "2026-06-17",
+          "symbol": "4739",
+          "name": "康普",
+          "shares": 500,
+          "estimatedBuyPrice": 91.22,
+          "sellPrice": 120.5,
+          "realizedPnl": 14371,
+          "returnPct": 31.51,
+          "source": "舊交易紀錄"
+        },
         {
           "sellDate": "2026-06-15",
           "symbol": "00830",
@@ -174,7 +380,7 @@ window.TRADING_DASHBOARD = {
         }
       ],
       "computed": {
-        "positionCost": 815827.0,
+        "positionCost": 815753.0,
         "realizedByDate": [
           {
             "date": "2026-03-25",
@@ -182,20 +388,60 @@ window.TRADING_DASHBOARD = {
           },
           {
             "date": "2026-04-08",
-            "realizedPnl": 4230.0
+            "realizedPnl": 9880.0
+          },
+          {
+            "date": "2026-04-10",
+            "realizedPnl": 12835.0
           },
           {
             "date": "2026-04-24",
-            "realizedPnl": 2056.0
+            "realizedPnl": 4294.0
+          },
+          {
+            "date": "2026-04-29",
+            "realizedPnl": 3319.0
+          },
+          {
+            "date": "2026-05-13",
+            "realizedPnl": 9535.0
+          },
+          {
+            "date": "2026-05-22",
+            "realizedPnl": 8315.0
+          },
+          {
+            "date": "2026-05-28",
+            "realizedPnl": 2906.0
+          },
+          {
+            "date": "2026-06-08",
+            "realizedPnl": 15663.0
+          },
+          {
+            "date": "2026-06-09",
+            "realizedPnl": 1798.0
+          },
+          {
+            "date": "2026-06-12",
+            "realizedPnl": 485.0
           },
           {
             "date": "2026-06-15",
-            "realizedPnl": 8884.0
+            "realizedPnl": 18977.0
+          },
+          {
+            "date": "2026-06-16",
+            "realizedPnl": -155.0
+          },
+          {
+            "date": "2026-06-17",
+            "realizedPnl": 14371.0
           }
         ],
         "equitySeries": [
           {
-            "date": "2026-03-25",
+            "date": "2026-03-08",
             "realizedPnl": 0.0,
             "unrealizedPnl": 0.0,
             "equity": 2000000.0,
@@ -212,33 +458,113 @@ window.TRADING_DASHBOARD = {
           },
           {
             "date": "2026-04-08",
-            "realizedPnl": 106145.0,
+            "realizedPnl": 111795.0,
             "unrealizedPnl": 0.0,
-            "equity": 2106145.0,
+            "equity": 2111795.0,
+            "drawdown": 0.0,
+            "drawdownPct": 0.0
+          },
+          {
+            "date": "2026-04-10",
+            "realizedPnl": 124630.0,
+            "unrealizedPnl": 0.0,
+            "equity": 2124630.0,
             "drawdown": 0.0,
             "drawdownPct": 0.0
           },
           {
             "date": "2026-04-24",
-            "realizedPnl": 108201.0,
+            "realizedPnl": 128924.0,
             "unrealizedPnl": 0.0,
-            "equity": 2108201.0,
+            "equity": 2128924.0,
+            "drawdown": 0.0,
+            "drawdownPct": 0.0
+          },
+          {
+            "date": "2026-04-29",
+            "realizedPnl": 132243.0,
+            "unrealizedPnl": 0.0,
+            "equity": 2132243.0,
+            "drawdown": 0.0,
+            "drawdownPct": 0.0
+          },
+          {
+            "date": "2026-05-13",
+            "realizedPnl": 141778.0,
+            "unrealizedPnl": 0.0,
+            "equity": 2141778.0,
+            "drawdown": 0.0,
+            "drawdownPct": 0.0
+          },
+          {
+            "date": "2026-05-22",
+            "realizedPnl": 150093.0,
+            "unrealizedPnl": 0.0,
+            "equity": 2150093.0,
+            "drawdown": 0.0,
+            "drawdownPct": 0.0
+          },
+          {
+            "date": "2026-05-28",
+            "realizedPnl": 152999.0,
+            "unrealizedPnl": 0.0,
+            "equity": 2152999.0,
+            "drawdown": 0.0,
+            "drawdownPct": 0.0
+          },
+          {
+            "date": "2026-06-08",
+            "realizedPnl": 168662.0,
+            "unrealizedPnl": 0.0,
+            "equity": 2168662.0,
+            "drawdown": 0.0,
+            "drawdownPct": 0.0
+          },
+          {
+            "date": "2026-06-09",
+            "realizedPnl": 170460.0,
+            "unrealizedPnl": 0.0,
+            "equity": 2170460.0,
+            "drawdown": 0.0,
+            "drawdownPct": 0.0
+          },
+          {
+            "date": "2026-06-12",
+            "realizedPnl": 170945.0,
+            "unrealizedPnl": 0.0,
+            "equity": 2170945.0,
             "drawdown": 0.0,
             "drawdownPct": 0.0
           },
           {
             "date": "2026-06-15",
-            "realizedPnl": 117085.0,
+            "realizedPnl": 189922.0,
             "unrealizedPnl": 0.0,
-            "equity": 2117085.0,
+            "equity": 2189922.0,
+            "drawdown": 0.0,
+            "drawdownPct": 0.0
+          },
+          {
+            "date": "2026-06-16",
+            "realizedPnl": 189767.0,
+            "unrealizedPnl": 0.0,
+            "equity": 2189767.0,
+            "drawdown": -155.0,
+            "drawdownPct": -0.0070778776595696105
+          },
+          {
+            "date": "2026-06-17",
+            "realizedPnl": 204138.0,
+            "unrealizedPnl": 0.0,
+            "equity": 2204138.0,
             "drawdown": 0.0,
             "drawdownPct": 0.0
           },
           {
             "date": "2026-06-18",
-            "realizedPnl": 117085.0,
-            "unrealizedPnl": 181496.0,
-            "equity": 2298581.0,
+            "realizedPnl": 204138.0,
+            "unrealizedPnl": 181549.0,
+            "equity": 2385687.0,
             "drawdown": 0.0,
             "drawdownPct": 0.0
           }
@@ -247,57 +573,112 @@ window.TRADING_DASHBOARD = {
           {
             "symbol": "00757",
             "name": "統一 FANG+",
-            "realizedPnl": 0.0,
+            "realizedPnl": 256.0,
             "unrealizedPnl": 211841.0,
-            "realizedCost": 0.0,
+            "realizedCost": 232727.2727272727,
             "positionCost": 725915.0,
-            "totalPnl": 211841.0,
-            "totalCost": 725915.0,
-            "returnPct": 29.18261779960464
+            "totalPnl": 212097.0,
+            "totalCost": 958642.2727272727,
+            "returnPct": 22.124728486737634
           },
           {
             "symbol": "6907",
             "name": "雅特力-KY",
-            "realizedPnl": 101915.0,
+            "realizedPnl": 110715.0,
             "unrealizedPnl": 0.0,
-            "realizedCost": 30585.0,
+            "realizedCost": 147911.67070608854,
             "positionCost": 0.0,
-            "totalPnl": 101915.0,
-            "totalCost": 30585.0,
-            "returnPct": 333.21889815268923
+            "totalPnl": 110715.0,
+            "totalCost": 147911.67070608854,
+            "returnPct": 74.85210563269136
+          },
+          {
+            "symbol": "4739",
+            "name": "康普",
+            "realizedPnl": 45145.0,
+            "unrealizedPnl": 0.0,
+            "realizedCost": 129323.73922091161,
+            "positionCost": 0.0,
+            "totalPnl": 45145.0,
+            "totalCost": 129323.73922091161,
+            "returnPct": 34.90851739361096
           },
           {
             "symbol": "00830",
             "name": "國泰費城半導體",
-            "realizedPnl": 15170.0,
+            "realizedPnl": 32853.0,
             "unrealizedPnl": 0.0,
-            "realizedCost": 147499.0,
+            "realizedCost": 329265.01067002234,
             "positionCost": 0.0,
-            "totalPnl": 15170.0,
-            "totalCost": 147499.0,
-            "returnPct": 10.284815490274509
+            "totalPnl": 32853.0,
+            "totalCost": 329265.01067002234,
+            "returnPct": 9.977677231220934
           },
           {
-            "symbol": "2880",
-            "name": "華南金",
-            "realizedPnl": 0.0,
-            "unrealizedPnl": -18.0,
-            "realizedCost": 0.0,
-            "positionCost": 36.0,
-            "totalPnl": -18.0,
-            "totalCost": 36.0,
-            "returnPct": -50.0
+            "symbol": "6488",
+            "name": "環球晶",
+            "realizedPnl": 12835.0,
+            "unrealizedPnl": 0.0,
+            "realizedCost": 108129.73883740524,
+            "positionCost": 0.0,
+            "totalPnl": 12835.0,
+            "totalCost": 108129.73883740524,
+            "returnPct": 11.87
           },
           {
-            "symbol": "1904",
-            "name": "正隆",
-            "realizedPnl": 0.0,
-            "unrealizedPnl": -35.0,
-            "realizedCost": 0.0,
-            "positionCost": 38.0,
-            "totalPnl": -35.0,
-            "totalCost": 38.0,
-            "returnPct": -92.10526315789474
+            "symbol": "2377",
+            "name": "微星",
+            "realizedPnl": 12598.0,
+            "unrealizedPnl": 0.0,
+            "realizedCost": 93409.3686141418,
+            "positionCost": 0.0,
+            "totalPnl": 12598.0,
+            "totalCost": 93409.3686141418,
+            "returnPct": 13.486869879230415
+          },
+          {
+            "symbol": "6143",
+            "name": "振曜",
+            "realizedPnl": 2906.0,
+            "unrealizedPnl": 0.0,
+            "realizedCost": 99180.88737201365,
+            "positionCost": 0.0,
+            "totalPnl": 2906.0,
+            "totalCost": 99180.88737201365,
+            "returnPct": 2.93
+          },
+          {
+            "symbol": "2379",
+            "name": "瑞昱",
+            "realizedPnl": 1798.0,
+            "unrealizedPnl": 0.0,
+            "realizedCost": 32750.455373406192,
+            "positionCost": 0.0,
+            "totalPnl": 1798.0,
+            "totalCost": 32750.455373406192,
+            "returnPct": 5.49
+          },
+          {
+            "symbol": "2353",
+            "name": "宏碁",
+            "realizedPnl": 315.0,
+            "unrealizedPnl": 0.0,
+            "realizedCost": 108471.65400350673,
+            "positionCost": 0.0,
+            "totalPnl": 315.0,
+            "totalCost": 108471.65400350673,
+            "returnPct": 0.29039844823405797
+          },
+          {
+            "symbol": "2317",
+            "name": "鴻海",
+            "realizedPnl": -172.0,
+            "unrealizedPnl": 0.0,
+            "realizedCost": 81904.76190476191,
+            "positionCost": 0.0,
+            "totalPnl": -172.0,
+            "totalCost": 81904.76190476191,
+            "returnPct": -0.21
           },
           {
             "symbol": "4166",
@@ -309,6 +690,17 @@ window.TRADING_DASHBOARD = {
             "totalPnl": -3209.0,
             "totalCost": 28000.0,
             "returnPct": -11.460714285714285
+          },
+          {
+            "symbol": "3141",
+            "name": "晶宏",
+            "realizedPnl": -15111.0,
+            "unrealizedPnl": 0.0,
+            "realizedCost": 81725.25689561926,
+            "positionCost": 0.0,
+            "totalPnl": -15111.0,
+            "totalCost": 81725.25689561926,
+            "returnPct": -18.490000000000002
           },
           {
             "symbol": "1760",
@@ -323,17 +715,17 @@ window.TRADING_DASHBOARD = {
           }
         ],
         "stats": {
-          "tradeCount": 4,
-          "winCount": 4,
-          "lossCount": 0,
-          "winRatePct": 100.0,
-          "avgWin": 29271.25,
-          "avgLoss": 0,
-          "profitFactor": null,
+          "tradeCount": 23,
+          "winCount": 20,
+          "lossCount": 3,
+          "winRatePct": 86.95652173913044,
+          "avgWin": 10986.95,
+          "avgLoss": -5200.333333333333,
+          "profitFactor": 14.084930453176078,
           "bestTrade": 101915.0,
-          "worstTrade": 2056.0,
-          "maxDrawdown": 0.0,
-          "maxDrawdownPct": 0.0
+          "worstTrade": -15111.0,
+          "maxDrawdown": -155.0,
+          "maxDrawdownPct": -0.0070778776595696105
         }
       },
       "validation": {
@@ -342,51 +734,51 @@ window.TRADING_DASHBOARD = {
           {
             "label": "已實現損益合計",
             "ok": true,
-            "actual": 117085.0,
-            "expected": 117085.0,
+            "actual": 204138.0,
+            "expected": 204138.0,
             "diff": 0.0
           },
           {
             "label": "未實現損益合計",
             "ok": true,
-            "actual": 181496.0,
-            "expected": 181496.0,
+            "actual": 181549.0,
+            "expected": 181549.0,
             "diff": 0.0
           },
           {
             "label": "股票庫存市值合計",
             "ok": true,
-            "actual": 997323.0,
-            "expected": 997323.0,
+            "actual": 997302.0,
+            "expected": 997302.0,
             "diff": 0.0
           },
           {
             "label": "總損益",
             "ok": true,
-            "actual": 298581.0,
-            "expected": 298581.0,
+            "actual": 385687.0,
+            "expected": 385687.0,
             "diff": 0.0
           },
           {
             "label": "目前推估總資產",
             "ok": true,
-            "actual": 2298581.0,
-            "expected": 2298581.0,
+            "actual": 2385687.0,
+            "expected": 2385687.0,
             "diff": 0.0
           },
           {
             "label": "推估現金",
             "ok": true,
-            "actual": 1301258.0,
-            "expected": 1301258.0,
+            "actual": 1388385.0,
+            "expected": 1388385.0,
             "diff": 0.0
           },
           {
             "label": "總報酬率",
             "ok": true,
-            "actual": 14.9291,
-            "expected": 14.93,
-            "diff": -0.0009
+            "actual": 19.2843,
+            "expected": 19.28,
+            "diff": 0.0043
           },
           {
             "label": "00757 庫存損益",
@@ -400,20 +792,6 @@ window.TRADING_DASHBOARD = {
             "ok": true,
             "actual": -27083.0,
             "expected": -27083.0,
-            "diff": 0.0
-          },
-          {
-            "label": "1904 庫存損益",
-            "ok": true,
-            "actual": -35.0,
-            "expected": -35.0,
-            "diff": 0.0
-          },
-          {
-            "label": "2880 庫存損益",
-            "ok": true,
-            "actual": -18.0,
-            "expected": -18.0,
             "diff": 0.0
           },
           {
@@ -434,22 +812,22 @@ window.TRADING_DASHBOARD = {
       "label": "美股",
       "currency": "USD",
       "currencyLabel": "美元",
-      "initialCapital": 20000,
-      "currentDate": "2026-06-17",
+      "initialCapital": 30000,
+      "currentDate": "2026-06-18",
       "orderLogComplete": true,
       "dataQuality": [
         "總覽、庫存合計、已實現損益合計可內部驗算。",
-        "成交/委託紀錄可用完全成交股數重算目前庫存：BDC 24 股、GEV 1 股。",
+        "2026/06/18 GEV 賣出 1 股後，目前庫存為 BDC 24 股、GEV 0 股。",
         "COHR 2026-06-05/2026-06-06 日期需確認是美股交易日或台灣券商顯示日；績效表採 2026-06-05。"
       ],
       "summary": {
-        "realizedPnl": 1205,
-        "unrealizedPnl": 431.11,
-        "totalPnl": 1636.11,
-        "currentAssets": 21636.11,
-        "totalReturnPct": 8.18,
-        "cash": 17691.49,
-        "marketValue": 3944.62
+        "realizedPnl": 1395.44,
+        "unrealizedPnl": 321.25,
+        "totalPnl": 1716.69,
+        "currentAssets": 31716.69,
+        "totalReturnPct": 5.72,
+        "cash": 28783.65,
+        "marketValue": 2933.04
       },
       "positions": [
         {
@@ -460,15 +838,6 @@ window.TRADING_DASHBOARD = {
           "cost": 2611.79,
           "unrealizedPnl": 321.25,
           "returnPct": 12.3
-        },
-        {
-          "symbol": "GEV",
-          "name": "奇異維諾瓦",
-          "shares": 1,
-          "marketValue": 1011.58,
-          "cost": 901.72,
-          "unrealizedPnl": 109.86,
-          "returnPct": 12.18
         }
       ],
       "realizedTrades": [
@@ -641,6 +1010,17 @@ window.TRADING_DASHBOARD = {
           "realizedPnl": 94.91,
           "returnPct": 10.48,
           "source": "已實現損益底稿"
+        },
+        {
+          "sellDate": "2026-06-18",
+          "symbol": "GEV",
+          "name": "GE Vernova",
+          "shares": 1,
+          "sellPrice": 1093,
+          "investmentCost": 902.56,
+          "realizedPnl": 190.44,
+          "returnPct": 21.1,
+          "source": "2026/06/18 使用者提供"
         }
       ],
       "orders": [
@@ -1193,10 +1573,20 @@ window.TRADING_DASHBOARD = {
           "fillPrice": 1001,
           "shares": 1,
           "status": "完全成交"
+        },
+        {
+          "date": "2026-06-18",
+          "symbol": "GEV",
+          "name": "GE Vernova",
+          "action": "sell",
+          "orderPrice": 1093,
+          "fillPrice": 1093,
+          "shares": 1,
+          "status": "完全成交"
         }
       ],
       "computed": {
-        "positionCost": 3513.51,
+        "positionCost": 2611.79,
         "realizedByDate": [
           {
             "date": "2026-05-29",
@@ -1233,6 +1623,10 @@ window.TRADING_DASHBOARD = {
           {
             "date": "2026-06-16",
             "realizedPnl": 94.91
+          },
+          {
+            "date": "2026-06-18",
+            "realizedPnl": 190.44
           }
         ],
         "equitySeries": [
@@ -1240,7 +1634,7 @@ window.TRADING_DASHBOARD = {
             "date": "2026-05-26",
             "realizedPnl": 0.0,
             "unrealizedPnl": 0.0,
-            "equity": 20000.0,
+            "equity": 30000.0,
             "drawdown": 0.0,
             "drawdownPct": 0.0
           },
@@ -1248,7 +1642,7 @@ window.TRADING_DASHBOARD = {
             "date": "2026-05-29",
             "realizedPnl": 662.16,
             "unrealizedPnl": 0.0,
-            "equity": 20662.16,
+            "equity": 30662.16,
             "drawdown": 0.0,
             "drawdownPct": 0.0
           },
@@ -1256,7 +1650,7 @@ window.TRADING_DASHBOARD = {
             "date": "2026-06-01",
             "realizedPnl": 854.8399999999999,
             "unrealizedPnl": 0.0,
-            "equity": 20854.84,
+            "equity": 30854.84,
             "drawdown": 0.0,
             "drawdownPct": 0.0
           },
@@ -1264,7 +1658,7 @@ window.TRADING_DASHBOARD = {
             "date": "2026-06-02",
             "realizedPnl": 1105.4399999999998,
             "unrealizedPnl": 0.0,
-            "equity": 21105.44,
+            "equity": 31105.44,
             "drawdown": 0.0,
             "drawdownPct": 0.0
           },
@@ -1272,7 +1666,7 @@ window.TRADING_DASHBOARD = {
             "date": "2026-06-03",
             "realizedPnl": 1186.08,
             "unrealizedPnl": 0.0,
-            "equity": 21186.08,
+            "equity": 31186.08,
             "drawdown": 0.0,
             "drawdownPct": 0.0
           },
@@ -1280,7 +1674,7 @@ window.TRADING_DASHBOARD = {
             "date": "2026-06-05",
             "realizedPnl": 1191.31,
             "unrealizedPnl": 0.0,
-            "equity": 21191.31,
+            "equity": 31191.31,
             "drawdown": 0.0,
             "drawdownPct": 0.0
           },
@@ -1288,39 +1682,39 @@ window.TRADING_DASHBOARD = {
             "date": "2026-06-08",
             "realizedPnl": 1177.49,
             "unrealizedPnl": 0.0,
-            "equity": 21177.49,
+            "equity": 31177.49,
             "drawdown": -13.819999999999709,
-            "drawdownPct": -0.06521541141156309
+            "drawdownPct": -0.04430721248963159
           },
           {
             "date": "2026-06-11",
             "realizedPnl": 1098.62,
             "unrealizedPnl": 0.0,
-            "equity": 21098.62,
+            "equity": 31098.62,
             "drawdown": -92.69000000000233,
-            "drawdownPct": -0.43739627233994655
+            "drawdownPct": -0.2971661017123113
           },
           {
             "date": "2026-06-15",
             "realizedPnl": 1110.09,
             "unrealizedPnl": 0.0,
-            "equity": 21110.09,
+            "equity": 31110.09,
             "drawdown": -81.22000000000116,
-            "drawdownPct": -0.3832703122176079
+            "drawdownPct": -0.2603930389586111
           },
           {
             "date": "2026-06-16",
             "realizedPnl": 1205.0,
             "unrealizedPnl": 0.0,
-            "equity": 21205.0,
+            "equity": 31205.0,
             "drawdown": 0.0,
             "drawdownPct": 0.0
           },
           {
-            "date": "2026-06-17",
-            "realizedPnl": 1205.0,
-            "unrealizedPnl": 431.11,
-            "equity": 21636.11,
+            "date": "2026-06-18",
+            "realizedPnl": 1395.44,
+            "unrealizedPnl": 321.25,
+            "equity": 31716.69,
             "drawdown": 0.0,
             "drawdownPct": 0.0
           }
@@ -1338,6 +1732,17 @@ window.TRADING_DASHBOARD = {
             "returnPct": 12.043028415301313
           },
           {
+            "symbol": "GEV",
+            "name": "GE Vernova",
+            "realizedPnl": 377.46,
+            "unrealizedPnl": 0.0,
+            "realizedCost": 6597.915571148495,
+            "positionCost": 0.0,
+            "totalPnl": 377.46,
+            "totalCost": 6597.915571148495,
+            "returnPct": 5.720897697608698
+          },
+          {
             "symbol": "BDC",
             "name": "百通",
             "realizedPnl": 0.0,
@@ -1347,17 +1752,6 @@ window.TRADING_DASHBOARD = {
             "totalPnl": 321.25,
             "totalCost": 2611.79,
             "returnPct": 12.299993491054028
-          },
-          {
-            "symbol": "GEV",
-            "name": "奇異維諾瓦",
-            "realizedPnl": 187.01999999999998,
-            "unrealizedPnl": 109.86,
-            "realizedCost": 5695.355571148494,
-            "positionCost": 901.72,
-            "totalPnl": 296.88,
-            "totalCost": 6597.075571148494,
-            "returnPct": 4.50017582485137
           },
           {
             "symbol": "COHR",
@@ -1405,17 +1799,17 @@ window.TRADING_DASHBOARD = {
           }
         ],
         "stats": {
-          "tradeCount": 17,
-          "winCount": 13,
+          "tradeCount": 18,
+          "winCount": 14,
           "lossCount": 4,
-          "winRatePct": 76.47058823529412,
-          "avgWin": 109.61538461538461,
+          "winRatePct": 77.77777777777779,
+          "avgWin": 115.38857142857144,
           "avgLoss": -55.0,
-          "profitFactor": 6.4772727272727275,
+          "profitFactor": 7.3429090909090915,
           "bestTrade": 662.16,
           "worstTrade": -95.0,
           "maxDrawdown": -92.69000000000233,
-          "maxDrawdownPct": -0.43739627233994655
+          "maxDrawdownPct": -0.2971661017123113
         }
       },
       "validation": {
@@ -1424,64 +1818,57 @@ window.TRADING_DASHBOARD = {
           {
             "label": "已實現損益合計",
             "ok": true,
-            "actual": 1205.0,
-            "expected": 1205.0,
+            "actual": 1395.44,
+            "expected": 1395.44,
             "diff": 0.0
           },
           {
             "label": "未實現損益合計",
-            "ok": true,
-            "actual": 431.11,
-            "expected": 431.11,
-            "diff": 0.0
-          },
-          {
-            "label": "股票庫存市值合計",
-            "ok": true,
-            "actual": 3944.62,
-            "expected": 3944.62,
-            "diff": 0.0
-          },
-          {
-            "label": "總損益",
-            "ok": true,
-            "actual": 1636.11,
-            "expected": 1636.11,
-            "diff": 0.0
-          },
-          {
-            "label": "目前推估總資產",
-            "ok": true,
-            "actual": 21636.11,
-            "expected": 21636.11,
-            "diff": 0.0
-          },
-          {
-            "label": "推估現金",
-            "ok": true,
-            "actual": 17691.49,
-            "expected": 17691.49,
-            "diff": 0.0
-          },
-          {
-            "label": "總報酬率",
-            "ok": true,
-            "actual": 8.1806,
-            "expected": 8.18,
-            "diff": 0.0006
-          },
-          {
-            "label": "BDC 庫存損益",
             "ok": true,
             "actual": 321.25,
             "expected": 321.25,
             "diff": 0.0
           },
           {
-            "label": "GEV 庫存損益",
+            "label": "股票庫存市值合計",
             "ok": true,
-            "actual": 109.86,
-            "expected": 109.86,
+            "actual": 2933.04,
+            "expected": 2933.04,
+            "diff": 0.0
+          },
+          {
+            "label": "總損益",
+            "ok": true,
+            "actual": 1716.69,
+            "expected": 1716.69,
+            "diff": 0.0
+          },
+          {
+            "label": "目前推估總資產",
+            "ok": true,
+            "actual": 31716.69,
+            "expected": 31716.69,
+            "diff": 0.0
+          },
+          {
+            "label": "推估現金",
+            "ok": true,
+            "actual": 28783.65,
+            "expected": 28783.65,
+            "diff": -0.0
+          },
+          {
+            "label": "總報酬率",
+            "ok": true,
+            "actual": 5.7223,
+            "expected": 5.72,
+            "diff": 0.0023
+          },
+          {
+            "label": "BDC 庫存損益",
+            "ok": true,
+            "actual": 321.25,
+            "expected": 321.25,
             "diff": 0.0
           },
           {
@@ -1508,8 +1895,8 @@ window.TRADING_DASHBOARD = {
           {
             "label": "GEV 完全成交股數對庫存",
             "ok": true,
-            "actual": 1.0,
-            "expected": 1.0,
+            "actual": 0.0,
+            "expected": 0.0,
             "diff": 0.0
           },
           {
@@ -1547,51 +1934,51 @@ window.TRADING_DASHBOARD = {
         {
           "label": "已實現損益合計",
           "ok": true,
-          "actual": 117085.0,
-          "expected": 117085.0,
+          "actual": 204138.0,
+          "expected": 204138.0,
           "diff": 0.0
         },
         {
           "label": "未實現損益合計",
           "ok": true,
-          "actual": 181496.0,
-          "expected": 181496.0,
+          "actual": 181549.0,
+          "expected": 181549.0,
           "diff": 0.0
         },
         {
           "label": "股票庫存市值合計",
           "ok": true,
-          "actual": 997323.0,
-          "expected": 997323.0,
+          "actual": 997302.0,
+          "expected": 997302.0,
           "diff": 0.0
         },
         {
           "label": "總損益",
           "ok": true,
-          "actual": 298581.0,
-          "expected": 298581.0,
+          "actual": 385687.0,
+          "expected": 385687.0,
           "diff": 0.0
         },
         {
           "label": "目前推估總資產",
           "ok": true,
-          "actual": 2298581.0,
-          "expected": 2298581.0,
+          "actual": 2385687.0,
+          "expected": 2385687.0,
           "diff": 0.0
         },
         {
           "label": "推估現金",
           "ok": true,
-          "actual": 1301258.0,
-          "expected": 1301258.0,
+          "actual": 1388385.0,
+          "expected": 1388385.0,
           "diff": 0.0
         },
         {
           "label": "總報酬率",
           "ok": true,
-          "actual": 14.9291,
-          "expected": 14.93,
-          "diff": -0.0009
+          "actual": 19.2843,
+          "expected": 19.28,
+          "diff": 0.0043
         },
         {
           "label": "00757 庫存損益",
@@ -1605,20 +1992,6 @@ window.TRADING_DASHBOARD = {
           "ok": true,
           "actual": -27083.0,
           "expected": -27083.0,
-          "diff": 0.0
-        },
-        {
-          "label": "1904 庫存損益",
-          "ok": true,
-          "actual": -35.0,
-          "expected": -35.0,
-          "diff": 0.0
-        },
-        {
-          "label": "2880 庫存損益",
-          "ok": true,
-          "actual": -18.0,
-          "expected": -18.0,
           "diff": 0.0
         },
         {
@@ -1639,64 +2012,57 @@ window.TRADING_DASHBOARD = {
         {
           "label": "已實現損益合計",
           "ok": true,
-          "actual": 1205.0,
-          "expected": 1205.0,
+          "actual": 1395.44,
+          "expected": 1395.44,
           "diff": 0.0
         },
         {
           "label": "未實現損益合計",
-          "ok": true,
-          "actual": 431.11,
-          "expected": 431.11,
-          "diff": 0.0
-        },
-        {
-          "label": "股票庫存市值合計",
-          "ok": true,
-          "actual": 3944.62,
-          "expected": 3944.62,
-          "diff": 0.0
-        },
-        {
-          "label": "總損益",
-          "ok": true,
-          "actual": 1636.11,
-          "expected": 1636.11,
-          "diff": 0.0
-        },
-        {
-          "label": "目前推估總資產",
-          "ok": true,
-          "actual": 21636.11,
-          "expected": 21636.11,
-          "diff": 0.0
-        },
-        {
-          "label": "推估現金",
-          "ok": true,
-          "actual": 17691.49,
-          "expected": 17691.49,
-          "diff": 0.0
-        },
-        {
-          "label": "總報酬率",
-          "ok": true,
-          "actual": 8.1806,
-          "expected": 8.18,
-          "diff": 0.0006
-        },
-        {
-          "label": "BDC 庫存損益",
           "ok": true,
           "actual": 321.25,
           "expected": 321.25,
           "diff": 0.0
         },
         {
-          "label": "GEV 庫存損益",
+          "label": "股票庫存市值合計",
           "ok": true,
-          "actual": 109.86,
-          "expected": 109.86,
+          "actual": 2933.04,
+          "expected": 2933.04,
+          "diff": 0.0
+        },
+        {
+          "label": "總損益",
+          "ok": true,
+          "actual": 1716.69,
+          "expected": 1716.69,
+          "diff": 0.0
+        },
+        {
+          "label": "目前推估總資產",
+          "ok": true,
+          "actual": 31716.69,
+          "expected": 31716.69,
+          "diff": 0.0
+        },
+        {
+          "label": "推估現金",
+          "ok": true,
+          "actual": 28783.65,
+          "expected": 28783.65,
+          "diff": -0.0
+        },
+        {
+          "label": "總報酬率",
+          "ok": true,
+          "actual": 5.7223,
+          "expected": 5.72,
+          "diff": 0.0023
+        },
+        {
+          "label": "BDC 庫存損益",
+          "ok": true,
+          "actual": 321.25,
+          "expected": 321.25,
           "diff": 0.0
         },
         {
@@ -1723,8 +2089,8 @@ window.TRADING_DASHBOARD = {
         {
           "label": "GEV 完全成交股數對庫存",
           "ok": true,
-          "actual": 1.0,
-          "expected": 1.0,
+          "actual": 0.0,
+          "expected": 0.0,
           "diff": 0.0
         },
         {
