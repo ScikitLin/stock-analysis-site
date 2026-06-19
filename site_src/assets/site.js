@@ -319,6 +319,12 @@ function tradingDateLabel(value) {
   return parts.length === 3 ? `${parts[1]}/${parts[2]}` : value;
 }
 
+function tradingTimestampLabel(value) {
+  const date = new Date(value);
+  if (Number.isNaN(date.getTime())) return "";
+  return `${String(date.getUTCMonth() + 1).padStart(2, "0")}/${String(date.getUTCDate()).padStart(2, "0")}`;
+}
+
 function tradingEventsByDate(market) {
   const events = new Map();
   (market.realizedTrades || []).forEach((trade) => {
@@ -329,8 +335,15 @@ function tradingEventsByDate(market) {
   return events;
 }
 
-function tradingEventTooltip(trades, market) {
-  return trades.map((trade) => [
+function tradingEventTooltip(trades, market, point = null) {
+  const portfolioSummary = point ? [
+    `<strong>${escapeHtml(point.date)}</strong>`,
+    `<span>總資產 ${escapeHtml(formatTradingMoney(point.equity, market))}</span>`,
+    `<span>累計已實現 ${escapeHtml(formatTradingMoney(point.realizedPnl, market, { sign: true }))}</span>`,
+    `<span>未實現 ${escapeHtml(formatTradingMoney(point.unrealizedPnl || 0, market, { sign: true }))}</span>`,
+    "<hr>"
+  ].join("") : "";
+  return portfolioSummary + trades.map((trade) => [
     `<strong>${escapeHtml(`${trade.symbol} ${trade.name || ""}`)}</strong>`,
     `<span>結案時間 ${escapeHtml(trade.sellDate || "--")}</span>`,
     `<span>賣出 ${escapeHtml(formatTradingShares(trade.shares))} 股</span>`,
@@ -376,9 +389,26 @@ function renderTradingLineChart(container, market, series, definitions, options 
   const values = definitions.flatMap((definition) => series.map((point) => definition.value(point)));
   const yDomain = options.domain || tradingChartDomain(values, options.includeZero);
   const yTicks = Array.from({ length: 4 }, (_, index) => yDomain[0] + ((yDomain[1] - yDomain[0]) * index) / 3);
-  const xIndexes = Array.from(new Set([0, Math.floor((series.length - 1) / 2), series.length - 1])).sort((a, b) => a - b);
   const xDomain = tradingTimeDomain(series);
+  const xTicks = Array.from({ length: 5 }, (_, index) => xDomain[0] + ((xDomain[1] - xDomain[0]) * index) / 4);
   const eventMap = options.showTradeEvents ? tradingEventsByDate(market) : new Map();
+  const rawEventEntries = Array.from(eventMap.entries()).map(([date, trades]) => {
+    const index = series.map((point) => point.date).lastIndexOf(date);
+    if (index < 0) return null;
+    const x = tradingPointX(series[index], index, xDomain, dims);
+    const y = tradingScale(definitions[0].value(series[index]), yDomain, [dims.bottom, dims.top]);
+    const eventName = market.market === "tw" ? trades[0].name : trades[0].symbol;
+    const label = trades.length === 1 ? eventName : `${eventName} +${trades.length - 1}`;
+    const labelWidth = Math.min(154, Math.max(72, label.length * 13 + 22));
+    return { date, trades, point: series[index], x, y, label, labelWidth, placeBelow: y < dims.top + 62 };
+  }).filter(Boolean).sort((a, b) => a.x - b.x);
+  let lastEventLabelRight = -Infinity;
+  const eventEntries = rawEventEntries.map((entry) => {
+    const { x, labelWidth } = entry;
+    const showLabel = x - labelWidth / 2 >= lastEventLabelRight + 10;
+    if (showLabel) lastEventLabelRight = x + labelWidth / 2;
+    return { ...entry, showLabel };
+  });
 
   container.innerHTML = `
     <svg class="trading-svg" viewBox="0 0 ${dims.width} ${dims.height}" aria-label="${escapeAttribute(options.label || "trading chart")}">
@@ -392,9 +422,14 @@ function renderTradingLineChart(container, market, series, definitions, options 
           </g>
         `;
       }).join("")}
-      ${xIndexes.map((index) => {
-        const x = tradingPointX(series[index], index, xDomain, dims);
-        return `<text class="trading-x-label" x="${x}" y="${dims.bottom + 28}" text-anchor="middle">${escapeHtml(tradingDateLabel(series[index]?.date || ""))}</text>`;
+      ${xTicks.map((tick) => {
+        const x = tradingScale(tick, xDomain, [dims.left, dims.right]);
+        return `
+          <g class="trading-x-tick">
+            <line x1="${x}" x2="${x}" y1="${dims.bottom}" y2="${dims.bottom + 6}"></line>
+            <text class="trading-x-label" x="${x}" y="${dims.bottom + 28}" text-anchor="middle">${escapeHtml(tradingTimestampLabel(tick))}</text>
+          </g>
+        `;
       }).join("")}
       ${definitions.map((definition) => `
         <polyline class="trading-line" points="${tradingLinePoints(series, definition.value, xDomain, yDomain, dims)}" stroke="${definition.color}"></polyline>
@@ -402,26 +437,23 @@ function renderTradingLineChart(container, market, series, definitions, options 
           const x = tradingPointX(point, index, xDomain, dims);
           const y = tradingScale(definition.value(point), yDomain, [dims.bottom, dims.top]);
           const label = definition.tooltip ? definition.tooltip(point, market) : `${point.date} ${definition.label}`;
+          const tooltip = options.pointTooltip ? options.pointTooltip(point, market) : `<strong>${escapeHtml(point.date)}</strong><span>${escapeHtml(label)}</span>`;
           return `
-            <circle class="trading-dot" cx="${x.toFixed(2)}" cy="${y.toFixed(2)}" r="3.7" fill="${definition.color}">
-              <title>${escapeHtml(label)}</title>
-            </circle>
+            <circle class="trading-dot" tabindex="0" data-tooltip="${escapeAttribute(tooltip)}" cx="${x.toFixed(2)}" cy="${y.toFixed(2)}" r="4.2" fill="${definition.color}"></circle>
           `;
         }).join("")}
       `).join("")}
-      ${Array.from(eventMap.entries()).map(([date, trades]) => {
-        const index = series.map((point) => point.date).lastIndexOf(date);
-        if (index < 0) return "";
-        const x = tradingPointX(series[index], index, xDomain, dims);
-        const y = tradingScale(definitions[0].value(series[index]), yDomain, [dims.bottom, dims.top]);
-        const eventName = market.market === "tw" ? trades[0].name : trades[0].symbol;
-        const label = trades.length === 1 ? eventName : `${eventName} +${trades.length - 1}`;
-        const labelWidth = Math.min(154, Math.max(72, label.length * 13 + 22));
+      ${eventEntries.map(({ trades, point, x, y, label, labelWidth, showLabel, placeBelow }) => {
+        const rectY = placeBelow ? 14 : -56;
+        const textY = placeBelow ? 30 : -40;
+        const lineEnd = placeBelow ? 14 : -34;
         return `
-          <g class="trading-event" tabindex="0" data-tooltip="${escapeAttribute(tradingEventTooltip(trades, market))}" transform="translate(${x.toFixed(2)} ${y.toFixed(2)})">
-            <line x1="0" x2="0" y1="-8" y2="-34"></line>
-            <rect x="${(-labelWidth / 2).toFixed(1)}" y="-56" width="${labelWidth}" height="24" rx="4"></rect>
-            <text x="0" y="-40" text-anchor="middle">${escapeHtml(label)}</text>
+          <g class="trading-event${showLabel ? "" : " is-compact"}" tabindex="0" data-tooltip="${escapeAttribute(tradingEventTooltip(trades, market, point))}" transform="translate(${x.toFixed(2)} ${y.toFixed(2)})">
+            ${showLabel ? `
+              <line x1="0" x2="0" y1="${placeBelow ? 8 : -8}" y2="${lineEnd}"></line>
+              <rect x="${(-labelWidth / 2).toFixed(1)}" y="${rectY}" width="${labelWidth}" height="24" rx="4"></rect>
+              <text x="0" y="${textY}" text-anchor="middle">${escapeHtml(label)}</text>
+            ` : ""}
             <circle r="7"></circle>
           </g>
         `;
@@ -500,6 +532,7 @@ function renderTradingExposure(market) {
         <div class="position-row">
           <div>
             <strong>${escapeHtml(`${position.symbol} ${position.name}`)}</strong>
+            ${position.strategyTag ? `<em class="position-strategy">${escapeHtml(position.strategyTag)}</em>` : ""}
             <span>${escapeHtml(formatTradingShares(position.shares))} 股${Number.isFinite(position.averagePrice) && Number.isFinite(position.currentPrice) ? ` · 均價 ${escapeHtml(formatTradingNumber(position.averagePrice, 2))} → 現價 ${escapeHtml(formatTradingNumber(position.currentPrice, 2))}` : ""}</span>
           </div>
           <div>
@@ -616,7 +649,16 @@ function renderTrading() {
       value: (point) => point.equity,
       tooltip: (point, itemMarket) => `${point.date} 總資產 ${formatTradingMoney(point.equity, itemMarket)}`
     }
-  ], { label: "總資產曲線", showTradeEvents: true });
+  ], {
+    label: "總資產曲線",
+    showTradeEvents: true,
+    pointTooltip: (point, itemMarket) => `
+      <strong>${escapeHtml(point.date)}</strong>
+      <span>總資產 ${escapeHtml(formatTradingMoney(point.equity, itemMarket))}</span>
+      <span>累計已實現 ${escapeHtml(formatTradingMoney(point.realizedPnl, itemMarket, { sign: true }))}</span>
+      <span>未實現 ${escapeHtml(formatTradingMoney(point.unrealizedPnl || 0, itemMarket, { sign: true }))}</span>
+    `
+  });
 
   if (elements.tradingPnlLabel) elements.tradingPnlLabel.textContent = `${formatTradingMoney(market.summary.totalPnl, market, { sign: true })}`;
   renderTradingLineChart(elements.tradingPnlChart, market, series, [
@@ -632,7 +674,17 @@ function renderTrading() {
       value: (point) => point.realizedPnl + (point.unrealizedPnl || 0),
       tooltip: (point, itemMarket) => `${point.date} 總損益 ${formatTradingMoney(point.realizedPnl + (point.unrealizedPnl || 0), itemMarket, { sign: true })}`
     }
-  ], { label: "損益曲線", includeZero: true, showTradeEvents: true });
+  ], {
+    label: "損益曲線",
+    includeZero: true,
+    showTradeEvents: true,
+    pointTooltip: (point, itemMarket) => `
+      <strong>${escapeHtml(point.date)}</strong>
+      <span>累計已實現 ${escapeHtml(formatTradingMoney(point.realizedPnl, itemMarket, { sign: true }))}</span>
+      <span>未實現 ${escapeHtml(formatTradingMoney(point.unrealizedPnl || 0, itemMarket, { sign: true }))}</span>
+      <span>總損益 ${escapeHtml(formatTradingMoney(point.realizedPnl + (point.unrealizedPnl || 0), itemMarket, { sign: true }))}</span>
+    `
+  });
 
   if (elements.tradingContributionLabel) elements.tradingContributionLabel.textContent = `${(market.computed?.contributions || []).length} 檔`;
   renderTradingContributionChart(market);

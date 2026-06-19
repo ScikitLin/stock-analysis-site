@@ -38,7 +38,8 @@ window.TRADING_DASHBOARD = {
           "marketValue": 937756,
           "cost": 725915,
           "unrealizedPnl": 211841,
-          "returnPct": 29.18
+          "returnPct": 29.18,
+          "strategyTag": "長期投資"
         },
         {
           "symbol": "1760",

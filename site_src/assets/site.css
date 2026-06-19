@@ -1333,6 +1333,10 @@ time {
   stroke: rgba(42, 72, 60, 0.1);
 }
 
+.trading-x-tick line {
+  stroke: rgba(42, 72, 60, 0.32);
+}
+
 .trading-axis-tick text,
 .trading-x-label,
 .trading-legend text,
@@ -1385,6 +1389,11 @@ time {
 .trading-event:hover rect,
 .trading-event:focus rect {
   fill: #eef7f3;
+}
+
+.trading-event.is-compact circle {
+  fill: #eef7f3;
+  stroke-width: 2;
 }
 
 .trading-zero-line {
@@ -1500,6 +1509,19 @@ time {
   gap: 2px;
 }
 
+.position-strategy {
+  display: inline-flex;
+  width: fit-content;
+  padding: 2px 6px;
+  border: 1px solid rgba(154, 116, 51, 0.28);
+  border-radius: 4px;
+  background: rgba(154, 116, 51, 0.1);
+  color: #806126;
+  font-size: 11px;
+  font-style: normal;
+  font-weight: 850;
+}
+
 .position-row div:last-child {
   text-align: right;
 }
@@ -1546,6 +1568,14 @@ time {
 
 .return-track i.loss {
   background: var(--red);
+}
+
+.return-bars {
+  max-height: 560px;
+  overflow-y: auto;
+  padding-right: 8px;
+  scrollbar-gutter: stable;
+  overscroll-behavior: contain;
 }
 
 .return-identity {
