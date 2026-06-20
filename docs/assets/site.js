@@ -390,7 +390,11 @@ function renderTradingLineChart(container, market, series, definitions, options 
   const yDomain = options.domain || tradingChartDomain(values, options.includeZero);
   const yTicks = Array.from({ length: 4 }, (_, index) => yDomain[0] + ((yDomain[1] - yDomain[0]) * index) / 3);
   const xDomain = tradingTimeDomain(series);
-  const xTicks = Array.from({ length: 5 }, (_, index) => xDomain[0] + ((xDomain[1] - xDomain[0]) * index) / 4);
+  const xTickCount = 8;
+  const xTicks = Array.from(
+    { length: xTickCount },
+    (_, index) => xDomain[0] + ((xDomain[1] - xDomain[0]) * index) / (xTickCount - 1)
+  );
   const eventMap = options.showTradeEvents ? tradingEventsByDate(market) : new Map();
   const rawEventEntries = Array.from(eventMap.entries()).map(([date, trades]) => {
     const index = series.map((point) => point.date).lastIndexOf(date);

@@ -815,19 +815,20 @@ window.TRADING_DASHBOARD = {
       "currencyLabel": "美元",
       "initialCapital": 30000,
       "currentDate": "2026-06-18",
-      "orderLogComplete": true,
+      "orderLogComplete": false,
       "dataQuality": [
         "總覽、庫存合計、已實現損益合計可內部驗算。",
         "2026/06/18 GEV 賣出 1 股後，目前庫存為 BDC 24 股、GEV 0 股。",
+        "2026/06/20 依使用者截圖補入 TSM、UNH 三筆已實現賣出紀錄；截圖僅提供賣出資料，委託流水不再標記為完整。",
         "COHR 2026-06-05/2026-06-06 日期需確認是美股交易日或台灣券商顯示日；績效表採 2026-06-05。"
       ],
       "summary": {
-        "realizedPnl": 1395.44,
+        "realizedPnl": 2838.45,
         "unrealizedPnl": 321.25,
-        "totalPnl": 1716.69,
-        "currentAssets": 31716.69,
-        "totalReturnPct": 5.72,
-        "cash": 28783.65,
+        "totalPnl": 3159.7,
+        "currentAssets": 33159.7,
+        "totalReturnPct": 10.53,
+        "cash": 30226.66,
         "marketValue": 2933.04
       },
       "positions": [
@@ -842,6 +843,26 @@ window.TRADING_DASHBOARD = {
         }
       ],
       "realizedTrades": [
+        {
+          "sellDate": "2026-04-08",
+          "symbol": "TSM",
+          "name": "TSMC(ADR)",
+          "shares": 20.48,
+          "sellPrice": 365.48,
+          "realizedPnl": 873.12,
+          "returnPct": 13.23,
+          "source": "2026/06/20 使用者截圖"
+        },
+        {
+          "sellDate": "2026-04-21",
+          "symbol": "UNH",
+          "name": "UnitedHealth",
+          "shares": 35.5498,
+          "sellPrice": 353.62,
+          "realizedPnl": 557.72,
+          "returnPct": 4.65,
+          "source": "2026/06/20 使用者截圖"
+        },
         {
           "sellDate": "2026-05-29",
           "symbol": "NTAP",
@@ -911,6 +932,16 @@ window.TRADING_DASHBOARD = {
           "realizedPnl": 10.89,
           "returnPct": 1.12,
           "source": "已實現損益底稿"
+        },
+        {
+          "sellDate": "2026-06-03",
+          "symbol": "UNH",
+          "name": "UnitedHealth",
+          "shares": 5.23211,
+          "sellPrice": 385.3,
+          "realizedPnl": 12.17,
+          "returnPct": 0.61,
+          "source": "2026/06/20 使用者截圖"
         },
         {
           "sellDate": "2026-06-05",
@@ -1590,6 +1621,14 @@ window.TRADING_DASHBOARD = {
         "positionCost": 2611.79,
         "realizedByDate": [
           {
+            "date": "2026-04-08",
+            "realizedPnl": 873.12
+          },
+          {
+            "date": "2026-04-21",
+            "realizedPnl": 557.72
+          },
+          {
             "date": "2026-05-29",
             "realizedPnl": 662.16
           },
@@ -1603,7 +1642,7 @@ window.TRADING_DASHBOARD = {
           },
           {
             "date": "2026-06-03",
-            "realizedPnl": 80.64
+            "realizedPnl": 92.81
           },
           {
             "date": "2026-06-05",
@@ -1640,87 +1679,125 @@ window.TRADING_DASHBOARD = {
             "drawdownPct": 0.0
           },
           {
-            "date": "2026-05-29",
-            "realizedPnl": 662.16,
+            "date": "2026-04-08",
+            "realizedPnl": 873.12,
             "unrealizedPnl": 0.0,
-            "equity": 30662.16,
+            "equity": 30873.12,
+            "drawdown": 0.0,
+            "drawdownPct": 0.0
+          },
+          {
+            "date": "2026-04-21",
+            "realizedPnl": 1430.8400000000001,
+            "unrealizedPnl": 0.0,
+            "equity": 31430.84,
+            "drawdown": 0.0,
+            "drawdownPct": 0.0
+          },
+          {
+            "date": "2026-05-29",
+            "realizedPnl": 2093.0,
+            "unrealizedPnl": 0.0,
+            "equity": 32093.0,
             "drawdown": 0.0,
             "drawdownPct": 0.0
           },
           {
             "date": "2026-06-01",
-            "realizedPnl": 854.8399999999999,
+            "realizedPnl": 2285.68,
             "unrealizedPnl": 0.0,
-            "equity": 30854.84,
+            "equity": 32285.68,
             "drawdown": 0.0,
             "drawdownPct": 0.0
           },
           {
             "date": "2026-06-02",
-            "realizedPnl": 1105.4399999999998,
+            "realizedPnl": 2536.2799999999997,
             "unrealizedPnl": 0.0,
-            "equity": 31105.44,
+            "equity": 32536.28,
             "drawdown": 0.0,
             "drawdownPct": 0.0
           },
           {
             "date": "2026-06-03",
-            "realizedPnl": 1186.08,
+            "realizedPnl": 2629.0899999999997,
             "unrealizedPnl": 0.0,
-            "equity": 31186.08,
+            "equity": 32629.09,
             "drawdown": 0.0,
             "drawdownPct": 0.0
           },
           {
             "date": "2026-06-05",
-            "realizedPnl": 1191.31,
+            "realizedPnl": 2634.3199999999997,
             "unrealizedPnl": 0.0,
-            "equity": 31191.31,
+            "equity": 32634.32,
             "drawdown": 0.0,
             "drawdownPct": 0.0
           },
           {
             "date": "2026-06-08",
-            "realizedPnl": 1177.49,
+            "realizedPnl": 2620.4999999999995,
             "unrealizedPnl": 0.0,
-            "equity": 31177.49,
+            "equity": 32620.5,
             "drawdown": -13.819999999999709,
-            "drawdownPct": -0.04430721248963159
+            "drawdownPct": -0.04234805566654892
           },
           {
             "date": "2026-06-11",
-            "realizedPnl": 1098.62,
+            "realizedPnl": 2541.6299999999997,
             "unrealizedPnl": 0.0,
-            "equity": 31098.62,
-            "drawdown": -92.69000000000233,
-            "drawdownPct": -0.2971661017123113
+            "equity": 32541.63,
+            "drawdown": -92.68999999999869,
+            "drawdownPct": -0.2840261418040844
           },
           {
             "date": "2026-06-15",
-            "realizedPnl": 1110.09,
+            "realizedPnl": 2553.0999999999995,
             "unrealizedPnl": 0.0,
-            "equity": 31110.09,
+            "equity": 32553.1,
             "drawdown": -81.22000000000116,
-            "drawdownPct": -0.2603930389586111
+            "drawdownPct": -0.24887909415609444
           },
           {
             "date": "2026-06-16",
-            "realizedPnl": 1205.0,
+            "realizedPnl": 2648.0099999999993,
             "unrealizedPnl": 0.0,
-            "equity": 31205.0,
+            "equity": 32648.01,
             "drawdown": 0.0,
             "drawdownPct": 0.0
           },
           {
             "date": "2026-06-18",
-            "realizedPnl": 1395.44,
+            "realizedPnl": 2838.4499999999994,
             "unrealizedPnl": 321.25,
-            "equity": 31716.69,
+            "equity": 33159.7,
             "drawdown": 0.0,
             "drawdownPct": 0.0
           }
         ],
         "contributions": [
+          {
+            "symbol": "TSM",
+            "name": "TSMC(ADR)",
+            "realizedPnl": 873.12,
+            "unrealizedPnl": 0.0,
+            "realizedCost": 6599.546485260771,
+            "positionCost": 0.0,
+            "totalPnl": 873.12,
+            "totalCost": 6599.546485260771,
+            "returnPct": 13.23
+          },
+          {
+            "symbol": "UNH",
+            "name": "UnitedHealth",
+            "realizedPnl": 569.89,
+            "unrealizedPnl": 0.0,
+            "realizedCost": 13989.060461836769,
+            "positionCost": 0.0,
+            "totalPnl": 569.89,
+            "totalCost": 13989.060461836769,
+            "returnPct": 4.073826126884673
+          },
           {
             "symbol": "NTAP",
             "name": "NetApp",
@@ -1800,17 +1877,17 @@ window.TRADING_DASHBOARD = {
           }
         ],
         "stats": {
-          "tradeCount": 18,
-          "winCount": 14,
+          "tradeCount": 21,
+          "winCount": 17,
           "lossCount": 4,
-          "winRatePct": 77.77777777777779,
-          "avgWin": 115.38857142857144,
+          "winRatePct": 80.95238095238095,
+          "avgWin": 179.90882352941176,
           "avgLoss": -55.0,
-          "profitFactor": 7.3429090909090915,
-          "bestTrade": 662.16,
+          "profitFactor": 13.902045454545453,
+          "bestTrade": 873.12,
           "worstTrade": -95.0,
-          "maxDrawdown": -92.69000000000233,
-          "maxDrawdownPct": -0.2971661017123113
+          "maxDrawdown": -92.68999999999869,
+          "maxDrawdownPct": -0.2840261418040844
         }
       },
       "validation": {
@@ -1819,8 +1896,8 @@ window.TRADING_DASHBOARD = {
           {
             "label": "已實現損益合計",
             "ok": true,
-            "actual": 1395.44,
-            "expected": 1395.44,
+            "actual": 2838.45,
+            "expected": 2838.45,
             "diff": 0.0
           },
           {
@@ -1840,29 +1917,29 @@ window.TRADING_DASHBOARD = {
           {
             "label": "總損益",
             "ok": true,
-            "actual": 1716.69,
-            "expected": 1716.69,
+            "actual": 3159.7,
+            "expected": 3159.7,
             "diff": 0.0
           },
           {
             "label": "目前推估總資產",
             "ok": true,
-            "actual": 31716.69,
-            "expected": 31716.69,
+            "actual": 33159.7,
+            "expected": 33159.7,
             "diff": 0.0
           },
           {
             "label": "推估現金",
             "ok": true,
-            "actual": 28783.65,
-            "expected": 28783.65,
+            "actual": 30226.66,
+            "expected": 30226.66,
             "diff": -0.0
           },
           {
             "label": "總報酬率",
             "ok": true,
-            "actual": 5.7223,
-            "expected": 5.72,
+            "actual": 10.5323,
+            "expected": 10.53,
             "diff": 0.0023
           },
           {
@@ -1871,58 +1948,10 @@ window.TRADING_DASHBOARD = {
             "actual": 321.25,
             "expected": 321.25,
             "diff": 0.0
-          },
-          {
-            "label": "BDC 完全成交股數對庫存",
-            "ok": true,
-            "actual": 24.0,
-            "expected": 24.0,
-            "diff": 0.0
-          },
-          {
-            "label": "COHR 完全成交股數對庫存",
-            "ok": true,
-            "actual": 0.0,
-            "expected": 0.0,
-            "diff": 0.0
-          },
-          {
-            "label": "ETN 完全成交股數對庫存",
-            "ok": true,
-            "actual": 0.0,
-            "expected": 0.0,
-            "diff": 0.0
-          },
-          {
-            "label": "GEV 完全成交股數對庫存",
-            "ok": true,
-            "actual": 0.0,
-            "expected": 0.0,
-            "diff": 0.0
-          },
-          {
-            "label": "HPE 完全成交股數對庫存",
-            "ok": true,
-            "actual": 0.0,
-            "expected": 0.0,
-            "diff": 0.0
-          },
-          {
-            "label": "NTAP 完全成交股數對庫存",
-            "ok": true,
-            "actual": 0.0,
-            "expected": 0.0,
-            "diff": 0.0
-          },
-          {
-            "label": "QCOM 完全成交股數對庫存",
-            "ok": true,
-            "actual": 0.0,
-            "expected": 0.0,
-            "diff": 0.0
           }
         ],
         "warnings": [
+          "成交/委託紀錄標記為不完整；不以流水股數反推目前庫存。",
           "COHR 2026-06-05 已實現日期與成交紀錄日期不同；成交紀錄日期: 2026-06-06"
         ]
       }
@@ -2013,8 +2042,8 @@ window.TRADING_DASHBOARD = {
         {
           "label": "已實現損益合計",
           "ok": true,
-          "actual": 1395.44,
-          "expected": 1395.44,
+          "actual": 2838.45,
+          "expected": 2838.45,
           "diff": 0.0
         },
         {
@@ -2034,29 +2063,29 @@ window.TRADING_DASHBOARD = {
         {
           "label": "總損益",
           "ok": true,
-          "actual": 1716.69,
-          "expected": 1716.69,
+          "actual": 3159.7,
+          "expected": 3159.7,
           "diff": 0.0
         },
         {
           "label": "目前推估總資產",
           "ok": true,
-          "actual": 31716.69,
-          "expected": 31716.69,
+          "actual": 33159.7,
+          "expected": 33159.7,
           "diff": 0.0
         },
         {
           "label": "推估現金",
           "ok": true,
-          "actual": 28783.65,
-          "expected": 28783.65,
+          "actual": 30226.66,
+          "expected": 30226.66,
           "diff": -0.0
         },
         {
           "label": "總報酬率",
           "ok": true,
-          "actual": 5.7223,
-          "expected": 5.72,
+          "actual": 10.5323,
+          "expected": 10.53,
           "diff": 0.0023
         },
         {
@@ -2065,58 +2094,10 @@ window.TRADING_DASHBOARD = {
           "actual": 321.25,
           "expected": 321.25,
           "diff": 0.0
-        },
-        {
-          "label": "BDC 完全成交股數對庫存",
-          "ok": true,
-          "actual": 24.0,
-          "expected": 24.0,
-          "diff": 0.0
-        },
-        {
-          "label": "COHR 完全成交股數對庫存",
-          "ok": true,
-          "actual": 0.0,
-          "expected": 0.0,
-          "diff": 0.0
-        },
-        {
-          "label": "ETN 完全成交股數對庫存",
-          "ok": true,
-          "actual": 0.0,
-          "expected": 0.0,
-          "diff": 0.0
-        },
-        {
-          "label": "GEV 完全成交股數對庫存",
-          "ok": true,
-          "actual": 0.0,
-          "expected": 0.0,
-          "diff": 0.0
-        },
-        {
-          "label": "HPE 完全成交股數對庫存",
-          "ok": true,
-          "actual": 0.0,
-          "expected": 0.0,
-          "diff": 0.0
-        },
-        {
-          "label": "NTAP 完全成交股數對庫存",
-          "ok": true,
-          "actual": 0.0,
-          "expected": 0.0,
-          "diff": 0.0
-        },
-        {
-          "label": "QCOM 完全成交股數對庫存",
-          "ok": true,
-          "actual": 0.0,
-          "expected": 0.0,
-          "diff": 0.0
         }
       ],
       "warnings": [
+        "成交/委託紀錄標記為不完整；不以流水股數反推目前庫存。",
         "COHR 2026-06-05 已實現日期與成交紀錄日期不同；成交紀錄日期: 2026-06-06"
       ]
     }

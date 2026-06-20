@@ -356,19 +356,20 @@
       "currencyLabel": "美元",
       "initialCapital": 30000,
       "currentDate": "2026-06-18",
-      "orderLogComplete": true,
+      "orderLogComplete": false,
       "dataQuality": [
         "總覽、庫存合計、已實現損益合計可內部驗算。",
         "2026/06/18 GEV 賣出 1 股後，目前庫存為 BDC 24 股、GEV 0 股。",
+        "2026/06/20 依使用者截圖補入 TSM、UNH 三筆已實現賣出紀錄；截圖僅提供賣出資料，委託流水不再標記為完整。",
         "COHR 2026-06-05/2026-06-06 日期需確認是美股交易日或台灣券商顯示日；績效表採 2026-06-05。"
       ],
       "summary": {
-        "realizedPnl": 1395.44,
+        "realizedPnl": 2838.45,
         "unrealizedPnl": 321.25,
-        "totalPnl": 1716.69,
-        "currentAssets": 31716.69,
-        "totalReturnPct": 5.72,
-        "cash": 28783.65,
+        "totalPnl": 3159.7,
+        "currentAssets": 33159.7,
+        "totalReturnPct": 10.53,
+        "cash": 30226.66,
         "marketValue": 2933.04
       },
       "positions": [
@@ -383,6 +384,8 @@
         }
       ],
       "realizedTrades": [
+        {"sellDate": "2026-04-08", "symbol": "TSM", "name": "TSMC(ADR)", "shares": 20.48, "sellPrice": 365.48, "realizedPnl": 873.12, "returnPct": 13.23, "source": "2026/06/20 使用者截圖"},
+        {"sellDate": "2026-04-21", "symbol": "UNH", "name": "UnitedHealth", "shares": 35.5498, "sellPrice": 353.62, "realizedPnl": 557.72, "returnPct": 4.65, "source": "2026/06/20 使用者截圖"},
         {"sellDate": "2026-05-29", "symbol": "NTAP", "name": "NetApp", "shares": 15, "sellPrice": 183.236, "realizedPnl": 662.16, "returnPct": 31.77, "source": "已實現損益底稿"},
         {"sellDate": "2026-06-01", "symbol": "HPE", "name": "HP Enterprise", "shares": 30, "sellPrice": 44.4, "realizedPnl": 192.68, "returnPct": 16.93, "source": "已實現損益底稿"},
         {"sellDate": "2026-06-02", "symbol": "COHR", "name": "Coherent", "shares": 5, "sellPrice": 396.16, "realizedPnl": 190.69, "returnPct": 10.66, "source": "已實現損益底稿"},
@@ -390,6 +393,7 @@
         {"sellDate": "2026-06-02", "symbol": "QCOM", "name": "Qualcomm", "shares": 5, "sellPrice": 234.5, "realizedPnl": 14.4, "returnPct": 1.24, "source": "已實現損益底稿"},
         {"sellDate": "2026-06-03", "symbol": "GEV", "name": "GE Vernova", "shares": 2, "sellPrice": 987.4, "realizedPnl": 69.75, "returnPct": 3.66, "source": "已實現損益底稿"},
         {"sellDate": "2026-06-03", "symbol": "GEV", "name": "GE Vernova", "shares": 1, "sellPrice": 985, "realizedPnl": 10.89, "returnPct": 1.12, "source": "已實現損益底稿"},
+        {"sellDate": "2026-06-03", "symbol": "UNH", "name": "UnitedHealth", "shares": 5.23211, "sellPrice": 385.3, "realizedPnl": 12.17, "returnPct": 0.61, "source": "2026/06/20 使用者截圖"},
         {"sellDate": "2026-06-05", "symbol": "NTAP", "name": "NetApp", "shares": 6, "sellPrice": 169.65, "realizedPnl": -78.03, "returnPct": -7.13, "source": "已實現損益底稿"},
         {"sellDate": "2026-06-05", "symbol": "COHR", "name": "Coherent", "shares": 3, "sellPrice": 401.5, "realizedPnl": 41.13, "returnPct": 3.54, "source": "已實現損益底稿"},
         {"sellDate": "2026-06-05", "symbol": "COHR", "name": "Coherent", "shares": 3, "sellPrice": 403.2, "realizedPnl": 42.13, "returnPct": 3.61, "source": "已實現損益底稿"},
