@@ -3,7 +3,7 @@ window.STOCK_REPORTS = {
   "siteDescription": "以資料完整性、估值情境與風控紀律整理的公開個股研究索引。",
   "disclaimer": "本網站內容僅供投資研究紀錄與討論，不構成個人化投資建議。資料可能延遲或不完整，請自行交叉驗證。",
   "feedbackIssueUrl": "https://github.com/ScikitLin/stock-analysis-site/issues/new",
-  "generatedAt": "2026-06-20T02:09:25.195780+00:00",
+  "generatedAt": "2026-06-20T16:39:08.159551+00:00",
   "sourceDir": "published_reports",
   "publishedFolder": "published_reports",
   "chartPreviews": [
@@ -26,18 +26,18 @@ window.STOCK_REPORTS = {
       "bytes": 169757
     }
   ],
-  "reportCount": 13,
+  "reportCount": 9,
   "reports": [
     {
-      "id": "tw_stock_top10_detailed_analysis_20260617",
-      "title": "tw_stock_candidates_20260617 前 10 名個股詳細分析",
-      "heading": "tw_stock_candidates_20260617 前 10 名個股詳細分析",
-      "summary": "3706 神達 進入本輪前十，但尚未有人工個股模板；先按 電腦及週邊設備 候選處理，不把分數當買進訊號。 模組 核心數字 判斷 價格/時點 候選價 86.3（價格日 2026-06-17）；日價歷史參考 86.3（2026-06-17）；差異 0.0% 估值日與價格日不同時，估值只能視為估值日參考...",
+      "id": "tw_stock_analysis_framework_20260617",
+      "title": "台股候選個股分析（10 檔） 2026-06-17",
+      "heading": "台股候選個股分析（10 檔）",
+      "summary": "2. 市場閘門 3. 產業情勢 4. Bear Case 5. 價格與部位 6. 來源數字 7. EPS 模組 8. 估值模組 9. 目標價階梯 10. 操作建議 11. 停損停利 12. 品質風險 13. 低 P/E 成長 14. Rerating / 倍數 15. 強勢／崩盤 16. 部位風險...",
       "date": "2026-06-17",
       "market": "tw",
       "marketLabel": "台股",
-      "type": "top10",
-      "typeLabel": "Top 10 個股",
+      "type": "multi",
+      "typeLabel": "多檔個股",
       "symbols": [
         "3706",
         "3406",
@@ -49,85 +49,7 @@ window.STOCK_REPORTS = {
         "9958",
         "2357",
         "3592",
-        "6257"
-      ],
-      "symbolNames": [
-        {
-          "symbol": "3706",
-          "name": "神達"
-        },
-        {
-          "symbol": "3406",
-          "name": "玉晶光"
-        },
-        {
-          "symbol": "2637",
-          "name": "慧洋-KY"
-        },
-        {
-          "symbol": "6206",
-          "name": "飛捷"
-        },
-        {
-          "symbol": "6525",
-          "name": "捷敏-KY"
-        },
-        {
-          "symbol": "8016",
-          "name": "矽創"
-        },
-        {
-          "symbol": "9945",
-          "name": "潤泰新"
-        },
-        {
-          "symbol": "9958",
-          "name": "世紀鋼"
-        },
-        {
-          "symbol": "2357",
-          "name": "華碩"
-        },
-        {
-          "symbol": "3592",
-          "name": "瑞鼎"
-        },
-        {
-          "symbol": "6257",
-          "name": ""
-        }
-      ],
-      "tags": [
-        "台股",
-        "Top 10 個股",
-        "候選池",
-        "詳細版"
-      ],
-      "sourceFile": "tw_stock_top10_detailed_analysis_20260617.html",
-      "url": "reports/tw_stock_top10_detailed_analysis_20260617.html",
-      "bytes": 26276
-    },
-    {
-      "id": "tw_stock_top10_stock_analysis_framework_20260617",
-      "title": "Top 10 個股分析 2026-06-17",
-      "heading": "Top 10 個股分析",
-      "summary": "觀望；營收動能強，但 margin 還沒證明能完全轉成 EPS。現價隱含情境：Base 情境偏高。理由：3M 營收 YoY 約 41.5% 、月營收 YoY 約 49.3% ，P/E 仍在可研究區。 主要風險：Q1 營益率只有約 3.7% ，若營收來自低毛利案型，股價題材會比獲利先跑。 2. 市場...",
-      "date": "2026-06-17",
-      "market": "tw",
-      "marketLabel": "台股",
-      "type": "top10",
-      "typeLabel": "Top 10 個股",
-      "symbols": [
-        "3706",
-        "3406",
-        "2637",
-        "6206",
-        "6525",
-        "8016",
-        "9945",
-        "9958",
-        "2357",
-        "3592"
+        "2026"
       ],
       "symbolNames": [
         {
@@ -169,18 +91,21 @@ window.STOCK_REPORTS = {
         {
           "symbol": "3592",
           "name": "瑞鼎"
+        },
+        {
+          "symbol": "2026",
+          "name": ""
         }
       ],
       "tags": [
         "台股",
-        "Top 10 個股",
+        "多檔個股",
         "分析框架",
-        "Bear/Base/Bull",
-        "候選池"
+        "Bear/Base/Bull"
       ],
-      "sourceFile": "tw_stock_top10_stock_analysis_framework_20260617.html",
-      "url": "reports/tw_stock_top10_stock_analysis_framework_20260617.html",
-      "bytes": 226990
+      "sourceFile": "tw_stock_analysis_framework_20260617.html",
+      "url": "reports/tw_stock_analysis_framework_20260617.html",
+      "bytes": 357420
     },
     {
       "id": "us_watchlist_full_analysis_20260616",
@@ -227,54 +152,7 @@ window.STOCK_REPORTS = {
       ],
       "sourceFile": "us_watchlist_full_analysis_20260616.html",
       "url": "reports/us_watchlist_full_analysis_20260616.html",
-      "bytes": 858981
-    },
-    {
-      "id": "us_watchlist_integrated_analysis_20260617_basis_2026-06-16",
-      "title": "美股觀察清單整合版個股分析 2026-06-17 basis 2026-06-16",
-      "heading": "美股觀察清單整合版個股分析",
-      "summary": "1. 市場與持股閘門 3. Bear Case 4. 價格與部位 5. 來源數字 6. EPS 口徑 7. 估值模組 8. 目標價 9. 操作建議 10. 停損停利 11. 品質風險 12. Rerating / 倍數再評估 13. Price × Thesis 14. 事件 15. 下一驗證點...",
-      "date": "2026-06-16",
-      "market": "us",
-      "marketLabel": "美股",
-      "type": "multi",
-      "typeLabel": "多檔個股",
-      "symbols": [
-        "2026",
-        "2031",
-        "2025",
-        "2027",
-        "BASIS"
-      ],
-      "symbolNames": [
-        {
-          "symbol": "2026",
-          "name": ""
-        },
-        {
-          "symbol": "2031",
-          "name": ""
-        },
-        {
-          "symbol": "2025",
-          "name": ""
-        },
-        {
-          "symbol": "2027",
-          "name": ""
-        },
-        {
-          "symbol": "BASIS",
-          "name": ""
-        }
-      ],
-      "tags": [
-        "美股",
-        "多檔個股"
-      ],
-      "sourceFile": "us_watchlist_integrated_analysis_20260617_basis_2026-06-16.html",
-      "url": "reports/us_watchlist_integrated_analysis_20260617_basis_2026-06-16.html",
-      "bytes": 858981
+      "bytes": 860198
     },
     {
       "id": "tw_stock_custom_6531_8027_7734_2467_6907_6683_2301_6282_6781_2421_4931_8028_1560_5434_stock_analysis_framework_20260616",
@@ -380,160 +258,6 @@ window.STOCK_REPORTS = {
       "sourceFile": "tw_stock_custom_6531_8027_7734_2467_6907_6683_2301_6282_6781_2421_4931_8028_1560_5434_stock_analysis_framework_20260616.html",
       "url": "reports/tw_stock_custom_6531_8027_7734_2467_6907_6683_2301_6282_6781_2421_4931_8028_1560_5434_stock_analysis_framework_20260616.html",
       "bytes": 307892
-    },
-    {
-      "id": "tw_stock_top10_detailed_analysis_20260616",
-      "title": "tw_stock_candidates_20260616 前 10 名個股詳細分析",
-      "heading": "tw_stock_candidates_20260616 前 10 名個股詳細分析",
-      "summary": "碩天估值、殖利率、毛利率與 52 週位置相對均衡，是前十名裡比較不像已過熱的一檔。 模組 核心數字 判斷 價格/時點 候選價 211.5（價格日 2026-06-16）；日價歷史參考 211.5（2026-06-16）；差異 0.0% 估值日與價格日不同時，估值只能視為估值日參考 成長 月營收 Y...",
-      "date": "2026-06-16",
-      "market": "tw",
-      "marketLabel": "台股",
-      "type": "top10",
-      "typeLabel": "Top 10 個股",
-      "symbols": [
-        "3617",
-        "6525",
-        "1708",
-        "2637",
-        "8016",
-        "1342",
-        "3025",
-        "6206",
-        "9958",
-        "8383",
-        "6257"
-      ],
-      "symbolNames": [
-        {
-          "symbol": "3617",
-          "name": "碩天"
-        },
-        {
-          "symbol": "6525",
-          "name": "捷敏-KY"
-        },
-        {
-          "symbol": "1708",
-          "name": "東鹼"
-        },
-        {
-          "symbol": "2637",
-          "name": "慧洋-KY"
-        },
-        {
-          "symbol": "8016",
-          "name": "矽創"
-        },
-        {
-          "symbol": "1342",
-          "name": "八貫"
-        },
-        {
-          "symbol": "3025",
-          "name": "星通"
-        },
-        {
-          "symbol": "6206",
-          "name": "飛捷"
-        },
-        {
-          "symbol": "9958",
-          "name": "世紀鋼"
-        },
-        {
-          "symbol": "8383",
-          "name": "千附"
-        },
-        {
-          "symbol": "6257",
-          "name": ""
-        }
-      ],
-      "tags": [
-        "台股",
-        "Top 10 個股",
-        "候選池",
-        "詳細版"
-      ],
-      "sourceFile": "tw_stock_top10_detailed_analysis_20260616.html",
-      "url": "reports/tw_stock_top10_detailed_analysis_20260616.html",
-      "bytes": 26442
-    },
-    {
-      "id": "tw_stock_top10_stock_analysis_framework_20260616",
-      "title": "Top 10 個股分析 2026-06-16",
-      "heading": "Top 10 個股分析",
-      "summary": "觀望偏優先；收益/品質 Watch。現價隱含情境：Base 情境偏高。理由：P/E 15、殖利率 4.7% 、高毛利，52W 位置不高。 主要風險：3M 營收 YoY 9.4% ，成長動能不如其他前十名。 2. 市場 regime 與投資組合閘門 市場閘門：Normal。說明：本地篩選報告已更新加...",
-      "date": "2026-06-16",
-      "market": "tw",
-      "marketLabel": "台股",
-      "type": "top10",
-      "typeLabel": "Top 10 個股",
-      "symbols": [
-        "3617",
-        "6525",
-        "1708",
-        "2637",
-        "8016",
-        "1342",
-        "3025",
-        "6206",
-        "9958",
-        "8383"
-      ],
-      "symbolNames": [
-        {
-          "symbol": "3617",
-          "name": "碩天"
-        },
-        {
-          "symbol": "6525",
-          "name": "捷敏"
-        },
-        {
-          "symbol": "1708",
-          "name": "東鹼"
-        },
-        {
-          "symbol": "2637",
-          "name": "慧洋"
-        },
-        {
-          "symbol": "8016",
-          "name": "矽創"
-        },
-        {
-          "symbol": "1342",
-          "name": "八貫"
-        },
-        {
-          "symbol": "3025",
-          "name": "星通"
-        },
-        {
-          "symbol": "6206",
-          "name": "飛捷"
-        },
-        {
-          "symbol": "9958",
-          "name": "世紀鋼"
-        },
-        {
-          "symbol": "8383",
-          "name": "千附"
-        }
-      ],
-      "tags": [
-        "台股",
-        "Top 10 個股",
-        "分析框架",
-        "Bear/Base/Bull",
-        "候選池"
-      ],
-      "sourceFile": "tw_stock_top10_stock_analysis_framework_20260616.html",
-      "url": "reports/tw_stock_top10_stock_analysis_framework_20260616.html",
-      "bytes": 226605
     },
     {
       "id": "tw_stock_top16_stock_analysis_framework_20260615",
