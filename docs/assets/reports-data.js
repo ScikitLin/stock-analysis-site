@@ -3,7 +3,7 @@ window.STOCK_REPORTS = {
   "siteDescription": "以資料完整性、估值情境與風控紀律整理的公開個股研究索引。",
   "disclaimer": "本網站內容僅供投資研究紀錄與討論，不構成個人化投資建議。資料可能延遲或不完整，請自行交叉驗證。",
   "feedbackIssueUrl": "https://github.com/ScikitLin/stock-analysis-site/issues/new",
-  "generatedAt": "2026-06-17T07:07:05.085426+00:00",
+  "generatedAt": "2026-06-20T02:09:25.195780+00:00",
   "sourceDir": "published_reports",
   "publishedFolder": "published_reports",
   "chartPreviews": [
@@ -26,13 +26,167 @@ window.STOCK_REPORTS = {
       "bytes": 169757
     }
   ],
-  "reportCount": 9,
+  "reportCount": 13,
   "reports": [
+    {
+      "id": "tw_stock_top10_detailed_analysis_20260617",
+      "title": "tw_stock_candidates_20260617 前 10 名個股詳細分析",
+      "heading": "tw_stock_candidates_20260617 前 10 名個股詳細分析",
+      "summary": "3706 神達 進入本輪前十，但尚未有人工個股模板；先按 電腦及週邊設備 候選處理，不把分數當買進訊號。 模組 核心數字 判斷 價格/時點 候選價 86.3（價格日 2026-06-17）；日價歷史參考 86.3（2026-06-17）；差異 0.0% 估值日與價格日不同時，估值只能視為估值日參考...",
+      "date": "2026-06-17",
+      "market": "tw",
+      "marketLabel": "台股",
+      "type": "top10",
+      "typeLabel": "Top 10 個股",
+      "symbols": [
+        "3706",
+        "3406",
+        "2637",
+        "6206",
+        "6525",
+        "8016",
+        "9945",
+        "9958",
+        "2357",
+        "3592",
+        "6257"
+      ],
+      "symbolNames": [
+        {
+          "symbol": "3706",
+          "name": "神達"
+        },
+        {
+          "symbol": "3406",
+          "name": "玉晶光"
+        },
+        {
+          "symbol": "2637",
+          "name": "慧洋-KY"
+        },
+        {
+          "symbol": "6206",
+          "name": "飛捷"
+        },
+        {
+          "symbol": "6525",
+          "name": "捷敏-KY"
+        },
+        {
+          "symbol": "8016",
+          "name": "矽創"
+        },
+        {
+          "symbol": "9945",
+          "name": "潤泰新"
+        },
+        {
+          "symbol": "9958",
+          "name": "世紀鋼"
+        },
+        {
+          "symbol": "2357",
+          "name": "華碩"
+        },
+        {
+          "symbol": "3592",
+          "name": "瑞鼎"
+        },
+        {
+          "symbol": "6257",
+          "name": ""
+        }
+      ],
+      "tags": [
+        "台股",
+        "Top 10 個股",
+        "候選池",
+        "詳細版"
+      ],
+      "sourceFile": "tw_stock_top10_detailed_analysis_20260617.html",
+      "url": "reports/tw_stock_top10_detailed_analysis_20260617.html",
+      "bytes": 26276
+    },
+    {
+      "id": "tw_stock_top10_stock_analysis_framework_20260617",
+      "title": "Top 10 個股分析 2026-06-17",
+      "heading": "Top 10 個股分析",
+      "summary": "觀望；營收動能強，但 margin 還沒證明能完全轉成 EPS。現價隱含情境：Base 情境偏高。理由：3M 營收 YoY 約 41.5% 、月營收 YoY 約 49.3% ，P/E 仍在可研究區。 主要風險：Q1 營益率只有約 3.7% ，若營收來自低毛利案型，股價題材會比獲利先跑。 2. 市場...",
+      "date": "2026-06-17",
+      "market": "tw",
+      "marketLabel": "台股",
+      "type": "top10",
+      "typeLabel": "Top 10 個股",
+      "symbols": [
+        "3706",
+        "3406",
+        "2637",
+        "6206",
+        "6525",
+        "8016",
+        "9945",
+        "9958",
+        "2357",
+        "3592"
+      ],
+      "symbolNames": [
+        {
+          "symbol": "3706",
+          "name": "神達"
+        },
+        {
+          "symbol": "3406",
+          "name": "玉晶光"
+        },
+        {
+          "symbol": "2637",
+          "name": "慧洋"
+        },
+        {
+          "symbol": "6206",
+          "name": "飛捷"
+        },
+        {
+          "symbol": "6525",
+          "name": "捷敏"
+        },
+        {
+          "symbol": "8016",
+          "name": "矽創"
+        },
+        {
+          "symbol": "9945",
+          "name": "潤泰新"
+        },
+        {
+          "symbol": "9958",
+          "name": "世紀鋼"
+        },
+        {
+          "symbol": "2357",
+          "name": "華碩"
+        },
+        {
+          "symbol": "3592",
+          "name": "瑞鼎"
+        }
+      ],
+      "tags": [
+        "台股",
+        "Top 10 個股",
+        "分析框架",
+        "Bear/Base/Bull",
+        "候選池"
+      ],
+      "sourceFile": "tw_stock_top10_stock_analysis_framework_20260617.html",
+      "url": "reports/tw_stock_top10_stock_analysis_framework_20260617.html",
+      "bytes": 226990
+    },
     {
       "id": "us_watchlist_full_analysis_20260616",
       "title": "美股觀察清單整合版個股分析 2026-06-17 basis 2026-06-16",
       "heading": "美股觀察清單整合版個股分析",
-      "summary": "觀望 / 等回檔： GLP-1 與代謝疾病平台仍是大型醫藥股中最強成長主線之一，但估值要求 EPS 和產能持續上修。 目前不把單一價格線當成自動停損；若接近 $932.00 ，先做 thesis 審核與同業相對強弱檢查。 1. 市場 Regime 與持股閘門 你的部位閘門： 最新 memory 顯...",
+      "summary": "1. 市場與持股閘門 3. Bear Case 4. 價格與部位 5. 來源數字 6. EPS 口徑 7. 估值模組 8. 目標價 9. 操作建議 10. 停損停利 11. 品質風險 12. Rerating / 倍數再評估 13. Price × Thesis 14. 事件 15. 下一驗證點...",
       "date": "2026-06-16",
       "market": "us",
       "marketLabel": "美股",
@@ -40,11 +194,26 @@ window.STOCK_REPORTS = {
       "typeLabel": "多檔個股",
       "symbols": [
         "2026",
+        "2031",
+        "2025",
+        "2027",
         "FULL"
       ],
       "symbolNames": [
         {
           "symbol": "2026",
+          "name": ""
+        },
+        {
+          "symbol": "2031",
+          "name": ""
+        },
+        {
+          "symbol": "2025",
+          "name": ""
+        },
+        {
+          "symbol": "2027",
           "name": ""
         },
         {
@@ -58,7 +227,54 @@ window.STOCK_REPORTS = {
       ],
       "sourceFile": "us_watchlist_full_analysis_20260616.html",
       "url": "reports/us_watchlist_full_analysis_20260616.html",
-      "bytes": 589402
+      "bytes": 858981
+    },
+    {
+      "id": "us_watchlist_integrated_analysis_20260617_basis_2026-06-16",
+      "title": "美股觀察清單整合版個股分析 2026-06-17 basis 2026-06-16",
+      "heading": "美股觀察清單整合版個股分析",
+      "summary": "1. 市場與持股閘門 3. Bear Case 4. 價格與部位 5. 來源數字 6. EPS 口徑 7. 估值模組 8. 目標價 9. 操作建議 10. 停損停利 11. 品質風險 12. Rerating / 倍數再評估 13. Price × Thesis 14. 事件 15. 下一驗證點...",
+      "date": "2026-06-16",
+      "market": "us",
+      "marketLabel": "美股",
+      "type": "multi",
+      "typeLabel": "多檔個股",
+      "symbols": [
+        "2026",
+        "2031",
+        "2025",
+        "2027",
+        "BASIS"
+      ],
+      "symbolNames": [
+        {
+          "symbol": "2026",
+          "name": ""
+        },
+        {
+          "symbol": "2031",
+          "name": ""
+        },
+        {
+          "symbol": "2025",
+          "name": ""
+        },
+        {
+          "symbol": "2027",
+          "name": ""
+        },
+        {
+          "symbol": "BASIS",
+          "name": ""
+        }
+      ],
+      "tags": [
+        "美股",
+        "多檔個股"
+      ],
+      "sourceFile": "us_watchlist_integrated_analysis_20260617_basis_2026-06-16.html",
+      "url": "reports/us_watchlist_integrated_analysis_20260617_basis_2026-06-16.html",
+      "bytes": 858981
     },
     {
       "id": "tw_stock_custom_6531_8027_7734_2467_6907_6683_2301_6282_6781_2421_4931_8028_1560_5434_stock_analysis_framework_20260616",
@@ -166,109 +382,158 @@ window.STOCK_REPORTS = {
       "bytes": 307892
     },
     {
-      "id": "tw_stock_custom_6531_8027_7734_2467_6907_6683_2301_6282_6781_2421_4931_8028_1560_5434_stock_analysis_framework_20260615",
-      "title": "愛普、鈦昇、印能、志聖、雅特力-KY、雍智、光寶科、康舒、AES-KY、建準、新盛力、昇陽半導體、中砂、崇越個股分析 2026-06-17",
-      "heading": "愛普、鈦昇、印能、志聖、雅特力-KY、雍智、光寶科、康舒、AES-KY、建準、新盛力、昇陽半導體、中砂、崇越個股分析",
-      "summary": "觀望；資料足夠排序，但公司質化資料需補。現價隱含情境： 高於 Bull 過熱 。理由：篩選分數靠營收、估值、價格趨勢與最新季財報 proxy 支撐。 主要風險：產品結構、主要客戶、OCF/NI、應收與存貨 未取得 ，不能把排序分數直接當買進理由。 2. 市場 regime 與投資組合閘門 市場閘門...",
-      "date": "2026-06-15",
+      "id": "tw_stock_top10_detailed_analysis_20260616",
+      "title": "tw_stock_candidates_20260616 前 10 名個股詳細分析",
+      "heading": "tw_stock_candidates_20260616 前 10 名個股詳細分析",
+      "summary": "碩天估值、殖利率、毛利率與 52 週位置相對均衡，是前十名裡比較不像已過熱的一檔。 模組 核心數字 判斷 價格/時點 候選價 211.5（價格日 2026-06-16）；日價歷史參考 211.5（2026-06-16）；差異 0.0% 估值日與價格日不同時，估值只能視為估值日參考 成長 月營收 Y...",
+      "date": "2026-06-16",
       "market": "tw",
       "marketLabel": "台股",
-      "type": "custom",
-      "typeLabel": "指定個股",
+      "type": "top10",
+      "typeLabel": "Top 10 個股",
       "symbols": [
-        "6531",
-        "8027",
-        "7734",
-        "2467",
-        "6907",
-        "6683",
-        "2301",
-        "6282",
-        "6781",
-        "2421",
-        "4931",
-        "8028",
-        "1560",
-        "5434",
-        "KY",
-        "AES"
+        "3617",
+        "6525",
+        "1708",
+        "2637",
+        "8016",
+        "1342",
+        "3025",
+        "6206",
+        "9958",
+        "8383",
+        "6257"
       ],
       "symbolNames": [
         {
-          "symbol": "6531",
-          "name": "愛普*"
+          "symbol": "3617",
+          "name": "碩天"
         },
         {
-          "symbol": "8027",
-          "name": "鈦昇"
+          "symbol": "6525",
+          "name": "捷敏-KY"
         },
         {
-          "symbol": "7734",
-          "name": "印能科技"
+          "symbol": "1708",
+          "name": "東鹼"
         },
         {
-          "symbol": "2467",
-          "name": "志聖"
+          "symbol": "2637",
+          "name": "慧洋-KY"
         },
         {
-          "symbol": "6907",
-          "name": "雅特力"
+          "symbol": "8016",
+          "name": "矽創"
         },
         {
-          "symbol": "6683",
-          "name": "雍智科技"
+          "symbol": "1342",
+          "name": "八貫"
         },
         {
-          "symbol": "2301",
-          "name": "光寶科"
+          "symbol": "3025",
+          "name": "星通"
         },
         {
-          "symbol": "6282",
-          "name": "康舒"
+          "symbol": "6206",
+          "name": "飛捷"
         },
         {
-          "symbol": "6781",
-          "name": "AES"
+          "symbol": "9958",
+          "name": "世紀鋼"
         },
         {
-          "symbol": "2421",
-          "name": "建準"
+          "symbol": "8383",
+          "name": "千附"
         },
         {
-          "symbol": "4931",
-          "name": "新盛力"
-        },
-        {
-          "symbol": "8028",
-          "name": "昇陽半導體"
-        },
-        {
-          "symbol": "1560",
-          "name": "中砂"
-        },
-        {
-          "symbol": "5434",
-          "name": "崇越"
-        },
-        {
-          "symbol": "KY",
-          "name": ""
-        },
-        {
-          "symbol": "AES",
+          "symbol": "6257",
           "name": ""
         }
       ],
       "tags": [
         "台股",
-        "指定個股",
+        "Top 10 個股",
+        "候選池",
+        "詳細版"
+      ],
+      "sourceFile": "tw_stock_top10_detailed_analysis_20260616.html",
+      "url": "reports/tw_stock_top10_detailed_analysis_20260616.html",
+      "bytes": 26442
+    },
+    {
+      "id": "tw_stock_top10_stock_analysis_framework_20260616",
+      "title": "Top 10 個股分析 2026-06-16",
+      "heading": "Top 10 個股分析",
+      "summary": "觀望偏優先；收益/品質 Watch。現價隱含情境：Base 情境偏高。理由：P/E 15、殖利率 4.7% 、高毛利，52W 位置不高。 主要風險：3M 營收 YoY 9.4% ，成長動能不如其他前十名。 2. 市場 regime 與投資組合閘門 市場閘門：Normal。說明：本地篩選報告已更新加...",
+      "date": "2026-06-16",
+      "market": "tw",
+      "marketLabel": "台股",
+      "type": "top10",
+      "typeLabel": "Top 10 個股",
+      "symbols": [
+        "3617",
+        "6525",
+        "1708",
+        "2637",
+        "8016",
+        "1342",
+        "3025",
+        "6206",
+        "9958",
+        "8383"
+      ],
+      "symbolNames": [
+        {
+          "symbol": "3617",
+          "name": "碩天"
+        },
+        {
+          "symbol": "6525",
+          "name": "捷敏"
+        },
+        {
+          "symbol": "1708",
+          "name": "東鹼"
+        },
+        {
+          "symbol": "2637",
+          "name": "慧洋"
+        },
+        {
+          "symbol": "8016",
+          "name": "矽創"
+        },
+        {
+          "symbol": "1342",
+          "name": "八貫"
+        },
+        {
+          "symbol": "3025",
+          "name": "星通"
+        },
+        {
+          "symbol": "6206",
+          "name": "飛捷"
+        },
+        {
+          "symbol": "9958",
+          "name": "世紀鋼"
+        },
+        {
+          "symbol": "8383",
+          "name": "千附"
+        }
+      ],
+      "tags": [
+        "台股",
+        "Top 10 個股",
         "分析框架",
         "Bear/Base/Bull",
-        "自選清單"
+        "候選池"
       ],
-      "sourceFile": "tw_stock_custom_6531_8027_7734_2467_6907_6683_2301_6282_6781_2421_4931_8028_1560_5434_stock_analysis_framework_20260615.html",
-      "url": "reports/tw_stock_custom_6531_8027_7734_2467_6907_6683_2301_6282_6781_2421_4931_8028_1560_5434_stock_analysis_framework_20260615.html",
-      "bytes": 307853
+      "sourceFile": "tw_stock_top10_stock_analysis_framework_20260616.html",
+      "url": "reports/tw_stock_top10_stock_analysis_framework_20260616.html",
+      "bytes": 226605
     },
     {
       "id": "tw_stock_top16_stock_analysis_framework_20260615",
