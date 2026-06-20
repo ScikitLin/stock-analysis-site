@@ -1431,9 +1431,166 @@ time {
 }
 
 .trading-exposure,
-.trading-returns {
+.trading-returns,
+.exit-heatmap {
   display: grid;
   gap: 12px;
+}
+
+.exit-summary-svg {
+  min-width: 0;
+}
+
+.exit-zero-line {
+  stroke: rgba(42, 72, 60, 0.45);
+  stroke-dasharray: 5 5;
+}
+
+.exit-median-line {
+  fill: none;
+  stroke: #326f87;
+  stroke-width: 3;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.exit-summary-point {
+  cursor: help;
+  outline: none;
+}
+
+.exit-summary-point circle {
+  fill: #ffffff;
+  stroke: #326f87;
+  stroke-width: 3;
+}
+
+.exit-point-value,
+.exit-point-window,
+.exit-point-rate {
+  fill: var(--ink);
+  font-size: 12px;
+  font-weight: 900;
+}
+
+.exit-point-rate {
+  fill: var(--muted);
+  font-size: 10px;
+  font-weight: 760;
+}
+
+.exit-heatmap {
+  overflow-x: auto;
+}
+
+.exit-heatmap-grid {
+  min-width: 850px;
+}
+
+.exit-heatmap-header,
+.exit-heatmap-row {
+  display: grid;
+  grid-template-columns: minmax(190px, 1.6fr) repeat(var(--exit-columns), minmax(74px, 0.7fr));
+  gap: 5px;
+  align-items: stretch;
+}
+
+.exit-heatmap-header {
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  padding: 0 7px 7px 0;
+  background: #ffffff;
+}
+
+.exit-heatmap-header span,
+.exit-heatmap-header b {
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 850;
+  text-align: center;
+}
+
+.exit-heatmap-header span {
+  text-align: left;
+}
+
+.exit-heatmap-body {
+  display: grid;
+  max-height: 560px;
+  gap: 5px;
+  overflow-y: auto;
+  padding-right: 7px;
+  scrollbar-gutter: stable;
+}
+
+.exit-heatmap-row {
+  cursor: help;
+  outline: none;
+}
+
+.exit-event-name {
+  display: grid;
+  align-content: center;
+  min-height: 42px;
+  gap: 2px;
+  padding-right: 8px;
+  border-bottom: 1px solid var(--line);
+}
+
+.exit-event-name b {
+  color: var(--ink);
+  font-size: 12px;
+}
+
+.exit-event-name small {
+  color: var(--muted);
+  font-size: 10px;
+  font-weight: 760;
+}
+
+.exit-heatmap-row i {
+  display: grid;
+  min-height: 42px;
+  place-items: center;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  font-size: 11px;
+  font-style: normal;
+  font-weight: 900;
+  font-variant-numeric: tabular-nums;
+}
+
+.exit-heatmap-row i.strong-positive {
+  background: #cfe5dc;
+  color: #184f40;
+}
+
+.exit-heatmap-row i.positive {
+  background: #eaf4ef;
+  color: #27745f;
+}
+
+.exit-heatmap-row i.strong-negative {
+  background: #ecd5d5;
+  color: #7e3636;
+}
+
+.exit-heatmap-row i.negative {
+  background: #f7ebeb;
+  color: #a55353;
+}
+
+.exit-heatmap-row i.neutral {
+  background: var(--surface-soft);
+  color: var(--ink);
+}
+
+.exit-heatmap-row i.pending {
+  border-color: var(--line);
+  background: #ffffff;
+  color: var(--muted);
+  font-size: 10px;
 }
 
 .exposure-stack {

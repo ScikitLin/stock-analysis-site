@@ -15,10 +15,19 @@ ROOT = Path(__file__).resolve().parents[1]
 DATA_PATH = ROOT / "data" / "trading" / "trading_dashboard_data.json"
 SITE_ASSET_PATH = ROOT / "site_src" / "assets" / "trading-data.js"
 DOCS_ASSET_PATH = ROOT / "docs" / "assets" / "trading-data.js"
+POST_SALE_HISTORY_PATH = ROOT / "data" / "trading" / "post_sale_price_history.json"
+POST_SALE_WINDOWS = (1, 3, 5, 10, 20)
 
 
 def load_data() -> dict:
     with DATA_PATH.open("r", encoding="utf-8") as handle:
+        return json.load(handle)
+
+
+def load_post_sale_history() -> dict:
+    if not POST_SALE_HISTORY_PATH.exists():
+        return {"markets": {}}
+    with POST_SALE_HISTORY_PATH.open("r", encoding="utf-8") as handle:
         return json.load(handle)
 
 
@@ -138,12 +147,8 @@ def build_equity_series(market: dict) -> list[dict]:
             }
         ]
 
-    first_date = min(
-        [trade.get("buyDate") for trade in market.get("realizedTrades", []) if trade.get("buyDate")]
-        + [market["orders"][0]["date"] if market.get("orders") else realized_by_date[0]["date"]]
-    )
     cumulative = 0.0
-    series = [{"date": first_date, "realizedPnl": 0.0, "unrealizedPnl": 0.0, "equity": initial}]
+    series = []
     for row in realized_by_date:
         cumulative += row["realizedPnl"]
         unrealized = float(summary["unrealizedPnl"]) if row["date"] == market["currentDate"] else 0.0
@@ -165,6 +170,52 @@ def build_equity_series(market: dict) -> list[dict]:
             }
         )
     return series
+
+
+def percentage_change(price: float | None, sell_price: float) -> float | None:
+    if price is None or not sell_price:
+        return None
+    return (float(price) / sell_price - 1) * 100
+
+
+def build_post_sale_analysis(market_key: str, market: dict, history_payload: dict) -> list[dict]:
+    histories = history_payload.get("markets", {}).get(market_key, {}).get("histories", {})
+    rows = []
+    for index, trade in enumerate(market.get("realizedTrades", [])):
+        sell_price = float(trade.get("sellPrice") or 0)
+        history = sorted(histories.get(trade["symbol"], []), key=lambda item: item.get("date", ""))
+        post_sale = [item for item in history if item.get("date", "") > trade["sellDate"]]
+        returns = {}
+        for window in POST_SALE_WINDOWS:
+            item = post_sale[window - 1] if len(post_sale) >= window else None
+            returns[str(window)] = {
+                "date": item.get("date") if item else None,
+                "price": float(item["close"]) if item and item.get("close") is not None else None,
+                "returnPct": percentage_change(item.get("close") if item else None, sell_price),
+            }
+        observed = post_sale[: POST_SALE_WINDOWS[-1]]
+        highs = [float(item["high"]) for item in observed if item.get("high") is not None]
+        lows = [float(item["low"]) for item in observed if item.get("low") is not None]
+        latest = history[-1] if history else None
+        rows.append(
+            {
+                "eventId": f"{trade['sellDate']}-{trade['symbol']}-{index + 1}",
+                "sellDate": trade["sellDate"],
+                "symbol": trade["symbol"],
+                "name": trade.get("name", trade["symbol"]),
+                "shares": float(trade.get("shares") or 0),
+                "sellPrice": sell_price,
+                "observedTradingDays": len(post_sale),
+                "status": "complete" if len(post_sale) >= POST_SALE_WINDOWS[-1] else "observing",
+                "returns": returns,
+                "mfePct": percentage_change(max(highs), sell_price) if highs else None,
+                "maePct": percentage_change(min(lows), sell_price) if lows else None,
+                "latestDate": latest.get("date") if latest else None,
+                "latestPrice": float(latest["close"]) if latest and latest.get("close") is not None else None,
+                "latestReturnPct": percentage_change(latest.get("close") if latest else None, sell_price),
+            }
+        )
+    return rows
 
 
 def add_drawdown(series: list[dict]) -> tuple[list[dict], float, float]:
@@ -207,7 +258,7 @@ def build_realized_stats(market: dict, max_drawdown: float, max_drawdown_pct: fl
     }
 
 
-def validate_market(market_key: str, market: dict) -> dict:
+def validate_market(market_key: str, market: dict, history_payload: dict) -> dict:
     currency = market["currency"]
     summary = market["summary"]
     checks: list[dict] = []
@@ -288,6 +339,8 @@ def validate_market(market_key: str, market: dict) -> dict:
         "equitySeries": equity_series,
         "contributions": contributions,
         "stats": build_realized_stats(market, max_drawdown, max_drawdown_pct),
+        "postSaleAnalysis": build_post_sale_analysis(market_key, market, history_payload),
+        "postSalePriceThrough": history_payload.get("markets", {}).get(market_key, {}).get("priceThrough"),
     }
 
     return {
@@ -300,9 +353,10 @@ def validate_market(market_key: str, market: dict) -> dict:
 
 def validate_payload(data: dict) -> dict:
     result = copy.deepcopy(data)
+    history_payload = load_post_sale_history()
     validations = {}
     for market_key, market in result.get("markets", {}).items():
-        validation = validate_market(market_key, market)
+        validation = validate_market(market_key, market, history_payload)
         validations[market_key] = {key: value for key, value in validation.items() if key != "computed"}
         market["computed"] = validation["computed"]
         market["validation"] = validations[market_key]

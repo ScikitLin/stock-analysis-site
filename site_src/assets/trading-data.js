@@ -442,14 +442,6 @@ window.TRADING_DASHBOARD = {
         ],
         "equitySeries": [
           {
-            "date": "2026-03-08",
-            "realizedPnl": 0.0,
-            "unrealizedPnl": 0.0,
-            "equity": 2000000.0,
-            "drawdown": 0.0,
-            "drawdownPct": 0.0
-          },
-          {
             "date": "2026-03-25",
             "realizedPnl": 101915.0,
             "unrealizedPnl": 0.0,
@@ -727,7 +719,976 @@ window.TRADING_DASHBOARD = {
           "worstTrade": -15111.0,
           "maxDrawdown": -155.0,
           "maxDrawdownPct": -0.0070778776595696105
-        }
+        },
+        "postSaleAnalysis": [
+          {
+            "eventId": "2026-04-08-00830-1",
+            "sellDate": "2026-04-08",
+            "symbol": "00830",
+            "name": "國泰費城半導體",
+            "shares": 1000.0,
+            "sellPrice": 58.65,
+            "observedTradingDays": 50,
+            "status": "complete",
+            "returns": {
+              "1": {
+                "date": "2026-04-09",
+                "price": 59.35,
+                "returnPct": 1.193520886615529
+              },
+              "3": {
+                "date": "2026-04-13",
+                "price": 61.65,
+                "returnPct": 5.115089514066495
+              },
+              "5": {
+                "date": "2026-04-15",
+                "price": 64.45,
+                "returnPct": 9.889173060528567
+              },
+              "10": {
+                "date": "2026-04-22",
+                "price": 68.05,
+                "returnPct": 16.027280477408357
+              },
+              "20": {
+                "date": "2026-05-07",
+                "price": 79.55,
+                "returnPct": 35.63512361466326
+              }
+            },
+            "mfePct": 35.80562659846549,
+            "maePct": 0.8525149190110826,
+            "latestDate": "2026-06-18",
+            "latestPrice": 97.0,
+            "latestReturnPct": 65.38789428815004
+          },
+          {
+            "eventId": "2026-04-08-00830-2",
+            "sellDate": "2026-04-08",
+            "symbol": "00830",
+            "name": "國泰費城半導體",
+            "shares": 845.0,
+            "sellPrice": 58.55,
+            "observedTradingDays": 50,
+            "status": "complete",
+            "returns": {
+              "1": {
+                "date": "2026-04-09",
+                "price": 59.35,
+                "returnPct": 1.366353543979515
+              },
+              "3": {
+                "date": "2026-04-13",
+                "price": 61.65,
+                "returnPct": 5.294619982920579
+              },
+              "5": {
+                "date": "2026-04-15",
+                "price": 64.45,
+                "returnPct": 10.076857386848847
+              },
+              "10": {
+                "date": "2026-04-22",
+                "price": 68.05,
+                "returnPct": 16.22544833475661
+              },
+              "20": {
+                "date": "2026-05-07",
+                "price": 79.55,
+                "returnPct": 35.86678052946199
+              }
+            },
+            "mfePct": 36.03757472245945,
+            "maePct": 1.0247651579846417,
+            "latestDate": "2026-06-18",
+            "latestPrice": 97.0,
+            "latestReturnPct": 65.67036720751496
+          },
+          {
+            "eventId": "2026-04-08-2353-3",
+            "sellDate": "2026-04-08",
+            "symbol": "2353",
+            "name": "宏碁",
+            "shares": 2000.0,
+            "sellPrice": 27.35,
+            "observedTradingDays": 50,
+            "status": "complete",
+            "returns": {
+              "1": {
+                "date": "2026-04-09",
+                "price": 27.1,
+                "returnPct": -0.9140767824497242
+              },
+              "3": {
+                "date": "2026-04-13",
+                "price": 27.1,
+                "returnPct": -0.9140767824497242
+              },
+              "5": {
+                "date": "2026-04-15",
+                "price": 27.5,
+                "returnPct": 0.5484460694698212
+              },
+              "10": {
+                "date": "2026-04-22",
+                "price": 28.3,
+                "returnPct": 3.4734917733089565
+              },
+              "20": {
+                "date": "2026-05-07",
+                "price": 28.1,
+                "returnPct": 2.7422303473491727
+              }
+            },
+            "mfePct": 6.764168190127973,
+            "maePct": -1.2797074954296161,
+            "latestDate": "2026-06-18",
+            "latestPrice": 34.4,
+            "latestReturnPct": 25.776965265082264
+          },
+          {
+            "eventId": "2026-04-08-2353-4",
+            "sellDate": "2026-04-08",
+            "symbol": "2353",
+            "name": "宏碁",
+            "shares": 2000.0,
+            "sellPrice": 27.35,
+            "observedTradingDays": 50,
+            "status": "complete",
+            "returns": {
+              "1": {
+                "date": "2026-04-09",
+                "price": 27.1,
+                "returnPct": -0.9140767824497242
+              },
+              "3": {
+                "date": "2026-04-13",
+                "price": 27.1,
+                "returnPct": -0.9140767824497242
+              },
+              "5": {
+                "date": "2026-04-15",
+                "price": 27.5,
+                "returnPct": 0.5484460694698212
+              },
+              "10": {
+                "date": "2026-04-22",
+                "price": 28.3,
+                "returnPct": 3.4734917733089565
+              },
+              "20": {
+                "date": "2026-05-07",
+                "price": 28.1,
+                "returnPct": 2.7422303473491727
+              }
+            },
+            "mfePct": 6.764168190127973,
+            "maePct": -1.2797074954296161,
+            "latestDate": "2026-06-18",
+            "latestPrice": 34.4,
+            "latestReturnPct": 25.776965265082264
+          },
+          {
+            "eventId": "2026-04-10-6488-5",
+            "sellDate": "2026-04-10",
+            "symbol": "6488",
+            "name": "環球晶",
+            "shares": 250.0,
+            "sellPrice": 486.0,
+            "observedTradingDays": 48,
+            "status": "complete",
+            "returns": {
+              "1": {
+                "date": "2026-04-13",
+                "price": 499.5,
+                "returnPct": 2.777777777777768
+              },
+              "3": {
+                "date": "2026-04-15",
+                "price": 516.0,
+                "returnPct": 6.172839506172845
+              },
+              "5": {
+                "date": "2026-04-17",
+                "price": 505.0,
+                "returnPct": 3.9094650205761416
+              },
+              "10": {
+                "date": "2026-04-24",
+                "price": 582.0,
+                "returnPct": 19.753086419753085
+              },
+              "20": {
+                "date": "2026-05-11",
+                "price": 835.0,
+                "returnPct": 71.81069958847736
+              }
+            },
+            "mfePct": 74.69135802469135,
+            "maePct": -0.8230452674897082,
+            "latestDate": "2026-06-18",
+            "latestPrice": 1110.0,
+            "latestReturnPct": 128.39506172839506
+          },
+          {
+            "eventId": "2026-04-24-00830-6",
+            "sellDate": "2026-04-24",
+            "symbol": "00830",
+            "name": "國泰費城半導體",
+            "shares": 309.0,
+            "sellPrice": 71.55,
+            "observedTradingDays": 38,
+            "status": "complete",
+            "returns": {
+              "1": {
+                "date": "2026-04-27",
+                "price": 73.7,
+                "returnPct": 3.004891684136979
+              },
+              "3": {
+                "date": "2026-04-29",
+                "price": 71.05,
+                "returnPct": -0.6988120195667413
+              },
+              "5": {
+                "date": "2026-05-04",
+                "price": 75.1,
+                "returnPct": 4.9615653389238235
+              },
+              "10": {
+                "date": "2026-05-11",
+                "price": 82.3,
+                "returnPct": 15.024458420684827
+              },
+              "20": {
+                "date": "2026-05-25",
+                "price": 87.8,
+                "returnPct": 22.71139063591894
+              }
+            },
+            "mfePct": 22.781271837875614,
+            "maePct": -1.607267645003485,
+            "latestDate": "2026-06-18",
+            "latestPrice": 97.0,
+            "latestReturnPct": 35.56953179594689
+          },
+          {
+            "eventId": "2026-04-29-00757-7",
+            "sellDate": "2026-04-29",
+            "symbol": "00757",
+            "name": "統一 FANG+",
+            "shares": 2000.0,
+            "sellPrice": 120.9,
+            "observedTradingDays": 35,
+            "status": "complete",
+            "returns": {
+              "1": {
+                "date": "2026-04-30",
+                "price": 120.8,
+                "returnPct": -0.08271298593880427
+              },
+              "3": {
+                "date": "2026-05-05",
+                "price": 122.85,
+                "returnPct": 1.6129032258064502
+              },
+              "5": {
+                "date": "2026-05-07",
+                "price": 124.45,
+                "returnPct": 2.9363110008271187
+              },
+              "10": {
+                "date": "2026-05-14",
+                "price": 129.05,
+                "returnPct": 6.741108354011582
+              },
+              "20": {
+                "date": "2026-05-28",
+                "price": 130.55,
+                "returnPct": 7.981803143093469
+              }
+            },
+            "mfePct": 9.181141439205941,
+            "maePct": -0.20678246484697738,
+            "latestDate": "2026-06-18",
+            "latestPrice": 128.9,
+            "latestReturnPct": 6.617038875103387
+          },
+          {
+            "eventId": "2026-04-29-2377-8",
+            "sellDate": "2026-04-29",
+            "symbol": "2377",
+            "name": "微星",
+            "shares": 500.0,
+            "sellPrice": 100.0,
+            "observedTradingDays": 35,
+            "status": "complete",
+            "returns": {
+              "1": {
+                "date": "2026-04-30",
+                "price": 97.7,
+                "returnPct": -2.300000000000002
+              },
+              "3": {
+                "date": "2026-05-05",
+                "price": 95.7,
+                "returnPct": -4.299999999999993
+              },
+              "5": {
+                "date": "2026-05-07",
+                "price": 101.0,
+                "returnPct": 1.0000000000000009
+              },
+              "10": {
+                "date": "2026-05-14",
+                "price": 117.0,
+                "returnPct": 16.999999999999993
+              },
+              "20": {
+                "date": "2026-05-28",
+                "price": 123.5,
+                "returnPct": 23.50000000000001
+              }
+            },
+            "mfePct": 36.00000000000001,
+            "maePct": -5.500000000000005,
+            "latestDate": "2026-06-18",
+            "latestPrice": 138.5,
+            "latestReturnPct": 38.5
+          },
+          {
+            "eventId": "2026-05-13-2377-9",
+            "sellDate": "2026-05-13",
+            "symbol": "2377",
+            "name": "微星",
+            "shares": 500.0,
+            "sellPrice": 113.0,
+            "observedTradingDays": 26,
+            "status": "complete",
+            "returns": {
+              "1": {
+                "date": "2026-05-14",
+                "price": 117.0,
+                "returnPct": 3.539823008849563
+              },
+              "3": {
+                "date": "2026-05-18",
+                "price": 113.0,
+                "returnPct": 0.0
+              },
+              "5": {
+                "date": "2026-05-20",
+                "price": 109.5,
+                "returnPct": -3.0973451327433676
+              },
+              "10": {
+                "date": "2026-05-27",
+                "price": 126.5,
+                "returnPct": 11.946902654867264
+              },
+              "20": {
+                "date": "2026-06-10",
+                "price": 132.0,
+                "returnPct": 16.814159292035402
+              }
+            },
+            "mfePct": 34.95575221238938,
+            "maePct": -4.424778761061942,
+            "latestDate": "2026-06-18",
+            "latestPrice": 138.5,
+            "latestReturnPct": 22.56637168141593
+          },
+          {
+            "eventId": "2026-05-22-6907-10",
+            "sellDate": "2026-05-22",
+            "symbol": "6907",
+            "name": "雅特力-KY",
+            "shares": 1000.0,
+            "sellPrice": 119.5,
+            "observedTradingDays": 19,
+            "status": "observing",
+            "returns": {
+              "1": {
+                "date": "2026-05-25",
+                "price": 123.0,
+                "returnPct": 2.9288702928870203
+              },
+              "3": {
+                "date": "2026-05-27",
+                "price": 117.0,
+                "returnPct": -2.092050209205021
+              },
+              "5": {
+                "date": "2026-05-29",
+                "price": 121.5,
+                "returnPct": 1.673640167364021
+              },
+              "10": {
+                "date": "2026-06-05",
+                "price": 169.0,
+                "returnPct": 41.42259414225941
+              },
+              "20": {
+                "date": null,
+                "price": null,
+                "returnPct": null
+              }
+            },
+            "mfePct": 47.28033472803348,
+            "maePct": -3.347280334728031,
+            "latestDate": "2026-06-18",
+            "latestPrice": 135.5,
+            "latestReturnPct": 13.389121338912124
+          },
+          {
+            "eventId": "2026-05-28-6143-11",
+            "sellDate": "2026-05-28",
+            "symbol": "6143",
+            "name": "振曜",
+            "shares": 1000.0,
+            "sellPrice": 102.5,
+            "observedTradingDays": 15,
+            "status": "observing",
+            "returns": {
+              "1": {
+                "date": "2026-05-29",
+                "price": 99.8,
+                "returnPct": -2.634146341463417
+              },
+              "3": {
+                "date": "2026-06-02",
+                "price": 100.0,
+                "returnPct": -2.4390243902439046
+              },
+              "5": {
+                "date": "2026-06-04",
+                "price": 96.6,
+                "returnPct": -5.756097560975615
+              },
+              "10": {
+                "date": "2026-06-11",
+                "price": 88.7,
+                "returnPct": -13.463414634146343
+              },
+              "20": {
+                "date": null,
+                "price": null,
+                "returnPct": null
+              }
+            },
+            "mfePct": 0.4878048780487809,
+            "maePct": -14.634146341463417,
+            "latestDate": "2026-06-18",
+            "latestPrice": 89.2,
+            "latestReturnPct": -12.975609756097562
+          },
+          {
+            "eventId": "2026-06-08-3141-12",
+            "sellDate": "2026-06-08",
+            "symbol": "3141",
+            "name": "晶宏",
+            "shares": 1000.0,
+            "sellPrice": 66.9,
+            "observedTradingDays": 8,
+            "status": "observing",
+            "returns": {
+              "1": {
+                "date": "2026-06-09",
+                "price": 73.9,
+                "returnPct": 10.463378176382655
+              },
+              "3": {
+                "date": "2026-06-11",
+                "price": 71.3,
+                "returnPct": 6.5769805680119475
+              },
+              "5": {
+                "date": "2026-06-15",
+                "price": 71.5,
+                "returnPct": 6.875934230194303
+              },
+              "10": {
+                "date": null,
+                "price": null,
+                "returnPct": null
+              },
+              "20": {
+                "date": null,
+                "price": null,
+                "returnPct": null
+              }
+            },
+            "mfePct": 16.591928251121058,
+            "maePct": 2.9895366218236186,
+            "latestDate": "2026-06-18",
+            "latestPrice": 74.0,
+            "latestReturnPct": 10.612855007473843
+          },
+          {
+            "eventId": "2026-06-08-4739-13",
+            "sellDate": "2026-06-08",
+            "symbol": "4739",
+            "name": "康普",
+            "shares": 1000.0,
+            "sellPrice": 115.0,
+            "observedTradingDays": 7,
+            "status": "observing",
+            "returns": {
+              "1": {
+                "date": "2026-06-09",
+                "price": 130.0,
+                "returnPct": 13.043478260869556
+              },
+              "3": {
+                "date": "2026-06-11",
+                "price": 123.5,
+                "returnPct": 7.391304347826089
+              },
+              "5": {
+                "date": "2026-06-15",
+                "price": 122.5,
+                "returnPct": 6.521739130434789
+              },
+              "10": {
+                "date": null,
+                "price": null,
+                "returnPct": null
+              },
+              "20": {
+                "date": null,
+                "price": null,
+                "returnPct": null
+              }
+            },
+            "mfePct": 16.956521739130427,
+            "maePct": 0.0,
+            "latestDate": "2026-06-17",
+            "latestPrice": 123.0,
+            "latestReturnPct": 6.956521739130439
+          },
+          {
+            "eventId": "2026-06-09-2379-14",
+            "sellDate": "2026-06-09",
+            "symbol": "2379",
+            "name": "瑞昱",
+            "shares": 55.0,
+            "sellPrice": 631.0,
+            "observedTradingDays": 7,
+            "status": "observing",
+            "returns": {
+              "1": {
+                "date": "2026-06-10",
+                "price": 645.0,
+                "returnPct": 2.2187004754358197
+              },
+              "3": {
+                "date": "2026-06-12",
+                "price": 618.0,
+                "returnPct": -2.0602218700475405
+              },
+              "5": {
+                "date": "2026-06-16",
+                "price": 678.0,
+                "returnPct": 7.448494453248822
+              },
+              "10": {
+                "date": null,
+                "price": null,
+                "returnPct": null
+              },
+              "20": {
+                "date": null,
+                "price": null,
+                "returnPct": null
+              }
+            },
+            "mfePct": 29.793977812995244,
+            "maePct": -4.5958795562599075,
+            "latestDate": "2026-06-18",
+            "latestPrice": 819.0,
+            "latestReturnPct": 29.793977812995244
+          },
+          {
+            "eventId": "2026-06-12-6907-15",
+            "sellDate": "2026-06-12",
+            "symbol": "6907",
+            "name": "雅特力-KY",
+            "shares": 50.0,
+            "sellPrice": 142.5,
+            "observedTradingDays": 4,
+            "status": "observing",
+            "returns": {
+              "1": {
+                "date": "2026-06-15",
+                "price": 141.5,
+                "returnPct": -0.7017543859649145
+              },
+              "3": {
+                "date": "2026-06-17",
+                "price": 132.0,
+                "returnPct": -7.36842105263158
+              },
+              "5": {
+                "date": null,
+                "price": null,
+                "returnPct": null
+              },
+              "10": {
+                "date": null,
+                "price": null,
+                "returnPct": null
+              },
+              "20": {
+                "date": null,
+                "price": null,
+                "returnPct": null
+              }
+            },
+            "mfePct": 3.8596491228070073,
+            "maePct": -8.070175438596493,
+            "latestDate": "2026-06-18",
+            "latestPrice": 135.5,
+            "latestReturnPct": -4.912280701754391
+          },
+          {
+            "eventId": "2026-06-15-00830-16",
+            "sellDate": "2026-06-15",
+            "symbol": "00830",
+            "name": "國泰費城半導體",
+            "shares": 673.0,
+            "sellPrice": 97.6,
+            "observedTradingDays": 3,
+            "status": "observing",
+            "returns": {
+              "1": {
+                "date": "2026-06-16",
+                "price": 98.45,
+                "returnPct": 0.8709016393442681
+              },
+              "3": {
+                "date": "2026-06-18",
+                "price": 97.0,
+                "returnPct": -0.6147540983606481
+              },
+              "5": {
+                "date": null,
+                "price": null,
+                "returnPct": null
+              },
+              "10": {
+                "date": null,
+                "price": null,
+                "returnPct": null
+              },
+              "20": {
+                "date": null,
+                "price": null,
+                "returnPct": null
+              }
+            },
+            "mfePct": 0.9733606557376984,
+            "maePct": -3.3299180327868827,
+            "latestDate": "2026-06-18",
+            "latestPrice": 97.0,
+            "latestReturnPct": -0.6147540983606481
+          },
+          {
+            "eventId": "2026-06-16-00830-17",
+            "sellDate": "2026-06-16",
+            "symbol": "00830",
+            "name": "國泰費城半導體",
+            "shares": 41.0,
+            "sellPrice": 98.15,
+            "observedTradingDays": 2,
+            "status": "observing",
+            "returns": {
+              "1": {
+                "date": "2026-06-17",
+                "price": 95.6,
+                "returnPct": -2.5980641874681742
+              },
+              "3": {
+                "date": null,
+                "price": null,
+                "returnPct": null
+              },
+              "5": {
+                "date": null,
+                "price": null,
+                "returnPct": null
+              },
+              "10": {
+                "date": null,
+                "price": null,
+                "returnPct": null
+              },
+              "20": {
+                "date": null,
+                "price": null,
+                "returnPct": null
+              }
+            },
+            "mfePct": -1.0697911360163181,
+            "maePct": -3.8716250636780525,
+            "latestDate": "2026-06-18",
+            "latestPrice": 97.0,
+            "latestReturnPct": -1.1716760061130982
+          },
+          {
+            "eventId": "2026-06-16-2317-18",
+            "sellDate": "2026-06-16",
+            "symbol": "2317",
+            "name": "鴻海",
+            "shares": 300.0,
+            "sellPrice": 270.0,
+            "observedTradingDays": 2,
+            "status": "observing",
+            "returns": {
+              "1": {
+                "date": "2026-06-17",
+                "price": 272.0,
+                "returnPct": 0.7407407407407307
+              },
+              "3": {
+                "date": null,
+                "price": null,
+                "returnPct": null
+              },
+              "5": {
+                "date": null,
+                "price": null,
+                "returnPct": null
+              },
+              "10": {
+                "date": null,
+                "price": null,
+                "returnPct": null
+              },
+              "20": {
+                "date": null,
+                "price": null,
+                "returnPct": null
+              }
+            },
+            "mfePct": 0.7407407407407307,
+            "maePct": -2.2222222222222254,
+            "latestDate": "2026-06-18",
+            "latestPrice": 268.5,
+            "latestReturnPct": -0.5555555555555536
+          },
+          {
+            "eventId": "2026-06-17-4739-19",
+            "sellDate": "2026-06-17",
+            "symbol": "4739",
+            "name": "康普",
+            "shares": 500.0,
+            "sellPrice": 120.5,
+            "observedTradingDays": 0,
+            "status": "observing",
+            "returns": {
+              "1": {
+                "date": null,
+                "price": null,
+                "returnPct": null
+              },
+              "3": {
+                "date": null,
+                "price": null,
+                "returnPct": null
+              },
+              "5": {
+                "date": null,
+                "price": null,
+                "returnPct": null
+              },
+              "10": {
+                "date": null,
+                "price": null,
+                "returnPct": null
+              },
+              "20": {
+                "date": null,
+                "price": null,
+                "returnPct": null
+              }
+            },
+            "mfePct": null,
+            "maePct": null,
+            "latestDate": "2026-06-17",
+            "latestPrice": 123.0,
+            "latestReturnPct": 2.0746887966804906
+          },
+          {
+            "eventId": "2026-06-15-00830-20",
+            "sellDate": "2026-06-15",
+            "symbol": "00830",
+            "name": "國泰費城半導體",
+            "shares": 561.0,
+            "sellPrice": 97.65,
+            "observedTradingDays": 3,
+            "status": "observing",
+            "returns": {
+              "1": {
+                "date": "2026-06-16",
+                "price": 98.45,
+                "returnPct": 0.8192524321556593
+              },
+              "3": {
+                "date": "2026-06-18",
+                "price": 97.0,
+                "returnPct": -0.6656426011264815
+              },
+              "5": {
+                "date": null,
+                "price": null,
+                "returnPct": null
+              },
+              "10": {
+                "date": null,
+                "price": null,
+                "returnPct": null
+              },
+              "20": {
+                "date": null,
+                "price": null,
+                "returnPct": null
+              }
+            },
+            "mfePct": 0.9216589861751112,
+            "maePct": -3.3794162826421004,
+            "latestDate": "2026-06-18",
+            "latestPrice": 97.0,
+            "latestReturnPct": -0.6656426011264815
+          },
+          {
+            "eventId": "2026-04-24-00830-21",
+            "sellDate": "2026-04-24",
+            "symbol": "00830",
+            "name": "國泰費城半導體",
+            "shares": 363.0,
+            "sellPrice": 71.55,
+            "observedTradingDays": 38,
+            "status": "complete",
+            "returns": {
+              "1": {
+                "date": "2026-04-27",
+                "price": 73.7,
+                "returnPct": 3.004891684136979
+              },
+              "3": {
+                "date": "2026-04-29",
+                "price": 71.05,
+                "returnPct": -0.6988120195667413
+              },
+              "5": {
+                "date": "2026-05-04",
+                "price": 75.1,
+                "returnPct": 4.9615653389238235
+              },
+              "10": {
+                "date": "2026-05-11",
+                "price": 82.3,
+                "returnPct": 15.024458420684827
+              },
+              "20": {
+                "date": "2026-05-25",
+                "price": 87.8,
+                "returnPct": 22.71139063591894
+              }
+            },
+            "mfePct": 22.781271837875614,
+            "maePct": -1.607267645003485,
+            "latestDate": "2026-06-18",
+            "latestPrice": 97.0,
+            "latestReturnPct": 35.56953179594689
+          },
+          {
+            "eventId": "2026-04-08-00830-22",
+            "sellDate": "2026-04-08",
+            "symbol": "00830",
+            "name": "國泰費城半導體",
+            "shares": 1396.0,
+            "sellPrice": 58.69,
+            "observedTradingDays": 50,
+            "status": "complete",
+            "returns": {
+              "1": {
+                "date": "2026-04-09",
+                "price": 59.35,
+                "returnPct": 1.1245527347077955
+              },
+              "3": {
+                "date": "2026-04-13",
+                "price": 61.65,
+                "returnPct": 5.043448628386438
+              },
+              "5": {
+                "date": "2026-04-15",
+                "price": 64.45,
+                "returnPct": 9.814278411995247
+              },
+              "10": {
+                "date": "2026-04-22",
+                "price": 68.05,
+                "returnPct": 15.94820241949224
+              },
+              "20": {
+                "date": "2026-05-07",
+                "price": 79.55,
+                "returnPct": 35.54268188788549
+              }
+            },
+            "mfePct": 35.71306866587154,
+            "maePct": 0.7837791787357329,
+            "latestDate": "2026-06-18",
+            "latestPrice": 97.0,
+            "latestReturnPct": 65.27517464644743
+          },
+          {
+            "eventId": "2026-03-25-6907-23",
+            "sellDate": "2026-03-25",
+            "symbol": "6907",
+            "name": "雅特力-KY",
+            "shares": 1000.0,
+            "sellPrice": 132.5,
+            "observedTradingDays": 58,
+            "status": "complete",
+            "returns": {
+              "1": {
+                "date": "2026-03-26",
+                "price": 124.0,
+                "returnPct": -6.41509433962264
+              },
+              "3": {
+                "date": "2026-03-30",
+                "price": 118.0,
+                "returnPct": -10.943396226415093
+              },
+              "5": {
+                "date": "2026-04-01",
+                "price": 109.0,
+                "returnPct": -17.73584905660377
+              },
+              "10": {
+                "date": "2026-04-10",
+                "price": 121.5,
+                "returnPct": -8.301886792452828
+              },
+              "20": {
+                "date": "2026-04-24",
+                "price": 131.5,
+                "returnPct": -0.7547169811320753
+              }
+            },
+            "mfePct": 15.849056603773581,
+            "maePct": -25.962264150943405,
+            "latestDate": "2026-06-18",
+            "latestPrice": 135.5,
+            "latestReturnPct": 2.264150943396226
+          }
+        ],
+        "postSalePriceThrough": "2026-06-18"
       },
       "validation": {
         "status": "warning",
@@ -1671,14 +2632,6 @@ window.TRADING_DASHBOARD = {
         ],
         "equitySeries": [
           {
-            "date": "2026-05-26",
-            "realizedPnl": 0.0,
-            "unrealizedPnl": 0.0,
-            "equity": 30000.0,
-            "drawdown": 0.0,
-            "drawdownPct": 0.0
-          },
-          {
             "date": "2026-04-08",
             "realizedPnl": 873.12,
             "unrealizedPnl": 0.0,
@@ -1888,7 +2841,892 @@ window.TRADING_DASHBOARD = {
           "worstTrade": -95.0,
           "maxDrawdown": -92.68999999999869,
           "maxDrawdownPct": -0.2840261418040844
-        }
+        },
+        "postSaleAnalysis": [
+          {
+            "eventId": "2026-04-08-TSM-1",
+            "sellDate": "2026-04-08",
+            "symbol": "TSM",
+            "name": "TSMC(ADR)",
+            "shares": 20.48,
+            "sellPrice": 365.48,
+            "observedTradingDays": 50,
+            "status": "complete",
+            "returns": {
+              "1": {
+                "date": "2026-04-09",
+                "price": 365.49,
+                "returnPct": 0.0027361278318815963
+              },
+              "3": {
+                "date": "2026-04-13",
+                "price": 369.57,
+                "returnPct": 1.1190762832439471
+              },
+              "5": {
+                "date": "2026-04-15",
+                "price": 375.1,
+                "returnPct": 2.6321549742803985
+              },
+              "10": {
+                "date": "2026-04-22",
+                "price": 387.44,
+                "returnPct": 6.0085367188355
+              },
+              "20": {
+                "date": "2026-05-06",
+                "price": 419.5,
+                "returnPct": 14.780562547882226
+              }
+            },
+            "mfePct": 14.835285104520079,
+            "maePct": -1.3489110211229116,
+            "latestDate": "2026-06-18",
+            "latestPrice": 462.12,
+            "latestReturnPct": 26.44193936740724
+          },
+          {
+            "eventId": "2026-04-21-UNH-2",
+            "sellDate": "2026-04-21",
+            "symbol": "UNH",
+            "name": "UnitedHealth",
+            "shares": 35.5498,
+            "sellPrice": 353.62,
+            "observedTradingDays": 41,
+            "status": "complete",
+            "returns": {
+              "1": {
+                "date": "2026-04-22",
+                "price": 353.52,
+                "returnPct": -0.028278943498671882
+              },
+              "3": {
+                "date": "2026-04-24",
+                "price": 354.92,
+                "returnPct": 0.36762626548272337
+              },
+              "5": {
+                "date": "2026-04-28",
+                "price": 366.77,
+                "returnPct": 3.718681070075225
+              },
+              "10": {
+                "date": "2026-05-05",
+                "price": 363.87,
+                "returnPct": 2.8985917086137736
+              },
+              "20": {
+                "date": "2026-05-19",
+                "price": 389.24,
+                "returnPct": 10.072959674226567
+              }
+            },
+            "mfePct": 14.289350149878398,
+            "maePct": -1.3206266613879358,
+            "latestDate": "2026-06-18",
+            "latestPrice": 400.96,
+            "latestReturnPct": 13.387251852270786
+          },
+          {
+            "eventId": "2026-05-29-NTAP-3",
+            "sellDate": "2026-05-29",
+            "symbol": "NTAP",
+            "name": "NetApp",
+            "shares": 15.0,
+            "sellPrice": 183.236,
+            "observedTradingDays": 14,
+            "status": "observing",
+            "returns": {
+              "1": {
+                "date": "2026-06-01",
+                "price": 179.7,
+                "returnPct": -1.929751795498702
+              },
+              "3": {
+                "date": "2026-06-03",
+                "price": 181.08,
+                "returnPct": -1.1766246807395797
+              },
+              "5": {
+                "date": "2026-06-05",
+                "price": 167.04,
+                "returnPct": -8.838874456984435
+              },
+              "10": {
+                "date": "2026-06-12",
+                "price": 161.61,
+                "returnPct": -11.802265930275702
+              },
+              "20": {
+                "date": null,
+                "price": null,
+                "returnPct": null
+              }
+            },
+            "mfePct": 1.7976816782728333,
+            "maePct": -16.321028618830347,
+            "latestDate": "2026-06-18",
+            "latestPrice": 159.71,
+            "latestReturnPct": -12.839180073784618
+          },
+          {
+            "eventId": "2026-06-01-HPE-4",
+            "sellDate": "2026-06-01",
+            "symbol": "HPE",
+            "name": "HP Enterprise",
+            "shares": 30.0,
+            "sellPrice": 44.4,
+            "observedTradingDays": 13,
+            "status": "observing",
+            "returns": {
+              "1": {
+                "date": "2026-06-02",
+                "price": 56.15,
+                "returnPct": 26.463963963963955
+              },
+              "3": {
+                "date": "2026-06-04",
+                "price": 53.69,
+                "returnPct": 20.923423423423415
+              },
+              "5": {
+                "date": "2026-06-08",
+                "price": 49.87,
+                "returnPct": 12.319819819819822
+              },
+              "10": {
+                "date": "2026-06-15",
+                "price": 49.02,
+                "returnPct": 10.405405405405421
+              },
+              "20": {
+                "date": null,
+                "price": null,
+                "returnPct": null
+              }
+            },
+            "mfePct": 44.70720720720722,
+            "maePct": 0.765765765765769,
+            "latestDate": "2026-06-18",
+            "latestPrice": 47.41,
+            "latestReturnPct": 6.779279279279282
+          },
+          {
+            "eventId": "2026-06-02-COHR-5",
+            "sellDate": "2026-06-02",
+            "symbol": "COHR",
+            "name": "Coherent",
+            "shares": 5.0,
+            "sellPrice": 396.16,
+            "observedTradingDays": 12,
+            "status": "observing",
+            "returns": {
+              "1": {
+                "date": "2026-06-03",
+                "price": 417.43,
+                "returnPct": 5.369042810985447
+              },
+              "3": {
+                "date": "2026-06-05",
+                "price": 376.99,
+                "returnPct": -4.838953957996772
+              },
+              "5": {
+                "date": "2026-06-09",
+                "price": 355.94,
+                "returnPct": -10.152463651050091
+              },
+              "10": {
+                "date": "2026-06-16",
+                "price": 382.81,
+                "returnPct": -3.369850565428112
+              },
+              "20": {
+                "date": null,
+                "price": null,
+                "returnPct": null
+              }
+            },
+            "mfePct": 11.066235864297248,
+            "maePct": -15.3170436187399,
+            "latestDate": "2026-06-18",
+            "latestPrice": 389.57,
+            "latestReturnPct": -1.6634693053311889
+          },
+          {
+            "eventId": "2026-06-02-QCOM-6",
+            "sellDate": "2026-06-02",
+            "symbol": "QCOM",
+            "name": "Qualcomm",
+            "shares": 5.0,
+            "sellPrice": 240.487,
+            "observedTradingDays": 12,
+            "status": "observing",
+            "returns": {
+              "1": {
+                "date": "2026-06-03",
+                "price": 250.01,
+                "returnPct": 3.9598814073110056
+              },
+              "3": {
+                "date": "2026-06-05",
+                "price": 215.94,
+                "returnPct": -10.207204547439153
+              },
+              "5": {
+                "date": "2026-06-09",
+                "price": 205.42,
+                "returnPct": -14.58166137878555
+              },
+              "10": {
+                "date": "2026-06-16",
+                "price": 214.07,
+                "returnPct": -10.984793356813471
+              },
+              "20": {
+                "date": null,
+                "price": null,
+                "returnPct": null
+              }
+            },
+            "mfePct": 6.072261702295756,
+            "maePct": -20.952068095156907,
+            "latestDate": "2026-06-18",
+            "latestPrice": 226.11,
+            "latestReturnPct": -5.978285728542487
+          },
+          {
+            "eventId": "2026-06-02-QCOM-7",
+            "sellDate": "2026-06-02",
+            "symbol": "QCOM",
+            "name": "Qualcomm",
+            "shares": 5.0,
+            "sellPrice": 234.5,
+            "observedTradingDays": 12,
+            "status": "observing",
+            "returns": {
+              "1": {
+                "date": "2026-06-03",
+                "price": 250.01,
+                "returnPct": 6.614072494669498
+              },
+              "3": {
+                "date": "2026-06-05",
+                "price": 215.94,
+                "returnPct": -7.914712153518122
+              },
+              "5": {
+                "date": "2026-06-09",
+                "price": 205.42,
+                "returnPct": -12.400852878464818
+              },
+              "10": {
+                "date": "2026-06-16",
+                "price": 214.07,
+                "returnPct": -8.712153518123667
+              },
+              "20": {
+                "date": null,
+                "price": null,
+                "returnPct": null
+              }
+            },
+            "mfePct": 8.780383795309167,
+            "maePct": -18.93390191897655,
+            "latestDate": "2026-06-18",
+            "latestPrice": 226.11,
+            "latestReturnPct": -3.577825159914705
+          },
+          {
+            "eventId": "2026-06-03-GEV-8",
+            "sellDate": "2026-06-03",
+            "symbol": "GEV",
+            "name": "GE Vernova",
+            "shares": 2.0,
+            "sellPrice": 987.4,
+            "observedTradingDays": 11,
+            "status": "observing",
+            "returns": {
+              "1": {
+                "date": "2026-06-04",
+                "price": 963.33,
+                "returnPct": -2.437715211667002
+              },
+              "3": {
+                "date": "2026-06-08",
+                "price": 933.85,
+                "returnPct": -5.423334008507186
+              },
+              "5": {
+                "date": "2026-06-10",
+                "price": 867.09,
+                "returnPct": -12.184525015191404
+              },
+              "10": {
+                "date": "2026-06-17",
+                "price": 1048.86,
+                "returnPct": 6.224427790155951
+              },
+              "20": {
+                "date": null,
+                "price": null,
+                "returnPct": null
+              }
+            },
+            "mfePct": 13.222604820741356,
+            "maePct": -13.306663965971232,
+            "latestDate": "2026-06-18",
+            "latestPrice": 1109.73,
+            "latestReturnPct": 12.389102693943688
+          },
+          {
+            "eventId": "2026-06-03-GEV-9",
+            "sellDate": "2026-06-03",
+            "symbol": "GEV",
+            "name": "GE Vernova",
+            "shares": 1.0,
+            "sellPrice": 985.0,
+            "observedTradingDays": 11,
+            "status": "observing",
+            "returns": {
+              "1": {
+                "date": "2026-06-04",
+                "price": 963.33,
+                "returnPct": -2.199999999999991
+              },
+              "3": {
+                "date": "2026-06-08",
+                "price": 933.85,
+                "returnPct": -5.192893401015231
+              },
+              "5": {
+                "date": "2026-06-10",
+                "price": 867.09,
+                "returnPct": -11.97055837563451
+              },
+              "10": {
+                "date": "2026-06-17",
+                "price": 1048.86,
+                "returnPct": 6.483248730964464
+              },
+              "20": {
+                "date": null,
+                "price": null,
+                "returnPct": null
+              }
+            },
+            "mfePct": 13.498477157360412,
+            "maePct": -13.09543147208122,
+            "latestDate": "2026-06-18",
+            "latestPrice": 1109.73,
+            "latestReturnPct": 12.66294416243654
+          },
+          {
+            "eventId": "2026-06-03-UNH-10",
+            "sellDate": "2026-06-03",
+            "symbol": "UNH",
+            "name": "UnitedHealth",
+            "shares": 5.23211,
+            "sellPrice": 385.3,
+            "observedTradingDays": 11,
+            "status": "observing",
+            "returns": {
+              "1": {
+                "date": "2026-06-04",
+                "price": 396.47,
+                "returnPct": 2.899039709317419
+              },
+              "3": {
+                "date": "2026-06-08",
+                "price": 406.57,
+                "returnPct": 5.5203737347521376
+              },
+              "5": {
+                "date": "2026-06-10",
+                "price": 407.46,
+                "returnPct": 5.751362574617169
+              },
+              "10": {
+                "date": "2026-06-17",
+                "price": 399.53,
+                "returnPct": 3.693226057617438
+              },
+              "20": {
+                "date": null,
+                "price": null,
+                "returnPct": null
+              }
+            },
+            "mfePct": 7.962626524785876,
+            "maePct": 1.1731118608876212,
+            "latestDate": "2026-06-18",
+            "latestPrice": 400.96,
+            "latestReturnPct": 4.06436542953541
+          },
+          {
+            "eventId": "2026-06-05-NTAP-11",
+            "sellDate": "2026-06-05",
+            "symbol": "NTAP",
+            "name": "NetApp",
+            "shares": 6.0,
+            "sellPrice": 169.65,
+            "observedTradingDays": 9,
+            "status": "observing",
+            "returns": {
+              "1": {
+                "date": "2026-06-08",
+                "price": 170.31,
+                "returnPct": 0.38903625110522366
+              },
+              "3": {
+                "date": "2026-06-10",
+                "price": 160.66,
+                "returnPct": -5.2991452991453025
+              },
+              "5": {
+                "date": "2026-06-12",
+                "price": 161.61,
+                "returnPct": -4.7391688770999085
+              },
+              "10": {
+                "date": null,
+                "price": null,
+                "returnPct": null
+              },
+              "20": {
+                "date": null,
+                "price": null,
+                "returnPct": null
+              }
+            },
+            "mfePct": 1.4146772767462457,
+            "maePct": -9.619805481874444,
+            "latestDate": "2026-06-18",
+            "latestPrice": 159.71,
+            "latestReturnPct": -5.859121721190686
+          },
+          {
+            "eventId": "2026-06-05-COHR-12",
+            "sellDate": "2026-06-05",
+            "symbol": "COHR",
+            "name": "Coherent",
+            "shares": 3.0,
+            "sellPrice": 401.5,
+            "observedTradingDays": 9,
+            "status": "observing",
+            "returns": {
+              "1": {
+                "date": "2026-06-08",
+                "price": 401.93,
+                "returnPct": 0.10709838107099134
+              },
+              "3": {
+                "date": "2026-06-10",
+                "price": 354.77,
+                "returnPct": -11.638854296388546
+              },
+              "5": {
+                "date": "2026-06-12",
+                "price": 385.03,
+                "returnPct": -4.102117061021183
+              },
+              "10": {
+                "date": null,
+                "price": null,
+                "returnPct": null
+              },
+              "20": {
+                "date": null,
+                "price": null,
+                "returnPct": null
+              }
+            },
+            "mfePct": 5.603985056039851,
+            "maePct": -16.443337484433375,
+            "latestDate": "2026-06-18",
+            "latestPrice": 389.57,
+            "latestReturnPct": -2.971357409713571
+          },
+          {
+            "eventId": "2026-06-05-COHR-13",
+            "sellDate": "2026-06-05",
+            "symbol": "COHR",
+            "name": "Coherent",
+            "shares": 3.0,
+            "sellPrice": 403.2,
+            "observedTradingDays": 9,
+            "status": "observing",
+            "returns": {
+              "1": {
+                "date": "2026-06-08",
+                "price": 401.93,
+                "returnPct": -0.3149801587301493
+              },
+              "3": {
+                "date": "2026-06-10",
+                "price": 354.77,
+                "returnPct": -12.011408730158735
+              },
+              "5": {
+                "date": "2026-06-12",
+                "price": 385.03,
+                "returnPct": -4.506448412698417
+              },
+              "10": {
+                "date": null,
+                "price": null,
+                "returnPct": null
+              },
+              "20": {
+                "date": null,
+                "price": null,
+                "returnPct": null
+              }
+            },
+            "mfePct": 5.158730158730163,
+            "maePct": -16.795634920634917,
+            "latestDate": "2026-06-18",
+            "latestPrice": 389.57,
+            "latestReturnPct": -3.380456349206351
+          },
+          {
+            "eventId": "2026-06-08-ETN-14",
+            "sellDate": "2026-06-08",
+            "symbol": "ETN",
+            "name": "Eaton",
+            "shares": 4.0,
+            "sellPrice": 405.171,
+            "observedTradingDays": 8,
+            "status": "observing",
+            "returns": {
+              "1": {
+                "date": "2026-06-09",
+                "price": 401.72,
+                "returnPct": -0.8517391422387055
+              },
+              "3": {
+                "date": "2026-06-11",
+                "price": 393.64,
+                "returnPct": -2.845958866750087
+              },
+              "5": {
+                "date": "2026-06-15",
+                "price": 407.06,
+                "returnPct": 0.4662229034160914
+              },
+              "10": {
+                "date": null,
+                "price": null,
+                "returnPct": null
+              },
+              "20": {
+                "date": null,
+                "price": null,
+                "returnPct": null
+              }
+            },
+            "mfePct": 5.121047656421607,
+            "maePct": -7.43661318307578,
+            "latestDate": "2026-06-18",
+            "latestPrice": 421.77,
+            "latestReturnPct": 4.096788763262915
+          },
+          {
+            "eventId": "2026-06-08-ETN-15",
+            "sellDate": "2026-06-08",
+            "symbol": "ETN",
+            "name": "Eaton",
+            "shares": 4.0,
+            "sellPrice": 405.1,
+            "observedTradingDays": 8,
+            "status": "observing",
+            "returns": {
+              "1": {
+                "date": "2026-06-09",
+                "price": 401.72,
+                "returnPct": -0.8343618859540824
+              },
+              "3": {
+                "date": "2026-06-11",
+                "price": 393.64,
+                "returnPct": -2.8289311281165186
+              },
+              "5": {
+                "date": "2026-06-15",
+                "price": 407.06,
+                "returnPct": 0.48383115280177247
+              },
+              "10": {
+                "date": null,
+                "price": null,
+                "returnPct": null
+              },
+              "20": {
+                "date": null,
+                "price": null,
+                "returnPct": null
+              }
+            },
+            "mfePct": 5.1394717353739905,
+            "maePct": -7.42039002715379,
+            "latestDate": "2026-06-18",
+            "latestPrice": 421.77,
+            "latestReturnPct": 4.1150333251049
+          },
+          {
+            "eventId": "2026-06-11-COHR-16",
+            "sellDate": "2026-06-11",
+            "symbol": "COHR",
+            "name": "Coherent",
+            "shares": 4.0,
+            "sellPrice": 365.8,
+            "observedTradingDays": 5,
+            "status": "observing",
+            "returns": {
+              "1": {
+                "date": "2026-06-12",
+                "price": 385.03,
+                "returnPct": 5.256971022416601
+              },
+              "3": {
+                "date": "2026-06-16",
+                "price": 382.81,
+                "returnPct": 4.650082012028434
+              },
+              "5": {
+                "date": "2026-06-18",
+                "price": 389.57,
+                "returnPct": 6.498086386003266
+              },
+              "10": {
+                "date": null,
+                "price": null,
+                "returnPct": null
+              },
+              "20": {
+                "date": null,
+                "price": null,
+                "returnPct": null
+              }
+            },
+            "mfePct": 15.910333515582288,
+            "maePct": -3.173865500273376,
+            "latestDate": "2026-06-18",
+            "latestPrice": 389.57,
+            "latestReturnPct": 6.498086386003266
+          },
+          {
+            "eventId": "2026-06-11-COHR-17",
+            "sellDate": "2026-06-11",
+            "symbol": "COHR",
+            "name": "Coherent",
+            "shares": 4.0,
+            "sellPrice": 365.08,
+            "observedTradingDays": 5,
+            "status": "observing",
+            "returns": {
+              "1": {
+                "date": "2026-06-12",
+                "price": 385.03,
+                "returnPct": 5.464555713816144
+              },
+              "3": {
+                "date": "2026-06-16",
+                "price": 382.81,
+                "returnPct": 4.856469814835118
+              },
+              "5": {
+                "date": "2026-06-18",
+                "price": 389.57,
+                "returnPct": 6.708118768489091
+              },
+              "10": {
+                "date": null,
+                "price": null,
+                "returnPct": null
+              },
+              "20": {
+                "date": null,
+                "price": null,
+                "returnPct": null
+              }
+            },
+            "mfePct": 16.138928454037483,
+            "maePct": -2.9829078558124222,
+            "latestDate": "2026-06-18",
+            "latestPrice": 389.57,
+            "latestReturnPct": 6.708118768489091
+          },
+          {
+            "eventId": "2026-06-11-NTAP-18",
+            "sellDate": "2026-06-11",
+            "symbol": "NTAP",
+            "name": "NetApp",
+            "shares": 5.0,
+            "sellPrice": 157.7,
+            "observedTradingDays": 5,
+            "status": "observing",
+            "returns": {
+              "1": {
+                "date": "2026-06-12",
+                "price": 161.61,
+                "returnPct": 2.4793912492073744
+              },
+              "3": {
+                "date": "2026-06-16",
+                "price": 161.26,
+                "returnPct": 2.257450856055798
+              },
+              "5": {
+                "date": "2026-06-18",
+                "price": 159.71,
+                "returnPct": 1.2745719720989257
+              },
+              "10": {
+                "date": null,
+                "price": null,
+                "returnPct": null
+              },
+              "20": {
+                "date": null,
+                "price": null,
+                "returnPct": null
+              }
+            },
+            "mfePct": 4.090044388078651,
+            "maePct": -2.771084337349383,
+            "latestDate": "2026-06-18",
+            "latestPrice": 159.71,
+            "latestReturnPct": 1.2745719720989257
+          },
+          {
+            "eventId": "2026-06-15-GEV-19",
+            "sellDate": "2026-06-15",
+            "symbol": "GEV",
+            "name": "GE Vernova",
+            "shares": 2.0,
+            "sellPrice": 969.73,
+            "observedTradingDays": 3,
+            "status": "observing",
+            "returns": {
+              "1": {
+                "date": "2026-06-16",
+                "price": 982.35,
+                "returnPct": 1.3013931712950955
+              },
+              "3": {
+                "date": "2026-06-18",
+                "price": 1109.73,
+                "returnPct": 14.437008239406834
+              },
+              "5": {
+                "date": null,
+                "price": null,
+                "returnPct": null
+              },
+              "10": {
+                "date": null,
+                "price": null,
+                "returnPct": null
+              },
+              "20": {
+                "date": null,
+                "price": null,
+                "returnPct": null
+              }
+            },
+            "mfePct": 15.285698080909116,
+            "maePct": 1.1343363616676871,
+            "latestDate": "2026-06-18",
+            "latestPrice": 1109.73,
+            "latestReturnPct": 14.437008239406834
+          },
+          {
+            "eventId": "2026-06-16-GEV-20",
+            "sellDate": "2026-06-16",
+            "symbol": "GEV",
+            "name": "GE Vernova",
+            "shares": 1.0,
+            "sellPrice": 1001.0,
+            "observedTradingDays": 2,
+            "status": "observing",
+            "returns": {
+              "1": {
+                "date": "2026-06-17",
+                "price": 1048.86,
+                "returnPct": 4.781218781218777
+              },
+              "3": {
+                "date": null,
+                "price": null,
+                "returnPct": null
+              },
+              "5": {
+                "date": null,
+                "price": null,
+                "returnPct": null
+              },
+              "10": {
+                "date": null,
+                "price": null,
+                "returnPct": null
+              },
+              "20": {
+                "date": null,
+                "price": null,
+                "returnPct": null
+              }
+            },
+            "mfePct": 11.684315684315694,
+            "maePct": -0.899100899100902,
+            "latestDate": "2026-06-18",
+            "latestPrice": 1109.73,
+            "latestReturnPct": 10.862137862137855
+          },
+          {
+            "eventId": "2026-06-18-GEV-21",
+            "sellDate": "2026-06-18",
+            "symbol": "GEV",
+            "name": "GE Vernova",
+            "shares": 1.0,
+            "sellPrice": 1093.0,
+            "observedTradingDays": 0,
+            "status": "observing",
+            "returns": {
+              "1": {
+                "date": null,
+                "price": null,
+                "returnPct": null
+              },
+              "3": {
+                "date": null,
+                "price": null,
+                "returnPct": null
+              },
+              "5": {
+                "date": null,
+                "price": null,
+                "returnPct": null
+              },
+              "10": {
+                "date": null,
+                "price": null,
+                "returnPct": null
+              },
+              "20": {
+                "date": null,
+                "price": null,
+                "returnPct": null
+              }
+            },
+            "mfePct": null,
+            "maePct": null,
+            "latestDate": "2026-06-18",
+            "latestPrice": 1109.73,
+            "latestReturnPct": 1.5306495882891236
+          }
+        ],
+        "postSalePriceThrough": "2026-06-18"
       },
       "validation": {
         "status": "warning",

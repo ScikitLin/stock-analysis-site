@@ -236,6 +236,26 @@
           <article class="trading-panel trading-panel-wide">
             <div class="trading-panel-head">
               <div>
+                <p class="eyebrow">Exit Review</p>
+                <h3>賣出時機檢討</h3>
+              </div>
+              <div class="trading-panel-actions">
+                <div class="trading-sort-control" aria-label="賣出時機排序">
+                  <button type="button" class="is-active" data-exit-sort="date">時間</button>
+                  <button type="button" data-exit-sort="5">5 日</button>
+                  <button type="button" data-exit-sort="20">20 日</button>
+                  <button type="button" data-exit-sort="mfe">最高漲幅</button>
+                </div>
+                <span id="tradingExitLabel" class="trading-pill"></span>
+              </div>
+            </div>
+            <div id="tradingExitChart" class="trading-chart" role="img" aria-label="賣出後多日報酬路徑"></div>
+            <div id="tradingExitHeatmap" class="exit-heatmap" aria-label="逐筆賣出後報酬熱圖"></div>
+          </article>
+
+          <article class="trading-panel trading-panel-wide">
+            <div class="trading-panel-head">
+              <div>
                 <p class="eyebrow">Closed Trades</p>
                 <h3>已結案交易品質</h3>
               </div>

@@ -34,7 +34,8 @@ const state = {
   trading: null,
   tradingMarket: "tw",
   tradingContributionSort: "pnl",
-  tradingReturnSort: "date"
+  tradingReturnSort: "date",
+  tradingExitSort: "date"
 };
 
 const elements = {
@@ -88,14 +89,18 @@ const elements = {
   tradingContributionLabel: document.querySelector("#tradingContributionLabel"),
   tradingExposureLabel: document.querySelector("#tradingExposureLabel"),
   tradingReturnLabel: document.querySelector("#tradingReturnLabel"),
+  tradingExitLabel: document.querySelector("#tradingExitLabel"),
   tradingEquityChart: document.querySelector("#tradingEquityChart"),
   tradingPnlChart: document.querySelector("#tradingPnlChart"),
   tradingContributionChart: document.querySelector("#tradingContributionChart"),
   tradingExposurePanel: document.querySelector("#tradingExposurePanel"),
   tradingReturnPanel: document.querySelector("#tradingReturnPanel"),
+  tradingExitChart: document.querySelector("#tradingExitChart"),
+  tradingExitHeatmap: document.querySelector("#tradingExitHeatmap"),
   tradingTooltip: document.querySelector("#tradingTooltip"),
   tradingContributionSortButtons: document.querySelectorAll("[data-contribution-sort]"),
-  tradingReturnSortButtons: document.querySelectorAll("[data-return-sort]")
+  tradingReturnSortButtons: document.querySelectorAll("[data-return-sort]"),
+  tradingExitSortButtons: document.querySelectorAll("[data-exit-sort]")
 };
 
 function normalize(value) {
@@ -586,6 +591,113 @@ function renderTradingReturns(market) {
   bindTradingTooltips(elements.tradingReturnPanel);
 }
 
+function tradingMedian(values) {
+  const clean = values.filter(Number.isFinite).sort((a, b) => a - b);
+  if (!clean.length) return null;
+  const middle = Math.floor(clean.length / 2);
+  return clean.length % 2 ? clean[middle] : (clean[middle - 1] + clean[middle]) / 2;
+}
+
+function exitMetricTone(value) {
+  if (!Number.isFinite(value)) return "pending";
+  if (value >= 5) return "strong-positive";
+  if (value > 0) return "positive";
+  if (value <= -5) return "strong-negative";
+  if (value < 0) return "negative";
+  return "neutral";
+}
+
+function renderTradingExitAnalysis(market) {
+  if (!elements.tradingExitChart || !elements.tradingExitHeatmap) return;
+  const rows = [...(market.computed?.postSaleAnalysis || [])];
+  if (!rows.length) {
+    elements.tradingExitChart.innerHTML = "<p class=\"muted\">尚無賣出後價格資料</p>";
+    elements.tradingExitHeatmap.innerHTML = "";
+    return;
+  }
+  const windows = [1, 3, 5, 10, 20];
+  const summary = windows.map((window) => {
+    const values = rows.map((row) => row.returns?.[String(window)]?.returnPct).filter(Number.isFinite);
+    return {
+      window,
+      median: tradingMedian(values),
+      positiveRate: values.length ? (values.filter((value) => value > 0).length / values.length) * 100 : null,
+      count: values.length
+    };
+  });
+  const chartRows = summary.filter((item) => Number.isFinite(item.median));
+  if (chartRows.length) {
+    const dims = { width: 920, height: 290, left: 86, right: 870, top: 34, bottom: 218 };
+    const domain = tradingChartDomain(chartRows.map((item) => item.median), true);
+    const zeroY = tradingScale(0, domain, [dims.bottom, dims.top]);
+    const x = (index) => tradingScale(index, [0, Math.max(chartRows.length - 1, 1)], [dims.left, dims.right]);
+    const points = chartRows.map((item, index) => `${x(index)},${tradingScale(item.median, domain, [dims.bottom, dims.top])}`).join(" ");
+    elements.tradingExitChart.innerHTML = `
+      <svg class="trading-svg exit-summary-svg" viewBox="0 0 ${dims.width} ${dims.height}" aria-label="賣出後中位數報酬路徑">
+        <rect class="trading-plot-bg" x="${dims.left}" y="${dims.top}" width="${dims.right - dims.left}" height="${dims.bottom - dims.top}"></rect>
+        <line class="exit-zero-line" x1="${dims.left}" x2="${dims.right}" y1="${zeroY}" y2="${zeroY}"></line>
+        <polyline class="exit-median-line" points="${points}"></polyline>
+        ${chartRows.map((item, index) => {
+          const pointX = x(index);
+          const pointY = tradingScale(item.median, domain, [dims.bottom, dims.top]);
+          const tooltip = `<strong>賣出後第 ${item.window} 個交易日</strong><span>中位數 ${formatTradingPct(item.median, { sign: true })}</span><span>賣後上漲 ${formatTradingPct(item.positiveRate)} · ${item.count} 筆</span>`;
+          return `
+            <g class="exit-summary-point" tabindex="0" data-tooltip="${escapeAttribute(tooltip)}">
+              <circle cx="${pointX}" cy="${pointY}" r="6"></circle>
+              <text class="exit-point-value" x="${pointX}" y="${pointY - 14}" text-anchor="middle">${escapeHtml(formatTradingPct(item.median, { sign: true }))}</text>
+              <text class="exit-point-window" x="${pointX}" y="${dims.bottom + 25}" text-anchor="middle">${item.window} 日</text>
+              <text class="exit-point-rate" x="${pointX}" y="${dims.bottom + 46}" text-anchor="middle">${escapeHtml(`${formatTradingNumber(item.positiveRate, 0)}% 上漲 · ${item.count} 筆`)}</text>
+            </g>
+          `;
+        }).join("")}
+      </svg>
+    `;
+    bindTradingTooltips(elements.tradingExitChart);
+  } else {
+    elements.tradingExitChart.innerHTML = "<p class=\"muted\">尚待更多交易日資料</p>";
+  }
+
+  const valueForSort = (row, key) => {
+    if (key === "mfe") return row.mfePct;
+    return row.returns?.[key]?.returnPct;
+  };
+  rows.sort(state.tradingExitSort === "date"
+    ? (a, b) => b.sellDate.localeCompare(a.sellDate)
+    : (a, b) => (valueForSort(b, state.tradingExitSort) ?? -Infinity) - (valueForSort(a, state.tradingExitSort) ?? -Infinity));
+  const columns = [
+    ...windows.map((window) => ({ key: String(window), label: `${window} 日`, value: (row) => row.returns?.[String(window)]?.returnPct })),
+    { key: "mfe", label: "最高", value: (row) => row.mfePct },
+    { key: "mae", label: "最低", value: (row) => row.maePct },
+    { key: "latest", label: "最新", value: (row) => row.latestReturnPct }
+  ];
+  elements.tradingExitHeatmap.innerHTML = `
+    <div class="exit-heatmap-grid" style="--exit-columns:${columns.length}">
+      <div class="exit-heatmap-header"><span>賣出事件</span>${columns.map((column) => `<b>${column.label}</b>`).join("")}</div>
+      <div class="exit-heatmap-body">
+        ${rows.map((row) => {
+          const tooltip = [
+            `<strong>${escapeHtml(`${row.symbol} ${row.name}`)}</strong>`,
+            `<span>賣出 ${escapeHtml(row.sellDate)} · ${escapeHtml(formatTradingShares(row.shares))} 股</span>`,
+            `<span>賣出價 ${escapeHtml(formatTradingNumber(row.sellPrice, 2))}</span>`,
+            `<span>最新 ${escapeHtml(row.latestDate || "--")} · ${escapeHtml(Number.isFinite(row.latestPrice) ? formatTradingNumber(row.latestPrice, 2) : "--")}</span>`,
+            `<span>已觀察 ${escapeHtml(formatTradingNumber(row.observedTradingDays, 0))} 個交易日</span>`
+          ].join("");
+          return `
+            <div class="exit-heatmap-row" tabindex="0" data-tooltip="${escapeAttribute(tooltip)}">
+              <span class="exit-event-name"><b>${escapeHtml(`${row.symbol} ${row.name}`)}</b><small>${escapeHtml(row.sellDate)} · ${escapeHtml(formatTradingShares(row.shares))} 股</small></span>
+              ${columns.map((column) => {
+                const value = column.value(row);
+                return `<i class="${exitMetricTone(value)}">${Number.isFinite(value) ? escapeHtml(formatTradingPct(value, { sign: true })) : "觀察中"}</i>`;
+              }).join("")}
+            </div>
+          `;
+        }).join("")}
+      </div>
+    </div>
+  `;
+  bindTradingTooltips(elements.tradingExitHeatmap);
+}
+
 function renderTradingQuality(market) {
   if (!elements.tradingQuality) return;
   const validation = market.validation || {};
@@ -638,6 +750,9 @@ function renderTrading() {
   });
   elements.tradingReturnSortButtons.forEach((button) => {
     button.classList.toggle("is-active", button.dataset.returnSort === state.tradingReturnSort);
+  });
+  elements.tradingExitSortButtons.forEach((button) => {
+    button.classList.toggle("is-active", button.dataset.exitSort === state.tradingExitSort);
   });
 
   const series = market.computed?.equitySeries || [];
@@ -695,6 +810,14 @@ function renderTrading() {
 
   if (elements.tradingExposureLabel) elements.tradingExposureLabel.textContent = `${formatTradingPct((market.summary.marketValue / market.summary.currentAssets) * 100)} 持股`;
   renderTradingExposure(market);
+
+  if (elements.tradingExitLabel) {
+    const analysisRows = market.computed?.postSaleAnalysis || [];
+    const completeCount = analysisRows.filter((row) => Number.isFinite(row.returns?.["10"]?.returnPct)).length;
+    const priceThrough = market.computed?.postSalePriceThrough;
+    elements.tradingExitLabel.textContent = `${priceThrough ? `${tradingDateLabel(priceThrough)} · ` : ""}${completeCount} / ${analysisRows.length} 筆滿 10 日`;
+  }
+  renderTradingExitAnalysis(market);
 
   if (elements.tradingReturnLabel) elements.tradingReturnLabel.textContent = `${stats.tradeCount || 0} 筆`;
   renderTradingReturns(market);
@@ -1222,6 +1345,12 @@ function bindTrading() {
   elements.tradingReturnSortButtons.forEach((button) => {
     button.addEventListener("click", () => {
       state.tradingReturnSort = button.dataset.returnSort || "date";
+      renderTrading();
+    });
+  });
+  elements.tradingExitSortButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      state.tradingExitSort = button.dataset.exitSort || "date";
       renderTrading();
     });
   });
