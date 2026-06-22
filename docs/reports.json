@@ -3,7 +3,7 @@
   "siteDescription": "以資料完整性、估值情境與風控紀律整理的公開個股研究索引。",
   "disclaimer": "本網站內容僅供投資研究紀錄與討論，不構成個人化投資建議。資料可能延遲或不完整，請自行交叉驗證。",
   "feedbackIssueUrl": "https://github.com/ScikitLin/stock-analysis-site/issues/new",
-  "generatedAt": "2026-06-20T16:43:35.424874+00:00",
+  "generatedAt": "2026-06-22T02:15:59.446777+00:00",
   "sourceDir": "published_reports",
   "publishedFolder": "published_reports",
   "chartPreviews": [
@@ -26,8 +26,100 @@
       "bytes": 169757
     }
   ],
-  "reportCount": 9,
+  "reportCount": 11,
   "reports": [
+    {
+      "id": "us_stock_analysis_framework_20260618",
+      "title": "美股電力、網路與資安個股分析 2026-06-21 basis 2026-06-18",
+      "heading": "美股電力、網路與資安個股分析",
+      "summary": "1. 市場與持股閘門 3. Bear Case 4. 價格與部位 5. 來源數字 6. EPS 口徑 7. 估值模組 8. 目標價 9. 操作建議 10. 停損停利 11. 品質風險 12. Rerating / 倍數再評估 13. Price × Thesis 14. 事件 15. 下一驗證點...",
+      "date": "2026-06-18",
+      "market": "us",
+      "marketLabel": "美股",
+      "type": "multi",
+      "typeLabel": "多檔個股",
+      "symbols": [
+        "2026",
+        "2030",
+        "2025"
+      ],
+      "symbolNames": [
+        {
+          "symbol": "2026",
+          "name": ""
+        },
+        {
+          "symbol": "2030",
+          "name": ""
+        },
+        {
+          "symbol": "2025",
+          "name": ""
+        }
+      ],
+      "tags": [
+        "美股",
+        "多檔個股",
+        "分析框架",
+        "Bear/Base/Bull"
+      ],
+      "sourceFile": "us_stock_analysis_framework_20260618.html",
+      "url": "reports/us_stock_analysis_framework_20260618.html",
+      "bytes": 904353
+    },
+    {
+      "id": "us_custom_23_stock_analysis_20260621_basis_2026-06-18",
+      "title": "美股 AI 基礎設施、半導體、醫療與消費 23 檔完整分析 2026-06-21 basis 2026-06-18",
+      "heading": "美股 AI 基礎設施、半導體、醫療與消費 23 檔完整分析",
+      "summary": "1. 市場與持股閘門 3. Bear Case 4. 價格與部位 5. 來源數字 6. EPS 口徑 7. 估值模組 8. 目標價 9. 操作建議 10. 停損停利 11. 品質風險 12. Rerating / 倍數再評估 13. Price × Thesis 14. 事件 15. 下一驗證點...",
+      "date": "2026-06-18",
+      "market": "us",
+      "marketLabel": "美股",
+      "type": "custom",
+      "typeLabel": "指定個股",
+      "symbols": [
+        "2026",
+        "2025",
+        "2027",
+        "CUSTOM",
+        "BASIS",
+        "AI"
+      ],
+      "symbolNames": [
+        {
+          "symbol": "2026",
+          "name": ""
+        },
+        {
+          "symbol": "2025",
+          "name": ""
+        },
+        {
+          "symbol": "2027",
+          "name": ""
+        },
+        {
+          "symbol": "CUSTOM",
+          "name": ""
+        },
+        {
+          "symbol": "BASIS",
+          "name": ""
+        },
+        {
+          "symbol": "AI",
+          "name": ""
+        }
+      ],
+      "tags": [
+        "美股",
+        "指定個股",
+        "自選清單"
+      ],
+      "sourceFile": "us_custom_23_stock_analysis_20260621_basis_2026-06-18.html",
+      "url": "reports/us_custom_23_stock_analysis_20260621_basis_2026-06-18.html",
+      "bytes": 1038995
+    },
     {
       "id": "tw_stock_analysis_framework_20260617",
       "title": "台股候選個股分析（10 檔） 2026-06-17",
