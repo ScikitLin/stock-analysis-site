@@ -3,7 +3,7 @@ window.STOCK_REPORTS = {
   "siteDescription": "以資料完整性、估值情境與風控紀律整理的公開個股研究索引。",
   "disclaimer": "本網站內容僅供投資研究紀錄與討論，不構成個人化投資建議。資料可能延遲或不完整，請自行交叉驗證。",
   "feedbackIssueUrl": "https://github.com/ScikitLin/stock-analysis-site/issues/new",
-  "generatedAt": "2026-06-22T06:09:44.507850+00:00",
+  "generatedAt": "2026-06-22T06:14:30.063870+00:00",
   "sourceDir": "published_reports",
   "publishedFolder": "published_reports",
   "chartPreviews": [
@@ -81,22 +81,28 @@ window.STOCK_REPORTS = {
       "bytes": 996006
     },
     {
-      "id": "us_stock_analysis_framework_20260618",
-      "title": "美股電力、網路與資安個股分析 2026-06-21 basis 2026-06-18",
-      "heading": "美股電力、網路與資安個股分析",
+      "id": "us_custom_23_stock_analysis_20260621_basis_2026-06-18",
+      "title": "美股 AI 基礎設施、半導體、醫療與消費 23 檔完整分析 2026-06-21 basis 2026-06-18",
+      "heading": "美股 AI 基礎設施、半導體、醫療與消費 23 檔完整分析",
       "summary": "1. 市場與持股閘門 3. Bear Case 4. 價格與部位 5. 來源數字 6. EPS 口徑 7. 估值模組 8. 目標價 9. 操作建議 10. 停損停利 11. 品質風險 12. Rerating / 倍數再評估 13. Price × Thesis 14. 事件 15. 下一驗證點...",
       "date": "2026-06-18",
       "market": "us",
       "marketLabel": "美股",
-      "type": "multi",
-      "typeLabel": "多檔個股",
+      "type": "custom",
+      "typeLabel": "指定個股",
       "symbols": [
         "2026",
-        "2030",
+        "6700",
+        "0900",
+        "4400",
         "2025",
-        "2200",
-        "1900",
-        "4800"
+        "6600",
+        "5200",
+        "6900",
+        "2027",
+        "CUSTOM",
+        "BASIS",
+        "AI"
       ],
       "symbolNames": [
         {
@@ -104,7 +110,15 @@ window.STOCK_REPORTS = {
           "name": ""
         },
         {
-          "symbol": "2030",
+          "symbol": "6700",
+          "name": ""
+        },
+        {
+          "symbol": "0900",
+          "name": ""
+        },
+        {
+          "symbol": "4400",
           "name": ""
         },
         {
@@ -112,27 +126,42 @@ window.STOCK_REPORTS = {
           "name": ""
         },
         {
-          "symbol": "2200",
+          "symbol": "6600",
           "name": ""
         },
         {
-          "symbol": "1900",
+          "symbol": "5200",
           "name": ""
         },
         {
-          "symbol": "4800",
+          "symbol": "6900",
+          "name": ""
+        },
+        {
+          "symbol": "2027",
+          "name": ""
+        },
+        {
+          "symbol": "CUSTOM",
+          "name": ""
+        },
+        {
+          "symbol": "BASIS",
+          "name": ""
+        },
+        {
+          "symbol": "AI",
           "name": ""
         }
       ],
       "tags": [
         "美股",
-        "多檔個股",
-        "分析框架",
-        "Bear/Base/Bull"
+        "指定個股",
+        "自選清單"
       ],
-      "sourceFile": "us_stock_analysis_framework_20260618.html",
-      "url": "reports/us_stock_analysis_framework_20260618.html",
-      "bytes": 996006
+      "sourceFile": "us_custom_23_stock_analysis_20260621_basis_2026-06-18.html",
+      "url": "reports/us_custom_23_stock_analysis_20260621_basis_2026-06-18.html",
+      "bytes": 1146343
     },
     {
       "id": "tw_stock_analysis_framework_20260617",
