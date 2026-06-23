@@ -3,7 +3,7 @@ window.STOCK_REPORTS = {
   "siteDescription": "以資料完整性、估值情境與風控紀律整理的公開個股研究索引。",
   "disclaimer": "本網站內容僅供投資研究紀錄與討論，不構成個人化投資建議。資料可能延遲或不完整，請自行交叉驗證。",
   "feedbackIssueUrl": "https://github.com/ScikitLin/stock-analysis-site/issues/new",
-  "generatedAt": "2026-06-22T06:18:03.313100+00:00",
+  "generatedAt": "2026-06-23T02:50:38.229203+00:00",
   "sourceDir": "published_reports",
   "publishedFolder": "published_reports",
   "chartPreviews": [
@@ -78,7 +78,7 @@ window.STOCK_REPORTS = {
       ],
       "sourceFile": "us_multi_stock_analysis_20260618.html",
       "url": "reports/us_multi_stock_analysis_20260618.html",
-      "bytes": 996006
+      "bytes": 1126151
     },
     {
       "id": "us_custom_23_stock_analysis_20260621_basis_2026-06-18",
@@ -161,7 +161,7 @@ window.STOCK_REPORTS = {
       ],
       "sourceFile": "us_custom_23_stock_analysis_20260621_basis_2026-06-18.html",
       "url": "reports/us_custom_23_stock_analysis_20260621_basis_2026-06-18.html",
-      "bytes": 1146343
+      "bytes": 1277558
     },
     {
       "id": "tw_stock_analysis_framework_20260617",
