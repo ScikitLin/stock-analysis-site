@@ -3,7 +3,7 @@
   "siteDescription": "以資料完整性、估值情境與風控紀律整理的公開個股研究索引。",
   "disclaimer": "本網站內容僅供投資研究紀錄與討論，不構成個人化投資建議。資料可能延遲或不完整，請自行交叉驗證。",
   "feedbackIssueUrl": "https://github.com/ScikitLin/stock-analysis-site/issues/new",
-  "generatedAt": "2026-06-23T06:41:21.079903+00:00",
+  "generatedAt": "2026-06-25T01:47:10.918880+00:00",
   "sourceDir": "published_reports",
   "publishedFolder": "published_reports",
   "chartPreviews": [
@@ -26,8 +26,105 @@
       "bytes": 169757
     }
   ],
-  "reportCount": 11,
+  "reportCount": 12,
   "reports": [
+    {
+      "id": "tw_stock_eps_used_rules_validation_15stocks_20260622",
+      "title": "台股 EPS_used 規則驗證 15 檔完整分析（資料基準日 2026-06-22）（15 檔） 資料基準日 2026-06-22，更新 2026-06-25",
+      "heading": "台股 EPS_used 規則驗證 15 檔完整分析（資料基準日 2026-06-22）（15 檔）",
+      "summary": "1. 市場與持股閘門 2. 產業與國際情勢 4. Bear Case 5. 價格與部位 6. 來源數字 7. EPS 模組 8. 估值模組 9. 目標價階梯 10. 操作建議 11. 停損停利 12. 品質風險 13. 低 P/E 成長 14. Rerating / 倍數再評估 17. Price...",
+      "date": "2026-06-22",
+      "market": "tw",
+      "marketLabel": "台股",
+      "type": "multi",
+      "typeLabel": "多檔個股",
+      "symbols": [
+        "2449",
+        "3665",
+        "2301",
+        "3711",
+        "1504",
+        "1513",
+        "1609",
+        "1605",
+        "1503",
+        "1514",
+        "9933",
+        "6196",
+        "5536",
+        "6691",
+        "6257"
+      ],
+      "symbolNames": [
+        {
+          "symbol": "2449",
+          "name": "京元電子"
+        },
+        {
+          "symbol": "3665",
+          "name": "貿聯"
+        },
+        {
+          "symbol": "2301",
+          "name": "光寶科"
+        },
+        {
+          "symbol": "3711",
+          "name": "日月光投控"
+        },
+        {
+          "symbol": "1504",
+          "name": "東元"
+        },
+        {
+          "symbol": "1513",
+          "name": "中興電"
+        },
+        {
+          "symbol": "1609",
+          "name": "大亞"
+        },
+        {
+          "symbol": "1605",
+          "name": "華新"
+        },
+        {
+          "symbol": "1503",
+          "name": "士電"
+        },
+        {
+          "symbol": "1514",
+          "name": "亞力"
+        },
+        {
+          "symbol": "9933",
+          "name": "中鼎"
+        },
+        {
+          "symbol": "6196",
+          "name": "帆宣"
+        },
+        {
+          "symbol": "5536",
+          "name": "聖暉*"
+        },
+        {
+          "symbol": "6691",
+          "name": "洋基工程"
+        },
+        {
+          "symbol": "6257",
+          "name": "矽格"
+        }
+      ],
+      "tags": [
+        "台股",
+        "多檔個股"
+      ],
+      "sourceFile": "tw_stock_eps_used_rules_validation_15stocks_20260622.html",
+      "url": "reports/tw_stock_eps_used_rules_validation_15stocks_20260622.html",
+      "bytes": 613366
+    },
     {
       "id": "us_multi_stock_analysis_20260618",
       "title": "美股電力、網路與資安個股分析 2026-06-21 basis 2026-06-18",
