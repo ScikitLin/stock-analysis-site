@@ -3,7 +3,7 @@ window.STOCK_REPORTS = {
   "siteDescription": "以資料完整性、估值情境與風控紀律整理的公開個股研究索引。",
   "disclaimer": "本網站內容僅供投資研究紀錄與討論，不構成個人化投資建議。資料可能延遲或不完整，請自行交叉驗證。",
   "feedbackIssueUrl": "https://github.com/ScikitLin/stock-analysis-site/issues/new",
-  "generatedAt": "2026-06-25T01:47:10.918880+00:00",
+  "generatedAt": "2026-06-28T02:36:40.296985+00:00",
   "sourceDir": "published_reports",
   "publishedFolder": "published_reports",
   "chartPreviews": [
@@ -26,8 +26,143 @@ window.STOCK_REPORTS = {
       "bytes": 169757
     }
   ],
-  "reportCount": 12,
+  "reportCount": 13,
   "reports": [
+    {
+      "id": "tw_stock_custom_ai_infra_19_stock_analysis_framework_20260626",
+      "title": "台股 AI/基建候選 19 檔個股分析（19 檔） 2026-06-26",
+      "heading": "台股 AI/基建候選 19 檔個股分析（19 檔）",
+      "summary": "1. 市場與持股閘門 2. 產業與國際情勢 4. Bear Case 5. 價格與部位 6. 來源數字 7. EPS 模組 8. 估值模組 9. 目標價階梯 10. 操作建議 11. 停損停利 12. 品質風險 13. 低 P/E 成長 14. Rerating / 倍數再評估 17. Price...",
+      "date": "2026-06-26",
+      "market": "tw",
+      "marketLabel": "台股",
+      "type": "custom",
+      "typeLabel": "指定個股",
+      "symbols": [
+        "3706",
+        "2421",
+        "3617",
+        "8103",
+        "3413",
+        "5439",
+        "3029",
+        "5388",
+        "8936",
+        "6146",
+        "1514",
+        "1503",
+        "1504",
+        "1609",
+        "3324",
+        "1773",
+        "6191",
+        "1608",
+        "9958",
+        "2026",
+        "2027",
+        "AI"
+      ],
+      "symbolNames": [
+        {
+          "symbol": "3706",
+          "name": "神達"
+        },
+        {
+          "symbol": "2421",
+          "name": "建準"
+        },
+        {
+          "symbol": "3617",
+          "name": "碩天"
+        },
+        {
+          "symbol": "8103",
+          "name": "瀚荃"
+        },
+        {
+          "symbol": "3413",
+          "name": "京鼎"
+        },
+        {
+          "symbol": "5439",
+          "name": "高技"
+        },
+        {
+          "symbol": "3029",
+          "name": "零壹"
+        },
+        {
+          "symbol": "5388",
+          "name": "中磊"
+        },
+        {
+          "symbol": "8936",
+          "name": "國統"
+        },
+        {
+          "symbol": "6146",
+          "name": "耕興"
+        },
+        {
+          "symbol": "1514",
+          "name": "亞力"
+        },
+        {
+          "symbol": "1503",
+          "name": "士電"
+        },
+        {
+          "symbol": "1504",
+          "name": "東元"
+        },
+        {
+          "symbol": "1609",
+          "name": "大亞"
+        },
+        {
+          "symbol": "3324",
+          "name": "雙鴻"
+        },
+        {
+          "symbol": "1773",
+          "name": "勝一"
+        },
+        {
+          "symbol": "6191",
+          "name": "精成科"
+        },
+        {
+          "symbol": "1608",
+          "name": "華榮"
+        },
+        {
+          "symbol": "9958",
+          "name": "世紀鋼"
+        },
+        {
+          "symbol": "2026",
+          "name": ""
+        },
+        {
+          "symbol": "2027",
+          "name": ""
+        },
+        {
+          "symbol": "AI",
+          "name": ""
+        }
+      ],
+      "tags": [
+        "台股",
+        "指定個股",
+        "分析框架",
+        "Bear/Base/Bull",
+        "自選清單"
+      ],
+      "sourceFile": "tw_stock_custom_ai_infra_19_stock_analysis_framework_20260626.html",
+      "url": "reports/tw_stock_custom_ai_infra_19_stock_analysis_framework_20260626.html",
+      "bytes": 880667
+    },
     {
       "id": "tw_stock_eps_used_rules_validation_15stocks_20260622",
       "title": "台股 EPS_used 規則驗證 15 檔完整分析（資料基準日 2026-06-22）（15 檔） 資料基準日 2026-06-22，更新 2026-06-25",
@@ -127,7 +262,7 @@ window.STOCK_REPORTS = {
     },
     {
       "id": "us_multi_stock_analysis_20260618",
-      "title": "美股電力、網路與資安個股分析 2026-06-21 basis 2026-06-18",
+      "title": "美股電力、網路與資安個股分析 2026-06-27 basis 2026-06-18",
       "heading": "美股電力、網路與資安個股分析",
       "summary": "1. 市場與持股閘門 3. Bear Case 4. 價格與部位 5. 來源數字 6. EPS 口徑 7. 估值模組 8. 目標價 9. 操作建議 10. 停損停利 11. 品質風險 12. Rerating / 倍數再評估 13. Price × Thesis 14. 事件 15. 下一驗證點...",
       "date": "2026-06-18",
@@ -136,16 +271,45 @@ window.STOCK_REPORTS = {
       "type": "multi",
       "typeLabel": "多檔個股",
       "symbols": [
+        "3447",
         "2026",
+        "2388",
         "2030",
         "2025",
+        "5929",
+        "0185",
+        "2982",
+        "4906",
+        "0251",
+        "2408",
+        "0481",
+        "6272",
+        "8163",
+        "1929",
+        "5398",
+        "4518",
+        "2769",
+        "4273",
         "2200",
+        "7712",
         "1900",
-        "4800"
+        "9283",
+        "2027",
+        "8429",
+        "4800",
+        "1273"
       ],
       "symbolNames": [
         {
+          "symbol": "3447",
+          "name": ""
+        },
+        {
           "symbol": "2026",
+          "name": ""
+        },
+        {
+          "symbol": "2388",
           "name": ""
         },
         {
@@ -157,7 +321,67 @@ window.STOCK_REPORTS = {
           "name": ""
         },
         {
+          "symbol": "5929",
+          "name": ""
+        },
+        {
+          "symbol": "0185",
+          "name": ""
+        },
+        {
+          "symbol": "2982",
+          "name": ""
+        },
+        {
+          "symbol": "4906",
+          "name": ""
+        },
+        {
+          "symbol": "0251",
+          "name": ""
+        },
+        {
+          "symbol": "2408",
+          "name": ""
+        },
+        {
+          "symbol": "0481",
+          "name": ""
+        },
+        {
+          "symbol": "6272",
+          "name": ""
+        },
+        {
+          "symbol": "8163",
+          "name": ""
+        },
+        {
+          "symbol": "1929",
+          "name": ""
+        },
+        {
+          "symbol": "5398",
+          "name": ""
+        },
+        {
+          "symbol": "4518",
+          "name": ""
+        },
+        {
+          "symbol": "2769",
+          "name": ""
+        },
+        {
+          "symbol": "4273",
+          "name": ""
+        },
+        {
           "symbol": "2200",
+          "name": ""
+        },
+        {
+          "symbol": "7712",
           "name": ""
         },
         {
@@ -165,7 +389,23 @@ window.STOCK_REPORTS = {
           "name": ""
         },
         {
+          "symbol": "9283",
+          "name": ""
+        },
+        {
+          "symbol": "2027",
+          "name": ""
+        },
+        {
+          "symbol": "8429",
+          "name": ""
+        },
+        {
           "symbol": "4800",
+          "name": ""
+        },
+        {
+          "symbol": "1273",
           "name": ""
         }
       ],
@@ -175,7 +415,7 @@ window.STOCK_REPORTS = {
       ],
       "sourceFile": "us_multi_stock_analysis_20260618.html",
       "url": "reports/us_multi_stock_analysis_20260618.html",
-      "bytes": 1126151
+      "bytes": 1578157
     },
     {
       "id": "us_custom_23_stock_analysis_20260621_basis_2026-06-18",
