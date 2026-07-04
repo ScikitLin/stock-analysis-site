@@ -3,7 +3,7 @@ window.STOCK_REPORTS = {
   "siteDescription": "以資料完整性、估值情境與風控紀律整理的公開個股研究索引。",
   "disclaimer": "本網站內容僅供投資研究紀錄與討論，不構成個人化投資建議。資料可能延遲或不完整，請自行交叉驗證。",
   "feedbackIssueUrl": "https://github.com/ScikitLin/stock-analysis-site/issues/new",
-  "generatedAt": "2026-07-03T15:04:37.003444+00:00",
+  "generatedAt": "2026-07-04T11:42:43.416421+00:00",
   "sourceDir": "published_reports",
   "publishedFolder": "published_reports",
   "chartPreviews": [
@@ -26,8 +26,217 @@ window.STOCK_REPORTS = {
       "bytes": 169757
     }
   ],
-  "reportCount": 16,
+  "reportCount": 18,
   "reports": [
+    {
+      "id": "tw_nonconsensus_25_stock_analysis_20260702",
+      "title": "台股非共識主題 25 檔個股分析（25 檔） 2026-07-02",
+      "heading": "台股非共識主題 25 檔個股分析（25 檔）",
+      "summary": "1. 市場與持股閘門 2. 產業與國際情勢 4. Bear Case 5. 價格與部位 6. 來源數字 7. EPS 模組 8. 估值模組 9. 目標價階梯 10. 操作建議 11. 停損停利 12. 品質風險 13. 低 P/E 成長 14. Rerating / 倍數再評估 17. Price...",
+      "date": "2026-07-02",
+      "market": "tw",
+      "marketLabel": "台股",
+      "type": "multi",
+      "typeLabel": "多檔個股",
+      "symbols": [
+        "8033",
+        "2634",
+        "4541",
+        "8222",
+        "3491",
+        "2314",
+        "6285",
+        "3596",
+        "3169",
+        "3022",
+        "6579",
+        "2395",
+        "6414",
+        "1590",
+        "1597",
+        "4576",
+        "4583",
+        "6679",
+        "3617",
+        "6282",
+        "6441",
+        "3029",
+        "6690",
+        "6214",
+        "6140",
+        "2026"
+      ],
+      "symbolNames": [
+        {
+          "symbol": "8033",
+          "name": "雷虎"
+        },
+        {
+          "symbol": "2634",
+          "name": "漢翔"
+        },
+        {
+          "symbol": "4541",
+          "name": "晟田"
+        },
+        {
+          "symbol": "8222",
+          "name": "寶一"
+        },
+        {
+          "symbol": "3491",
+          "name": "昇達科"
+        },
+        {
+          "symbol": "2314",
+          "name": "台揚"
+        },
+        {
+          "symbol": "6285",
+          "name": "啟碁"
+        },
+        {
+          "symbol": "3596",
+          "name": "智易"
+        },
+        {
+          "symbol": "3169",
+          "name": "亞信"
+        },
+        {
+          "symbol": "3022",
+          "name": "威強電"
+        },
+        {
+          "symbol": "6579",
+          "name": "研揚"
+        },
+        {
+          "symbol": "2395",
+          "name": "研華"
+        },
+        {
+          "symbol": "6414",
+          "name": "樺漢"
+        },
+        {
+          "symbol": "1590",
+          "name": "亞德客"
+        },
+        {
+          "symbol": "1597",
+          "name": "直得"
+        },
+        {
+          "symbol": "4576",
+          "name": "大銀微系統"
+        },
+        {
+          "symbol": "4583",
+          "name": "台灣精銳"
+        },
+        {
+          "symbol": "6679",
+          "name": "鈺太"
+        },
+        {
+          "symbol": "3617",
+          "name": "碩天"
+        },
+        {
+          "symbol": "6282",
+          "name": "康舒"
+        },
+        {
+          "symbol": "6441",
+          "name": "廣錠"
+        },
+        {
+          "symbol": "3029",
+          "name": "零壹"
+        },
+        {
+          "symbol": "6690",
+          "name": "安碁資訊"
+        },
+        {
+          "symbol": "6214",
+          "name": "精誠"
+        },
+        {
+          "symbol": "6140",
+          "name": "訊達"
+        },
+        {
+          "symbol": "2026",
+          "name": ""
+        }
+      ],
+      "tags": [
+        "台股",
+        "多檔個股"
+      ],
+      "sourceFile": "tw_nonconsensus_25_stock_analysis_20260702.html",
+      "url": "reports/tw_nonconsensus_25_stock_analysis_20260702.html",
+      "bytes": 1121382
+    },
+    {
+      "id": "us_google_capex_chips_servers_power_18_stock_analysis_20260704_basis_2026-07-02",
+      "title": "Google CapEx：晶片、伺服器、電力冷卻 18 檔完整分析 2026-07-04 basis 2026-07-02",
+      "heading": "Google CapEx：晶片、伺服器、電力冷卻 18 檔完整分析",
+      "summary": "1. 市場與持股閘門 3. Bear Case 4. 價格與部位 5. 來源數字 6. EPS 口徑 7. 估值模組 8. 目標價 9. 操作建議 10. 停損停利 11. 品質風險 12. Rerating / 倍數再評估 13. Price × Thesis 14. 事件 15. 下一驗證點...",
+      "date": "2026-07-02",
+      "market": "us",
+      "marketLabel": "美股",
+      "type": "multi",
+      "typeLabel": "多檔個股",
+      "symbols": [
+        "2026",
+        "2027",
+        "GOOGLE",
+        "CAPEX",
+        "CHIPS",
+        "POWER",
+        "BASIS"
+      ],
+      "symbolNames": [
+        {
+          "symbol": "2026",
+          "name": ""
+        },
+        {
+          "symbol": "2027",
+          "name": ""
+        },
+        {
+          "symbol": "GOOGLE",
+          "name": ""
+        },
+        {
+          "symbol": "CAPEX",
+          "name": ""
+        },
+        {
+          "symbol": "CHIPS",
+          "name": ""
+        },
+        {
+          "symbol": "POWER",
+          "name": ""
+        },
+        {
+          "symbol": "BASIS",
+          "name": ""
+        }
+      ],
+      "tags": [
+        "美股",
+        "多檔個股"
+      ],
+      "sourceFile": "us_google_capex_chips_servers_power_18_stock_analysis_20260704_basis_2026-07-02.html",
+      "url": "reports/us_google_capex_chips_servers_power_18_stock_analysis_20260704_basis_2026-07-02.html",
+      "bytes": 1371027
+    },
     {
       "id": "us_multi_stock_analysis_refresh_20260702_basis_2026-07-01",
       "title": "美股電力、網路與資安 20 檔更新分析 2026-07-02 basis 2026-07-01",
