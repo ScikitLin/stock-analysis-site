@@ -3,7 +3,7 @@
   "siteDescription": "以資料完整性、估值情境與風控紀律整理的公開個股研究索引。",
   "disclaimer": "本網站內容僅供投資研究紀錄與討論，不構成個人化投資建議。資料可能延遲或不完整，請自行交叉驗證。",
   "feedbackIssueUrl": "https://github.com/ScikitLin/stock-analysis-site/issues/new",
-  "generatedAt": "2026-07-05T04:13:35.018644+00:00",
+  "generatedAt": "2026-07-05T15:12:39.613771+00:00",
   "sourceDir": "published_reports",
   "publishedFolder": "published_reports",
   "chartPreviews": [
@@ -26,7 +26,7 @@
       "bytes": 169757
     }
   ],
-  "reportCount": 19,
+  "reportCount": 21,
   "reports": [
     {
       "id": "tw_nonconsensus_25_stock_analysis_20260702",
@@ -318,6 +318,335 @@
       "sourceFile": "us_google_capex_chips_servers_power_18_stock_analysis_20260704_basis_2026-07-02.html",
       "url": "reports/us_google_capex_chips_servers_power_18_stock_analysis_20260704_basis_2026-07-02.html",
       "bytes": 1341646
+    },
+    {
+      "id": "tw_google_capex_thermal_optical_packaging_24_20260702",
+      "title": "Google CapEx 台股受惠鏈：散熱、光通訊與先進封裝（24檔）（24 檔） 2026-07-02",
+      "heading": "Google CapEx 台股受惠鏈：散熱、光通訊與先進封裝（24檔）（24 檔）",
+      "summary": "1. 市場與持股閘門 2. 產業與國際情勢 4. Bear Case 5. 價格與部位 6. 來源數字 7. EPS 模組 8. 估值模組 9. 價格結論 10. 操作建議 11. 停損停利 12. 品質風險 13. 低 P/E 成長 14. Rerating / 倍數再評估 17. Price...",
+      "date": "2026-07-02",
+      "market": "tw",
+      "marketLabel": "台股",
+      "type": "multi",
+      "typeLabel": "多檔個股",
+      "symbols": [
+        "3017",
+        "3324",
+        "3653",
+        "6230",
+        "8996",
+        "2486",
+        "6805",
+        "6442",
+        "3163",
+        "4979",
+        "3363",
+        "3081",
+        "6451",
+        "3491",
+        "4908",
+        "2330",
+        "3711",
+        "2449",
+        "6515",
+        "6223",
+        "3131",
+        "3583",
+        "6187",
+        "5443",
+        "2026",
+        "2027",
+        "2028",
+        "3400"
+      ],
+      "symbolNames": [
+        {
+          "symbol": "3017",
+          "name": "奇鋐"
+        },
+        {
+          "symbol": "3324",
+          "name": "雙鴻"
+        },
+        {
+          "symbol": "3653",
+          "name": "健策"
+        },
+        {
+          "symbol": "6230",
+          "name": "尼得科超眾"
+        },
+        {
+          "symbol": "8996",
+          "name": "高力"
+        },
+        {
+          "symbol": "2486",
+          "name": "一詮"
+        },
+        {
+          "symbol": "6805",
+          "name": "富世達"
+        },
+        {
+          "symbol": "6442",
+          "name": "光聖"
+        },
+        {
+          "symbol": "3163",
+          "name": "波若威"
+        },
+        {
+          "symbol": "4979",
+          "name": "華星光"
+        },
+        {
+          "symbol": "3363",
+          "name": "上詮"
+        },
+        {
+          "symbol": "3081",
+          "name": "聯亞"
+        },
+        {
+          "symbol": "6451",
+          "name": "訊芯"
+        },
+        {
+          "symbol": "3491",
+          "name": "昇達科"
+        },
+        {
+          "symbol": "4908",
+          "name": "前鼎"
+        },
+        {
+          "symbol": "2330",
+          "name": "台積電"
+        },
+        {
+          "symbol": "3711",
+          "name": "日月光投控"
+        },
+        {
+          "symbol": "2449",
+          "name": "京元電子"
+        },
+        {
+          "symbol": "6515",
+          "name": "穎崴"
+        },
+        {
+          "symbol": "6223",
+          "name": "旺矽"
+        },
+        {
+          "symbol": "3131",
+          "name": "弘塑"
+        },
+        {
+          "symbol": "3583",
+          "name": "辛耘"
+        },
+        {
+          "symbol": "6187",
+          "name": "萬潤"
+        },
+        {
+          "symbol": "5443",
+          "name": "均豪"
+        },
+        {
+          "symbol": "2026",
+          "name": ""
+        },
+        {
+          "symbol": "2027",
+          "name": ""
+        },
+        {
+          "symbol": "2028",
+          "name": ""
+        },
+        {
+          "symbol": "3400",
+          "name": ""
+        }
+      ],
+      "tags": [
+        "台股",
+        "多檔個股"
+      ],
+      "sourceFile": "tw_google_capex_thermal_optical_packaging_24_20260702.html",
+      "url": "reports/tw_google_capex_thermal_optical_packaging_24_20260702.html",
+      "bytes": 1428822
+    },
+    {
+      "id": "tw_google_capex_odm_pcb_power_25_20260702",
+      "title": "Google CapEx 台股受惠鏈：ODM、PCB與電源（25檔）（25 檔） 2026-07-02",
+      "heading": "Google CapEx 台股受惠鏈：ODM、PCB與電源（25檔）（25 檔）",
+      "summary": "1. 市場與持股閘門 2. 產業與國際情勢 4. Bear Case 5. 價格與部位 6. 來源數字 7. EPS 模組 8. 估值模組 9. 價格結論 10. 操作建議 11. 停損停利 12. 品質風險 13. 低 P/E 成長 14. Rerating / 倍數再評估 17. Price...",
+      "date": "2026-07-02",
+      "market": "tw",
+      "marketLabel": "台股",
+      "type": "multi",
+      "typeLabel": "多檔個股",
+      "symbols": [
+        "6669",
+        "2382",
+        "3231",
+        "2317",
+        "2356",
+        "3706",
+        "2376",
+        "2377",
+        "4958",
+        "3037",
+        "3189",
+        "8046",
+        "2368",
+        "2383",
+        "6274",
+        "6213",
+        "3715",
+        "2313",
+        "2308",
+        "3617",
+        "6282",
+        "3023",
+        "6285",
+        "3015",
+        "6412",
+        "2026",
+        "2027",
+        "2028",
+        "ODM"
+      ],
+      "symbolNames": [
+        {
+          "symbol": "6669",
+          "name": "緯穎"
+        },
+        {
+          "symbol": "2382",
+          "name": "廣達"
+        },
+        {
+          "symbol": "3231",
+          "name": "緯創"
+        },
+        {
+          "symbol": "2317",
+          "name": "鴻海"
+        },
+        {
+          "symbol": "2356",
+          "name": "英業達"
+        },
+        {
+          "symbol": "3706",
+          "name": "神達"
+        },
+        {
+          "symbol": "2376",
+          "name": "技嘉"
+        },
+        {
+          "symbol": "2377",
+          "name": "微星"
+        },
+        {
+          "symbol": "4958",
+          "name": "臻鼎"
+        },
+        {
+          "symbol": "3037",
+          "name": "欣興"
+        },
+        {
+          "symbol": "3189",
+          "name": "景碩"
+        },
+        {
+          "symbol": "8046",
+          "name": "南電"
+        },
+        {
+          "symbol": "2368",
+          "name": "金像電"
+        },
+        {
+          "symbol": "2383",
+          "name": "台光電"
+        },
+        {
+          "symbol": "6274",
+          "name": "台燿"
+        },
+        {
+          "symbol": "6213",
+          "name": "聯茂"
+        },
+        {
+          "symbol": "3715",
+          "name": "定穎投控"
+        },
+        {
+          "symbol": "2313",
+          "name": "華通"
+        },
+        {
+          "symbol": "2308",
+          "name": "台達電"
+        },
+        {
+          "symbol": "3617",
+          "name": "碩天"
+        },
+        {
+          "symbol": "6282",
+          "name": "康舒"
+        },
+        {
+          "symbol": "3023",
+          "name": "信邦"
+        },
+        {
+          "symbol": "6285",
+          "name": "啟碁"
+        },
+        {
+          "symbol": "3015",
+          "name": "全漢"
+        },
+        {
+          "symbol": "6412",
+          "name": "群電"
+        },
+        {
+          "symbol": "2026",
+          "name": ""
+        },
+        {
+          "symbol": "2027",
+          "name": ""
+        },
+        {
+          "symbol": "2028",
+          "name": ""
+        },
+        {
+          "symbol": "ODM",
+          "name": ""
+        }
+      ],
+      "tags": [
+        "台股",
+        "多檔個股"
+      ],
+      "sourceFile": "tw_google_capex_odm_pcb_power_25_20260702.html",
+      "url": "reports/tw_google_capex_odm_pcb_power_25_20260702.html",
+      "bytes": 1490491
     },
     {
       "id": "us_multi_stock_analysis_refresh_20260702_basis_2026-07-01",
