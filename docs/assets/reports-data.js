@@ -3,7 +3,7 @@ window.STOCK_REPORTS = {
   "siteDescription": "以資料完整性、估值情境與風控紀律整理的公開個股研究索引。",
   "disclaimer": "本網站內容僅供投資研究紀錄與討論，不構成個人化投資建議。資料可能延遲或不完整，請自行交叉驗證。",
   "feedbackIssueUrl": "https://github.com/ScikitLin/stock-analysis-site/issues/new",
-  "generatedAt": "2026-07-04T11:42:43.416421+00:00",
+  "generatedAt": "2026-07-05T04:10:57.226573+00:00",
   "sourceDir": "published_reports",
   "publishedFolder": "published_reports",
   "chartPreviews": [
@@ -26,7 +26,7 @@ window.STOCK_REPORTS = {
       "bytes": 169757
     }
   ],
-  "reportCount": 18,
+  "reportCount": 19,
   "reports": [
     {
       "id": "tw_nonconsensus_25_stock_analysis_20260702",
@@ -181,6 +181,88 @@ window.STOCK_REPORTS = {
       "bytes": 1121382
     },
     {
+      "id": "us_google_capex_network_energy_16_stock_analysis_20260704_basis_2026-07-02",
+      "title": "Google CapEx：網路光通訊、電網能源 16 檔完整分析 2026-07-04 basis 2026-07-02",
+      "heading": "Google CapEx：網路光通訊、電網能源 16 檔完整分析",
+      "summary": "1. 市場與持股閘門 3. Bear Case 4. 價格與部位 5. 來源數字 6. EPS 口徑 7. 估值模組 8. 目標價 9. 操作建議 10. 停損停利 11. 品質風險 12. Rerating / 倍數再評估 13. Price × Thesis 14. 事件 15. 下一驗證點...",
+      "date": "2026-07-02",
+      "market": "us",
+      "marketLabel": "美股",
+      "type": "multi",
+      "typeLabel": "多檔個股",
+      "symbols": [
+        "2027",
+        "2026",
+        "0900",
+        "4400",
+        "2025",
+        "2029",
+        "2031",
+        "0200",
+        "GOOGLE",
+        "CAPEX",
+        "ENERGY",
+        "BASIS"
+      ],
+      "symbolNames": [
+        {
+          "symbol": "2027",
+          "name": ""
+        },
+        {
+          "symbol": "2026",
+          "name": ""
+        },
+        {
+          "symbol": "0900",
+          "name": ""
+        },
+        {
+          "symbol": "4400",
+          "name": ""
+        },
+        {
+          "symbol": "2025",
+          "name": ""
+        },
+        {
+          "symbol": "2029",
+          "name": ""
+        },
+        {
+          "symbol": "2031",
+          "name": ""
+        },
+        {
+          "symbol": "0200",
+          "name": ""
+        },
+        {
+          "symbol": "GOOGLE",
+          "name": ""
+        },
+        {
+          "symbol": "CAPEX",
+          "name": ""
+        },
+        {
+          "symbol": "ENERGY",
+          "name": ""
+        },
+        {
+          "symbol": "BASIS",
+          "name": ""
+        }
+      ],
+      "tags": [
+        "美股",
+        "多檔個股"
+      ],
+      "sourceFile": "us_google_capex_network_energy_16_stock_analysis_20260704_basis_2026-07-02.html",
+      "url": "reports/us_google_capex_network_energy_16_stock_analysis_20260704_basis_2026-07-02.html",
+      "bytes": 1181291
+    },
+    {
       "id": "us_google_capex_chips_servers_power_18_stock_analysis_20260704_basis_2026-07-02",
       "title": "Google CapEx：晶片、伺服器、電力冷卻 18 檔完整分析 2026-07-04 basis 2026-07-02",
       "heading": "Google CapEx：晶片、伺服器、電力冷卻 18 檔完整分析",
@@ -235,7 +317,7 @@ window.STOCK_REPORTS = {
       ],
       "sourceFile": "us_google_capex_chips_servers_power_18_stock_analysis_20260704_basis_2026-07-02.html",
       "url": "reports/us_google_capex_chips_servers_power_18_stock_analysis_20260704_basis_2026-07-02.html",
-      "bytes": 1371027
+      "bytes": 1341646
     },
     {
       "id": "us_multi_stock_analysis_refresh_20260702_basis_2026-07-01",
