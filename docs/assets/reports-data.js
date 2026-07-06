@@ -3,7 +3,7 @@ window.STOCK_REPORTS = {
   "siteDescription": "以資料完整性、估值情境與風控紀律整理的公開個股研究索引。",
   "disclaimer": "本網站內容僅供投資研究紀錄與討論，不構成個人化投資建議。資料可能延遲或不完整，請自行交叉驗證。",
   "feedbackIssueUrl": "https://github.com/ScikitLin/stock-analysis-site/issues/new",
-  "generatedAt": "2026-07-05T15:12:39.613771+00:00",
+  "generatedAt": "2026-07-06T15:12:45.019720+00:00",
   "sourceDir": "published_reports",
   "publishedFolder": "published_reports",
   "chartPreviews": [
@@ -321,8 +321,8 @@ window.STOCK_REPORTS = {
     },
     {
       "id": "tw_google_capex_thermal_optical_packaging_24_20260702",
-      "title": "Google CapEx 台股受惠鏈：散熱、光通訊與先進封裝（24檔）（24 檔） 2026-07-02",
-      "heading": "Google CapEx 台股受惠鏈：散熱、光通訊與先進封裝（24檔）（24 檔）",
+      "title": "Google CapEx：散熱、光通訊與先進封裝（24檔）（24 檔） 2026-07-02",
+      "heading": "Google CapEx：散熱、光通訊與先進封裝（24檔）（24 檔）",
       "summary": "1. 市場與持股閘門 2. 產業與國際情勢 4. Bear Case 5. 價格與部位 6. 來源數字 7. EPS 模組 8. 估值模組 9. 價格結論 10. 操作建議 11. 停損停利 12. 品質風險 13. 低 P/E 成長 14. Rerating / 倍數再評估 17. Price...",
       "date": "2026-07-02",
       "market": "tw",
@@ -479,12 +479,12 @@ window.STOCK_REPORTS = {
       ],
       "sourceFile": "tw_google_capex_thermal_optical_packaging_24_20260702.html",
       "url": "reports/tw_google_capex_thermal_optical_packaging_24_20260702.html",
-      "bytes": 1428822
+      "bytes": 1553370
     },
     {
       "id": "tw_google_capex_odm_pcb_power_25_20260702",
-      "title": "Google CapEx 台股受惠鏈：ODM、PCB與電源（25檔）（25 檔） 2026-07-02",
-      "heading": "Google CapEx 台股受惠鏈：ODM、PCB與電源（25檔）（25 檔）",
+      "title": "Google CapEx：ODM、PCB與電源（25檔）（25 檔） 2026-07-02",
+      "heading": "Google CapEx：ODM、PCB與電源（25檔）（25 檔）",
       "summary": "1. 市場與持股閘門 2. 產業與國際情勢 4. Bear Case 5. 價格與部位 6. 來源數字 7. EPS 模組 8. 估值模組 9. 價格結論 10. 操作建議 11. 停損停利 12. 品質風險 13. 低 P/E 成長 14. Rerating / 倍數再評估 17. Price...",
       "date": "2026-07-02",
       "market": "tw",
@@ -646,7 +646,7 @@ window.STOCK_REPORTS = {
       ],
       "sourceFile": "tw_google_capex_odm_pcb_power_25_20260702.html",
       "url": "reports/tw_google_capex_odm_pcb_power_25_20260702.html",
-      "bytes": 1490491
+      "bytes": 1618513
     },
     {
       "id": "us_multi_stock_analysis_refresh_20260702_basis_2026-07-01",
