@@ -287,6 +287,14 @@ function tradingChartDomain(values, includeZero = false) {
   return [min - pad, max + pad];
 }
 
+function tradingApplyDomainBounds(domain, options = {}) {
+  const bounded = [...domain];
+  if (Number.isFinite(options.minY)) bounded[0] = options.minY;
+  if (Number.isFinite(options.maxY)) bounded[1] = Math.min(bounded[1], options.maxY);
+  if (bounded[0] === bounded[1]) bounded[1] = bounded[0] + 1;
+  return bounded;
+}
+
 function tradingSteppedTicks(domain, step) {
   if (!Number.isFinite(step) || step <= 0) return null;
   const start = Math.floor(domain[0] / step) * step;
@@ -295,7 +303,7 @@ function tradingSteppedTicks(domain, step) {
   for (let value = start; value <= end + step * 0.001; value += step) {
     ticks.push(value);
   }
-  return ticks.length >= 2 && ticks.length <= 12 ? ticks : null;
+  return ticks.length >= 2 ? ticks : null;
 }
 
 function tradingScale(value, domain, range) {
@@ -315,6 +323,22 @@ function tradingTimeDomain(series) {
   const min = Math.min(...values);
   const max = Math.max(...values);
   return min === max ? [min, min + 86400000] : [min, max];
+}
+
+function tradingMonthlyDateTicks(xDomain) {
+  const [start, end] = xDomain;
+  const ticks = [];
+  const cursor = new Date(start);
+  cursor.setUTCDate(1);
+  cursor.setUTCHours(0, 0, 0, 0);
+  while (cursor.getTime() <= end) {
+    [5, 15, 25].forEach((day) => {
+      const tick = Date.UTC(cursor.getUTCFullYear(), cursor.getUTCMonth(), day);
+      if (tick >= start && tick <= end) ticks.push(tick);
+    });
+    cursor.setUTCMonth(cursor.getUTCMonth() + 1);
+  }
+  return ticks.length ? ticks : [start, end];
 }
 
 function tradingPointX(point, index, xDomain, dims) {
@@ -401,17 +425,16 @@ function renderTradingLineChart(container, market, series, definitions, options 
     return;
   }
 
-  const dims = { width: 920, height: 360, left: 118, right: 888, top: 42, bottom: 278 };
+  const dims = { width: 980, height: 390, left: 132, right: 944, top: 44, bottom: 300 };
   const values = definitions.flatMap((definition) => series.map((point) => definition.value(point)));
-  const rawDomain = options.domain || tradingChartDomain(values, options.includeZero);
+  const rawDomain = tradingApplyDomainBounds(options.domain || tradingChartDomain(values, options.includeZero), options);
   const steppedTicks = tradingSteppedTicks(rawDomain, options.yTickStep);
   const yDomain = steppedTicks ? [steppedTicks[0], steppedTicks[steppedTicks.length - 1]] : rawDomain;
   const yTicks = steppedTicks || Array.from({ length: 4 }, (_, index) => yDomain[0] + ((yDomain[1] - yDomain[0]) * index) / 3);
   const xDomain = tradingTimeDomain(series);
-  const xTickCount = 8;
-  const xTicks = Array.from(
-    { length: xTickCount },
-    (_, index) => xDomain[0] + ((xDomain[1] - xDomain[0]) * index) / (xTickCount - 1)
+  const xTicks = options.monthlyDateTicks ? tradingMonthlyDateTicks(xDomain) : Array.from(
+    { length: 8 },
+    (_, index) => xDomain[0] + ((xDomain[1] - xDomain[0]) * index) / 7
   );
   const eventMap = options.showTradeEvents ? tradingEventsByDate(market) : new Map();
   const rawEventEntries = Array.from(eventMap.entries()).map(([date, trades]) => {
@@ -482,7 +505,7 @@ function renderTradingLineChart(container, market, series, definitions, options 
       }).join("")}
       <g class="trading-legend">
         ${definitions.map((definition, index) => `
-          <g transform="translate(${dims.left + index * 150} 330)">
+          <g transform="translate(${dims.left + index * 150} 358)">
             <line x1="0" x2="22" y1="0" y2="0" stroke="${definition.color}" stroke-width="3"></line>
             <text x="30" y="4">${escapeHtml(definition.label)}</text>
           </g>
@@ -783,6 +806,8 @@ function renderTrading() {
     }
   ], {
     label: "總資產曲線",
+    monthlyDateTicks: true,
+    yTickStep: market.market === "tw" ? 50000 : market.market === "us" ? 1000 : undefined,
     showTradeEvents: true,
     pointTooltip: (point, itemMarket) => `
       <strong>${escapeHtml(point.date)}</strong>
@@ -809,6 +834,8 @@ function renderTrading() {
   ], {
     label: "損益曲線",
     includeZero: true,
+    minY: 0,
+    monthlyDateTicks: true,
     yTickStep: market.market === "tw" ? 50000 : market.market === "us" ? 1000 : undefined,
     showTradeEvents: true,
     pointTooltip: (point, itemMarket) => `
