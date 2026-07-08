@@ -196,7 +196,7 @@ def build_post_sale_analysis(market_key: str, market: dict, history_payload: dic
         observed = post_sale[: POST_SALE_WINDOWS[-1]]
         highs = [float(item["high"]) for item in observed if item.get("high") is not None]
         lows = [float(item["low"]) for item in observed if item.get("low") is not None]
-        latest = history[-1] if history else None
+        latest = post_sale[-1] if post_sale else None
         rows.append(
             {
                 "eventId": f"{trade['sellDate']}-{trade['symbol']}-{index + 1}",

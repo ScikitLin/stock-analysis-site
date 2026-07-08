@@ -704,7 +704,7 @@ function renderTradingExitAnalysis(market) {
     ...windows.map((window) => ({ key: String(window), label: `${window} 日`, value: (row) => row.returns?.[String(window)]?.returnPct })),
     { key: "mfe", label: "最高", value: (row) => row.mfePct },
     { key: "mae", label: "最低", value: (row) => row.maePct },
-    { key: "latest", label: "最新", value: (row) => row.latestReturnPct }
+    { key: "latest", label: "賣後最新", value: (row) => row.latestReturnPct }
   ];
   elements.tradingExitHeatmap.innerHTML = `
     <div class="exit-heatmap-grid" style="--exit-columns:${columns.length}">
@@ -715,7 +715,7 @@ function renderTradingExitAnalysis(market) {
             `<strong>${escapeHtml(`${row.symbol} ${row.name}`)}</strong>`,
             `<span>賣出 ${escapeHtml(row.sellDate)} · ${escapeHtml(formatTradingShares(row.shares))} 股</span>`,
             `<span>賣出價 ${escapeHtml(formatTradingNumber(row.sellPrice, 2))}</span>`,
-            `<span>最新 ${escapeHtml(row.latestDate || "--")} · ${escapeHtml(Number.isFinite(row.latestPrice) ? formatTradingNumber(row.latestPrice, 2) : "--")}</span>`,
+            `<span>賣後最新 ${escapeHtml(row.latestDate || "--")} · ${escapeHtml(Number.isFinite(row.latestPrice) ? formatTradingNumber(row.latestPrice, 2) : "--")}</span>`,
             `<span>已觀察 ${escapeHtml(formatTradingNumber(row.observedTradingDays, 0))} 個交易日</span>`
           ].join("");
           return `

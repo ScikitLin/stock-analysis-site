@@ -1718,9 +1718,9 @@ window.TRADING_DASHBOARD = {
             },
             "mfePct": null,
             "maePct": null,
-            "latestDate": "2026-07-06",
-            "latestPrice": 209.0,
-            "latestReturnPct": 3.9800995024875663
+            "latestDate": null,
+            "latestPrice": null,
+            "latestReturnPct": null
           },
           {
             "eventId": "2026-07-08-6732-22",
@@ -1760,9 +1760,9 @@ window.TRADING_DASHBOARD = {
             },
             "mfePct": null,
             "maePct": null,
-            "latestDate": "2026-07-06",
-            "latestPrice": 209.0,
-            "latestReturnPct": 3.9800995024875663
+            "latestDate": null,
+            "latestPrice": null,
+            "latestReturnPct": null
           },
           {
             "eventId": "2026-07-08-6732-23",
@@ -1802,9 +1802,9 @@ window.TRADING_DASHBOARD = {
             },
             "mfePct": null,
             "maePct": null,
-            "latestDate": "2026-07-06",
-            "latestPrice": 209.0,
-            "latestReturnPct": 6.632653061224492
+            "latestDate": null,
+            "latestPrice": null,
+            "latestReturnPct": null
           },
           {
             "eventId": "2026-06-15-00830-24",
@@ -4170,9 +4170,9 @@ window.TRADING_DASHBOARD = {
             },
             "mfePct": null,
             "maePct": null,
-            "latestDate": "2026-06-18",
-            "latestPrice": 1109.73,
-            "latestReturnPct": 1.5306495882891236
+            "latestDate": null,
+            "latestPrice": null,
+            "latestReturnPct": null
           },
           {
             "eventId": "2026-06-22-TSM-22",
@@ -4212,9 +4212,9 @@ window.TRADING_DASHBOARD = {
             },
             "mfePct": null,
             "maePct": null,
-            "latestDate": "2026-06-18",
-            "latestPrice": 462.12,
-            "latestReturnPct": -1.885350318471335
+            "latestDate": null,
+            "latestPrice": null,
+            "latestReturnPct": null
           },
           {
             "eventId": "2026-06-30-TSM-23",
@@ -4254,9 +4254,9 @@ window.TRADING_DASHBOARD = {
             },
             "mfePct": null,
             "maePct": null,
-            "latestDate": "2026-06-18",
-            "latestPrice": 462.12,
-            "latestReturnPct": -1.9082592175925006
+            "latestDate": null,
+            "latestPrice": null,
+            "latestReturnPct": null
           }
         ],
         "postSalePriceThrough": "2026-06-18"
