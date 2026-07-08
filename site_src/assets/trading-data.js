@@ -847,40 +847,40 @@ window.TRADING_DASHBOARD = {
             "name": "國泰費城半導體",
             "shares": 1000.0,
             "sellPrice": 58.65,
-            "observedTradingDays": 2,
-            "status": "observing",
+            "observedTradingDays": 63,
+            "status": "complete",
             "returns": {
               "1": {
-                "date": "2026-07-03",
-                "price": 92.8,
-                "returnPct": 58.22676896845695
+                "date": "2026-04-09",
+                "price": 59.35,
+                "returnPct": 1.193520886615529
               },
               "3": {
-                "date": null,
-                "price": null,
-                "returnPct": null
+                "date": "2026-04-13",
+                "price": 61.65,
+                "returnPct": 5.115089514066495
               },
               "5": {
-                "date": null,
-                "price": null,
-                "returnPct": null
+                "date": "2026-04-15",
+                "price": 64.45,
+                "returnPct": 9.889173060528567
               },
               "10": {
-                "date": null,
-                "price": null,
-                "returnPct": null
+                "date": "2026-04-22",
+                "price": 68.05,
+                "returnPct": 16.027280477408357
               },
               "20": {
-                "date": null,
-                "price": null,
-                "returnPct": null
+                "date": "2026-05-07",
+                "price": 79.55,
+                "returnPct": 35.63512361466326
               }
             },
-            "mfePct": 58.31202046035806,
-            "maePct": 54.134697357203756,
-            "latestDate": "2026-07-06",
-            "latestPrice": 92.4,
-            "latestReturnPct": 57.5447570332481
+            "mfePct": 35.80562659846549,
+            "maePct": 0.8525149190110826,
+            "latestDate": "2026-07-08",
+            "latestPrice": 88.55,
+            "latestReturnPct": 50.98039215686274
           },
           {
             "eventId": "2026-04-08-00830-2",
@@ -889,40 +889,40 @@ window.TRADING_DASHBOARD = {
             "name": "國泰費城半導體",
             "shares": 845.0,
             "sellPrice": 58.55,
-            "observedTradingDays": 2,
-            "status": "observing",
+            "observedTradingDays": 63,
+            "status": "complete",
             "returns": {
               "1": {
-                "date": "2026-07-03",
-                "price": 92.8,
-                "returnPct": 58.497011101622554
+                "date": "2026-04-09",
+                "price": 59.35,
+                "returnPct": 1.366353543979515
               },
               "3": {
-                "date": null,
-                "price": null,
-                "returnPct": null
+                "date": "2026-04-13",
+                "price": 61.65,
+                "returnPct": 5.294619982920579
               },
               "5": {
-                "date": null,
-                "price": null,
-                "returnPct": null
+                "date": "2026-04-15",
+                "price": 64.45,
+                "returnPct": 10.076857386848847
               },
               "10": {
-                "date": null,
-                "price": null,
-                "returnPct": null
+                "date": "2026-04-22",
+                "price": 68.05,
+                "returnPct": 16.22544833475661
               },
               "20": {
-                "date": null,
-                "price": null,
-                "returnPct": null
+                "date": "2026-05-07",
+                "price": 79.55,
+                "returnPct": 35.86678052946199
               }
             },
-            "mfePct": 58.58240819812126,
-            "maePct": 54.397950469684055,
-            "latestDate": "2026-07-06",
-            "latestPrice": 92.4,
-            "latestReturnPct": 57.813834329632805
+            "mfePct": 36.03757472245945,
+            "maePct": 1.0247651579846417,
+            "latestDate": "2026-07-08",
+            "latestPrice": 88.55,
+            "latestReturnPct": 51.23825789923142
           },
           {
             "eventId": "2026-04-08-2353-3",
@@ -931,13 +931,13 @@ window.TRADING_DASHBOARD = {
             "name": "宏碁",
             "shares": 2000.0,
             "sellPrice": 27.35,
-            "observedTradingDays": 60,
+            "observedTradingDays": 63,
             "status": "complete",
             "returns": {
               "1": {
                 "date": "2026-04-09",
-                "price": 26.5,
-                "returnPct": -3.1078610603290757
+                "price": 27.1,
+                "returnPct": -0.9140767824497242
               },
               "3": {
                 "date": "2026-04-13",
@@ -961,10 +961,10 @@ window.TRADING_DASHBOARD = {
               }
             },
             "mfePct": 6.764168190127973,
-            "maePct": -3.290676416819016,
-            "latestDate": "2026-07-06",
-            "latestPrice": 32.8,
-            "latestReturnPct": 19.926873857404015
+            "maePct": -1.2797074954296161,
+            "latestDate": "2026-07-08",
+            "latestPrice": 32.3,
+            "latestReturnPct": 18.098720292504545
           },
           {
             "eventId": "2026-04-08-2353-4",
@@ -973,13 +973,13 @@ window.TRADING_DASHBOARD = {
             "name": "宏碁",
             "shares": 2000.0,
             "sellPrice": 27.35,
-            "observedTradingDays": 60,
+            "observedTradingDays": 63,
             "status": "complete",
             "returns": {
               "1": {
                 "date": "2026-04-09",
-                "price": 26.5,
-                "returnPct": -3.1078610603290757
+                "price": 27.1,
+                "returnPct": -0.9140767824497242
               },
               "3": {
                 "date": "2026-04-13",
@@ -1003,10 +1003,10 @@ window.TRADING_DASHBOARD = {
               }
             },
             "mfePct": 6.764168190127973,
-            "maePct": -3.290676416819016,
-            "latestDate": "2026-07-06",
-            "latestPrice": 32.8,
-            "latestReturnPct": 19.926873857404015
+            "maePct": -1.2797074954296161,
+            "latestDate": "2026-07-08",
+            "latestPrice": 32.3,
+            "latestReturnPct": 18.098720292504545
           },
           {
             "eventId": "2026-04-10-6488-5",
@@ -1015,7 +1015,7 @@ window.TRADING_DASHBOARD = {
             "name": "環球晶",
             "shares": 250.0,
             "sellPrice": 486.0,
-            "observedTradingDays": 59,
+            "observedTradingDays": 61,
             "status": "complete",
             "returns": {
               "1": {
@@ -1046,9 +1046,9 @@ window.TRADING_DASHBOARD = {
             },
             "mfePct": 74.69135802469135,
             "maePct": -0.8230452674897082,
-            "latestDate": "2026-07-06",
-            "latestPrice": 1335.0,
-            "latestReturnPct": 174.69135802469137
+            "latestDate": "2026-07-08",
+            "latestPrice": 1230.0,
+            "latestReturnPct": 153.08641975308643
           },
           {
             "eventId": "2026-04-24-00830-6",
@@ -1057,40 +1057,40 @@ window.TRADING_DASHBOARD = {
             "name": "國泰費城半導體",
             "shares": 309.0,
             "sellPrice": 71.55,
-            "observedTradingDays": 2,
-            "status": "observing",
+            "observedTradingDays": 51,
+            "status": "complete",
             "returns": {
               "1": {
-                "date": "2026-07-03",
-                "price": 92.8,
-                "returnPct": 29.699510831586306
+                "date": "2026-04-27",
+                "price": 73.7,
+                "returnPct": 3.004891684136979
               },
               "3": {
-                "date": null,
-                "price": null,
-                "returnPct": null
+                "date": "2026-04-29",
+                "price": 71.05,
+                "returnPct": -0.6988120195667413
               },
               "5": {
-                "date": null,
-                "price": null,
-                "returnPct": null
+                "date": "2026-05-04",
+                "price": 75.1,
+                "returnPct": 4.9615653389238235
               },
               "10": {
-                "date": null,
-                "price": null,
-                "returnPct": null
+                "date": "2026-05-11",
+                "price": 82.3,
+                "returnPct": 15.024458420684827
               },
               "20": {
-                "date": null,
-                "price": null,
-                "returnPct": null
+                "date": "2026-05-25",
+                "price": 87.8,
+                "returnPct": 22.71139063591894
               }
             },
-            "mfePct": 29.769392033542985,
-            "maePct": 26.34521313766598,
-            "latestDate": "2026-07-06",
-            "latestPrice": 92.4,
-            "latestReturnPct": 29.140461215932923
+            "mfePct": 22.781271837875614,
+            "maePct": -1.607267645003485,
+            "latestDate": "2026-07-08",
+            "latestPrice": 88.55,
+            "latestReturnPct": 23.75960866526905
           },
           {
             "eventId": "2026-04-29-00757-7",
@@ -1099,40 +1099,40 @@ window.TRADING_DASHBOARD = {
             "name": "統一 FANG+",
             "shares": 2000.0,
             "sellPrice": 120.9,
-            "observedTradingDays": 2,
-            "status": "observing",
+            "observedTradingDays": 48,
+            "status": "complete",
             "returns": {
               "1": {
-                "date": "2026-07-03",
-                "price": 129.1,
-                "returnPct": 6.782464846980973
+                "date": "2026-04-30",
+                "price": 120.8,
+                "returnPct": -0.08271298593880427
               },
               "3": {
-                "date": null,
-                "price": null,
-                "returnPct": null
+                "date": "2026-05-05",
+                "price": 122.85,
+                "returnPct": 1.6129032258064502
               },
               "5": {
-                "date": null,
-                "price": null,
-                "returnPct": null
+                "date": "2026-05-07",
+                "price": 124.45,
+                "returnPct": 2.9363110008271187
               },
               "10": {
-                "date": null,
-                "price": null,
-                "returnPct": null
+                "date": "2026-05-14",
+                "price": 129.05,
+                "returnPct": 6.741108354011582
               },
               "20": {
-                "date": null,
-                "price": null,
-                "returnPct": null
+                "date": "2026-05-28",
+                "price": 130.55,
+                "returnPct": 7.981803143093469
               }
             },
-            "mfePct": 7.526881720430101,
-            "maePct": 6.079404466501237,
-            "latestDate": "2026-07-06",
-            "latestPrice": 129.8,
-            "latestReturnPct": 7.361455748552537
+            "mfePct": 9.181141439205941,
+            "maePct": -0.20678246484697738,
+            "latestDate": "2026-07-08",
+            "latestPrice": 130.45,
+            "latestReturnPct": 7.899090157154665
           },
           {
             "eventId": "2026-04-29-2377-8",
@@ -1141,7 +1141,7 @@ window.TRADING_DASHBOARD = {
             "name": "微星",
             "shares": 500.0,
             "sellPrice": 100.0,
-            "observedTradingDays": 46,
+            "observedTradingDays": 48,
             "status": "complete",
             "returns": {
               "1": {
@@ -1172,9 +1172,9 @@ window.TRADING_DASHBOARD = {
             },
             "mfePct": 36.00000000000001,
             "maePct": -5.500000000000005,
-            "latestDate": "2026-07-06",
-            "latestPrice": 142.5,
-            "latestReturnPct": 42.50000000000001
+            "latestDate": "2026-07-08",
+            "latestPrice": 142.0,
+            "latestReturnPct": 41.99999999999999
           },
           {
             "eventId": "2026-05-13-2377-9",
@@ -1183,7 +1183,7 @@ window.TRADING_DASHBOARD = {
             "name": "微星",
             "shares": 500.0,
             "sellPrice": 113.0,
-            "observedTradingDays": 37,
+            "observedTradingDays": 39,
             "status": "complete",
             "returns": {
               "1": {
@@ -1214,9 +1214,9 @@ window.TRADING_DASHBOARD = {
             },
             "mfePct": 34.95575221238938,
             "maePct": -4.424778761061942,
-            "latestDate": "2026-07-06",
-            "latestPrice": 142.5,
-            "latestReturnPct": 26.106194690265493
+            "latestDate": "2026-07-08",
+            "latestPrice": 142.0,
+            "latestReturnPct": 25.663716814159287
           },
           {
             "eventId": "2026-05-22-6907-10",
@@ -1225,7 +1225,7 @@ window.TRADING_DASHBOARD = {
             "name": "雅特力-KY",
             "shares": 1000.0,
             "sellPrice": 119.5,
-            "observedTradingDays": 30,
+            "observedTradingDays": 32,
             "status": "complete",
             "returns": {
               "1": {
@@ -1256,9 +1256,9 @@ window.TRADING_DASHBOARD = {
             },
             "mfePct": 47.28033472803348,
             "maePct": -3.347280334728031,
-            "latestDate": "2026-07-06",
-            "latestPrice": 187.5,
-            "latestReturnPct": 56.90376569037656
+            "latestDate": "2026-07-08",
+            "latestPrice": 189.0,
+            "latestReturnPct": 58.15899581589959
           },
           {
             "eventId": "2026-05-28-6143-11",
@@ -1267,7 +1267,7 @@ window.TRADING_DASHBOARD = {
             "name": "振曜",
             "shares": 1000.0,
             "sellPrice": 102.5,
-            "observedTradingDays": 26,
+            "observedTradingDays": 28,
             "status": "complete",
             "returns": {
               "1": {
@@ -1298,9 +1298,9 @@ window.TRADING_DASHBOARD = {
             },
             "mfePct": 0.4878048780487809,
             "maePct": -15.024390243902442,
-            "latestDate": "2026-07-06",
-            "latestPrice": 108.5,
-            "latestReturnPct": 5.853658536585371
+            "latestDate": "2026-07-08",
+            "latestPrice": 104.0,
+            "latestReturnPct": 1.4634146341463428
           },
           {
             "eventId": "2026-06-08-3141-12",
@@ -1309,8 +1309,8 @@ window.TRADING_DASHBOARD = {
             "name": "晶宏",
             "shares": 1000.0,
             "sellPrice": 66.9,
-            "observedTradingDays": 19,
-            "status": "observing",
+            "observedTradingDays": 21,
+            "status": "complete",
             "returns": {
               "1": {
                 "date": "2026-06-09",
@@ -1333,16 +1333,16 @@ window.TRADING_DASHBOARD = {
                 "returnPct": 12.257100149476807
               },
               "20": {
-                "date": null,
-                "price": null,
-                "returnPct": null
+                "date": "2026-07-07",
+                "price": 75.1,
+                "returnPct": 12.257100149476807
               }
             },
             "mfePct": 27.2047832585949,
             "maePct": 2.9895366218236186,
-            "latestDate": "2026-07-06",
-            "latestPrice": 83.2,
-            "latestReturnPct": 24.36472346786247
+            "latestDate": "2026-07-08",
+            "latestPrice": 74.7,
+            "latestReturnPct": 11.659192825112097
           },
           {
             "eventId": "2026-06-08-4739-13",
@@ -1351,8 +1351,8 @@ window.TRADING_DASHBOARD = {
             "name": "康普",
             "shares": 1000.0,
             "sellPrice": 115.0,
-            "observedTradingDays": 19,
-            "status": "observing",
+            "observedTradingDays": 20,
+            "status": "complete",
             "returns": {
               "1": {
                 "date": "2026-06-09",
@@ -1375,16 +1375,16 @@ window.TRADING_DASHBOARD = {
                 "returnPct": 6.08695652173914
               },
               "20": {
-                "date": null,
-                "price": null,
-                "returnPct": null
+                "date": "2026-07-08",
+                "price": 109.514,
+                "returnPct": -4.770434782608701
               }
             },
             "mfePct": 16.956521739130427,
             "maePct": -10.434782608695647,
-            "latestDate": "2026-07-06",
-            "latestPrice": 115.5,
-            "latestReturnPct": 0.43478260869564966
+            "latestDate": "2026-07-08",
+            "latestPrice": 109.514,
+            "latestReturnPct": -4.770434782608701
           },
           {
             "eventId": "2026-06-09-2379-14",
@@ -1393,8 +1393,8 @@ window.TRADING_DASHBOARD = {
             "name": "瑞昱",
             "shares": 55.0,
             "sellPrice": 631.0,
-            "observedTradingDays": 18,
-            "status": "observing",
+            "observedTradingDays": 20,
+            "status": "complete",
             "returns": {
               "1": {
                 "date": "2026-06-10",
@@ -1417,16 +1417,16 @@ window.TRADING_DASHBOARD = {
                 "returnPct": 27.258320126782888
               },
               "20": {
-                "date": null,
-                "price": null,
-                "returnPct": null
+                "date": "2026-07-08",
+                "price": 817.0,
+                "returnPct": 29.47702060221871
               }
             },
             "mfePct": 53.72424722662441,
             "maePct": -4.5958795562599075,
-            "latestDate": "2026-07-06",
-            "latestPrice": 769.0,
-            "latestReturnPct": 21.870047543581617
+            "latestDate": "2026-07-08",
+            "latestPrice": 817.0,
+            "latestReturnPct": 29.47702060221871
           },
           {
             "eventId": "2026-06-12-6907-15",
@@ -1435,7 +1435,7 @@ window.TRADING_DASHBOARD = {
             "name": "雅特力-KY",
             "shares": 50.0,
             "sellPrice": 142.5,
-            "observedTradingDays": 15,
+            "observedTradingDays": 17,
             "status": "observing",
             "returns": {
               "1": {
@@ -1464,11 +1464,11 @@ window.TRADING_DASHBOARD = {
                 "returnPct": null
               }
             },
-            "mfePct": 31.578947368421062,
+            "mfePct": 34.73684210526316,
             "maePct": -8.070175438596493,
-            "latestDate": "2026-07-06",
-            "latestPrice": 187.5,
-            "latestReturnPct": 31.578947368421062
+            "latestDate": "2026-07-08",
+            "latestPrice": 189.0,
+            "latestReturnPct": 32.63157894736841
           },
           {
             "eventId": "2026-06-15-00830-16",
@@ -1477,28 +1477,28 @@ window.TRADING_DASHBOARD = {
             "name": "國泰費城半導體",
             "shares": 673.0,
             "sellPrice": 97.6,
-            "observedTradingDays": 2,
+            "observedTradingDays": 16,
             "status": "observing",
             "returns": {
               "1": {
-                "date": "2026-07-03",
-                "price": 92.8,
-                "returnPct": -4.91803278688524
+                "date": "2026-06-16",
+                "price": 98.45,
+                "returnPct": 0.8709016393442681
               },
               "3": {
-                "date": null,
-                "price": null,
-                "returnPct": null
+                "date": "2026-06-18",
+                "price": 97.0,
+                "returnPct": -0.6147540983606481
               },
               "5": {
-                "date": null,
-                "price": null,
-                "returnPct": null
+                "date": "2026-06-23",
+                "price": 99.3,
+                "returnPct": 1.7418032786885362
               },
               "10": {
-                "date": null,
-                "price": null,
-                "returnPct": null
+                "date": "2026-06-30",
+                "price": 97.8,
+                "returnPct": 0.2049180327868827
               },
               "20": {
                 "date": null,
@@ -1506,11 +1506,11 @@ window.TRADING_DASHBOARD = {
                 "returnPct": null
               }
             },
-            "mfePct": -4.866803278688526,
-            "maePct": -7.377049180327855,
-            "latestDate": "2026-07-06",
-            "latestPrice": 92.4,
-            "latestReturnPct": -5.327868852459005
+            "mfePct": 4.713114754098369,
+            "maePct": -9.784836065573765,
+            "latestDate": "2026-07-08",
+            "latestPrice": 88.55,
+            "latestReturnPct": -9.272540983606559
           },
           {
             "eventId": "2026-06-16-00830-17",
@@ -1519,28 +1519,28 @@ window.TRADING_DASHBOARD = {
             "name": "國泰費城半導體",
             "shares": 41.0,
             "sellPrice": 98.15,
-            "observedTradingDays": 2,
+            "observedTradingDays": 15,
             "status": "observing",
             "returns": {
               "1": {
-                "date": "2026-07-03",
-                "price": 92.8,
-                "returnPct": -5.450840550178304
+                "date": "2026-06-17",
+                "price": 95.6,
+                "returnPct": -2.5980641874681742
               },
               "3": {
-                "date": null,
-                "price": null,
-                "returnPct": null
+                "date": "2026-06-22",
+                "price": 100.6,
+                "returnPct": 2.496179317371361
               },
               "5": {
-                "date": null,
-                "price": null,
-                "returnPct": null
+                "date": "2026-06-24",
+                "price": 96.7,
+                "returnPct": -1.4773306164034716
               },
               "10": {
-                "date": null,
-                "price": null,
-                "returnPct": null
+                "date": "2026-07-01",
+                "price": 99.85,
+                "returnPct": 1.7320427916454273
               },
               "20": {
                 "date": null,
@@ -1548,11 +1548,11 @@ window.TRADING_DASHBOARD = {
                 "returnPct": null
               }
             },
-            "mfePct": -5.39989811512992,
-            "maePct": -7.8960774325012695,
-            "latestDate": "2026-07-06",
-            "latestPrice": 92.4,
-            "latestReturnPct": -5.858380030565458
+            "mfePct": 4.126337238920019,
+            "maePct": -10.290371879775861,
+            "latestDate": "2026-07-08",
+            "latestPrice": 88.55,
+            "latestReturnPct": -9.780947529291906
           },
           {
             "eventId": "2026-06-16-2317-18",
@@ -1561,7 +1561,7 @@ window.TRADING_DASHBOARD = {
             "name": "鴻海",
             "shares": 300.0,
             "sellPrice": 270.0,
-            "observedTradingDays": 13,
+            "observedTradingDays": 15,
             "status": "observing",
             "returns": {
               "1": {
@@ -1591,10 +1591,10 @@ window.TRADING_DASHBOARD = {
               }
             },
             "mfePct": 2.037037037037037,
-            "maePct": -12.592592592592588,
-            "latestDate": "2026-07-06",
-            "latestPrice": 242.0,
-            "latestReturnPct": -10.370370370370374
+            "maePct": -13.33333333333333,
+            "latestDate": "2026-07-08",
+            "latestPrice": 237.5,
+            "latestReturnPct": -12.037037037037035
           },
           {
             "eventId": "2026-06-17-4739-19",
@@ -1603,7 +1603,7 @@ window.TRADING_DASHBOARD = {
             "name": "康普",
             "shares": 500.0,
             "sellPrice": 120.5,
-            "observedTradingDays": 12,
+            "observedTradingDays": 13,
             "status": "observing",
             "returns": {
               "1": {
@@ -1634,9 +1634,9 @@ window.TRADING_DASHBOARD = {
             },
             "mfePct": 6.224066390041494,
             "maePct": -14.522821576763489,
-            "latestDate": "2026-07-06",
-            "latestPrice": 115.5,
-            "latestReturnPct": -4.149377593360992
+            "latestDate": "2026-07-08",
+            "latestPrice": 109.514,
+            "latestReturnPct": -9.117012448132789
           },
           {
             "eventId": "2026-06-22-2317-20",
@@ -1645,7 +1645,7 @@ window.TRADING_DASHBOARD = {
             "name": "鴻海",
             "shares": 300.0,
             "sellPrice": 275.0,
-            "observedTradingDays": 10,
+            "observedTradingDays": 12,
             "status": "observing",
             "returns": {
               "1": {
@@ -1675,10 +1675,10 @@ window.TRADING_DASHBOARD = {
               }
             },
             "mfePct": -1.6363636363636358,
-            "maePct": -14.181818181818183,
-            "latestDate": "2026-07-06",
-            "latestPrice": 242.0,
-            "latestReturnPct": -12.0
+            "maePct": -14.909090909090905,
+            "latestDate": "2026-07-08",
+            "latestPrice": 237.5,
+            "latestReturnPct": -13.636363636363635
           },
           {
             "eventId": "2026-07-07-6732-21",
@@ -1687,13 +1687,13 @@ window.TRADING_DASHBOARD = {
             "name": "昇佳電子",
             "shares": 400.0,
             "sellPrice": 201.0,
-            "observedTradingDays": 0,
+            "observedTradingDays": 1,
             "status": "observing",
             "returns": {
               "1": {
-                "date": null,
-                "price": null,
-                "returnPct": null
+                "date": "2026-07-08",
+                "price": 198.5,
+                "returnPct": -1.243781094527363
               },
               "3": {
                 "date": null,
@@ -1716,11 +1716,11 @@ window.TRADING_DASHBOARD = {
                 "returnPct": null
               }
             },
-            "mfePct": null,
-            "maePct": null,
-            "latestDate": null,
-            "latestPrice": null,
-            "latestReturnPct": null
+            "mfePct": 5.223880597014929,
+            "maePct": -2.736318407960203,
+            "latestDate": "2026-07-08",
+            "latestPrice": 198.5,
+            "latestReturnPct": -1.243781094527363
           },
           {
             "eventId": "2026-07-08-6732-22",
@@ -1760,9 +1760,9 @@ window.TRADING_DASHBOARD = {
             },
             "mfePct": null,
             "maePct": null,
-            "latestDate": null,
-            "latestPrice": null,
-            "latestReturnPct": null
+            "latestDate": "2026-07-08",
+            "latestPrice": 198.5,
+            "latestReturnPct": -1.243781094527363
           },
           {
             "eventId": "2026-07-08-6732-23",
@@ -1802,9 +1802,9 @@ window.TRADING_DASHBOARD = {
             },
             "mfePct": null,
             "maePct": null,
-            "latestDate": null,
-            "latestPrice": null,
-            "latestReturnPct": null
+            "latestDate": "2026-07-08",
+            "latestPrice": 198.5,
+            "latestReturnPct": 1.2755102040816313
           },
           {
             "eventId": "2026-06-15-00830-24",
@@ -1813,28 +1813,28 @@ window.TRADING_DASHBOARD = {
             "name": "國泰費城半導體",
             "shares": 561.0,
             "sellPrice": 97.65,
-            "observedTradingDays": 2,
+            "observedTradingDays": 16,
             "status": "observing",
             "returns": {
               "1": {
-                "date": "2026-07-03",
-                "price": 92.8,
-                "returnPct": -4.9667178699436825
+                "date": "2026-06-16",
+                "price": 98.45,
+                "returnPct": 0.8192524321556593
               },
               "3": {
-                "date": null,
-                "price": null,
-                "returnPct": null
+                "date": "2026-06-18",
+                "price": 97.0,
+                "returnPct": -0.6656426011264815
               },
               "5": {
-                "date": null,
-                "price": null,
-                "returnPct": null
+                "date": "2026-06-23",
+                "price": 99.3,
+                "returnPct": 1.6897081413210335
               },
               "10": {
-                "date": null,
-                "price": null,
-                "returnPct": null
+                "date": "2026-06-30",
+                "price": 97.8,
+                "returnPct": 0.1536098310291667
               },
               "20": {
                 "date": null,
@@ -1842,11 +1842,11 @@ window.TRADING_DASHBOARD = {
                 "returnPct": null
               }
             },
-            "mfePct": -4.915514592933956,
-            "maePct": -7.424475166410649,
-            "latestDate": "2026-07-06",
-            "latestPrice": 92.4,
-            "latestReturnPct": -5.376344086021501
+            "mfePct": 4.659498207885293,
+            "maePct": -9.831029185867902,
+            "latestDate": "2026-07-08",
+            "latestPrice": 88.55,
+            "latestReturnPct": -9.31899641577062
           },
           {
             "eventId": "2026-04-24-00830-25",
@@ -1855,40 +1855,40 @@ window.TRADING_DASHBOARD = {
             "name": "國泰費城半導體",
             "shares": 363.0,
             "sellPrice": 71.55,
-            "observedTradingDays": 2,
-            "status": "observing",
+            "observedTradingDays": 51,
+            "status": "complete",
             "returns": {
               "1": {
-                "date": "2026-07-03",
-                "price": 92.8,
-                "returnPct": 29.699510831586306
+                "date": "2026-04-27",
+                "price": 73.7,
+                "returnPct": 3.004891684136979
               },
               "3": {
-                "date": null,
-                "price": null,
-                "returnPct": null
+                "date": "2026-04-29",
+                "price": 71.05,
+                "returnPct": -0.6988120195667413
               },
               "5": {
-                "date": null,
-                "price": null,
-                "returnPct": null
+                "date": "2026-05-04",
+                "price": 75.1,
+                "returnPct": 4.9615653389238235
               },
               "10": {
-                "date": null,
-                "price": null,
-                "returnPct": null
+                "date": "2026-05-11",
+                "price": 82.3,
+                "returnPct": 15.024458420684827
               },
               "20": {
-                "date": null,
-                "price": null,
-                "returnPct": null
+                "date": "2026-05-25",
+                "price": 87.8,
+                "returnPct": 22.71139063591894
               }
             },
-            "mfePct": 29.769392033542985,
-            "maePct": 26.34521313766598,
-            "latestDate": "2026-07-06",
-            "latestPrice": 92.4,
-            "latestReturnPct": 29.140461215932923
+            "mfePct": 22.781271837875614,
+            "maePct": -1.607267645003485,
+            "latestDate": "2026-07-08",
+            "latestPrice": 88.55,
+            "latestReturnPct": 23.75960866526905
           },
           {
             "eventId": "2026-04-08-00830-26",
@@ -1897,40 +1897,40 @@ window.TRADING_DASHBOARD = {
             "name": "國泰費城半導體",
             "shares": 1396.0,
             "sellPrice": 58.69,
-            "observedTradingDays": 2,
-            "status": "observing",
+            "observedTradingDays": 63,
+            "status": "complete",
             "returns": {
               "1": {
-                "date": "2026-07-03",
-                "price": 92.8,
-                "returnPct": 58.11892997103425
+                "date": "2026-04-09",
+                "price": 59.35,
+                "returnPct": 1.1245527347077955
               },
               "3": {
-                "date": null,
-                "price": null,
-                "returnPct": null
+                "date": "2026-04-13",
+                "price": 61.65,
+                "returnPct": 5.043448628386438
               },
               "5": {
-                "date": null,
-                "price": null,
-                "returnPct": null
+                "date": "2026-04-15",
+                "price": 64.45,
+                "returnPct": 9.814278411995247
               },
               "10": {
-                "date": null,
-                "price": null,
-                "returnPct": null
+                "date": "2026-04-22",
+                "price": 68.05,
+                "returnPct": 15.94820241949224
               },
               "20": {
-                "date": null,
-                "price": null,
-                "returnPct": null
+                "date": "2026-05-07",
+                "price": 79.55,
+                "returnPct": 35.54268188788549
               }
             },
-            "mfePct": 58.204123360027246,
-            "maePct": 54.029647299369586,
-            "latestDate": "2026-07-06",
-            "latestPrice": 92.4,
-            "latestReturnPct": 57.43738285909015
+            "mfePct": 35.71306866587154,
+            "maePct": 0.7837791787357329,
+            "latestDate": "2026-07-08",
+            "latestPrice": 88.55,
+            "latestReturnPct": 50.877491906628045
           },
           {
             "eventId": "2026-03-25-6907-27",
@@ -1939,7 +1939,7 @@ window.TRADING_DASHBOARD = {
             "name": "雅特力-KY",
             "shares": 1000.0,
             "sellPrice": 132.5,
-            "observedTradingDays": 69,
+            "observedTradingDays": 71,
             "status": "complete",
             "returns": {
               "1": {
@@ -1970,12 +1970,12 @@ window.TRADING_DASHBOARD = {
             },
             "mfePct": 15.849056603773581,
             "maePct": -25.962264150943405,
-            "latestDate": "2026-07-06",
-            "latestPrice": 187.5,
-            "latestReturnPct": 41.50943396226414
+            "latestDate": "2026-07-08",
+            "latestPrice": 189.0,
+            "latestReturnPct": 42.641509433962256
           }
         ],
-        "postSalePriceThrough": "2026-07-06"
+        "postSalePriceThrough": "2026-07-08"
       },
       "validation": {
         "status": "warning",
@@ -3299,7 +3299,7 @@ window.TRADING_DASHBOARD = {
             "name": "TSMC(ADR)",
             "shares": 20.48,
             "sellPrice": 365.48,
-            "observedTradingDays": 50,
+            "observedTradingDays": 61,
             "status": "complete",
             "returns": {
               "1": {
@@ -3330,9 +3330,9 @@ window.TRADING_DASHBOARD = {
             },
             "mfePct": 14.835285104520079,
             "maePct": -1.3489110211229116,
-            "latestDate": "2026-06-18",
-            "latestPrice": 462.12,
-            "latestReturnPct": 26.44193936740724
+            "latestDate": "2026-07-07",
+            "latestPrice": 432.57,
+            "latestReturnPct": 18.356681624165482
           },
           {
             "eventId": "2026-04-21-UNH-2",
@@ -3341,7 +3341,7 @@ window.TRADING_DASHBOARD = {
             "name": "UnitedHealth",
             "shares": 35.5498,
             "sellPrice": 353.62,
-            "observedTradingDays": 41,
+            "observedTradingDays": 52,
             "status": "complete",
             "returns": {
               "1": {
@@ -3372,9 +3372,9 @@ window.TRADING_DASHBOARD = {
             },
             "mfePct": 14.289350149878398,
             "maePct": -1.3206266613879358,
-            "latestDate": "2026-06-18",
-            "latestPrice": 400.96,
-            "latestReturnPct": 13.387251852270786
+            "latestDate": "2026-07-07",
+            "latestPrice": 428.19,
+            "latestReturnPct": 21.087608166958873
           },
           {
             "eventId": "2026-05-29-NTAP-3",
@@ -3383,8 +3383,8 @@ window.TRADING_DASHBOARD = {
             "name": "NetApp",
             "shares": 15.0,
             "sellPrice": 183.236,
-            "observedTradingDays": 14,
-            "status": "observing",
+            "observedTradingDays": 25,
+            "status": "complete",
             "returns": {
               "1": {
                 "date": "2026-06-01",
@@ -3407,16 +3407,16 @@ window.TRADING_DASHBOARD = {
                 "returnPct": -11.802265930275702
               },
               "20": {
-                "date": null,
-                "price": null,
-                "returnPct": null
+                "date": "2026-06-29",
+                "price": 155.06,
+                "returnPct": -15.376891003951187
               }
             },
             "mfePct": 1.7976816782728333,
-            "maePct": -16.321028618830347,
-            "latestDate": "2026-06-18",
-            "latestPrice": 159.71,
-            "latestReturnPct": -12.839180073784618
+            "maePct": -18.535113187364928,
+            "latestDate": "2026-07-07",
+            "latestPrice": 165.78,
+            "latestReturnPct": -9.526512257416664
           },
           {
             "eventId": "2026-06-01-HPE-4",
@@ -3425,8 +3425,8 @@ window.TRADING_DASHBOARD = {
             "name": "HP Enterprise",
             "shares": 30.0,
             "sellPrice": 44.4,
-            "observedTradingDays": 13,
-            "status": "observing",
+            "observedTradingDays": 24,
+            "status": "complete",
             "returns": {
               "1": {
                 "date": "2026-06-02",
@@ -3449,16 +3449,16 @@ window.TRADING_DASHBOARD = {
                 "returnPct": 10.405405405405421
               },
               "20": {
-                "date": null,
-                "price": null,
-                "returnPct": null
+                "date": "2026-06-30",
+                "price": 45.11,
+                "returnPct": 1.5990990990990994
               }
             },
             "mfePct": 44.70720720720722,
-            "maePct": 0.765765765765769,
-            "latestDate": "2026-06-18",
-            "latestPrice": 47.41,
-            "latestReturnPct": 6.779279279279282
+            "maePct": -4.436936936936931,
+            "latestDate": "2026-07-07",
+            "latestPrice": 43.47,
+            "latestReturnPct": -2.09459459459459
           },
           {
             "eventId": "2026-06-02-COHR-5",
@@ -3467,8 +3467,8 @@ window.TRADING_DASHBOARD = {
             "name": "Coherent",
             "shares": 5.0,
             "sellPrice": 396.16,
-            "observedTradingDays": 12,
-            "status": "observing",
+            "observedTradingDays": 23,
+            "status": "complete",
             "returns": {
               "1": {
                 "date": "2026-06-03",
@@ -3491,16 +3491,16 @@ window.TRADING_DASHBOARD = {
                 "returnPct": -3.369850565428112
               },
               "20": {
-                "date": null,
-                "price": null,
-                "returnPct": null
+                "date": "2026-07-01",
+                "price": 368.65,
+                "returnPct": -6.9441639741518735
               }
             },
             "mfePct": 11.066235864297248,
             "maePct": -15.3170436187399,
-            "latestDate": "2026-06-18",
-            "latestPrice": 389.57,
-            "latestReturnPct": -1.6634693053311889
+            "latestDate": "2026-07-07",
+            "latestPrice": 314.13,
+            "latestReturnPct": -20.7062802907916
           },
           {
             "eventId": "2026-06-02-QCOM-6",
@@ -3509,8 +3509,8 @@ window.TRADING_DASHBOARD = {
             "name": "Qualcomm",
             "shares": 5.0,
             "sellPrice": 240.487,
-            "observedTradingDays": 12,
-            "status": "observing",
+            "observedTradingDays": 23,
+            "status": "complete",
             "returns": {
               "1": {
                 "date": "2026-06-03",
@@ -3533,16 +3533,16 @@ window.TRADING_DASHBOARD = {
                 "returnPct": -10.984793356813471
               },
               "20": {
-                "date": null,
-                "price": null,
-                "returnPct": null
+                "date": "2026-07-01",
+                "price": 181.92,
+                "returnPct": -24.35349935755363
               }
             },
             "mfePct": 6.072261702295756,
-            "maePct": -20.952068095156907,
-            "latestDate": "2026-06-18",
-            "latestPrice": 226.11,
-            "latestReturnPct": -5.978285728542487
+            "maePct": -24.48656268322196,
+            "latestDate": "2026-07-07",
+            "latestPrice": 182.97,
+            "latestReturnPct": -23.91688532020442
           },
           {
             "eventId": "2026-06-02-QCOM-7",
@@ -3551,8 +3551,8 @@ window.TRADING_DASHBOARD = {
             "name": "Qualcomm",
             "shares": 5.0,
             "sellPrice": 234.5,
-            "observedTradingDays": 12,
-            "status": "observing",
+            "observedTradingDays": 23,
+            "status": "complete",
             "returns": {
               "1": {
                 "date": "2026-06-03",
@@ -3575,16 +3575,16 @@ window.TRADING_DASHBOARD = {
                 "returnPct": -8.712153518123667
               },
               "20": {
-                "date": null,
-                "price": null,
-                "returnPct": null
+                "date": "2026-07-01",
+                "price": 181.92,
+                "returnPct": -22.422174840085297
               }
             },
             "mfePct": 8.780383795309167,
-            "maePct": -18.93390191897655,
-            "latestDate": "2026-06-18",
-            "latestPrice": 226.11,
-            "latestReturnPct": -3.577825159914705
+            "maePct": -22.558635394456296,
+            "latestDate": "2026-07-07",
+            "latestPrice": 182.97,
+            "latestReturnPct": -21.974413646055435
           },
           {
             "eventId": "2026-06-03-GEV-8",
@@ -3593,8 +3593,8 @@ window.TRADING_DASHBOARD = {
             "name": "GE Vernova",
             "shares": 2.0,
             "sellPrice": 987.4,
-            "observedTradingDays": 11,
-            "status": "observing",
+            "observedTradingDays": 22,
+            "status": "complete",
             "returns": {
               "1": {
                 "date": "2026-06-04",
@@ -3617,16 +3617,16 @@ window.TRADING_DASHBOARD = {
                 "returnPct": 6.224427790155951
               },
               "20": {
-                "date": null,
-                "price": null,
-                "returnPct": null
+                "date": "2026-07-02",
+                "price": 1113.11,
+                "returnPct": 12.731415839578686
               }
             },
-            "mfePct": 13.222604820741356,
+            "mfePct": 19.32347579501723,
             "maePct": -13.306663965971232,
-            "latestDate": "2026-06-18",
-            "latestPrice": 1109.73,
-            "latestReturnPct": 12.389102693943688
+            "latestDate": "2026-07-07",
+            "latestPrice": 1077.08,
+            "latestReturnPct": 9.082438727972452
           },
           {
             "eventId": "2026-06-03-GEV-9",
@@ -3635,8 +3635,8 @@ window.TRADING_DASHBOARD = {
             "name": "GE Vernova",
             "shares": 1.0,
             "sellPrice": 985.0,
-            "observedTradingDays": 11,
-            "status": "observing",
+            "observedTradingDays": 22,
+            "status": "complete",
             "returns": {
               "1": {
                 "date": "2026-06-04",
@@ -3659,16 +3659,16 @@ window.TRADING_DASHBOARD = {
                 "returnPct": 6.483248730964464
               },
               "20": {
-                "date": null,
-                "price": null,
-                "returnPct": null
+                "date": "2026-07-02",
+                "price": 1113.11,
+                "returnPct": 13.00609137055837
               }
             },
-            "mfePct": 13.498477157360412,
+            "mfePct": 19.614213197969544,
             "maePct": -13.09543147208122,
-            "latestDate": "2026-06-18",
-            "latestPrice": 1109.73,
-            "latestReturnPct": 12.66294416243654
+            "latestDate": "2026-07-07",
+            "latestPrice": 1077.08,
+            "latestReturnPct": 9.348223350253804
           },
           {
             "eventId": "2026-06-03-UNH-10",
@@ -3677,8 +3677,8 @@ window.TRADING_DASHBOARD = {
             "name": "UnitedHealth",
             "shares": 5.23211,
             "sellPrice": 385.3,
-            "observedTradingDays": 11,
-            "status": "observing",
+            "observedTradingDays": 22,
+            "status": "complete",
             "returns": {
               "1": {
                 "date": "2026-06-04",
@@ -3701,16 +3701,16 @@ window.TRADING_DASHBOARD = {
                 "returnPct": 3.693226057617438
               },
               "20": {
-                "date": null,
-                "price": null,
-                "returnPct": null
+                "date": "2026-07-02",
+                "price": 425.36,
+                "returnPct": 10.397093174150008
               }
             },
-            "mfePct": 7.962626524785876,
+            "mfePct": 11.65325720218011,
             "maePct": 1.1731118608876212,
-            "latestDate": "2026-06-18",
-            "latestPrice": 400.96,
-            "latestReturnPct": 4.06436542953541
+            "latestDate": "2026-07-07",
+            "latestPrice": 428.19,
+            "latestReturnPct": 11.131585777316367
           },
           {
             "eventId": "2026-06-05-NTAP-11",
@@ -3719,8 +3719,8 @@ window.TRADING_DASHBOARD = {
             "name": "NetApp",
             "shares": 6.0,
             "sellPrice": 169.65,
-            "observedTradingDays": 9,
-            "status": "observing",
+            "observedTradingDays": 20,
+            "status": "complete",
             "returns": {
               "1": {
                 "date": "2026-06-08",
@@ -3738,21 +3738,21 @@ window.TRADING_DASHBOARD = {
                 "returnPct": -4.7391688770999085
               },
               "10": {
-                "date": null,
-                "price": null,
-                "returnPct": null
+                "date": "2026-06-22",
+                "price": 158.31,
+                "returnPct": -6.684350132625994
               },
               "20": {
-                "date": null,
-                "price": null,
-                "returnPct": null
+                "date": "2026-07-07",
+                "price": 165.78,
+                "returnPct": -2.2811671087533236
               }
             },
             "mfePct": 1.4146772767462457,
-            "maePct": -9.619805481874444,
-            "latestDate": "2026-06-18",
-            "latestPrice": 159.71,
-            "latestReturnPct": -5.859121721190686
+            "maePct": -12.011199528440908,
+            "latestDate": "2026-07-07",
+            "latestPrice": 165.78,
+            "latestReturnPct": -2.2811671087533236
           },
           {
             "eventId": "2026-06-05-COHR-12",
@@ -3761,8 +3761,8 @@ window.TRADING_DASHBOARD = {
             "name": "Coherent",
             "shares": 3.0,
             "sellPrice": 401.5,
-            "observedTradingDays": 9,
-            "status": "observing",
+            "observedTradingDays": 20,
+            "status": "complete",
             "returns": {
               "1": {
                 "date": "2026-06-08",
@@ -3780,21 +3780,21 @@ window.TRADING_DASHBOARD = {
                 "returnPct": -4.102117061021183
               },
               "10": {
-                "date": null,
-                "price": null,
-                "returnPct": null
+                "date": "2026-06-22",
+                "price": 425.48,
+                "returnPct": 5.972602739726041
               },
               "20": {
-                "date": null,
-                "price": null,
-                "returnPct": null
+                "date": "2026-07-07",
+                "price": 314.13,
+                "returnPct": -21.760896637608973
               }
             },
-            "mfePct": 5.603985056039851,
-            "maePct": -16.443337484433375,
-            "latestDate": "2026-06-18",
-            "latestPrice": 389.57,
-            "latestReturnPct": -2.971357409713571
+            "mfePct": 9.5093399750934,
+            "maePct": -24.267745952677455,
+            "latestDate": "2026-07-07",
+            "latestPrice": 314.13,
+            "latestReturnPct": -21.760896637608973
           },
           {
             "eventId": "2026-06-05-COHR-13",
@@ -3803,8 +3803,8 @@ window.TRADING_DASHBOARD = {
             "name": "Coherent",
             "shares": 3.0,
             "sellPrice": 403.2,
-            "observedTradingDays": 9,
-            "status": "observing",
+            "observedTradingDays": 20,
+            "status": "complete",
             "returns": {
               "1": {
                 "date": "2026-06-08",
@@ -3822,21 +3822,21 @@ window.TRADING_DASHBOARD = {
                 "returnPct": -4.506448412698417
               },
               "10": {
-                "date": null,
-                "price": null,
-                "returnPct": null
+                "date": "2026-06-22",
+                "price": 425.48,
+                "returnPct": 5.5257936507936645
               },
               "20": {
-                "date": null,
-                "price": null,
-                "returnPct": null
+                "date": "2026-07-07",
+                "price": 314.13,
+                "returnPct": -22.09077380952381
               }
             },
-            "mfePct": 5.158730158730163,
-            "maePct": -16.795634920634917,
-            "latestDate": "2026-06-18",
-            "latestPrice": 389.57,
-            "latestReturnPct": -3.380456349206351
+            "mfePct": 9.04761904761906,
+            "maePct": -24.587053571428573,
+            "latestDate": "2026-07-07",
+            "latestPrice": 314.13,
+            "latestReturnPct": -22.09077380952381
           },
           {
             "eventId": "2026-06-08-ETN-14",
@@ -3845,7 +3845,7 @@ window.TRADING_DASHBOARD = {
             "name": "Eaton",
             "shares": 4.0,
             "sellPrice": 405.171,
-            "observedTradingDays": 8,
+            "observedTradingDays": 19,
             "status": "observing",
             "returns": {
               "1": {
@@ -3864,9 +3864,9 @@ window.TRADING_DASHBOARD = {
                 "returnPct": 0.4662229034160914
               },
               "10": {
-                "date": null,
-                "price": null,
-                "returnPct": null
+                "date": "2026-06-23",
+                "price": 405.28,
+                "returnPct": 0.0269022215311443
               },
               "20": {
                 "date": null,
@@ -3874,11 +3874,11 @@ window.TRADING_DASHBOARD = {
                 "returnPct": null
               }
             },
-            "mfePct": 5.121047656421607,
+            "mfePct": 7.791525059789572,
             "maePct": -7.43661318307578,
-            "latestDate": "2026-06-18",
-            "latestPrice": 421.77,
-            "latestReturnPct": 4.096788763262915
+            "latestDate": "2026-07-07",
+            "latestPrice": 395.68,
+            "latestReturnPct": -2.3424677481853284
           },
           {
             "eventId": "2026-06-08-ETN-15",
@@ -3887,7 +3887,7 @@ window.TRADING_DASHBOARD = {
             "name": "Eaton",
             "shares": 4.0,
             "sellPrice": 405.1,
-            "observedTradingDays": 8,
+            "observedTradingDays": 19,
             "status": "observing",
             "returns": {
               "1": {
@@ -3906,9 +3906,9 @@ window.TRADING_DASHBOARD = {
                 "returnPct": 0.48383115280177247
               },
               "10": {
-                "date": null,
-                "price": null,
-                "returnPct": null
+                "date": "2026-06-23",
+                "price": 405.28,
+                "returnPct": 0.044433473216476393
               },
               "20": {
                 "date": null,
@@ -3916,11 +3916,11 @@ window.TRADING_DASHBOARD = {
                 "returnPct": null
               }
             },
-            "mfePct": 5.1394717353739905,
+            "mfePct": 7.8104171809429745,
             "maePct": -7.42039002715379,
-            "latestDate": "2026-06-18",
-            "latestPrice": 421.77,
-            "latestReturnPct": 4.1150333251049
+            "latestDate": "2026-07-07",
+            "latestPrice": 395.68,
+            "latestReturnPct": -2.3253517649962974
           },
           {
             "eventId": "2026-06-11-COHR-16",
@@ -3929,7 +3929,7 @@ window.TRADING_DASHBOARD = {
             "name": "Coherent",
             "shares": 4.0,
             "sellPrice": 365.8,
-            "observedTradingDays": 5,
+            "observedTradingDays": 16,
             "status": "observing",
             "returns": {
               "1": {
@@ -3948,9 +3948,9 @@ window.TRADING_DASHBOARD = {
                 "returnPct": 6.498086386003266
               },
               "10": {
-                "date": null,
-                "price": null,
-                "returnPct": null
+                "date": "2026-06-26",
+                "price": 380.56,
+                "returnPct": 4.034991798797161
               },
               "20": {
                 "date": null,
@@ -3958,11 +3958,11 @@ window.TRADING_DASHBOARD = {
                 "returnPct": null
               }
             },
-            "mfePct": 15.910333515582288,
-            "maePct": -3.173865500273376,
-            "latestDate": "2026-06-18",
-            "latestPrice": 389.57,
-            "latestReturnPct": 6.498086386003266
+            "mfePct": 20.196828868233997,
+            "maePct": -16.876708583925648,
+            "latestDate": "2026-07-07",
+            "latestPrice": 314.13,
+            "latestReturnPct": -14.125205030071086
           },
           {
             "eventId": "2026-06-11-COHR-17",
@@ -3971,7 +3971,7 @@ window.TRADING_DASHBOARD = {
             "name": "Coherent",
             "shares": 4.0,
             "sellPrice": 365.08,
-            "observedTradingDays": 5,
+            "observedTradingDays": 16,
             "status": "observing",
             "returns": {
               "1": {
@@ -3990,9 +3990,9 @@ window.TRADING_DASHBOARD = {
                 "returnPct": 6.708118768489091
               },
               "10": {
-                "date": null,
-                "price": null,
-                "returnPct": null
+                "date": "2026-06-26",
+                "price": 380.56,
+                "returnPct": 4.240166538840806
               },
               "20": {
                 "date": null,
@@ -4000,11 +4000,11 @@ window.TRADING_DASHBOARD = {
                 "returnPct": null
               }
             },
-            "mfePct": 16.138928454037483,
-            "maePct": -2.9829078558124222,
-            "latestDate": "2026-06-18",
-            "latestPrice": 389.57,
-            "latestReturnPct": 6.708118768489091
+            "mfePct": 20.433877506299993,
+            "maePct": -16.712775282129943,
+            "latestDate": "2026-07-07",
+            "latestPrice": 314.13,
+            "latestReturnPct": -13.95584529418209
           },
           {
             "eventId": "2026-06-11-NTAP-18",
@@ -4013,7 +4013,7 @@ window.TRADING_DASHBOARD = {
             "name": "NetApp",
             "shares": 5.0,
             "sellPrice": 157.7,
-            "observedTradingDays": 5,
+            "observedTradingDays": 16,
             "status": "observing",
             "returns": {
               "1": {
@@ -4032,9 +4032,9 @@ window.TRADING_DASHBOARD = {
                 "returnPct": 1.2745719720989257
               },
               "10": {
-                "date": null,
-                "price": null,
-                "returnPct": null
+                "date": "2026-06-26",
+                "price": 152.45,
+                "returnPct": -3.329105897273299
               },
               "20": {
                 "date": null,
@@ -4042,11 +4042,11 @@ window.TRADING_DASHBOARD = {
                 "returnPct": null
               }
             },
-            "mfePct": 4.090044388078651,
-            "maePct": -2.771084337349383,
-            "latestDate": "2026-06-18",
-            "latestPrice": 159.71,
-            "latestReturnPct": 1.2745719720989257
+            "mfePct": 6.353836398224488,
+            "maePct": -5.343690551680402,
+            "latestDate": "2026-07-07",
+            "latestPrice": 165.78,
+            "latestReturnPct": 5.123652504755882
           },
           {
             "eventId": "2026-06-15-GEV-19",
@@ -4055,7 +4055,7 @@ window.TRADING_DASHBOARD = {
             "name": "GE Vernova",
             "shares": 2.0,
             "sellPrice": 969.73,
-            "observedTradingDays": 3,
+            "observedTradingDays": 14,
             "status": "observing",
             "returns": {
               "1": {
@@ -4069,14 +4069,14 @@ window.TRADING_DASHBOARD = {
                 "returnPct": 14.437008239406834
               },
               "5": {
-                "date": null,
-                "price": null,
-                "returnPct": null
+                "date": "2026-06-23",
+                "price": 1034.98,
+                "returnPct": 6.728677054437826
               },
               "10": {
-                "date": null,
-                "price": null,
-                "returnPct": null
+                "date": "2026-06-30",
+                "price": 1174.86,
+                "returnPct": 21.153310715353733
               },
               "20": {
                 "date": null,
@@ -4084,11 +4084,11 @@ window.TRADING_DASHBOARD = {
                 "returnPct": null
               }
             },
-            "mfePct": 15.285698080909116,
+            "mfePct": 23.327111670258738,
             "maePct": 1.1343363616676871,
-            "latestDate": "2026-06-18",
-            "latestPrice": 1109.73,
-            "latestReturnPct": 14.437008239406834
+            "latestDate": "2026-07-07",
+            "latestPrice": 1077.08,
+            "latestReturnPct": 11.070091675002303
           },
           {
             "eventId": "2026-06-16-GEV-20",
@@ -4097,7 +4097,7 @@ window.TRADING_DASHBOARD = {
             "name": "GE Vernova",
             "shares": 1.0,
             "sellPrice": 1001.0,
-            "observedTradingDays": 2,
+            "observedTradingDays": 13,
             "status": "observing",
             "returns": {
               "1": {
@@ -4106,19 +4106,19 @@ window.TRADING_DASHBOARD = {
                 "returnPct": 4.781218781218777
               },
               "3": {
-                "date": null,
-                "price": null,
-                "returnPct": null
+                "date": "2026-06-22",
+                "price": 1127.59,
+                "returnPct": 12.646353646353647
               },
               "5": {
-                "date": null,
-                "price": null,
-                "returnPct": null
+                "date": "2026-06-24",
+                "price": 1057.65,
+                "returnPct": 5.659340659340661
               },
               "10": {
-                "date": null,
-                "price": null,
-                "returnPct": null
+                "date": "2026-07-01",
+                "price": 1134.35,
+                "returnPct": 13.32167832167832
               },
               "20": {
                 "date": null,
@@ -4126,11 +4126,11 @@ window.TRADING_DASHBOARD = {
                 "returnPct": null
               }
             },
-            "mfePct": 11.684315684315694,
+            "mfePct": 19.474525474525485,
             "maePct": -0.899100899100902,
-            "latestDate": "2026-06-18",
-            "latestPrice": 1109.73,
-            "latestReturnPct": 10.862137862137855
+            "latestDate": "2026-07-07",
+            "latestPrice": 1077.08,
+            "latestReturnPct": 7.600399600399599
           },
           {
             "eventId": "2026-06-18-GEV-21",
@@ -4139,28 +4139,28 @@ window.TRADING_DASHBOARD = {
             "name": "GE Vernova",
             "shares": 1.0,
             "sellPrice": 1093.0,
-            "observedTradingDays": 0,
+            "observedTradingDays": 11,
             "status": "observing",
             "returns": {
               "1": {
-                "date": null,
-                "price": null,
-                "returnPct": null
+                "date": "2026-06-22",
+                "price": 1127.59,
+                "returnPct": 3.164684354986269
               },
               "3": {
-                "date": null,
-                "price": null,
-                "returnPct": null
+                "date": "2026-06-24",
+                "price": 1057.65,
+                "returnPct": -3.234217749313806
               },
               "5": {
-                "date": null,
-                "price": null,
-                "returnPct": null
+                "date": "2026-06-26",
+                "price": 1045.17,
+                "returnPct": -4.376029277218663
               },
               "10": {
-                "date": null,
-                "price": null,
-                "returnPct": null
+                "date": "2026-07-06",
+                "price": 1152.04,
+                "returnPct": 5.401646843549868
               },
               "20": {
                 "date": null,
@@ -4168,11 +4168,11 @@ window.TRADING_DASHBOARD = {
                 "returnPct": null
               }
             },
-            "mfePct": null,
-            "maePct": null,
-            "latestDate": null,
-            "latestPrice": null,
-            "latestReturnPct": null
+            "mfePct": 9.4181152790485,
+            "maePct": -6.397072278133575,
+            "latestDate": "2026-07-07",
+            "latestPrice": 1077.08,
+            "latestReturnPct": -1.4565416285452937
           },
           {
             "eventId": "2026-06-22-TSM-22",
@@ -4181,28 +4181,28 @@ window.TRADING_DASHBOARD = {
             "name": "TSMC(ADR)",
             "shares": 3.48626,
             "sellPrice": 471.0,
-            "observedTradingDays": 0,
+            "observedTradingDays": 10,
             "status": "observing",
             "returns": {
               "1": {
-                "date": null,
-                "price": null,
-                "returnPct": null
+                "date": "2026-06-23",
+                "price": 436.39,
+                "returnPct": -7.348195329087048
               },
               "3": {
-                "date": null,
-                "price": null,
-                "returnPct": null
+                "date": "2026-06-25",
+                "price": 434.99,
+                "returnPct": -7.645435244161359
               },
               "5": {
-                "date": null,
-                "price": null,
-                "returnPct": null
+                "date": "2026-06-29",
+                "price": 455.1,
+                "returnPct": -3.3757961783439483
               },
               "10": {
-                "date": null,
-                "price": null,
-                "returnPct": null
+                "date": "2026-07-07",
+                "price": 432.57,
+                "returnPct": -8.15923566878981
               },
               "20": {
                 "date": null,
@@ -4210,11 +4210,11 @@ window.TRADING_DASHBOARD = {
                 "returnPct": null
               }
             },
-            "mfePct": null,
-            "maePct": null,
-            "latestDate": null,
-            "latestPrice": null,
-            "latestReturnPct": null
+            "mfePct": 1.698513800424628,
+            "maePct": -10.999999999999998,
+            "latestDate": "2026-07-07",
+            "latestPrice": 432.57,
+            "latestReturnPct": -8.15923566878981
           },
           {
             "eventId": "2026-06-30-TSM-23",
@@ -4223,18 +4223,18 @@ window.TRADING_DASHBOARD = {
             "name": "TSMC(ADR)",
             "shares": 0.52487,
             "sellPrice": 471.11,
-            "observedTradingDays": 0,
+            "observedTradingDays": 4,
             "status": "observing",
             "returns": {
               "1": {
-                "date": null,
-                "price": null,
-                "returnPct": null
+                "date": "2026-07-01",
+                "price": 444.23,
+                "returnPct": -5.705673834136404
               },
               "3": {
-                "date": null,
-                "price": null,
-                "returnPct": null
+                "date": "2026-07-06",
+                "price": 451.79,
+                "returnPct": -4.1009530682855395
               },
               "5": {
                 "date": null,
@@ -4252,14 +4252,14 @@ window.TRADING_DASHBOARD = {
                 "returnPct": null
               }
             },
-            "mfePct": null,
-            "maePct": null,
-            "latestDate": null,
-            "latestPrice": null,
-            "latestReturnPct": null
+            "mfePct": -0.5518880940757032,
+            "maePct": -9.127380017405706,
+            "latestDate": "2026-07-07",
+            "latestPrice": 432.57,
+            "latestReturnPct": -8.180679671414326
           }
         ],
-        "postSalePriceThrough": "2026-06-18"
+        "postSalePriceThrough": "2026-07-07"
       },
       "validation": {
         "status": "warning",

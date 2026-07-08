@@ -185,6 +185,7 @@ def build_post_sale_analysis(market_key: str, market: dict, history_payload: dic
         sell_price = float(trade.get("sellPrice") or 0)
         history = sorted(histories.get(trade["symbol"], []), key=lambda item: item.get("date", ""))
         post_sale = [item for item in history if item.get("date", "") > trade["sellDate"]]
+        latest_candidates = [item for item in history if item.get("date", "") >= trade["sellDate"]]
         returns = {}
         for window in POST_SALE_WINDOWS:
             item = post_sale[window - 1] if len(post_sale) >= window else None
@@ -196,7 +197,7 @@ def build_post_sale_analysis(market_key: str, market: dict, history_payload: dic
         observed = post_sale[: POST_SALE_WINDOWS[-1]]
         highs = [float(item["high"]) for item in observed if item.get("high") is not None]
         lows = [float(item["low"]) for item in observed if item.get("low") is not None]
-        latest = post_sale[-1] if post_sale else None
+        latest = latest_candidates[-1] if latest_candidates else None
         rows.append(
             {
                 "eventId": f"{trade['sellDate']}-{trade['symbol']}-{index + 1}",

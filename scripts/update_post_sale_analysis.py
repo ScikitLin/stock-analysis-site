@@ -5,8 +5,10 @@ from __future__ import annotations
 
 import json
 import ssl
+import subprocess
 import urllib.parse
 import urllib.request
+from urllib.error import URLError
 from datetime import date, datetime
 from pathlib import Path
 
@@ -15,7 +17,7 @@ ROOT = Path(__file__).resolve().parents[1]
 TRADING_DATA = ROOT / "data" / "trading" / "trading_dashboard_data.json"
 TW_HISTORY = ROOT / "data" / "tw_daily_price_history_by_stock.json"
 OUTPUT = ROOT / "data" / "trading" / "post_sale_price_history.json"
-TPEX_SYMBOLS = {"3141", "3324", "4739", "6143", "6488", "6732", "6907"}
+TPEX_SYMBOLS = {"3141", "3324", "6143", "6488", "6732", "6907"}
 SSL_CONTEXT = ssl._create_unverified_context()
 
 
@@ -28,8 +30,23 @@ def fetch_json(url: str, data: bytes | None = None) -> dict:
             "Content-Type": "application/x-www-form-urlencoded",
         },
     )
-    with urllib.request.urlopen(request, timeout=30, context=SSL_CONTEXT) as response:
-        return json.loads(response.read().decode("utf-8"))
+    try:
+        with urllib.request.urlopen(request, timeout=30, context=SSL_CONTEXT) as response:
+            return json.loads(response.read().decode("utf-8"))
+    except URLError:
+        command = ["curl", "-sL"]
+        if data is not None:
+            command.extend(
+                [
+                    "-H",
+                    "Content-Type: application/x-www-form-urlencoded",
+                    "--data-binary",
+                    data.decode("utf-8"),
+                ]
+            )
+        command.append(url)
+        result = subprocess.run(command, check=True, capture_output=True, text=True, timeout=30)
+        return json.loads(result.stdout)
 
 
 def parse_number(value: object) -> float | None:
@@ -122,7 +139,7 @@ def local_tw_history() -> dict[str, list[dict]]:
 def fetch_us_history(symbol: str, start_value: str) -> list[dict]:
     url = f"https://stockanalysis.com/api/symbol/s/{symbol}/history?range=Max&period=Daily"
     payload = fetch_json(url)
-    return [
+    rows = [
         {
             "date": row.get("t"),
             "open": row.get("o"),
@@ -133,6 +150,7 @@ def fetch_us_history(symbol: str, start_value: str) -> list[dict]:
         for row in payload.get("data", [])
         if row.get("t", "") >= start_value and row.get("c") is not None
     ]
+    return sorted(rows, key=lambda row: row["date"])
 
 
 def merge_rows(*groups: list[dict]) -> list[dict]:
@@ -142,6 +160,32 @@ def merge_rows(*groups: list[dict]) -> list[dict]:
             if row.get("date") and row.get("close") is not None:
                 by_date[row["date"]] = row
     return [by_date[key] for key in sorted(by_date)]
+
+
+def append_position_snapshot(rows: list[dict], market: dict, symbol: str) -> list[dict]:
+    current_date = market.get("currentDate")
+    if not current_date or any(row.get("date") == current_date for row in rows):
+        return rows
+    position = next((item for item in market.get("positions", []) if item.get("symbol") == symbol), None)
+    if not position:
+        return rows
+    shares = parse_number(position.get("shares"))
+    market_value = parse_number(position.get("marketValue"))
+    if not shares or not market_value:
+        return rows
+    return merge_rows(
+        rows,
+        [
+            {
+                "date": current_date,
+                "open": None,
+                "high": None,
+                "low": None,
+                "close": market_value / shares,
+                "source": position.get("source", "broker position snapshot"),
+            }
+        ],
+    )
 
 
 def main() -> None:
@@ -163,13 +207,17 @@ def main() -> None:
         histories = {}
         for symbol, earliest in sorted(earliest_by_symbol.items()):
             if market_key == "us":
-                histories[symbol] = fetch_us_history(symbol, earliest)
+                histories[symbol] = append_position_snapshot(fetch_us_history(symbol, earliest), market, symbol)
                 continue
             official_rows = []
             for month in month_starts(earliest, market["currentDate"]):
                 fetcher = fetch_tpex_month if symbol in TPEX_SYMBOLS else fetch_twse_month
                 official_rows.extend(fetcher(symbol, month))
-            histories[symbol] = merge_rows(local_history.get(symbol, []), official_rows)
+            histories[symbol] = append_position_snapshot(
+                merge_rows(local_history.get(symbol, []), official_rows),
+                market,
+                symbol,
+            )
         output["markets"][market_key] = {
             "priceThrough": max(
                 (row["date"] for rows in histories.values() for row in rows),
