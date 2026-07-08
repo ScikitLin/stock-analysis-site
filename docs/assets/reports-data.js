@@ -3,7 +3,7 @@ window.STOCK_REPORTS = {
   "siteDescription": "以資料完整性、估值情境與風控紀律整理的公開個股研究索引。",
   "disclaimer": "本網站內容僅供投資研究紀錄與討論，不構成個人化投資建議。資料可能延遲或不完整，請自行交叉驗證。",
   "feedbackIssueUrl": "https://github.com/ScikitLin/stock-analysis-site/issues/new",
-  "generatedAt": "2026-07-06T15:12:45.019720+00:00",
+  "generatedAt": "2026-07-08T07:30:17.493681+00:00",
   "sourceDir": "published_reports",
   "publishedFolder": "published_reports",
   "chartPreviews": [
@@ -191,14 +191,30 @@ window.STOCK_REPORTS = {
       "type": "multi",
       "typeLabel": "多檔個股",
       "symbols": [
-        "2027",
         "2026",
+        "6272",
+        "2027",
+        "0493",
+        "5398",
+        "1960",
         "0900",
+        "4520",
+        "2250",
         "4400",
+        "8059",
         "2025",
+        "4300",
+        "2436",
+        "0366",
         "2029",
+        "7154",
+        "4560",
+        "2435",
+        "2718",
         "2031",
+        "5800",
         "0200",
+        "1550",
         "GOOGLE",
         "CAPEX",
         "ENERGY",
@@ -206,11 +222,27 @@ window.STOCK_REPORTS = {
       ],
       "symbolNames": [
         {
+          "symbol": "2026",
+          "name": ""
+        },
+        {
+          "symbol": "6272",
+          "name": ""
+        },
+        {
           "symbol": "2027",
           "name": ""
         },
         {
-          "symbol": "2026",
+          "symbol": "0493",
+          "name": ""
+        },
+        {
+          "symbol": "5398",
+          "name": ""
+        },
+        {
+          "symbol": "1960",
           "name": ""
         },
         {
@@ -218,7 +250,19 @@ window.STOCK_REPORTS = {
           "name": ""
         },
         {
+          "symbol": "4520",
+          "name": ""
+        },
+        {
+          "symbol": "2250",
+          "name": ""
+        },
+        {
           "symbol": "4400",
+          "name": ""
+        },
+        {
+          "symbol": "8059",
           "name": ""
         },
         {
@@ -226,7 +270,35 @@ window.STOCK_REPORTS = {
           "name": ""
         },
         {
+          "symbol": "4300",
+          "name": ""
+        },
+        {
+          "symbol": "2436",
+          "name": ""
+        },
+        {
+          "symbol": "0366",
+          "name": ""
+        },
+        {
           "symbol": "2029",
+          "name": ""
+        },
+        {
+          "symbol": "7154",
+          "name": ""
+        },
+        {
+          "symbol": "4560",
+          "name": ""
+        },
+        {
+          "symbol": "2435",
+          "name": ""
+        },
+        {
+          "symbol": "2718",
           "name": ""
         },
         {
@@ -234,7 +306,15 @@ window.STOCK_REPORTS = {
           "name": ""
         },
         {
+          "symbol": "5800",
+          "name": ""
+        },
+        {
           "symbol": "0200",
+          "name": ""
+        },
+        {
+          "symbol": "1550",
           "name": ""
         },
         {
@@ -260,7 +340,7 @@ window.STOCK_REPORTS = {
       ],
       "sourceFile": "us_google_capex_network_energy_16_stock_analysis_20260704_basis_2026-07-02.html",
       "url": "reports/us_google_capex_network_energy_16_stock_analysis_20260704_basis_2026-07-02.html",
-      "bytes": 1181291
+      "bytes": 1275821
     },
     {
       "id": "us_google_capex_chips_servers_power_18_stock_analysis_20260704_basis_2026-07-02",
@@ -274,7 +354,25 @@ window.STOCK_REPORTS = {
       "typeLabel": "多檔個股",
       "symbols": [
         "2026",
+        "6237",
         "2027",
+        "6113",
+        "3247",
+        "9727",
+        "1704",
+        "2907",
+        "5412",
+        "7618",
+        "3732",
+        "4132",
+        "4960",
+        "3433",
+        "5914",
+        "0202",
+        "0251",
+        "2982",
+        "1465",
+        "8095",
         "GOOGLE",
         "CAPEX",
         "CHIPS",
@@ -287,7 +385,79 @@ window.STOCK_REPORTS = {
           "name": ""
         },
         {
+          "symbol": "6237",
+          "name": ""
+        },
+        {
           "symbol": "2027",
+          "name": ""
+        },
+        {
+          "symbol": "6113",
+          "name": ""
+        },
+        {
+          "symbol": "3247",
+          "name": ""
+        },
+        {
+          "symbol": "9727",
+          "name": ""
+        },
+        {
+          "symbol": "1704",
+          "name": ""
+        },
+        {
+          "symbol": "2907",
+          "name": ""
+        },
+        {
+          "symbol": "5412",
+          "name": ""
+        },
+        {
+          "symbol": "7618",
+          "name": ""
+        },
+        {
+          "symbol": "3732",
+          "name": ""
+        },
+        {
+          "symbol": "4132",
+          "name": ""
+        },
+        {
+          "symbol": "4960",
+          "name": ""
+        },
+        {
+          "symbol": "3433",
+          "name": ""
+        },
+        {
+          "symbol": "5914",
+          "name": ""
+        },
+        {
+          "symbol": "0202",
+          "name": ""
+        },
+        {
+          "symbol": "0251",
+          "name": ""
+        },
+        {
+          "symbol": "2982",
+          "name": ""
+        },
+        {
+          "symbol": "1465",
+          "name": ""
+        },
+        {
+          "symbol": "8095",
           "name": ""
         },
         {
@@ -317,7 +487,7 @@ window.STOCK_REPORTS = {
       ],
       "sourceFile": "us_google_capex_chips_servers_power_18_stock_analysis_20260704_basis_2026-07-02.html",
       "url": "reports/us_google_capex_chips_servers_power_18_stock_analysis_20260704_basis_2026-07-02.html",
-      "bytes": 1341646
+      "bytes": 1449345
     },
     {
       "id": "tw_google_capex_thermal_optical_packaging_24_20260702",
@@ -479,7 +649,7 @@ window.STOCK_REPORTS = {
       ],
       "sourceFile": "tw_google_capex_thermal_optical_packaging_24_20260702.html",
       "url": "reports/tw_google_capex_thermal_optical_packaging_24_20260702.html",
-      "bytes": 1553370
+      "bytes": 1552299
     },
     {
       "id": "tw_google_capex_odm_pcb_power_25_20260702",
@@ -646,7 +816,7 @@ window.STOCK_REPORTS = {
       ],
       "sourceFile": "tw_google_capex_odm_pcb_power_25_20260702.html",
       "url": "reports/tw_google_capex_odm_pcb_power_25_20260702.html",
-      "bytes": 1618513
+      "bytes": 1616790
     },
     {
       "id": "us_multi_stock_analysis_refresh_20260702_basis_2026-07-01",
@@ -660,16 +830,45 @@ window.STOCK_REPORTS = {
       "typeLabel": "多檔個股",
       "symbols": [
         "2026",
+        "3433",
+        "2718",
         "2031",
         "2025",
+        "5914",
+        "0202",
+        "2982",
+        "4960",
+        "0251",
+        "2436",
+        "4300",
+        "6272",
+        "8248",
+        "2019",
+        "5398",
+        "4563",
+        "2769",
+        "4273",
         "2200",
+        "7729",
+        "2324",
         "0475",
+        "2027",
+        "8428",
+        "1279",
         "4800",
         "BASIS"
       ],
       "symbolNames": [
         {
           "symbol": "2026",
+          "name": ""
+        },
+        {
+          "symbol": "3433",
+          "name": ""
+        },
+        {
+          "symbol": "2718",
           "name": ""
         },
         {
@@ -681,11 +880,87 @@ window.STOCK_REPORTS = {
           "name": ""
         },
         {
+          "symbol": "5914",
+          "name": ""
+        },
+        {
+          "symbol": "0202",
+          "name": ""
+        },
+        {
+          "symbol": "2982",
+          "name": ""
+        },
+        {
+          "symbol": "4960",
+          "name": ""
+        },
+        {
+          "symbol": "0251",
+          "name": ""
+        },
+        {
+          "symbol": "2436",
+          "name": ""
+        },
+        {
+          "symbol": "4300",
+          "name": ""
+        },
+        {
+          "symbol": "6272",
+          "name": ""
+        },
+        {
+          "symbol": "8248",
+          "name": ""
+        },
+        {
+          "symbol": "2019",
+          "name": ""
+        },
+        {
+          "symbol": "5398",
+          "name": ""
+        },
+        {
+          "symbol": "4563",
+          "name": ""
+        },
+        {
+          "symbol": "2769",
+          "name": ""
+        },
+        {
+          "symbol": "4273",
+          "name": ""
+        },
+        {
           "symbol": "2200",
           "name": ""
         },
         {
+          "symbol": "7729",
+          "name": ""
+        },
+        {
+          "symbol": "2324",
+          "name": ""
+        },
+        {
           "symbol": "0475",
+          "name": ""
+        },
+        {
+          "symbol": "2027",
+          "name": ""
+        },
+        {
+          "symbol": "8428",
+          "name": ""
+        },
+        {
+          "symbol": "1279",
           "name": ""
         },
         {
@@ -703,7 +978,7 @@ window.STOCK_REPORTS = {
       ],
       "sourceFile": "us_multi_stock_analysis_refresh_20260702_basis_2026-07-01.html",
       "url": "reports/us_multi_stock_analysis_refresh_20260702_basis_2026-07-01.html",
-      "bytes": 1548841
+      "bytes": 1621423
     },
     {
       "id": "us_custom_23_stock_analysis_refresh_20260702_basis_2026-07-01",
@@ -717,14 +992,36 @@ window.STOCK_REPORTS = {
       "typeLabel": "指定個股",
       "symbols": [
         "2026",
-        "6700",
-        "0900",
-        "4400",
-        "2025",
-        "6600",
-        "5200",
-        "6900",
+        "9046",
         "2027",
+        "4132",
+        "6700",
+        "9444",
+        "0900",
+        "4520",
+        "2250",
+        "4400",
+        "8059",
+        "2025",
+        "0000",
+        "8883",
+        "6600",
+        "3732",
+        "9315",
+        "5200",
+        "6113",
+        "6237",
+        "8008",
+        "7151",
+        "3883",
+        "4192",
+        "1337",
+        "6900",
+        "8270",
+        "2392",
+        "6799",
+        "2883",
+        "1953",
         "CUSTOM",
         "BASIS",
         "AI"
@@ -735,7 +1032,23 @@ window.STOCK_REPORTS = {
           "name": ""
         },
         {
+          "symbol": "9046",
+          "name": ""
+        },
+        {
+          "symbol": "2027",
+          "name": ""
+        },
+        {
+          "symbol": "4132",
+          "name": ""
+        },
+        {
           "symbol": "6700",
+          "name": ""
+        },
+        {
+          "symbol": "9444",
           "name": ""
         },
         {
@@ -743,7 +1056,19 @@ window.STOCK_REPORTS = {
           "name": ""
         },
         {
+          "symbol": "4520",
+          "name": ""
+        },
+        {
+          "symbol": "2250",
+          "name": ""
+        },
+        {
           "symbol": "4400",
+          "name": ""
+        },
+        {
+          "symbol": "8059",
           "name": ""
         },
         {
@@ -751,7 +1076,23 @@ window.STOCK_REPORTS = {
           "name": ""
         },
         {
+          "symbol": "0000",
+          "name": ""
+        },
+        {
+          "symbol": "8883",
+          "name": ""
+        },
+        {
           "symbol": "6600",
+          "name": ""
+        },
+        {
+          "symbol": "3732",
+          "name": ""
+        },
+        {
+          "symbol": "9315",
           "name": ""
         },
         {
@@ -759,11 +1100,55 @@ window.STOCK_REPORTS = {
           "name": ""
         },
         {
+          "symbol": "6113",
+          "name": ""
+        },
+        {
+          "symbol": "6237",
+          "name": ""
+        },
+        {
+          "symbol": "8008",
+          "name": ""
+        },
+        {
+          "symbol": "7151",
+          "name": ""
+        },
+        {
+          "symbol": "3883",
+          "name": ""
+        },
+        {
+          "symbol": "4192",
+          "name": ""
+        },
+        {
+          "symbol": "1337",
+          "name": ""
+        },
+        {
           "symbol": "6900",
           "name": ""
         },
         {
-          "symbol": "2027",
+          "symbol": "8270",
+          "name": ""
+        },
+        {
+          "symbol": "2392",
+          "name": ""
+        },
+        {
+          "symbol": "6799",
+          "name": ""
+        },
+        {
+          "symbol": "2883",
+          "name": ""
+        },
+        {
+          "symbol": "1953",
           "name": ""
         },
         {
@@ -786,7 +1171,7 @@ window.STOCK_REPORTS = {
       ],
       "sourceFile": "us_custom_23_stock_analysis_refresh_20260702_basis_2026-07-01.html",
       "url": "reports/us_custom_23_stock_analysis_refresh_20260702_basis_2026-07-01.html",
-      "bytes": 1749530
+      "bytes": 1840008
     },
     {
       "id": "us_theme_stocks_20260702_basis_2026-07-01",
