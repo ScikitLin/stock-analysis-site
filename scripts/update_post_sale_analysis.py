@@ -15,7 +15,7 @@ ROOT = Path(__file__).resolve().parents[1]
 TRADING_DATA = ROOT / "data" / "trading" / "trading_dashboard_data.json"
 TW_HISTORY = ROOT / "data" / "tw_daily_price_history_by_stock.json"
 OUTPUT = ROOT / "data" / "trading" / "post_sale_price_history.json"
-TPEX_SYMBOLS = {"3141", "4739", "6143", "6488", "6907"}
+TPEX_SYMBOLS = {"3141", "3324", "4739", "6143", "6488", "6732", "6907"}
 SSL_CONTEXT = ssl._create_unverified_context()
 
 

@@ -13,90 +13,50 @@
       "currentTimestamp": "2026-07-08 使用者截圖",
       "orderLogComplete": false,
       "dataQuality": [
-        "舊交易紀錄、2026/06/18 新增交易、2026/06/22 鴻海賣出與 2026/07/08 昇佳電子庫存截圖已合併累計。",
-        "2026/07/08 持倉快照新增 6732 昇佳電子；截圖未列投入成本，成本由損益與報酬率回推。",
+        "舊交易紀錄、2026/06/18 新增交易、2026/06/22 鴻海賣出與 2026/07/08 昇佳電子賣出已合併累計。",
+        "2026/07/08 21:38 持倉快照已更新；後續賣出需同步更新 realizedTrades 與 positions。",
         "成交/委託紀錄不是完整台帳；資產曲線採已實現損益事件 + 最新未實現庫存快照，不代表完整逐日市值曲線。"
       ],
       "summary": {
-        "realizedPnl": 205711,
-        "unrealizedPnl": 205589,
-        "totalPnl": 411300,
-        "currentAssets": 2411300,
-        "totalReturnPct": 20.57,
-        "cash": 1215071,
-        "marketValue": 1196229,
-        "brokerGrossMarketValue": 1196229,
-        "brokerPositionReturnPct": 20.75
+        "realizedPnl": 229751,
+        "unrealizedPnl": 4353,
+        "totalPnl": 234104,
+        "currentAssets": 2234104,
+        "totalReturnPct": 11.71,
+        "cash": 1973606,
+        "marketValue": 260498,
+        "brokerGrossMarketValue": 260498,
+        "brokerPositionReturnPct": 1.70
       },
       "positions": [
         {
-          "symbol": "00757",
-          "name": "統一 FANG+",
-          "shares": 7273,
-          "averagePrice": 99.68,
-          "currentPrice": 129.25,
-          "marketValue": 937756,
-          "cost": 725915,
-          "unrealizedPnl": 211841,
-          "returnPct": 29.18,
-          "strategyTag": "長期投資"
-        },
-        {
-          "symbol": "1760",
-          "name": "寶齡富錦",
-          "shares": 577,
-          "averagePrice": 106.99,
-          "currentPrice": 60.5,
-          "marketValue": 34755,
-          "cost": 61838,
-          "unrealizedPnl": -27083,
-          "returnPct": -43.8
-        },
-        {
-          "symbol": "4166",
-          "name": "友霖",
-          "shares": 1000,
-          "averagePrice": 28,
-          "currentPrice": 24.9,
-          "marketValue": 24791,
-          "cost": 28000,
-          "unrealizedPnl": -3209,
-          "returnPct": -11.46
-        },
-        {
-          "symbol": "6732",
-          "name": "昇佳電子",
-          "shares": 400,
-          "averagePrice": 176.58,
-          "currentPrice": 200.07,
-          "marketValue": 80026,
-          "cost": 70632,
-          "unrealizedPnl": 9394,
-          "returnPct": 13.3,
+          "symbol": "1504",
+          "name": "東元",
+          "shares": 1664,
+          "marketValue": 113649,
+          "cost": 116346,
+          "unrealizedPnl": -2697,
+          "returnPct": -2.32,
           "source": "2026/07/08 使用者截圖"
         },
         {
-          "symbol": "6732",
-          "name": "昇佳電子",
-          "shares": 205,
-          "averagePrice": 174.26,
-          "currentPrice": 200.17,
-          "marketValue": 41035,
-          "cost": 35723,
-          "unrealizedPnl": 5312,
-          "returnPct": 14.87,
+          "symbol": "3324",
+          "name": "雙鴻",
+          "shares": 100,
+          "marketValue": 92092,
+          "cost": 97238,
+          "unrealizedPnl": -5146,
+          "returnPct": -5.29,
           "source": "2026/07/08 使用者截圖"
         },
         {
-          "symbol": "6732",
-          "name": "昇佳電子",
-          "shares": 399,
-          "averagePrice": 171.76,
-          "currentPrice": 195.15,
-          "marketValue": 77866,
-          "cost": 68532,
-          "unrealizedPnl": 9334,
-          "returnPct": 13.62,
+          "symbol": "4739",
+          "name": "康普",
+          "shares": 500,
+          "marketValue": 54757,
+          "cost": 42561,
+          "unrealizedPnl": 12196,
+          "returnPct": 28.66,
           "source": "2026/07/08 使用者截圖"
         }
       ],
@@ -342,6 +302,42 @@
           "source": "2026/07/08 使用者提供"
         },
         {
+          "sellDate": "2026-07-07",
+          "symbol": "6732",
+          "name": "昇佳電子",
+          "shares": 400,
+          "estimatedBuyPrice": 176.58,
+          "sellPrice": 201,
+          "investmentCost": 70632,
+          "realizedPnl": 9394,
+          "returnPct": 13.30,
+          "source": "2026/07/08 使用者截圖"
+        },
+        {
+          "sellDate": "2026-07-08",
+          "symbol": "6732",
+          "name": "昇佳電子",
+          "shares": 205,
+          "estimatedBuyPrice": 174.26,
+          "sellPrice": 201,
+          "investmentCost": 35723,
+          "realizedPnl": 5312,
+          "returnPct": 14.87,
+          "source": "2026/07/08 使用者截圖"
+        },
+        {
+          "sellDate": "2026-07-08",
+          "symbol": "6732",
+          "name": "昇佳電子",
+          "shares": 399,
+          "estimatedBuyPrice": 171.76,
+          "sellPrice": 196,
+          "investmentCost": 68532,
+          "realizedPnl": 9334,
+          "returnPct": 13.62,
+          "source": "2026/07/08 使用者截圖"
+        },
+        {
           "sellDate": "2026-06-15",
           "symbol": "00830",
           "name": "國泰費城半導體",
@@ -395,7 +391,10 @@
         {"date": "2026-04-08", "symbol": "00830", "name": "國泰費城半導體", "action": "sell", "price": 58.69, "shares": 1396, "status": "2026/06/18 使用者提供"},
         {"date": "2026-04-24", "symbol": "00830", "name": "國泰費城半導體", "action": "sell", "price": 71.55, "shares": 363, "status": "2026/06/18 使用者提供"},
         {"date": "2026-06-15", "symbol": "00830", "name": "國泰費城半導體", "action": "sell", "price": 97.65, "shares": 561, "status": "2026/06/18 使用者提供"},
-        {"date": "2026-06-22", "symbol": "2317", "name": "鴻海", "action": "sell", "price": 275, "shares": 300, "status": "2026/07/08 使用者提供"}
+        {"date": "2026-06-22", "symbol": "2317", "name": "鴻海", "action": "sell", "price": 275, "shares": 300, "status": "2026/07/08 使用者提供"},
+        {"date": "2026-07-07", "symbol": "6732", "name": "昇佳電子", "action": "sell", "price": 201, "shares": 400, "status": "2026/07/08 使用者截圖"},
+        {"date": "2026-07-08", "symbol": "6732", "name": "昇佳電子", "action": "sell", "price": 201, "shares": 205, "status": "2026/07/08 使用者截圖"},
+        {"date": "2026-07-08", "symbol": "6732", "name": "昇佳電子", "action": "sell", "price": 196, "shares": 399, "status": "2026/07/08 使用者截圖"}
       ]
     },
     "us": {
@@ -410,27 +409,68 @@
         "總覽、庫存合計、已實現損益合計可內部驗算。",
         "2026/06/18 GEV 賣出 1 股後，目前庫存為 BDC 24 股、GEV 0 股。",
         "2026/06/20 與 2026/07/08 依使用者截圖補入 TSM、UNH 已實現賣出紀錄；截圖僅提供賣出資料，委託流水不再標記為完整。",
-        "美股庫存仍沿用前次 BDC 快照；需另補最新庫存截圖才能更新未實現損益。",
+        "2026/07/08 21:39 美股庫存截圖已更新；後續賣出需同步更新 realizedTrades 與 positions。",
         "COHR 2026-06-05/2026-06-06 日期需確認是美股交易日或台灣券商顯示日；績效表採 2026-06-05。"
       ],
       "summary": {
         "realizedPnl": 2959.64,
-        "unrealizedPnl": 321.25,
-        "totalPnl": 3280.89,
-        "currentAssets": 33280.89,
-        "totalReturnPct": 10.94,
-        "cash": 30347.85,
-        "marketValue": 2933.04
+        "unrealizedPnl": 1356.68,
+        "totalPnl": 4316.32,
+        "currentAssets": 34316.32,
+        "totalReturnPct": 14.39,
+        "cash": 16807.18,
+        "marketValue": 17509.14
       },
       "positions": [
         {
           "symbol": "BDC",
           "name": "百通",
-          "shares": 24,
-          "marketValue": 2933.04,
-          "cost": 2611.79,
-          "unrealizedPnl": 321.25,
-          "returnPct": 12.3
+          "shares": 44,
+          "marketValue": 4726.04,
+          "cost": 4856.99,
+          "unrealizedPnl": -130.95,
+          "returnPct": -2.70,
+          "source": "2026/07/08 使用者截圖"
+        },
+        {
+          "symbol": "CHKP",
+          "name": "Check Point軟體技術",
+          "shares": 20,
+          "marketValue": 2775.00,
+          "cost": 2421.94,
+          "unrealizedPnl": 353.06,
+          "returnPct": 14.58,
+          "source": "2026/07/08 使用者截圖"
+        },
+        {
+          "symbol": "IBM",
+          "name": "IBM",
+          "shares": 10,
+          "marketValue": 3061.30,
+          "cost": 2442.95,
+          "unrealizedPnl": 618.35,
+          "returnPct": 25.31,
+          "source": "2026/07/08 使用者截圖"
+        },
+        {
+          "symbol": "TEL",
+          "name": "TE Connectivity",
+          "shares": 20,
+          "marketValue": 3956.80,
+          "cost": 3977.02,
+          "unrealizedPnl": -20.22,
+          "returnPct": -0.51,
+          "source": "2026/07/08 使用者截圖"
+        },
+        {
+          "symbol": "ZS",
+          "name": "Zscaler",
+          "shares": 20,
+          "marketValue": 2990.00,
+          "cost": 2453.56,
+          "unrealizedPnl": 536.44,
+          "returnPct": 21.86,
+          "source": "2026/07/08 使用者截圖"
         }
       ],
       "realizedTrades": [
