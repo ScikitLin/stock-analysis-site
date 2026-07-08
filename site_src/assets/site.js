@@ -287,6 +287,17 @@ function tradingChartDomain(values, includeZero = false) {
   return [min - pad, max + pad];
 }
 
+function tradingSteppedTicks(domain, step) {
+  if (!Number.isFinite(step) || step <= 0) return null;
+  const start = Math.floor(domain[0] / step) * step;
+  const end = Math.ceil(domain[1] / step) * step;
+  const ticks = [];
+  for (let value = start; value <= end + step * 0.001; value += step) {
+    ticks.push(value);
+  }
+  return ticks.length >= 2 && ticks.length <= 12 ? ticks : null;
+}
+
 function tradingScale(value, domain, range) {
   const [d0, d1] = domain;
   const [r0, r1] = range;
@@ -392,8 +403,10 @@ function renderTradingLineChart(container, market, series, definitions, options 
 
   const dims = { width: 920, height: 360, left: 118, right: 888, top: 42, bottom: 278 };
   const values = definitions.flatMap((definition) => series.map((point) => definition.value(point)));
-  const yDomain = options.domain || tradingChartDomain(values, options.includeZero);
-  const yTicks = Array.from({ length: 4 }, (_, index) => yDomain[0] + ((yDomain[1] - yDomain[0]) * index) / 3);
+  const rawDomain = options.domain || tradingChartDomain(values, options.includeZero);
+  const steppedTicks = tradingSteppedTicks(rawDomain, options.yTickStep);
+  const yDomain = steppedTicks ? [steppedTicks[0], steppedTicks[steppedTicks.length - 1]] : rawDomain;
+  const yTicks = steppedTicks || Array.from({ length: 4 }, (_, index) => yDomain[0] + ((yDomain[1] - yDomain[0]) * index) / 3);
   const xDomain = tradingTimeDomain(series);
   const xTickCount = 8;
   const xTicks = Array.from(
@@ -796,6 +809,7 @@ function renderTrading() {
   ], {
     label: "損益曲線",
     includeZero: true,
+    yTickStep: market.market === "tw" ? 50000 : market.market === "us" ? 1000 : undefined,
     showTradeEvents: true,
     pointTooltip: (point, itemMarket) => `
       <strong>${escapeHtml(point.date)}</strong>

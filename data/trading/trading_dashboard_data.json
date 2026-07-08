@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-06-18",
+  "updatedAt": "2026-07-08",
   "sourceNote": "User-provided ChatGPT整理交易紀錄; dashboard validation checks internal reconciliation only, not broker screenshot fidelity.",
   "markets": {
     "tw": {
@@ -9,24 +9,24 @@
       "currency": "TWD",
       "currencyLabel": "台幣",
       "initialCapital": 2000000,
-      "currentDate": "2026-06-18",
-      "currentTimestamp": "2026-06-18 10:10",
+      "currentDate": "2026-07-08",
+      "currentTimestamp": "2026-07-08 使用者截圖",
       "orderLogComplete": false,
       "dataQuality": [
-        "舊交易紀錄與 2026/06/18 新增交易已合併累計。",
-        "2026/06/18 10:10 持倉快照已排除 2880 華南金與 1904 正隆零股。",
+        "舊交易紀錄、2026/06/18 新增交易、2026/06/22 鴻海賣出與 2026/07/08 昇佳電子庫存截圖已合併累計。",
+        "2026/07/08 持倉快照新增 6732 昇佳電子；截圖未列投入成本，成本由損益與報酬率回推。",
         "成交/委託紀錄不是完整台帳；資產曲線採已實現損益事件 + 最新未實現庫存快照，不代表完整逐日市值曲線。"
       ],
       "summary": {
-        "realizedPnl": 204138,
-        "unrealizedPnl": 181549,
-        "totalPnl": 385687,
-        "currentAssets": 2385687,
-        "totalReturnPct": 19.28,
-        "cash": 1388385,
-        "marketValue": 997302,
-        "brokerGrossMarketValue": 999883,
-        "brokerPositionReturnPct": 22.25
+        "realizedPnl": 205711,
+        "unrealizedPnl": 205589,
+        "totalPnl": 411300,
+        "currentAssets": 2411300,
+        "totalReturnPct": 20.57,
+        "cash": 1215071,
+        "marketValue": 1196229,
+        "brokerGrossMarketValue": 1196229,
+        "brokerPositionReturnPct": 20.75
       },
       "positions": [
         {
@@ -62,6 +62,42 @@
           "cost": 28000,
           "unrealizedPnl": -3209,
           "returnPct": -11.46
+        },
+        {
+          "symbol": "6732",
+          "name": "昇佳電子",
+          "shares": 400,
+          "averagePrice": 176.58,
+          "currentPrice": 200.07,
+          "marketValue": 80026,
+          "cost": 70632,
+          "unrealizedPnl": 9394,
+          "returnPct": 13.3,
+          "source": "2026/07/08 使用者截圖"
+        },
+        {
+          "symbol": "6732",
+          "name": "昇佳電子",
+          "shares": 205,
+          "averagePrice": 174.26,
+          "currentPrice": 200.17,
+          "marketValue": 41035,
+          "cost": 35723,
+          "unrealizedPnl": 5312,
+          "returnPct": 14.87,
+          "source": "2026/07/08 使用者截圖"
+        },
+        {
+          "symbol": "6732",
+          "name": "昇佳電子",
+          "shares": 399,
+          "averagePrice": 171.76,
+          "currentPrice": 195.15,
+          "marketValue": 77866,
+          "cost": 68532,
+          "unrealizedPnl": 9334,
+          "returnPct": 13.62,
+          "source": "2026/07/08 使用者截圖"
         }
       ],
       "realizedTrades": [
@@ -294,6 +330,18 @@
           "source": "舊交易紀錄"
         },
         {
+          "sellDate": "2026-06-22",
+          "symbol": "2317",
+          "name": "鴻海",
+          "shares": 300,
+          "estimatedBuyPrice": 268.89,
+          "sellPrice": 275,
+          "investmentCost": 80667,
+          "realizedPnl": 1573,
+          "returnPct": 1.95,
+          "source": "2026/07/08 使用者提供"
+        },
+        {
           "sellDate": "2026-06-15",
           "symbol": "00830",
           "name": "國泰費城半導體",
@@ -346,7 +394,8 @@
         {"date": "2026-03-25", "symbol": "6907", "name": "雅特力-KY", "action": "sell", "price": 132.5, "shares": 1000, "status": "2026/06/18 使用者提供"},
         {"date": "2026-04-08", "symbol": "00830", "name": "國泰費城半導體", "action": "sell", "price": 58.69, "shares": 1396, "status": "2026/06/18 使用者提供"},
         {"date": "2026-04-24", "symbol": "00830", "name": "國泰費城半導體", "action": "sell", "price": 71.55, "shares": 363, "status": "2026/06/18 使用者提供"},
-        {"date": "2026-06-15", "symbol": "00830", "name": "國泰費城半導體", "action": "sell", "price": 97.65, "shares": 561, "status": "2026/06/18 使用者提供"}
+        {"date": "2026-06-15", "symbol": "00830", "name": "國泰費城半導體", "action": "sell", "price": 97.65, "shares": 561, "status": "2026/06/18 使用者提供"},
+        {"date": "2026-06-22", "symbol": "2317", "name": "鴻海", "action": "sell", "price": 275, "shares": 300, "status": "2026/07/08 使用者提供"}
       ]
     },
     "us": {
@@ -355,21 +404,22 @@
       "currency": "USD",
       "currencyLabel": "美元",
       "initialCapital": 30000,
-      "currentDate": "2026-06-18",
+      "currentDate": "2026-07-08",
       "orderLogComplete": false,
       "dataQuality": [
         "總覽、庫存合計、已實現損益合計可內部驗算。",
         "2026/06/18 GEV 賣出 1 股後，目前庫存為 BDC 24 股、GEV 0 股。",
-        "2026/06/20 依使用者截圖補入 TSM、UNH 三筆已實現賣出紀錄；截圖僅提供賣出資料，委託流水不再標記為完整。",
+        "2026/06/20 與 2026/07/08 依使用者截圖補入 TSM、UNH 已實現賣出紀錄；截圖僅提供賣出資料，委託流水不再標記為完整。",
+        "美股庫存仍沿用前次 BDC 快照；需另補最新庫存截圖才能更新未實現損益。",
         "COHR 2026-06-05/2026-06-06 日期需確認是美股交易日或台灣券商顯示日；績效表採 2026-06-05。"
       ],
       "summary": {
-        "realizedPnl": 2838.45,
+        "realizedPnl": 2959.64,
         "unrealizedPnl": 321.25,
-        "totalPnl": 3159.7,
-        "currentAssets": 33159.7,
-        "totalReturnPct": 10.53,
-        "cash": 30226.66,
+        "totalPnl": 3280.89,
+        "currentAssets": 33280.89,
+        "totalReturnPct": 10.94,
+        "cash": 30347.85,
         "marketValue": 2933.04
       },
       "positions": [
@@ -404,7 +454,9 @@
         {"sellDate": "2026-06-11", "symbol": "NTAP", "name": "NetApp", "shares": 5, "sellPrice": 157.7, "realizedPnl": -95, "returnPct": -10.76, "source": "已實現損益底稿"},
         {"sellDate": "2026-06-15", "symbol": "GEV", "name": "GE Vernova", "shares": 2, "sellPrice": 969.73, "realizedPnl": 11.47, "returnPct": 0.6, "source": "已實現損益底稿"},
         {"sellDate": "2026-06-16", "symbol": "GEV", "name": "GE Vernova", "shares": 1, "sellPrice": 1001, "realizedPnl": 94.91, "returnPct": 10.48, "source": "已實現損益底稿"},
-        {"sellDate": "2026-06-18", "symbol": "GEV", "name": "GE Vernova", "shares": 1, "sellPrice": 1093, "investmentCost": 902.56, "realizedPnl": 190.44, "returnPct": 21.10, "source": "2026/06/18 使用者提供"}
+        {"sellDate": "2026-06-18", "symbol": "GEV", "name": "GE Vernova", "shares": 1, "sellPrice": 1093, "investmentCost": 902.56, "realizedPnl": 190.44, "returnPct": 21.10, "source": "2026/06/18 使用者提供"},
+        {"sellDate": "2026-06-22", "symbol": "TSM", "name": "TSMC(ADR)", "shares": 3.48626, "estimatedBuyPrice": 433.7, "sellPrice": 471.00, "investmentCost": 1512.03, "realizedPnl": 126.95, "returnPct": 8.40, "source": "2026/07/08 使用者截圖"},
+        {"sellDate": "2026-06-30", "symbol": "TSM", "name": "TSMC(ADR)", "shares": 0.52487, "estimatedBuyPrice": 476.32, "sellPrice": 471.11, "investmentCost": 250.01, "realizedPnl": -5.76, "returnPct": -2.30, "source": "2026/07/08 使用者截圖"}
       ],
       "orders": [
         {"date": "2026-05-26", "symbol": "ETN", "name": "Eaton", "action": "buy", "orderPrice": 408.4, "fillPrice": 408.4, "shares": 1, "status": "完全成交"},
@@ -462,7 +514,9 @@
         {"date": "2026-06-15", "symbol": "GEV", "name": "GE Vernova", "action": "sell", "orderPrice": 969.4, "fillPrice": 0, "shares": 0, "status": "刪單成功"},
         {"date": "2026-06-15", "symbol": "GEV", "name": "GE Vernova", "action": "sell", "orderPrice": 971.24, "fillPrice": 0, "shares": 0, "status": "刪單成功"},
         {"date": "2026-06-16", "symbol": "GEV", "name": "GE Vernova", "action": "sell", "orderPrice": 1001, "fillPrice": 1001, "shares": 1, "status": "完全成交"},
-        {"date": "2026-06-18", "symbol": "GEV", "name": "GE Vernova", "action": "sell", "orderPrice": 1093, "fillPrice": 1093, "shares": 1, "status": "完全成交"}
+        {"date": "2026-06-18", "symbol": "GEV", "name": "GE Vernova", "action": "sell", "orderPrice": 1093, "fillPrice": 1093, "shares": 1, "status": "完全成交"},
+        {"date": "2026-06-22", "symbol": "TSM", "name": "TSMC(ADR)", "action": "sell", "orderPrice": 471.00, "fillPrice": 471.00, "shares": 3.48626, "status": "2026/07/08 使用者截圖"},
+        {"date": "2026-06-30", "symbol": "TSM", "name": "TSMC(ADR)", "action": "sell", "orderPrice": 471.11, "fillPrice": 471.11, "shares": 0.52487, "status": "2026/07/08 使用者截圖"}
       ]
     }
   }
