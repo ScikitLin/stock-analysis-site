@@ -272,12 +272,64 @@ def copy_site_assets(public_dir: Path) -> None:
     shutil.copytree(SITE_SRC, public_dir, dirs_exist_ok=True)
 
 
+REPORT_HOME_SNIPPET = """
+<a class="report-home-button" href="../index.html" aria-label="回首頁">← 回首頁</a>
+<style>
+.report-home-button {
+  position: fixed;
+  right: 18px;
+  bottom: 18px;
+  z-index: 9999;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 92px;
+  min-height: 42px;
+  padding: 10px 14px;
+  border-radius: 999px;
+  background: #0f172a;
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 12px 28px rgba(15, 23, 42, 0.22);
+  font: 700 14px/1.2 -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  text-decoration: none;
+}
+.report-home-button:hover,
+.report-home-button:focus {
+  background: #1d4ed8;
+  color: #fff;
+  outline: none;
+}
+@media (max-width: 720px) {
+  .report-home-button {
+    right: 12px;
+    bottom: 12px;
+    min-width: 84px;
+    min-height: 40px;
+    padding: 9px 12px;
+  }
+}
+</style>
+"""
+
+
+def add_report_home_button(html_text: str) -> str:
+    if "report-home-button" in html_text:
+        return html_text
+    if "</body>" in html_text:
+        return html_text.replace("</body>", REPORT_HOME_SNIPPET + "\n</body>", 1)
+    return html_text + REPORT_HOME_SNIPPET
+
+
 def copy_reports(config: dict, public_dir: Path, reports: list[dict]) -> None:
     source_dir = ROOT / config.get("sourceDir", "output")
     report_dir = public_dir / "reports"
     reset_dir(report_dir)
     for report in reports:
-        shutil.copy2(source_dir / report["sourceFile"], report_dir / report["sourceFile"])
+        source_path = source_dir / report["sourceFile"]
+        target_path = report_dir / report["sourceFile"]
+        html_text = source_path.read_text(encoding="utf-8")
+        target_path.write_text(add_report_home_button(html_text), encoding="utf-8")
 
     charts_dir = source_dir / "charts"
     if charts_dir.exists():
