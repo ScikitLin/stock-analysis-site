@@ -120,6 +120,12 @@ def ordered_unique(values: list[str]) -> list[str]:
 def extract_tw_symbol_names(raw: str) -> list[dict[str, str]]:
     results: list[dict[str, str]] = []
     for code, name in re.findall(
+        r'data-code="(\d{4})"[^>]*data-name="([^"]+)"',
+        raw,
+        flags=re.I,
+    ):
+        results.append({"symbol": code, "name": html.unescape(name)})
+    for code, name in re.findall(
         r'data-code="(\d{4})"[^>]*>\s*<span>[^<]*</span>\s*<strong>([^<]+)</strong>',
         raw,
         flags=re.I | re.S,
@@ -155,6 +161,12 @@ def extract_tw_symbol_names(raw: str) -> list[dict[str, str]]:
 
 def extract_us_symbol_names(raw: str) -> list[dict[str, str]]:
     results: list[dict[str, str]] = []
+    for ticker, company in re.findall(
+        r'<tr><td><strong>([A-Z][A-Z0-9.\-]{0,7})</strong></td><td>([^<]+)</td>',
+        raw,
+        flags=re.I,
+    ):
+        results.append({"symbol": ticker.upper(), "name": clean_html_text(company)})
     pattern = r'ticker:\s*"([A-Z][A-Z0-9.\-]{0,7})"[\s\S]{0,500}?company:\s*"([^"]+)"'
     for ticker, company in re.findall(pattern, raw):
         results.append({"symbol": ticker, "name": html.unescape(company)})
@@ -163,6 +175,15 @@ def extract_us_symbol_names(raw: str) -> list[dict[str, str]]:
 
 def extract_symbols(raw: str, filename: str, title: str) -> tuple[list[str], list[dict[str, str]]]:
     symbol_names = extract_tw_symbol_names(raw) + extract_us_symbol_names(raw)
+    explicit_tw = ordered_unique(re.findall(r'data-code="(\d{4})"', raw))
+    explicit_us = ordered_unique(re.findall(r'data-ticker="([A-Z][A-Z0-9.\-]{0,7})"', raw))
+    explicit = explicit_tw if filename.lower().startswith("tw_") else explicit_us if filename.lower().startswith("us_") else []
+    if explicit:
+        names_by_symbol = {item["symbol"]: item["name"] for item in symbol_names}
+        return explicit, [
+            {"symbol": symbol, "name": names_by_symbol.get(symbol, "")}
+            for symbol in explicit
+        ]
     symbols = [item["symbol"] for item in symbol_names]
     symbols += re.findall(r'data-code="(\d{4})"', raw)
     symbols += re.findall(r"\b(\d{4})\s+[\u4e00-\u9fffA-Za-z][^。\n<]{0,18}", clean_html_text(raw))

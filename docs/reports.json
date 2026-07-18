@@ -3,7 +3,7 @@
   "siteDescription": "以資料完整性、估值情境與風控紀律整理的公開個股研究索引。",
   "disclaimer": "本網站內容僅供投資研究紀錄與討論，不構成個人化投資建議。資料可能延遲或不完整，請自行交叉驗證。",
   "feedbackIssueUrl": "https://github.com/ScikitLin/stock-analysis-site/issues/new",
-  "generatedAt": "2026-07-18T09:38:21.675730+00:00",
+  "generatedAt": "2026-07-18T10:46:06.094451+00:00",
   "sourceDir": "published_reports",
   "publishedFolder": "published_reports",
   "chartPreviews": [
@@ -26,8 +26,1181 @@
       "bytes": 169757
     }
   ],
-  "reportCount": 27,
+  "reportCount": 33,
   "reports": [
+    {
+      "id": "us_diversified_financial_payments_22_20260717_basis_2026-07-17",
+      "title": "美股跨產業候選：銀行、資產管理、支付與金融資料 22 檔 2026-07-17 basis 2026-07-17",
+      "heading": "美股跨產業候選：銀行、資產管理、支付與金融資料 22 檔",
+      "summary": "1. 市場與持股閘門 3. Bear Case 4. 價格與部位 5. 來源數字 6. EPS 口徑 7. 估值模組 8. 目標價 9. 操作建議 10. 停損停利 11. 品質風險 12. Rerating / 倍數再評估 13. Price × Thesis 14. 事件 15. 下一驗證點...",
+      "date": "2026-07-17",
+      "market": "us",
+      "marketLabel": "美股",
+      "type": "multi",
+      "typeLabel": "多檔個股",
+      "symbols": [
+        "JPM",
+        "BAC",
+        "WFC",
+        "C",
+        "GS",
+        "MS",
+        "SCHW",
+        "BLK",
+        "BX",
+        "KKR",
+        "APO",
+        "ARES",
+        "V",
+        "MA",
+        "AXP",
+        "COF",
+        "SPGI",
+        "MCO",
+        "ICE",
+        "CME",
+        "MSCI",
+        "FIS"
+      ],
+      "symbolNames": [
+        {
+          "symbol": "JPM",
+          "name": "JPMorgan Chase"
+        },
+        {
+          "symbol": "BAC",
+          "name": "Bank of America"
+        },
+        {
+          "symbol": "WFC",
+          "name": "Wells Fargo"
+        },
+        {
+          "symbol": "C",
+          "name": "Citigroup"
+        },
+        {
+          "symbol": "GS",
+          "name": "Goldman Sachs"
+        },
+        {
+          "symbol": "MS",
+          "name": "Morgan Stanley"
+        },
+        {
+          "symbol": "SCHW",
+          "name": "Charles Schwab"
+        },
+        {
+          "symbol": "BLK",
+          "name": "BlackRock"
+        },
+        {
+          "symbol": "BX",
+          "name": "Blackstone"
+        },
+        {
+          "symbol": "KKR",
+          "name": "KKR"
+        },
+        {
+          "symbol": "APO",
+          "name": "Apollo Global Management"
+        },
+        {
+          "symbol": "ARES",
+          "name": "Ares Management"
+        },
+        {
+          "symbol": "V",
+          "name": "Visa"
+        },
+        {
+          "symbol": "MA",
+          "name": "Mastercard"
+        },
+        {
+          "symbol": "AXP",
+          "name": "American Express"
+        },
+        {
+          "symbol": "COF",
+          "name": "Capital One"
+        },
+        {
+          "symbol": "SPGI",
+          "name": "S&P Global"
+        },
+        {
+          "symbol": "MCO",
+          "name": "Moody's"
+        },
+        {
+          "symbol": "ICE",
+          "name": "Intercontinental Exchange"
+        },
+        {
+          "symbol": "CME",
+          "name": "CME Group"
+        },
+        {
+          "symbol": "MSCI",
+          "name": "MSCI"
+        },
+        {
+          "symbol": "FIS",
+          "name": "Fidelity National Information Services"
+        }
+      ],
+      "tags": [
+        "美股",
+        "多檔個股"
+      ],
+      "sourceFile": "us_diversified_financial_payments_22_20260717_basis_2026-07-17.html",
+      "url": "reports/us_diversified_financial_payments_22_20260717_basis_2026-07-17.html",
+      "bytes": 1719355
+    },
+    {
+      "id": "us_diversified_healthcare_lifescience_21_20260717_basis_2026-07-17",
+      "title": "美股跨產業候選：醫療、製藥、醫材與生命科學 21 檔 2026-07-17 basis 2026-07-17",
+      "heading": "美股跨產業候選：醫療、製藥、醫材與生命科學 21 檔",
+      "summary": "1. 市場與持股閘門 3. Bear Case 4. 價格與部位 5. 來源數字 6. EPS 口徑 7. 估值模組 8. 目標價 9. 操作建議 10. 停損停利 11. 品質風險 12. Rerating / 倍數再評估 13. Price × Thesis 14. 事件 15. 下一驗證點...",
+      "date": "2026-07-17",
+      "market": "us",
+      "marketLabel": "美股",
+      "type": "multi",
+      "typeLabel": "多檔個股",
+      "symbols": [
+        "BDX",
+        "NVO",
+        "JNJ",
+        "ABBV",
+        "MRK",
+        "AMGN",
+        "GILD",
+        "REGN",
+        "VRTX",
+        "ZBH",
+        "SYK",
+        "BSX",
+        "MDT",
+        "TMO",
+        "DHR",
+        "IQV",
+        "MCK",
+        "COR",
+        "CAH",
+        "ELV",
+        "HUM"
+      ],
+      "symbolNames": [
+        {
+          "symbol": "BDX",
+          "name": "Becton, Dickinson"
+        },
+        {
+          "symbol": "NVO",
+          "name": "Novo Nordisk"
+        },
+        {
+          "symbol": "JNJ",
+          "name": "Johnson & Johnson"
+        },
+        {
+          "symbol": "ABBV",
+          "name": "AbbVie"
+        },
+        {
+          "symbol": "MRK",
+          "name": "Merck"
+        },
+        {
+          "symbol": "AMGN",
+          "name": "Amgen"
+        },
+        {
+          "symbol": "GILD",
+          "name": "Gilead Sciences"
+        },
+        {
+          "symbol": "REGN",
+          "name": "Regeneron"
+        },
+        {
+          "symbol": "VRTX",
+          "name": "Vertex Pharmaceuticals"
+        },
+        {
+          "symbol": "ZBH",
+          "name": "Zimmer Biomet"
+        },
+        {
+          "symbol": "SYK",
+          "name": "Stryker"
+        },
+        {
+          "symbol": "BSX",
+          "name": "Boston Scientific"
+        },
+        {
+          "symbol": "MDT",
+          "name": "Medtronic"
+        },
+        {
+          "symbol": "TMO",
+          "name": "Thermo Fisher Scientific"
+        },
+        {
+          "symbol": "DHR",
+          "name": "Danaher"
+        },
+        {
+          "symbol": "IQV",
+          "name": "IQVIA"
+        },
+        {
+          "symbol": "MCK",
+          "name": "McKesson"
+        },
+        {
+          "symbol": "COR",
+          "name": "Cencora"
+        },
+        {
+          "symbol": "CAH",
+          "name": "Cardinal Health"
+        },
+        {
+          "symbol": "ELV",
+          "name": "Elevance Health"
+        },
+        {
+          "symbol": "HUM",
+          "name": "Humana"
+        }
+      ],
+      "tags": [
+        "美股",
+        "多檔個股"
+      ],
+      "sourceFile": "us_diversified_healthcare_lifescience_21_20260717_basis_2026-07-17.html",
+      "url": "reports/us_diversified_healthcare_lifescience_21_20260717_basis_2026-07-17.html",
+      "bytes": 1644851
+    },
+    {
+      "id": "us_diversified_consumer_industrial_software_21_20260717_basis_2026-07-17",
+      "title": "美股跨產業候選：消費、工業、環保與企業軟體 21 檔 2026-07-17 basis 2026-07-17",
+      "heading": "美股跨產業候選：消費、工業、環保與企業軟體 21 檔",
+      "summary": "1. 市場與持股閘門 3. Bear Case 4. 價格與部位 5. 來源數字 6. EPS 口徑 7. 估值模組 8. 目標價 9. 操作建議 10. 停損停利 11. 品質風險 12. Rerating / 倍數再評估 13. Price × Thesis 14. 事件 15. 下一驗證點...",
+      "date": "2026-07-17",
+      "market": "us",
+      "marketLabel": "美股",
+      "type": "multi",
+      "typeLabel": "多檔個股",
+      "symbols": [
+        "COST",
+        "WMT",
+        "TJX",
+        "ROST",
+        "HD",
+        "LOW",
+        "BKNG",
+        "MAR",
+        "CAVA",
+        "CAT",
+        "DE",
+        "PH",
+        "CMI",
+        "HON",
+        "WM",
+        "RSG",
+        "FAST",
+        "NOW",
+        "CRM",
+        "ORLY",
+        "AZO"
+      ],
+      "symbolNames": [
+        {
+          "symbol": "COST",
+          "name": "Costco"
+        },
+        {
+          "symbol": "WMT",
+          "name": "Walmart"
+        },
+        {
+          "symbol": "TJX",
+          "name": "TJX Companies"
+        },
+        {
+          "symbol": "ROST",
+          "name": "Ross Stores"
+        },
+        {
+          "symbol": "HD",
+          "name": "Home Depot"
+        },
+        {
+          "symbol": "LOW",
+          "name": "Lowe's"
+        },
+        {
+          "symbol": "BKNG",
+          "name": "Booking Holdings"
+        },
+        {
+          "symbol": "MAR",
+          "name": "Marriott International"
+        },
+        {
+          "symbol": "CAVA",
+          "name": "CAVA Group"
+        },
+        {
+          "symbol": "CAT",
+          "name": "Caterpillar"
+        },
+        {
+          "symbol": "DE",
+          "name": "Deere"
+        },
+        {
+          "symbol": "PH",
+          "name": "Parker-Hannifin"
+        },
+        {
+          "symbol": "CMI",
+          "name": "Cummins"
+        },
+        {
+          "symbol": "HON",
+          "name": "Honeywell"
+        },
+        {
+          "symbol": "WM",
+          "name": "Waste Management"
+        },
+        {
+          "symbol": "RSG",
+          "name": "Republic Services"
+        },
+        {
+          "symbol": "FAST",
+          "name": "Fastenal"
+        },
+        {
+          "symbol": "NOW",
+          "name": "ServiceNow"
+        },
+        {
+          "symbol": "CRM",
+          "name": "Salesforce"
+        },
+        {
+          "symbol": "ORLY",
+          "name": "O'Reilly Automotive"
+        },
+        {
+          "symbol": "AZO",
+          "name": "AutoZone"
+        }
+      ],
+      "tags": [
+        "美股",
+        "多檔個股"
+      ],
+      "sourceFile": "us_diversified_consumer_industrial_software_21_20260717_basis_2026-07-17.html",
+      "url": "reports/us_diversified_consumer_industrial_software_21_20260717_basis_2026-07-17.html",
+      "bytes": 1640820
+    },
+    {
+      "id": "us_crash_risk_energy_grid_22_20260717_basis_2026-07-17",
+      "title": "美股崩盤風險候選：電力、能源、電網、工程與國防 22 檔 2026-07-17 basis 2026-07-17",
+      "heading": "美股崩盤風險候選：電力、能源、電網、工程與國防 22 檔",
+      "summary": "1. 市場與持股閘門 3. Bear Case 4. 價格與部位 5. 來源數字 6. EPS 口徑 7. 估值模組 8. 目標價 9. 操作建議 10. 停損停利 11. 品質風險 12. Rerating / 倍數再評估 13. Price × Thesis 14. 事件 15. 下一驗證點...",
+      "date": "2026-07-17",
+      "market": "us",
+      "marketLabel": "美股",
+      "type": "multi",
+      "typeLabel": "多檔個股",
+      "symbols": [
+        "GEV",
+        "CEG",
+        "VST",
+        "NRG",
+        "NEE",
+        "CCJ",
+        "LEU",
+        "XOM",
+        "CVX",
+        "COP",
+        "LNG",
+        "EQT",
+        "SLB",
+        "BKR",
+        "HUBB",
+        "NVT",
+        "EME",
+        "MOD",
+        "JCI",
+        "TT",
+        "RTX",
+        "GE"
+      ],
+      "symbolNames": [
+        {
+          "symbol": "GEV",
+          "name": "GE Vernova"
+        },
+        {
+          "symbol": "CEG",
+          "name": "Constellation Energy"
+        },
+        {
+          "symbol": "VST",
+          "name": "Vistra"
+        },
+        {
+          "symbol": "NRG",
+          "name": "NRG Energy"
+        },
+        {
+          "symbol": "NEE",
+          "name": "NextEra Energy"
+        },
+        {
+          "symbol": "CCJ",
+          "name": "Cameco"
+        },
+        {
+          "symbol": "LEU",
+          "name": "Centrus Energy"
+        },
+        {
+          "symbol": "XOM",
+          "name": "Exxon Mobil"
+        },
+        {
+          "symbol": "CVX",
+          "name": "Chevron"
+        },
+        {
+          "symbol": "COP",
+          "name": "ConocoPhillips"
+        },
+        {
+          "symbol": "LNG",
+          "name": "Cheniere Energy"
+        },
+        {
+          "symbol": "EQT",
+          "name": "EQT"
+        },
+        {
+          "symbol": "SLB",
+          "name": "SLB"
+        },
+        {
+          "symbol": "BKR",
+          "name": "Baker Hughes"
+        },
+        {
+          "symbol": "HUBB",
+          "name": "Hubbell"
+        },
+        {
+          "symbol": "NVT",
+          "name": "nVent Electric"
+        },
+        {
+          "symbol": "EME",
+          "name": "EMCOR Group"
+        },
+        {
+          "symbol": "MOD",
+          "name": "Modine Manufacturing"
+        },
+        {
+          "symbol": "JCI",
+          "name": "Johnson Controls"
+        },
+        {
+          "symbol": "TT",
+          "name": "Trane Technologies"
+        },
+        {
+          "symbol": "RTX",
+          "name": "RTX"
+        },
+        {
+          "symbol": "GE",
+          "name": "GE Aerospace"
+        }
+      ],
+      "tags": [
+        "美股",
+        "多檔個股"
+      ],
+      "sourceFile": "us_crash_risk_energy_grid_22_20260717_basis_2026-07-17.html",
+      "url": "reports/us_crash_risk_energy_grid_22_20260717_basis_2026-07-17.html",
+      "bytes": 1745448
+    },
+    {
+      "id": "us_crash_risk_cloud_network_22_20260717_basis_2026-07-17",
+      "title": "美股崩盤風險候選：雲端、網路、光通訊、伺服器與冷卻 22 檔 2026-07-17 basis 2026-07-17",
+      "heading": "美股崩盤風險候選：雲端、網路、光通訊、伺服器與冷卻 22 檔",
+      "summary": "1. 市場與持股閘門 3. Bear Case 4. 價格與部位 5. 來源數字 6. EPS 口徑 7. 估值模組 8. 目標價 9. 操作建議 10. 停損停利 11. 品質風險 12. Rerating / 倍數再評估 13. Price × Thesis 14. 事件 15. 下一驗證點...",
+      "date": "2026-07-17",
+      "market": "us",
+      "marketLabel": "美股",
+      "type": "multi",
+      "typeLabel": "多檔個股",
+      "symbols": [
+        "GOOGL",
+        "MSFT",
+        "AMZN",
+        "META",
+        "ORCL",
+        "ANET",
+        "CSCO",
+        "TEL",
+        "FN",
+        "GLW",
+        "COHR",
+        "LITE",
+        "CIEN",
+        "DELL",
+        "HPE",
+        "CLS",
+        "FLEX",
+        "JBL",
+        "VRT",
+        "ETN",
+        "PWR",
+        "FIX"
+      ],
+      "symbolNames": [
+        {
+          "symbol": "GOOGL",
+          "name": "Alphabet"
+        },
+        {
+          "symbol": "MSFT",
+          "name": "Microsoft"
+        },
+        {
+          "symbol": "AMZN",
+          "name": "Amazon"
+        },
+        {
+          "symbol": "META",
+          "name": "Meta Platforms"
+        },
+        {
+          "symbol": "ORCL",
+          "name": "Oracle"
+        },
+        {
+          "symbol": "ANET",
+          "name": "Arista Networks"
+        },
+        {
+          "symbol": "CSCO",
+          "name": "Cisco Systems"
+        },
+        {
+          "symbol": "TEL",
+          "name": "TE Connectivity"
+        },
+        {
+          "symbol": "FN",
+          "name": "Fabrinet"
+        },
+        {
+          "symbol": "GLW",
+          "name": "Corning"
+        },
+        {
+          "symbol": "COHR",
+          "name": "Coherent"
+        },
+        {
+          "symbol": "LITE",
+          "name": "Lumentum"
+        },
+        {
+          "symbol": "CIEN",
+          "name": "Ciena"
+        },
+        {
+          "symbol": "DELL",
+          "name": "Dell Technologies"
+        },
+        {
+          "symbol": "HPE",
+          "name": "Hewlett Packard Enterprise"
+        },
+        {
+          "symbol": "CLS",
+          "name": "Celestica"
+        },
+        {
+          "symbol": "FLEX",
+          "name": "Flex"
+        },
+        {
+          "symbol": "JBL",
+          "name": "Jabil"
+        },
+        {
+          "symbol": "VRT",
+          "name": "Vertiv"
+        },
+        {
+          "symbol": "ETN",
+          "name": "Eaton"
+        },
+        {
+          "symbol": "PWR",
+          "name": "Quanta Services"
+        },
+        {
+          "symbol": "FIX",
+          "name": "Comfort Systems USA"
+        }
+      ],
+      "tags": [
+        "美股",
+        "多檔個股"
+      ],
+      "sourceFile": "us_crash_risk_cloud_network_22_20260717_basis_2026-07-17.html",
+      "url": "reports/us_crash_risk_cloud_network_22_20260717_basis_2026-07-17.html",
+      "bytes": 1767752
+    },
+    {
+      "id": "us_crash_risk_semiconductor_22_20260717_basis_2026-07-17",
+      "title": "美股崩盤風險候選：AI 晶片、半導體設備與 EDA 22 檔 2026-07-17 basis 2026-07-17",
+      "heading": "美股崩盤風險候選：AI 晶片、半導體設備與 EDA 22 檔",
+      "summary": "1. 市場與持股閘門 3. Bear Case 4. 價格與部位 5. 來源數字 6. EPS 口徑 7. 估值模組 8. 目標價 9. 操作建議 10. 停損停利 11. 品質風險 12. Rerating / 倍數再評估 13. Price × Thesis 14. 事件 15. 下一驗證點...",
+      "date": "2026-07-17",
+      "market": "us",
+      "marketLabel": "美股",
+      "type": "multi",
+      "typeLabel": "多檔個股",
+      "symbols": [
+        "NVDA",
+        "AVGO",
+        "AMD",
+        "MRVL",
+        "KLAC",
+        "AMAT",
+        "LRCX",
+        "ASML",
+        "TSM",
+        "MU",
+        "ARM",
+        "QCOM",
+        "TER",
+        "TXN",
+        "NXPI",
+        "MPWR",
+        "MCHP",
+        "ON",
+        "WDC",
+        "STX",
+        "SNPS",
+        "CDNS"
+      ],
+      "symbolNames": [
+        {
+          "symbol": "NVDA",
+          "name": "NVIDIA"
+        },
+        {
+          "symbol": "AVGO",
+          "name": "Broadcom"
+        },
+        {
+          "symbol": "AMD",
+          "name": "Advanced Micro Devices"
+        },
+        {
+          "symbol": "MRVL",
+          "name": "Marvell"
+        },
+        {
+          "symbol": "KLAC",
+          "name": "KLA"
+        },
+        {
+          "symbol": "AMAT",
+          "name": "Applied Materials"
+        },
+        {
+          "symbol": "LRCX",
+          "name": "Lam Research"
+        },
+        {
+          "symbol": "ASML",
+          "name": "ASML Holding"
+        },
+        {
+          "symbol": "TSM",
+          "name": "Taiwan Semiconductor"
+        },
+        {
+          "symbol": "MU",
+          "name": "Micron"
+        },
+        {
+          "symbol": "ARM",
+          "name": "Arm Holdings"
+        },
+        {
+          "symbol": "QCOM",
+          "name": "Qualcomm"
+        },
+        {
+          "symbol": "TER",
+          "name": "Teradyne"
+        },
+        {
+          "symbol": "TXN",
+          "name": "Texas Instruments"
+        },
+        {
+          "symbol": "NXPI",
+          "name": "NXP Semiconductors"
+        },
+        {
+          "symbol": "MPWR",
+          "name": "Monolithic Power Systems"
+        },
+        {
+          "symbol": "MCHP",
+          "name": "Microchip Technology"
+        },
+        {
+          "symbol": "ON",
+          "name": "onsemi"
+        },
+        {
+          "symbol": "WDC",
+          "name": "Western Digital"
+        },
+        {
+          "symbol": "STX",
+          "name": "Seagate Technology"
+        },
+        {
+          "symbol": "SNPS",
+          "name": "Synopsys"
+        },
+        {
+          "symbol": "CDNS",
+          "name": "Cadence Design Systems"
+        }
+      ],
+      "tags": [
+        "美股",
+        "多檔個股"
+      ],
+      "sourceFile": "us_crash_risk_semiconductor_22_20260717_basis_2026-07-17.html",
+      "url": "reports/us_crash_risk_semiconductor_22_20260717_basis_2026-07-17.html",
+      "bytes": 1756462
+    },
+    {
+      "id": "tw_diversified_financial_consumer_22_20260717",
+      "title": "台股跨產業候選：金融、支付、民生消費與觀光 22 檔（22 檔） 2026-07-17",
+      "heading": "台股跨產業候選：金融、支付、民生消費與觀光 22 檔（22 檔）",
+      "summary": "1. 市場與持股閘門 2. 產業與國際情勢 4. Bear Case 5. 價格與部位 6. 來源數字 7. EPS 模組 8. 估值模組 9. 價格結論 10. 操作建議 11. 停損停利 12. 品質風險 13. 低 P/E 成長 14. Rerating / 倍數再評估 17. Price...",
+      "date": "2026-07-17",
+      "market": "tw",
+      "marketLabel": "台股",
+      "type": "multi",
+      "typeLabel": "多檔個股",
+      "symbols": [
+        "5306",
+        "4536",
+        "1232",
+        "8464",
+        "2812",
+        "1210",
+        "1736",
+        "1231",
+        "9802",
+        "2845",
+        "2884",
+        "6670",
+        "9911",
+        "8462",
+        "2753",
+        "2890",
+        "2727",
+        "2801",
+        "9914",
+        "2707",
+        "2887",
+        "2892"
+      ],
+      "symbolNames": [
+        {
+          "symbol": "5306",
+          "name": "桂盟"
+        },
+        {
+          "symbol": "4536",
+          "name": "拓凱"
+        },
+        {
+          "symbol": "1232",
+          "name": "大統益"
+        },
+        {
+          "symbol": "8464",
+          "name": "億豐"
+        },
+        {
+          "symbol": "2812",
+          "name": "台中銀"
+        },
+        {
+          "symbol": "1210",
+          "name": "大成"
+        },
+        {
+          "symbol": "1736",
+          "name": "喬山"
+        },
+        {
+          "symbol": "1231",
+          "name": "聯華食"
+        },
+        {
+          "symbol": "9802",
+          "name": "鈺齊-KY"
+        },
+        {
+          "symbol": "2845",
+          "name": "遠東銀"
+        },
+        {
+          "symbol": "2884",
+          "name": "玉山金"
+        },
+        {
+          "symbol": "6670",
+          "name": "復盛應用"
+        },
+        {
+          "symbol": "9911",
+          "name": "櫻花"
+        },
+        {
+          "symbol": "8462",
+          "name": "柏文"
+        },
+        {
+          "symbol": "2753",
+          "name": "八方雲集"
+        },
+        {
+          "symbol": "2890",
+          "name": "永豐金"
+        },
+        {
+          "symbol": "2727",
+          "name": "王品"
+        },
+        {
+          "symbol": "2801",
+          "name": "彰銀"
+        },
+        {
+          "symbol": "9914",
+          "name": "美利達"
+        },
+        {
+          "symbol": "2707",
+          "name": "晶華"
+        },
+        {
+          "symbol": "2887",
+          "name": "台新新光金"
+        },
+        {
+          "symbol": "2892",
+          "name": "第一金"
+        }
+      ],
+      "tags": [
+        "台股",
+        "多檔個股"
+      ],
+      "sourceFile": "tw_diversified_financial_consumer_22_20260717.html",
+      "url": "reports/tw_diversified_financial_consumer_22_20260717.html",
+      "bytes": 1416581
+    },
+    {
+      "id": "tw_diversified_healthcare_21_20260717",
+      "title": "台股跨產業候選：醫療、生技、製藥與醫材 21 檔（21 檔） 2026-07-17",
+      "heading": "台股跨產業候選：醫療、生技、製藥與醫材 21 檔（21 檔）",
+      "summary": "1. 市場與持股閘門 2. 產業與國際情勢 4. Bear Case 5. 價格與部位 6. 來源數字 7. EPS 模組 8. 估值模組 9. 價格結論 10. 操作建議 11. 停損停利 12. 品質風險 13. 低 P/E 成長 14. Rerating / 倍數再評估 17. Price...",
+      "date": "2026-07-17",
+      "market": "tw",
+      "marketLabel": "台股",
+      "type": "multi",
+      "typeLabel": "多檔個股",
+      "symbols": [
+        "6491",
+        "6782",
+        "6472",
+        "6446",
+        "1795",
+        "4771",
+        "4104",
+        "1720",
+        "1783",
+        "4148",
+        "6918",
+        "6931",
+        "6534",
+        "1734",
+        "1731",
+        "6936",
+        "4746",
+        "6861",
+        "4164",
+        "6589",
+        "1707"
+      ],
+      "symbolNames": [
+        {
+          "symbol": "6491",
+          "name": "晶碩"
+        },
+        {
+          "symbol": "6782",
+          "name": "視陽"
+        },
+        {
+          "symbol": "6472",
+          "name": "保瑞"
+        },
+        {
+          "symbol": "6446",
+          "name": "藥華藥"
+        },
+        {
+          "symbol": "1795",
+          "name": "美時"
+        },
+        {
+          "symbol": "4771",
+          "name": "望隼"
+        },
+        {
+          "symbol": "4104",
+          "name": "佳醫"
+        },
+        {
+          "symbol": "1720",
+          "name": "生達"
+        },
+        {
+          "symbol": "1783",
+          "name": "和康生"
+        },
+        {
+          "symbol": "4148",
+          "name": "全宇生技-KY"
+        },
+        {
+          "symbol": "6918",
+          "name": "愛派司"
+        },
+        {
+          "symbol": "6931",
+          "name": "青松健康"
+        },
+        {
+          "symbol": "6534",
+          "name": "正瀚-創"
+        },
+        {
+          "symbol": "1734",
+          "name": "杏輝"
+        },
+        {
+          "symbol": "1731",
+          "name": "美吾華"
+        },
+        {
+          "symbol": "6936",
+          "name": "永鴻生技"
+        },
+        {
+          "symbol": "4746",
+          "name": "台耀"
+        },
+        {
+          "symbol": "6861",
+          "name": "睿生光電"
+        },
+        {
+          "symbol": "4164",
+          "name": "承業醫"
+        },
+        {
+          "symbol": "6589",
+          "name": "台康生技"
+        },
+        {
+          "symbol": "1707",
+          "name": "葡萄王"
+        }
+      ],
+      "tags": [
+        "台股",
+        "多檔個股"
+      ],
+      "sourceFile": "tw_diversified_healthcare_21_20260717.html",
+      "url": "reports/tw_diversified_healthcare_21_20260717.html",
+      "bytes": 1346661
+    },
+    {
+      "id": "tw_diversified_industrial_transport_green_22_20260717",
+      "title": "台股跨產業候選：工業自動化、運輸、環保與數位服務 22 檔（22 檔） 2026-07-17",
+      "heading": "台股跨產業候選：工業自動化、運輸、環保與數位服務 22 檔（22 檔）",
+      "summary": "1. 市場與持股閘門 2. 產業與國際情勢 4. Bear Case 5. 價格與部位 6. 來源數字 7. EPS 模組 8. 估值模組 9. 價格結論 10. 操作建議 11. 停損停利 12. 品質風險 13. 低 P/E 成長 14. Rerating / 倍數再評估 17. Price...",
+      "date": "2026-07-17",
+      "market": "tw",
+      "marketLabel": "台股",
+      "type": "multi",
+      "typeLabel": "多檔個股",
+      "symbols": [
+        "6165",
+        "2615",
+        "2603",
+        "6753",
+        "6581",
+        "2610",
+        "2072",
+        "6944",
+        "2204",
+        "6757",
+        "2480",
+        "8422",
+        "8487",
+        "2609",
+        "4532",
+        "8473",
+        "8341",
+        "2049",
+        "2645",
+        "2633",
+        "2206",
+        "7765"
+      ],
+      "symbolNames": [
+        {
+          "symbol": "6165",
+          "name": "浪凡"
+        },
+        {
+          "symbol": "2615",
+          "name": "萬海"
+        },
+        {
+          "symbol": "2603",
+          "name": "長榮"
+        },
+        {
+          "symbol": "6753",
+          "name": "龍德造船"
+        },
+        {
+          "symbol": "6581",
+          "name": "鋼聯"
+        },
+        {
+          "symbol": "2610",
+          "name": "華航"
+        },
+        {
+          "symbol": "2072",
+          "name": "世紀風電"
+        },
+        {
+          "symbol": "6944",
+          "name": "兆聯實業"
+        },
+        {
+          "symbol": "2204",
+          "name": "中華"
+        },
+        {
+          "symbol": "6757",
+          "name": "台灣虎航"
+        },
+        {
+          "symbol": "2480",
+          "name": "敦陽科"
+        },
+        {
+          "symbol": "8422",
+          "name": "可寧衛*"
+        },
+        {
+          "symbol": "8487",
+          "name": "愛爾達-創"
+        },
+        {
+          "symbol": "2609",
+          "name": "陽明"
+        },
+        {
+          "symbol": "4532",
+          "name": "瑞智"
+        },
+        {
+          "symbol": "8473",
+          "name": "山林水"
+        },
+        {
+          "symbol": "8341",
+          "name": "日友"
+        },
+        {
+          "symbol": "2049",
+          "name": "上銀"
+        },
+        {
+          "symbol": "2645",
+          "name": "長榮航太"
+        },
+        {
+          "symbol": "2633",
+          "name": "台灣高鐵"
+        },
+        {
+          "symbol": "2206",
+          "name": "三陽工業"
+        },
+        {
+          "symbol": "7765",
+          "name": "中華資安"
+        }
+      ],
+      "tags": [
+        "台股",
+        "多檔個股"
+      ],
+      "sourceFile": "tw_diversified_industrial_transport_green_22_20260717.html",
+      "url": "reports/tw_diversified_industrial_transport_green_22_20260717.html",
+      "bytes": 1421257
+    },
     {
       "id": "tw_crash_risk_power_energy_defensive_21_20260717",
       "title": "台股崩盤風險候選：電網、能源、原物料與防禦現金流 21 檔（21 檔） 2026-07-17",
@@ -153,7 +1326,7 @@
       ],
       "sourceFile": "tw_crash_risk_power_energy_defensive_21_20260717.html",
       "url": "reports/tw_crash_risk_power_energy_defensive_21_20260717.html",
-      "bytes": 1361224
+      "bytes": 1364348
     },
     {
       "id": "tw_crash_risk_semiconductor_22_20260717",
@@ -285,7 +1458,7 @@
       ],
       "sourceFile": "tw_crash_risk_semiconductor_22_20260717.html",
       "url": "reports/tw_crash_risk_semiconductor_22_20260717.html",
-      "bytes": 1437029
+      "bytes": 1440335
     },
     {
       "id": "tw_crash_risk_ai_infrastructure_22_20260717",
@@ -417,403 +1590,7 @@
       ],
       "sourceFile": "tw_crash_risk_ai_infrastructure_22_20260717.html",
       "url": "reports/tw_crash_risk_ai_infrastructure_22_20260717.html",
-      "bytes": 1444030
-    },
-    {
-      "id": "us_crash_risk_energy_grid_22_20260717_basis_2026-07-16",
-      "title": "美股崩盤風險候選：電力、能源、電網、工程與國防 22 檔 2026-07-17 basis 2026-07-16",
-      "heading": "美股崩盤風險候選：電力、能源、電網、工程與國防 22 檔",
-      "summary": "1. 市場與持股閘門 3. Bear Case 4. 價格與部位 5. 來源數字 6. EPS 口徑 7. 估值模組 8. 目標價 9. 操作建議 10. 停損停利 11. 品質風險 12. Rerating / 倍數再評估 13. Price × Thesis 14. 事件 15. 下一驗證點...",
-      "date": "2026-07-16",
-      "market": "us",
-      "marketLabel": "美股",
-      "type": "multi",
-      "typeLabel": "多檔個股",
-      "symbols": [
-        "GEV",
-        "CEG",
-        "VST",
-        "NRG",
-        "NEE",
-        "CCJ",
-        "LEU",
-        "XOM",
-        "CVX",
-        "COP",
-        "LNG",
-        "EQT",
-        "SLB",
-        "BKR",
-        "HUBB",
-        "NVT",
-        "EME",
-        "MOD",
-        "JCI",
-        "TT",
-        "RTX",
-        "GE"
-      ],
-      "symbolNames": [
-        {
-          "symbol": "GEV",
-          "name": "GE Vernova"
-        },
-        {
-          "symbol": "CEG",
-          "name": "Constellation Energy"
-        },
-        {
-          "symbol": "VST",
-          "name": "Vistra"
-        },
-        {
-          "symbol": "NRG",
-          "name": "NRG Energy"
-        },
-        {
-          "symbol": "NEE",
-          "name": "NextEra Energy"
-        },
-        {
-          "symbol": "CCJ",
-          "name": "Cameco"
-        },
-        {
-          "symbol": "LEU",
-          "name": "Centrus Energy"
-        },
-        {
-          "symbol": "XOM",
-          "name": "Exxon Mobil"
-        },
-        {
-          "symbol": "CVX",
-          "name": "Chevron"
-        },
-        {
-          "symbol": "COP",
-          "name": "ConocoPhillips"
-        },
-        {
-          "symbol": "LNG",
-          "name": "Cheniere Energy"
-        },
-        {
-          "symbol": "EQT",
-          "name": "EQT"
-        },
-        {
-          "symbol": "SLB",
-          "name": "SLB"
-        },
-        {
-          "symbol": "BKR",
-          "name": "Baker Hughes"
-        },
-        {
-          "symbol": "HUBB",
-          "name": "Hubbell"
-        },
-        {
-          "symbol": "NVT",
-          "name": "nVent Electric"
-        },
-        {
-          "symbol": "EME",
-          "name": "EMCOR Group"
-        },
-        {
-          "symbol": "MOD",
-          "name": "Modine Manufacturing"
-        },
-        {
-          "symbol": "JCI",
-          "name": "Johnson Controls"
-        },
-        {
-          "symbol": "TT",
-          "name": "Trane Technologies"
-        },
-        {
-          "symbol": "RTX",
-          "name": "RTX"
-        },
-        {
-          "symbol": "GE",
-          "name": "GE Aerospace"
-        }
-      ],
-      "tags": [
-        "美股",
-        "多檔個股"
-      ],
-      "sourceFile": "us_crash_risk_energy_grid_22_20260717_basis_2026-07-16.html",
-      "url": "reports/us_crash_risk_energy_grid_22_20260717_basis_2026-07-16.html",
-      "bytes": 1690947
-    },
-    {
-      "id": "us_crash_risk_cloud_network_22_20260717_basis_2026-07-16",
-      "title": "美股崩盤風險候選：雲端、網路、光通訊、伺服器與冷卻 22 檔 2026-07-17 basis 2026-07-16",
-      "heading": "美股崩盤風險候選：雲端、網路、光通訊、伺服器與冷卻 22 檔",
-      "summary": "1. 市場與持股閘門 3. Bear Case 4. 價格與部位 5. 來源數字 6. EPS 口徑 7. 估值模組 8. 目標價 9. 操作建議 10. 停損停利 11. 品質風險 12. Rerating / 倍數再評估 13. Price × Thesis 14. 事件 15. 下一驗證點...",
-      "date": "2026-07-16",
-      "market": "us",
-      "marketLabel": "美股",
-      "type": "multi",
-      "typeLabel": "多檔個股",
-      "symbols": [
-        "GOOGL",
-        "MSFT",
-        "AMZN",
-        "META",
-        "ORCL",
-        "ANET",
-        "CSCO",
-        "TEL",
-        "FN",
-        "GLW",
-        "COHR",
-        "LITE",
-        "CIEN",
-        "DELL",
-        "HPE",
-        "CLS",
-        "FLEX",
-        "JBL",
-        "VRT",
-        "ETN",
-        "PWR",
-        "FIX"
-      ],
-      "symbolNames": [
-        {
-          "symbol": "GOOGL",
-          "name": "Alphabet"
-        },
-        {
-          "symbol": "MSFT",
-          "name": "Microsoft"
-        },
-        {
-          "symbol": "AMZN",
-          "name": "Amazon"
-        },
-        {
-          "symbol": "META",
-          "name": "Meta Platforms"
-        },
-        {
-          "symbol": "ORCL",
-          "name": "Oracle"
-        },
-        {
-          "symbol": "ANET",
-          "name": "Arista Networks"
-        },
-        {
-          "symbol": "CSCO",
-          "name": "Cisco Systems"
-        },
-        {
-          "symbol": "TEL",
-          "name": "TE Connectivity"
-        },
-        {
-          "symbol": "FN",
-          "name": "Fabrinet"
-        },
-        {
-          "symbol": "GLW",
-          "name": "Corning"
-        },
-        {
-          "symbol": "COHR",
-          "name": "Coherent"
-        },
-        {
-          "symbol": "LITE",
-          "name": "Lumentum"
-        },
-        {
-          "symbol": "CIEN",
-          "name": "Ciena"
-        },
-        {
-          "symbol": "DELL",
-          "name": "Dell Technologies"
-        },
-        {
-          "symbol": "HPE",
-          "name": "Hewlett Packard Enterprise"
-        },
-        {
-          "symbol": "CLS",
-          "name": "Celestica"
-        },
-        {
-          "symbol": "FLEX",
-          "name": "Flex"
-        },
-        {
-          "symbol": "JBL",
-          "name": "Jabil"
-        },
-        {
-          "symbol": "VRT",
-          "name": "Vertiv"
-        },
-        {
-          "symbol": "ETN",
-          "name": "Eaton"
-        },
-        {
-          "symbol": "PWR",
-          "name": "Quanta Services"
-        },
-        {
-          "symbol": "FIX",
-          "name": "Comfort Systems USA"
-        }
-      ],
-      "tags": [
-        "美股",
-        "多檔個股"
-      ],
-      "sourceFile": "us_crash_risk_cloud_network_22_20260717_basis_2026-07-16.html",
-      "url": "reports/us_crash_risk_cloud_network_22_20260717_basis_2026-07-16.html",
-      "bytes": 1719129
-    },
-    {
-      "id": "us_crash_risk_semiconductor_22_20260717_basis_2026-07-16",
-      "title": "美股崩盤風險候選：AI 晶片、半導體設備與 EDA 22 檔 2026-07-17 basis 2026-07-16",
-      "heading": "美股崩盤風險候選：AI 晶片、半導體設備與 EDA 22 檔",
-      "summary": "1. 市場與持股閘門 3. Bear Case 4. 價格與部位 5. 來源數字 6. EPS 口徑 7. 估值模組 8. 目標價 9. 操作建議 10. 停損停利 11. 品質風險 12. Rerating / 倍數再評估 13. Price × Thesis 14. 事件 15. 下一驗證點...",
-      "date": "2026-07-16",
-      "market": "us",
-      "marketLabel": "美股",
-      "type": "multi",
-      "typeLabel": "多檔個股",
-      "symbols": [
-        "NVDA",
-        "AVGO",
-        "AMD",
-        "MRVL",
-        "KLAC",
-        "AMAT",
-        "LRCX",
-        "ASML",
-        "TSM",
-        "MU",
-        "ARM",
-        "QCOM",
-        "TER",
-        "TXN",
-        "NXPI",
-        "MPWR",
-        "MCHP",
-        "ON",
-        "WDC",
-        "STX",
-        "SNPS",
-        "CDNS"
-      ],
-      "symbolNames": [
-        {
-          "symbol": "NVDA",
-          "name": "NVIDIA"
-        },
-        {
-          "symbol": "AVGO",
-          "name": "Broadcom"
-        },
-        {
-          "symbol": "AMD",
-          "name": "Advanced Micro Devices"
-        },
-        {
-          "symbol": "MRVL",
-          "name": "Marvell"
-        },
-        {
-          "symbol": "KLAC",
-          "name": "KLA"
-        },
-        {
-          "symbol": "AMAT",
-          "name": "Applied Materials"
-        },
-        {
-          "symbol": "LRCX",
-          "name": "Lam Research"
-        },
-        {
-          "symbol": "ASML",
-          "name": "ASML Holding"
-        },
-        {
-          "symbol": "TSM",
-          "name": "Taiwan Semiconductor"
-        },
-        {
-          "symbol": "MU",
-          "name": "Micron"
-        },
-        {
-          "symbol": "ARM",
-          "name": "Arm Holdings"
-        },
-        {
-          "symbol": "QCOM",
-          "name": "Qualcomm"
-        },
-        {
-          "symbol": "TER",
-          "name": "Teradyne"
-        },
-        {
-          "symbol": "TXN",
-          "name": "Texas Instruments"
-        },
-        {
-          "symbol": "NXPI",
-          "name": "NXP Semiconductors"
-        },
-        {
-          "symbol": "MPWR",
-          "name": "Monolithic Power Systems"
-        },
-        {
-          "symbol": "MCHP",
-          "name": "Microchip Technology"
-        },
-        {
-          "symbol": "ON",
-          "name": "onsemi"
-        },
-        {
-          "symbol": "WDC",
-          "name": "Western Digital"
-        },
-        {
-          "symbol": "STX",
-          "name": "Seagate Technology"
-        },
-        {
-          "symbol": "SNPS",
-          "name": "Synopsys"
-        },
-        {
-          "symbol": "CDNS",
-          "name": "Cadence Design Systems"
-        }
-      ],
-      "tags": [
-        "美股",
-        "多檔個股"
-      ],
-      "sourceFile": "us_crash_risk_semiconductor_22_20260717_basis_2026-07-16.html",
-      "url": "reports/us_crash_risk_semiconductor_22_20260717_basis_2026-07-16.html",
-      "bytes": 1696495
+      "bytes": 1447414
     },
     {
       "id": "tw_nonconsensus_25_stock_analysis_20260702",
@@ -850,8 +1627,7 @@
         "3029",
         "6690",
         "6214",
-        "6140",
-        "2026"
+        "6140"
       ],
       "symbolNames": [
         {
@@ -908,7 +1684,7 @@
         },
         {
           "symbol": "1590",
-          "name": "亞德客"
+          "name": "亞德客-KY"
         },
         {
           "symbol": "1597",
@@ -953,10 +1729,6 @@
         {
           "symbol": "6140",
           "name": "訊達"
-        },
-        {
-          "symbol": "2026",
-          "name": ""
         }
       ],
       "tags": [
@@ -978,146 +1750,86 @@
       "type": "multi",
       "typeLabel": "多檔個股",
       "symbols": [
-        "2026",
-        "6272",
-        "2027",
-        "0493",
-        "5398",
-        "1960",
-        "0900",
-        "4520",
-        "2250",
-        "4400",
-        "8059",
-        "2025",
-        "4300",
-        "2436",
-        "0366",
-        "2029",
-        "7154",
-        "4560",
-        "2435",
-        "2718",
-        "2031",
-        "5800",
-        "0200",
-        "1550",
-        "GOOGLE",
-        "CAPEX",
-        "ENERGY",
-        "BASIS"
+        "ANET",
+        "MRVL",
+        "CIEN",
+        "GLW",
+        "COHR",
+        "LITE",
+        "FN",
+        "BDC",
+        "TEL",
+        "NEE",
+        "CEG",
+        "VST",
+        "NRG",
+        "GEV",
+        "CCJ",
+        "LEU"
       ],
       "symbolNames": [
         {
-          "symbol": "2026",
+          "symbol": "ANET",
           "name": ""
         },
         {
-          "symbol": "6272",
+          "symbol": "MRVL",
           "name": ""
         },
         {
-          "symbol": "2027",
+          "symbol": "CIEN",
           "name": ""
         },
         {
-          "symbol": "0493",
+          "symbol": "GLW",
           "name": ""
         },
         {
-          "symbol": "5398",
+          "symbol": "COHR",
           "name": ""
         },
         {
-          "symbol": "1960",
+          "symbol": "LITE",
           "name": ""
         },
         {
-          "symbol": "0900",
+          "symbol": "FN",
           "name": ""
         },
         {
-          "symbol": "4520",
+          "symbol": "BDC",
           "name": ""
         },
         {
-          "symbol": "2250",
+          "symbol": "TEL",
           "name": ""
         },
         {
-          "symbol": "4400",
+          "symbol": "NEE",
           "name": ""
         },
         {
-          "symbol": "8059",
+          "symbol": "CEG",
           "name": ""
         },
         {
-          "symbol": "2025",
+          "symbol": "VST",
           "name": ""
         },
         {
-          "symbol": "4300",
+          "symbol": "NRG",
           "name": ""
         },
         {
-          "symbol": "2436",
+          "symbol": "GEV",
           "name": ""
         },
         {
-          "symbol": "0366",
+          "symbol": "CCJ",
           "name": ""
         },
         {
-          "symbol": "2029",
-          "name": ""
-        },
-        {
-          "symbol": "7154",
-          "name": ""
-        },
-        {
-          "symbol": "4560",
-          "name": ""
-        },
-        {
-          "symbol": "2435",
-          "name": ""
-        },
-        {
-          "symbol": "2718",
-          "name": ""
-        },
-        {
-          "symbol": "2031",
-          "name": ""
-        },
-        {
-          "symbol": "5800",
-          "name": ""
-        },
-        {
-          "symbol": "0200",
-          "name": ""
-        },
-        {
-          "symbol": "1550",
-          "name": ""
-        },
-        {
-          "symbol": "GOOGLE",
-          "name": ""
-        },
-        {
-          "symbol": "CAPEX",
-          "name": ""
-        },
-        {
-          "symbol": "ENERGY",
-          "name": ""
-        },
-        {
-          "symbol": "BASIS",
+          "symbol": "LEU",
           "name": ""
         }
       ],
@@ -1140,131 +1852,96 @@
       "type": "multi",
       "typeLabel": "多檔個股",
       "symbols": [
-        "2026",
-        "6237",
-        "2027",
-        "6113",
-        "3247",
-        "9727",
-        "1704",
-        "2907",
-        "5412",
-        "7618",
-        "3732",
-        "4132",
-        "4960",
-        "3433",
-        "5914",
-        "0202",
-        "0251",
-        "2982",
-        "1465",
-        "8095",
-        "GOOGLE",
-        "CAPEX",
-        "CHIPS",
-        "POWER",
-        "BASIS"
+        "AVGO",
+        "TSM",
+        "MU",
+        "NVDA",
+        "ARM",
+        "CLS",
+        "FLEX",
+        "JBL",
+        "DELL",
+        "HPE",
+        "VRT",
+        "ETN",
+        "NVT",
+        "HUBB",
+        "PWR",
+        "EME",
+        "FIX",
+        "MOD"
       ],
       "symbolNames": [
         {
-          "symbol": "2026",
+          "symbol": "AVGO",
           "name": ""
         },
         {
-          "symbol": "6237",
+          "symbol": "TSM",
           "name": ""
         },
         {
-          "symbol": "2027",
+          "symbol": "MU",
           "name": ""
         },
         {
-          "symbol": "6113",
+          "symbol": "NVDA",
           "name": ""
         },
         {
-          "symbol": "3247",
+          "symbol": "ARM",
           "name": ""
         },
         {
-          "symbol": "9727",
+          "symbol": "CLS",
           "name": ""
         },
         {
-          "symbol": "1704",
+          "symbol": "FLEX",
           "name": ""
         },
         {
-          "symbol": "2907",
+          "symbol": "JBL",
           "name": ""
         },
         {
-          "symbol": "5412",
+          "symbol": "DELL",
           "name": ""
         },
         {
-          "symbol": "7618",
+          "symbol": "HPE",
           "name": ""
         },
         {
-          "symbol": "3732",
+          "symbol": "VRT",
           "name": ""
         },
         {
-          "symbol": "4132",
+          "symbol": "ETN",
           "name": ""
         },
         {
-          "symbol": "4960",
+          "symbol": "NVT",
           "name": ""
         },
         {
-          "symbol": "3433",
+          "symbol": "HUBB",
           "name": ""
         },
         {
-          "symbol": "5914",
+          "symbol": "PWR",
           "name": ""
         },
         {
-          "symbol": "0202",
+          "symbol": "EME",
           "name": ""
         },
         {
-          "symbol": "0251",
+          "symbol": "FIX",
           "name": ""
         },
         {
-          "symbol": "2982",
-          "name": ""
-        },
-        {
-          "symbol": "1465",
-          "name": ""
-        },
-        {
-          "symbol": "8095",
-          "name": ""
-        },
-        {
-          "symbol": "GOOGLE",
-          "name": ""
-        },
-        {
-          "symbol": "CAPEX",
-          "name": ""
-        },
-        {
-          "symbol": "CHIPS",
-          "name": ""
-        },
-        {
-          "symbol": "POWER",
-          "name": ""
-        },
-        {
-          "symbol": "BASIS",
+          "symbol": "MOD",
           "name": ""
         }
       ],
@@ -1310,11 +1987,7 @@
         "3131",
         "3583",
         "6187",
-        "5443",
-        "2026",
-        "2027",
-        "2028",
-        "3400"
+        "5443"
       ],
       "symbolNames": [
         {
@@ -1367,7 +2040,7 @@
         },
         {
           "symbol": "6451",
-          "name": "訊芯"
+          "name": "訊芯-KY"
         },
         {
           "symbol": "3491",
@@ -1412,22 +2085,6 @@
         {
           "symbol": "5443",
           "name": "均豪"
-        },
-        {
-          "symbol": "2026",
-          "name": ""
-        },
-        {
-          "symbol": "2027",
-          "name": ""
-        },
-        {
-          "symbol": "2028",
-          "name": ""
-        },
-        {
-          "symbol": "3400",
-          "name": ""
         }
       ],
       "tags": [
@@ -1473,11 +2130,7 @@
         "3023",
         "6285",
         "3015",
-        "6412",
-        "2026",
-        "2027",
-        "2028",
-        "ODM"
+        "6412"
       ],
       "symbolNames": [
         {
@@ -1514,7 +2167,7 @@
         },
         {
           "symbol": "4958",
-          "name": "臻鼎"
+          "name": "臻鼎-KY"
         },
         {
           "symbol": "3037",
@@ -1579,22 +2232,6 @@
         {
           "symbol": "6412",
           "name": "群電"
-        },
-        {
-          "symbol": "2026",
-          "name": ""
-        },
-        {
-          "symbol": "2027",
-          "name": ""
-        },
-        {
-          "symbol": "2028",
-          "name": ""
-        },
-        {
-          "symbol": "ODM",
-          "name": ""
         }
       ],
       "tags": [
@@ -1616,146 +2253,106 @@
       "type": "multi",
       "typeLabel": "多檔個股",
       "symbols": [
-        "2026",
-        "3433",
-        "2718",
-        "2031",
-        "2025",
-        "5914",
-        "0202",
-        "2982",
-        "4960",
-        "0251",
-        "2436",
-        "4300",
-        "6272",
-        "8248",
-        "2019",
-        "5398",
-        "4563",
-        "2769",
-        "4273",
-        "2200",
-        "7729",
-        "2324",
-        "0475",
-        "2027",
-        "8428",
-        "1279",
-        "4800",
-        "BASIS"
+        "ETN",
+        "GEV",
+        "NVT",
+        "HUBB",
+        "EME",
+        "VRT",
+        "PWR",
+        "TEL",
+        "BDC",
+        "ANET",
+        "APH",
+        "GLW",
+        "CIEN",
+        "IBM",
+        "CSCO",
+        "CHKP",
+        "PANW",
+        "CRWD",
+        "OKTA",
+        "ZS"
       ],
       "symbolNames": [
         {
-          "symbol": "2026",
+          "symbol": "ETN",
           "name": ""
         },
         {
-          "symbol": "3433",
+          "symbol": "GEV",
           "name": ""
         },
         {
-          "symbol": "2718",
+          "symbol": "NVT",
           "name": ""
         },
         {
-          "symbol": "2031",
+          "symbol": "HUBB",
           "name": ""
         },
         {
-          "symbol": "2025",
+          "symbol": "EME",
           "name": ""
         },
         {
-          "symbol": "5914",
+          "symbol": "VRT",
           "name": ""
         },
         {
-          "symbol": "0202",
+          "symbol": "PWR",
           "name": ""
         },
         {
-          "symbol": "2982",
+          "symbol": "TEL",
           "name": ""
         },
         {
-          "symbol": "4960",
+          "symbol": "BDC",
           "name": ""
         },
         {
-          "symbol": "0251",
+          "symbol": "ANET",
           "name": ""
         },
         {
-          "symbol": "2436",
+          "symbol": "APH",
           "name": ""
         },
         {
-          "symbol": "4300",
+          "symbol": "GLW",
           "name": ""
         },
         {
-          "symbol": "6272",
+          "symbol": "CIEN",
           "name": ""
         },
         {
-          "symbol": "8248",
+          "symbol": "IBM",
           "name": ""
         },
         {
-          "symbol": "2019",
+          "symbol": "CSCO",
           "name": ""
         },
         {
-          "symbol": "5398",
+          "symbol": "CHKP",
           "name": ""
         },
         {
-          "symbol": "4563",
+          "symbol": "PANW",
           "name": ""
         },
         {
-          "symbol": "2769",
+          "symbol": "CRWD",
           "name": ""
         },
         {
-          "symbol": "4273",
+          "symbol": "OKTA",
           "name": ""
         },
         {
-          "symbol": "2200",
-          "name": ""
-        },
-        {
-          "symbol": "7729",
-          "name": ""
-        },
-        {
-          "symbol": "2324",
-          "name": ""
-        },
-        {
-          "symbol": "0475",
-          "name": ""
-        },
-        {
-          "symbol": "2027",
-          "name": ""
-        },
-        {
-          "symbol": "8428",
-          "name": ""
-        },
-        {
-          "symbol": "1279",
-          "name": ""
-        },
-        {
-          "symbol": "4800",
-          "name": ""
-        },
-        {
-          "symbol": "BASIS",
+          "symbol": "ZS",
           "name": ""
         }
       ],
@@ -1778,176 +2375,121 @@
       "type": "custom",
       "typeLabel": "指定個股",
       "symbols": [
-        "2026",
-        "9046",
-        "2027",
-        "4132",
-        "6700",
-        "9444",
-        "0900",
-        "4520",
-        "2250",
-        "4400",
-        "8059",
-        "2025",
-        "0000",
-        "8883",
-        "6600",
-        "3732",
-        "9315",
-        "5200",
-        "6113",
-        "6237",
-        "8008",
-        "7151",
-        "3883",
-        "4192",
-        "1337",
-        "6900",
-        "8270",
-        "2392",
-        "6799",
-        "2883",
-        "1953",
-        "CUSTOM",
-        "BASIS",
-        "AI"
+        "NTAP",
+        "HPE",
+        "WDC",
+        "COHR",
+        "OCC",
+        "LITE",
+        "FN",
+        "AAOI",
+        "DELL",
+        "SNOW",
+        "TSM",
+        "AVGO",
+        "QCOM",
+        "KLAC",
+        "UNH",
+        "ISRG",
+        "CMG",
+        "SPCX",
+        "ASML",
+        "AMAT",
+        "LRCX",
+        "TER",
+        "ONTO"
       ],
       "symbolNames": [
         {
-          "symbol": "2026",
+          "symbol": "NTAP",
           "name": ""
         },
         {
-          "symbol": "9046",
+          "symbol": "HPE",
           "name": ""
         },
         {
-          "symbol": "2027",
+          "symbol": "WDC",
           "name": ""
         },
         {
-          "symbol": "4132",
+          "symbol": "COHR",
           "name": ""
         },
         {
-          "symbol": "6700",
+          "symbol": "OCC",
           "name": ""
         },
         {
-          "symbol": "9444",
+          "symbol": "LITE",
           "name": ""
         },
         {
-          "symbol": "0900",
+          "symbol": "FN",
           "name": ""
         },
         {
-          "symbol": "4520",
+          "symbol": "AAOI",
           "name": ""
         },
         {
-          "symbol": "2250",
+          "symbol": "DELL",
           "name": ""
         },
         {
-          "symbol": "4400",
+          "symbol": "SNOW",
           "name": ""
         },
         {
-          "symbol": "8059",
+          "symbol": "TSM",
           "name": ""
         },
         {
-          "symbol": "2025",
+          "symbol": "AVGO",
           "name": ""
         },
         {
-          "symbol": "0000",
+          "symbol": "QCOM",
           "name": ""
         },
         {
-          "symbol": "8883",
+          "symbol": "KLAC",
           "name": ""
         },
         {
-          "symbol": "6600",
+          "symbol": "UNH",
           "name": ""
         },
         {
-          "symbol": "3732",
+          "symbol": "ISRG",
           "name": ""
         },
         {
-          "symbol": "9315",
+          "symbol": "CMG",
           "name": ""
         },
         {
-          "symbol": "5200",
+          "symbol": "SPCX",
           "name": ""
         },
         {
-          "symbol": "6113",
+          "symbol": "ASML",
           "name": ""
         },
         {
-          "symbol": "6237",
+          "symbol": "AMAT",
           "name": ""
         },
         {
-          "symbol": "8008",
+          "symbol": "LRCX",
           "name": ""
         },
         {
-          "symbol": "7151",
+          "symbol": "TER",
           "name": ""
         },
         {
-          "symbol": "3883",
-          "name": ""
-        },
-        {
-          "symbol": "4192",
-          "name": ""
-        },
-        {
-          "symbol": "1337",
-          "name": ""
-        },
-        {
-          "symbol": "6900",
-          "name": ""
-        },
-        {
-          "symbol": "8270",
-          "name": ""
-        },
-        {
-          "symbol": "2392",
-          "name": ""
-        },
-        {
-          "symbol": "6799",
-          "name": ""
-        },
-        {
-          "symbol": "2883",
-          "name": ""
-        },
-        {
-          "symbol": "1953",
-          "name": ""
-        },
-        {
-          "symbol": "CUSTOM",
-          "name": ""
-        },
-        {
-          "symbol": "BASIS",
-          "name": ""
-        },
-        {
-          "symbol": "AI",
+          "symbol": "ONTO",
           "name": ""
         }
       ],
@@ -1971,66 +2513,121 @@
       "type": "multi",
       "typeLabel": "多檔個股",
       "symbols": [
-        "2026",
-        "3700",
-        "2500",
-        "0100",
-        "0500",
-        "0200",
-        "3200",
-        "7800",
-        "THEME",
-        "STOCKS",
-        "BASIS",
-        "AI"
+        "FIX",
+        "MOD",
+        "JCI",
+        "TT",
+        "MRVL",
+        "DDOG",
+        "MDB",
+        "STX",
+        "NET",
+        "NVDA",
+        "ROK",
+        "CGNX",
+        "TSLA",
+        "SERV",
+        "SYM",
+        "CEG",
+        "VST",
+        "NRG",
+        "CCJ",
+        "LEU",
+        "RKLB",
+        "ASTS",
+        "IRDM"
       ],
       "symbolNames": [
         {
-          "symbol": "2026",
+          "symbol": "FIX",
           "name": ""
         },
         {
-          "symbol": "3700",
+          "symbol": "MOD",
           "name": ""
         },
         {
-          "symbol": "2500",
+          "symbol": "JCI",
           "name": ""
         },
         {
-          "symbol": "0100",
+          "symbol": "TT",
           "name": ""
         },
         {
-          "symbol": "0500",
+          "symbol": "MRVL",
           "name": ""
         },
         {
-          "symbol": "0200",
+          "symbol": "DDOG",
           "name": ""
         },
         {
-          "symbol": "3200",
+          "symbol": "MDB",
           "name": ""
         },
         {
-          "symbol": "7800",
+          "symbol": "STX",
           "name": ""
         },
         {
-          "symbol": "THEME",
+          "symbol": "NET",
           "name": ""
         },
         {
-          "symbol": "STOCKS",
+          "symbol": "NVDA",
           "name": ""
         },
         {
-          "symbol": "BASIS",
+          "symbol": "ROK",
           "name": ""
         },
         {
-          "symbol": "AI",
+          "symbol": "CGNX",
+          "name": ""
+        },
+        {
+          "symbol": "TSLA",
+          "name": ""
+        },
+        {
+          "symbol": "SERV",
+          "name": ""
+        },
+        {
+          "symbol": "SYM",
+          "name": ""
+        },
+        {
+          "symbol": "CEG",
+          "name": ""
+        },
+        {
+          "symbol": "VST",
+          "name": ""
+        },
+        {
+          "symbol": "NRG",
+          "name": ""
+        },
+        {
+          "symbol": "CCJ",
+          "name": ""
+        },
+        {
+          "symbol": "LEU",
+          "name": ""
+        },
+        {
+          "symbol": "RKLB",
+          "name": ""
+        },
+        {
+          "symbol": "ASTS",
+          "name": ""
+        },
+        {
+          "symbol": "IRDM",
           "name": ""
         }
       ],
@@ -2071,10 +2668,7 @@
         "1773",
         "6191",
         "1608",
-        "9958",
-        "2026",
-        "2027",
-        "AI"
+        "9958"
       ],
       "symbolNames": [
         {
@@ -2152,18 +2746,6 @@
         {
           "symbol": "9958",
           "name": "世紀鋼"
-        },
-        {
-          "symbol": "2026",
-          "name": ""
-        },
-        {
-          "symbol": "2027",
-          "name": ""
-        },
-        {
-          "symbol": "AI",
-          "name": ""
         }
       ],
       "tags": [
@@ -2211,7 +2793,7 @@
         },
         {
           "symbol": "3665",
-          "name": "貿聯"
+          "name": "貿聯-KY"
         },
         {
           "symbol": "2301",
@@ -2285,141 +2867,106 @@
       "type": "multi",
       "typeLabel": "多檔個股",
       "symbols": [
-        "3447",
-        "2026",
-        "2388",
-        "2030",
-        "2025",
-        "5929",
-        "0185",
-        "2982",
-        "4906",
-        "0251",
-        "2408",
-        "0481",
-        "6272",
-        "8163",
-        "1929",
-        "5398",
-        "4518",
-        "2769",
-        "4273",
-        "2200",
-        "7712",
-        "1900",
-        "9283",
-        "2027",
-        "8429",
-        "4800",
-        "1273"
+        "ETN",
+        "GEV",
+        "NVT",
+        "HUBB",
+        "EME",
+        "VRT",
+        "PWR",
+        "TEL",
+        "BDC",
+        "ANET",
+        "APH",
+        "GLW",
+        "CIEN",
+        "IBM",
+        "CSCO",
+        "CHKP",
+        "PANW",
+        "CRWD",
+        "OKTA",
+        "ZS"
       ],
       "symbolNames": [
         {
-          "symbol": "3447",
+          "symbol": "ETN",
           "name": ""
         },
         {
-          "symbol": "2026",
+          "symbol": "GEV",
           "name": ""
         },
         {
-          "symbol": "2388",
+          "symbol": "NVT",
           "name": ""
         },
         {
-          "symbol": "2030",
+          "symbol": "HUBB",
           "name": ""
         },
         {
-          "symbol": "2025",
+          "symbol": "EME",
           "name": ""
         },
         {
-          "symbol": "5929",
+          "symbol": "VRT",
           "name": ""
         },
         {
-          "symbol": "0185",
+          "symbol": "PWR",
           "name": ""
         },
         {
-          "symbol": "2982",
+          "symbol": "TEL",
           "name": ""
         },
         {
-          "symbol": "4906",
+          "symbol": "BDC",
           "name": ""
         },
         {
-          "symbol": "0251",
+          "symbol": "ANET",
           "name": ""
         },
         {
-          "symbol": "2408",
+          "symbol": "APH",
           "name": ""
         },
         {
-          "symbol": "0481",
+          "symbol": "GLW",
           "name": ""
         },
         {
-          "symbol": "6272",
+          "symbol": "CIEN",
           "name": ""
         },
         {
-          "symbol": "8163",
+          "symbol": "IBM",
           "name": ""
         },
         {
-          "symbol": "1929",
+          "symbol": "CSCO",
           "name": ""
         },
         {
-          "symbol": "5398",
+          "symbol": "CHKP",
           "name": ""
         },
         {
-          "symbol": "4518",
+          "symbol": "PANW",
           "name": ""
         },
         {
-          "symbol": "2769",
+          "symbol": "CRWD",
           "name": ""
         },
         {
-          "symbol": "4273",
+          "symbol": "OKTA",
           "name": ""
         },
         {
-          "symbol": "2200",
-          "name": ""
-        },
-        {
-          "symbol": "7712",
-          "name": ""
-        },
-        {
-          "symbol": "1900",
-          "name": ""
-        },
-        {
-          "symbol": "9283",
-          "name": ""
-        },
-        {
-          "symbol": "2027",
-          "name": ""
-        },
-        {
-          "symbol": "8429",
-          "name": ""
-        },
-        {
-          "symbol": "4800",
-          "name": ""
-        },
-        {
-          "symbol": "1273",
+          "symbol": "ZS",
           "name": ""
         }
       ],
@@ -2442,66 +2989,121 @@
       "type": "custom",
       "typeLabel": "指定個股",
       "symbols": [
-        "2026",
-        "6700",
-        "0900",
-        "4400",
-        "2025",
-        "6600",
-        "5200",
-        "6900",
-        "2027",
-        "CUSTOM",
-        "BASIS",
-        "AI"
+        "NTAP",
+        "HPE",
+        "WDC",
+        "COHR",
+        "OCC",
+        "LITE",
+        "FN",
+        "AAOI",
+        "DELL",
+        "SNOW",
+        "TSM",
+        "AVGO",
+        "QCOM",
+        "KLAC",
+        "UNH",
+        "ISRG",
+        "CMG",
+        "SPCX",
+        "ASML",
+        "AMAT",
+        "LRCX",
+        "TER",
+        "ONTO"
       ],
       "symbolNames": [
         {
-          "symbol": "2026",
+          "symbol": "NTAP",
           "name": ""
         },
         {
-          "symbol": "6700",
+          "symbol": "HPE",
           "name": ""
         },
         {
-          "symbol": "0900",
+          "symbol": "WDC",
           "name": ""
         },
         {
-          "symbol": "4400",
+          "symbol": "COHR",
           "name": ""
         },
         {
-          "symbol": "2025",
+          "symbol": "OCC",
           "name": ""
         },
         {
-          "symbol": "6600",
+          "symbol": "LITE",
           "name": ""
         },
         {
-          "symbol": "5200",
+          "symbol": "FN",
           "name": ""
         },
         {
-          "symbol": "6900",
+          "symbol": "AAOI",
           "name": ""
         },
         {
-          "symbol": "2027",
+          "symbol": "DELL",
           "name": ""
         },
         {
-          "symbol": "CUSTOM",
+          "symbol": "SNOW",
           "name": ""
         },
         {
-          "symbol": "BASIS",
+          "symbol": "TSM",
           "name": ""
         },
         {
-          "symbol": "AI",
+          "symbol": "AVGO",
+          "name": ""
+        },
+        {
+          "symbol": "QCOM",
+          "name": ""
+        },
+        {
+          "symbol": "KLAC",
+          "name": ""
+        },
+        {
+          "symbol": "UNH",
+          "name": ""
+        },
+        {
+          "symbol": "ISRG",
+          "name": ""
+        },
+        {
+          "symbol": "CMG",
+          "name": ""
+        },
+        {
+          "symbol": "SPCX",
+          "name": ""
+        },
+        {
+          "symbol": "ASML",
+          "name": ""
+        },
+        {
+          "symbol": "AMAT",
+          "name": ""
+        },
+        {
+          "symbol": "LRCX",
+          "name": ""
+        },
+        {
+          "symbol": "TER",
+          "name": ""
+        },
+        {
+          "symbol": "ONTO",
           "name": ""
         }
       ],
@@ -2534,8 +3136,7 @@
         "9945",
         "9958",
         "2357",
-        "3592",
-        "2026"
+        "3592"
       ],
       "symbolNames": [
         {
@@ -2548,7 +3149,7 @@
         },
         {
           "symbol": "2637",
-          "name": "慧洋"
+          "name": "慧洋-KY"
         },
         {
           "symbol": "6206",
@@ -2556,7 +3157,7 @@
         },
         {
           "symbol": "6525",
-          "name": "捷敏"
+          "name": "捷敏-KY"
         },
         {
           "symbol": "8016",
@@ -2577,10 +3178,6 @@
         {
           "symbol": "3592",
           "name": "瑞鼎"
-        },
-        {
-          "symbol": "2026",
-          "name": ""
         }
       ],
       "tags": [
@@ -2604,31 +3201,101 @@
       "type": "multi",
       "typeLabel": "多檔個股",
       "symbols": [
-        "2026",
-        "2031",
-        "2025",
-        "2027",
-        "FULL"
+        "LLY",
+        "GE",
+        "GEV",
+        "ETN",
+        "PANW",
+        "CRWD",
+        "ISRG",
+        "XYL",
+        "CEG",
+        "RTX",
+        "MU",
+        "MRVL",
+        "COHR",
+        "ANET",
+        "VRT",
+        "GOOGL",
+        "TSM",
+        "NVDA",
+        "AVGO"
       ],
       "symbolNames": [
         {
-          "symbol": "2026",
+          "symbol": "LLY",
           "name": ""
         },
         {
-          "symbol": "2031",
+          "symbol": "GE",
           "name": ""
         },
         {
-          "symbol": "2025",
+          "symbol": "GEV",
           "name": ""
         },
         {
-          "symbol": "2027",
+          "symbol": "ETN",
           "name": ""
         },
         {
-          "symbol": "FULL",
+          "symbol": "PANW",
+          "name": ""
+        },
+        {
+          "symbol": "CRWD",
+          "name": ""
+        },
+        {
+          "symbol": "ISRG",
+          "name": ""
+        },
+        {
+          "symbol": "XYL",
+          "name": ""
+        },
+        {
+          "symbol": "CEG",
+          "name": ""
+        },
+        {
+          "symbol": "RTX",
+          "name": ""
+        },
+        {
+          "symbol": "MU",
+          "name": ""
+        },
+        {
+          "symbol": "MRVL",
+          "name": ""
+        },
+        {
+          "symbol": "COHR",
+          "name": ""
+        },
+        {
+          "symbol": "ANET",
+          "name": ""
+        },
+        {
+          "symbol": "VRT",
+          "name": ""
+        },
+        {
+          "symbol": "GOOGL",
+          "name": ""
+        },
+        {
+          "symbol": "TSM",
+          "name": ""
+        },
+        {
+          "symbol": "NVDA",
+          "name": ""
+        },
+        {
+          "symbol": "AVGO",
           "name": ""
         }
       ],
@@ -2664,9 +3331,7 @@
         "4931",
         "8028",
         "1560",
-        "5434",
-        "KY",
-        "AES"
+        "5434"
       ],
       "symbolNames": [
         {
@@ -2687,7 +3352,7 @@
         },
         {
           "symbol": "6907",
-          "name": "雅特力"
+          "name": "雅特力-KY"
         },
         {
           "symbol": "6683",
@@ -2703,7 +3368,7 @@
         },
         {
           "symbol": "6781",
-          "name": "AES"
+          "name": "AES-KY"
         },
         {
           "symbol": "2421",
@@ -2724,14 +3389,6 @@
         {
           "symbol": "5434",
           "name": "崇越"
-        },
-        {
-          "symbol": "KY",
-          "name": ""
-        },
-        {
-          "symbol": "AES",
-          "name": ""
         }
       ],
       "tags": [
