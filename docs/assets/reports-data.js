@@ -3,7 +3,7 @@ window.STOCK_REPORTS = {
   "siteDescription": "以資料完整性、估值情境與風控紀律整理的公開個股研究索引。",
   "disclaimer": "本網站內容僅供投資研究紀錄與討論，不構成個人化投資建議。資料可能延遲或不完整，請自行交叉驗證。",
   "feedbackIssueUrl": "https://github.com/ScikitLin/stock-analysis-site/issues/new",
-  "generatedAt": "2026-07-08T07:30:17.493681+00:00",
+  "generatedAt": "2026-07-18T09:38:21.675730+00:00",
   "sourceDir": "published_reports",
   "publishedFolder": "published_reports",
   "chartPreviews": [
@@ -26,8 +26,795 @@ window.STOCK_REPORTS = {
       "bytes": 169757
     }
   ],
-  "reportCount": 21,
+  "reportCount": 27,
   "reports": [
+    {
+      "id": "tw_crash_risk_power_energy_defensive_21_20260717",
+      "title": "台股崩盤風險候選：電網、能源、原物料與防禦現金流 21 檔（21 檔） 2026-07-17",
+      "heading": "台股崩盤風險候選：電網、能源、原物料與防禦現金流 21 檔（21 檔）",
+      "summary": "1. 市場與持股閘門 2. 產業與國際情勢 4. Bear Case 5. 價格與部位 6. 來源數字 7. EPS 模組 8. 估值模組 9. 價格結論 10. 操作建議 11. 停損停利 12. 品質風險 13. 低 P/E 成長 14. Rerating / 倍數再評估 17. Price...",
+      "date": "2026-07-17",
+      "market": "tw",
+      "marketLabel": "台股",
+      "type": "multi",
+      "typeLabel": "多檔個股",
+      "symbols": [
+        "1504",
+        "1519",
+        "1513",
+        "1609",
+        "1608",
+        "1503",
+        "1514",
+        "1612",
+        "6505",
+        "1301",
+        "1303",
+        "1101",
+        "1102",
+        "9958",
+        "2006",
+        "2015",
+        "1708",
+        "1216",
+        "2912",
+        "2886",
+        "5871"
+      ],
+      "symbolNames": [
+        {
+          "symbol": "1504",
+          "name": "東元"
+        },
+        {
+          "symbol": "1519",
+          "name": "華城"
+        },
+        {
+          "symbol": "1513",
+          "name": "中興電"
+        },
+        {
+          "symbol": "1609",
+          "name": "大亞"
+        },
+        {
+          "symbol": "1608",
+          "name": "華榮"
+        },
+        {
+          "symbol": "1503",
+          "name": "士電"
+        },
+        {
+          "symbol": "1514",
+          "name": "亞力"
+        },
+        {
+          "symbol": "1612",
+          "name": "宏泰"
+        },
+        {
+          "symbol": "6505",
+          "name": "台塑化"
+        },
+        {
+          "symbol": "1301",
+          "name": "台塑"
+        },
+        {
+          "symbol": "1303",
+          "name": "南亞"
+        },
+        {
+          "symbol": "1101",
+          "name": "台泥"
+        },
+        {
+          "symbol": "1102",
+          "name": "亞泥"
+        },
+        {
+          "symbol": "9958",
+          "name": "世紀鋼"
+        },
+        {
+          "symbol": "2006",
+          "name": "東和鋼鐵"
+        },
+        {
+          "symbol": "2015",
+          "name": "豐興"
+        },
+        {
+          "symbol": "1708",
+          "name": "東鹼"
+        },
+        {
+          "symbol": "1216",
+          "name": "統一"
+        },
+        {
+          "symbol": "2912",
+          "name": "統一超"
+        },
+        {
+          "symbol": "2886",
+          "name": "兆豐金"
+        },
+        {
+          "symbol": "5871",
+          "name": "中租-KY"
+        }
+      ],
+      "tags": [
+        "台股",
+        "多檔個股"
+      ],
+      "sourceFile": "tw_crash_risk_power_energy_defensive_21_20260717.html",
+      "url": "reports/tw_crash_risk_power_energy_defensive_21_20260717.html",
+      "bytes": 1361224
+    },
+    {
+      "id": "tw_crash_risk_semiconductor_22_20260717",
+      "title": "台股崩盤風險候選：半導體、IC 設計與設備 22 檔（22 檔） 2026-07-17",
+      "heading": "台股崩盤風險候選：半導體、IC 設計與設備 22 檔（22 檔）",
+      "summary": "1. 市場與持股閘門 2. 產業與國際情勢 4. Bear Case 5. 價格與部位 6. 來源數字 7. EPS 模組 8. 估值模組 9. 價格結論 10. 操作建議 11. 停損停利 12. 品質風險 13. 低 P/E 成長 14. Rerating / 倍數再評估 17. Price...",
+      "date": "2026-07-17",
+      "market": "tw",
+      "marketLabel": "台股",
+      "type": "multi",
+      "typeLabel": "多檔個股",
+      "symbols": [
+        "2330",
+        "2454",
+        "3711",
+        "3443",
+        "3661",
+        "3034",
+        "2379",
+        "3529",
+        "6488",
+        "5274",
+        "4966",
+        "5269",
+        "6415",
+        "1560",
+        "3583",
+        "3413",
+        "3131",
+        "6196",
+        "6223",
+        "6515",
+        "6531",
+        "6683"
+      ],
+      "symbolNames": [
+        {
+          "symbol": "2330",
+          "name": "台積電"
+        },
+        {
+          "symbol": "2454",
+          "name": "聯發科"
+        },
+        {
+          "symbol": "3711",
+          "name": "日月光投控"
+        },
+        {
+          "symbol": "3443",
+          "name": "創意"
+        },
+        {
+          "symbol": "3661",
+          "name": "世芯-KY"
+        },
+        {
+          "symbol": "3034",
+          "name": "聯詠"
+        },
+        {
+          "symbol": "2379",
+          "name": "瑞昱"
+        },
+        {
+          "symbol": "3529",
+          "name": "力旺"
+        },
+        {
+          "symbol": "6488",
+          "name": "環球晶"
+        },
+        {
+          "symbol": "5274",
+          "name": "信驊"
+        },
+        {
+          "symbol": "4966",
+          "name": "譜瑞-KY"
+        },
+        {
+          "symbol": "5269",
+          "name": "祥碩"
+        },
+        {
+          "symbol": "6415",
+          "name": "矽力*-KY"
+        },
+        {
+          "symbol": "1560",
+          "name": "中砂"
+        },
+        {
+          "symbol": "3583",
+          "name": "辛耘"
+        },
+        {
+          "symbol": "3413",
+          "name": "京鼎"
+        },
+        {
+          "symbol": "3131",
+          "name": "弘塑"
+        },
+        {
+          "symbol": "6196",
+          "name": "帆宣"
+        },
+        {
+          "symbol": "6223",
+          "name": "旺矽"
+        },
+        {
+          "symbol": "6515",
+          "name": "穎崴"
+        },
+        {
+          "symbol": "6531",
+          "name": "愛普*"
+        },
+        {
+          "symbol": "6683",
+          "name": "雍智科技"
+        }
+      ],
+      "tags": [
+        "台股",
+        "多檔個股"
+      ],
+      "sourceFile": "tw_crash_risk_semiconductor_22_20260717.html",
+      "url": "reports/tw_crash_risk_semiconductor_22_20260717.html",
+      "bytes": 1437029
+    },
+    {
+      "id": "tw_crash_risk_ai_infrastructure_22_20260717",
+      "title": "台股崩盤風險候選：AI 伺服器、網通、PCB、散熱與光通訊 22 檔（22 檔） 2026-07-17",
+      "heading": "台股崩盤風險候選：AI 伺服器、網通、PCB、散熱與光通訊 22 檔（22 檔）",
+      "summary": "1. 市場與持股閘門 2. 產業與國際情勢 4. Bear Case 5. 價格與部位 6. 來源數字 7. EPS 模組 8. 估值模組 9. 價格結論 10. 操作建議 11. 停損停利 12. 品質風險 13. 低 P/E 成長 14. Rerating / 倍數再評估 17. Price...",
+      "date": "2026-07-17",
+      "market": "tw",
+      "marketLabel": "台股",
+      "type": "multi",
+      "typeLabel": "多檔個股",
+      "symbols": [
+        "2317",
+        "2382",
+        "3231",
+        "6669",
+        "2376",
+        "2345",
+        "6285",
+        "2368",
+        "3037",
+        "6274",
+        "2308",
+        "6412",
+        "3017",
+        "3324",
+        "3706",
+        "3653",
+        "6805",
+        "2059",
+        "8210",
+        "6442",
+        "4979",
+        "3363"
+      ],
+      "symbolNames": [
+        {
+          "symbol": "2317",
+          "name": "鴻海"
+        },
+        {
+          "symbol": "2382",
+          "name": "廣達"
+        },
+        {
+          "symbol": "3231",
+          "name": "緯創"
+        },
+        {
+          "symbol": "6669",
+          "name": "緯穎"
+        },
+        {
+          "symbol": "2376",
+          "name": "技嘉"
+        },
+        {
+          "symbol": "2345",
+          "name": "智邦"
+        },
+        {
+          "symbol": "6285",
+          "name": "啟碁"
+        },
+        {
+          "symbol": "2368",
+          "name": "金像電"
+        },
+        {
+          "symbol": "3037",
+          "name": "欣興"
+        },
+        {
+          "symbol": "6274",
+          "name": "台燿"
+        },
+        {
+          "symbol": "2308",
+          "name": "台達電"
+        },
+        {
+          "symbol": "6412",
+          "name": "群電"
+        },
+        {
+          "symbol": "3017",
+          "name": "奇鋐"
+        },
+        {
+          "symbol": "3324",
+          "name": "雙鴻"
+        },
+        {
+          "symbol": "3706",
+          "name": "神達"
+        },
+        {
+          "symbol": "3653",
+          "name": "健策"
+        },
+        {
+          "symbol": "6805",
+          "name": "富世達"
+        },
+        {
+          "symbol": "2059",
+          "name": "川湖"
+        },
+        {
+          "symbol": "8210",
+          "name": "勤誠"
+        },
+        {
+          "symbol": "6442",
+          "name": "光聖"
+        },
+        {
+          "symbol": "4979",
+          "name": "華星光"
+        },
+        {
+          "symbol": "3363",
+          "name": "上詮"
+        }
+      ],
+      "tags": [
+        "台股",
+        "多檔個股"
+      ],
+      "sourceFile": "tw_crash_risk_ai_infrastructure_22_20260717.html",
+      "url": "reports/tw_crash_risk_ai_infrastructure_22_20260717.html",
+      "bytes": 1444030
+    },
+    {
+      "id": "us_crash_risk_energy_grid_22_20260717_basis_2026-07-16",
+      "title": "美股崩盤風險候選：電力、能源、電網、工程與國防 22 檔 2026-07-17 basis 2026-07-16",
+      "heading": "美股崩盤風險候選：電力、能源、電網、工程與國防 22 檔",
+      "summary": "1. 市場與持股閘門 3. Bear Case 4. 價格與部位 5. 來源數字 6. EPS 口徑 7. 估值模組 8. 目標價 9. 操作建議 10. 停損停利 11. 品質風險 12. Rerating / 倍數再評估 13. Price × Thesis 14. 事件 15. 下一驗證點...",
+      "date": "2026-07-16",
+      "market": "us",
+      "marketLabel": "美股",
+      "type": "multi",
+      "typeLabel": "多檔個股",
+      "symbols": [
+        "GEV",
+        "CEG",
+        "VST",
+        "NRG",
+        "NEE",
+        "CCJ",
+        "LEU",
+        "XOM",
+        "CVX",
+        "COP",
+        "LNG",
+        "EQT",
+        "SLB",
+        "BKR",
+        "HUBB",
+        "NVT",
+        "EME",
+        "MOD",
+        "JCI",
+        "TT",
+        "RTX",
+        "GE"
+      ],
+      "symbolNames": [
+        {
+          "symbol": "GEV",
+          "name": "GE Vernova"
+        },
+        {
+          "symbol": "CEG",
+          "name": "Constellation Energy"
+        },
+        {
+          "symbol": "VST",
+          "name": "Vistra"
+        },
+        {
+          "symbol": "NRG",
+          "name": "NRG Energy"
+        },
+        {
+          "symbol": "NEE",
+          "name": "NextEra Energy"
+        },
+        {
+          "symbol": "CCJ",
+          "name": "Cameco"
+        },
+        {
+          "symbol": "LEU",
+          "name": "Centrus Energy"
+        },
+        {
+          "symbol": "XOM",
+          "name": "Exxon Mobil"
+        },
+        {
+          "symbol": "CVX",
+          "name": "Chevron"
+        },
+        {
+          "symbol": "COP",
+          "name": "ConocoPhillips"
+        },
+        {
+          "symbol": "LNG",
+          "name": "Cheniere Energy"
+        },
+        {
+          "symbol": "EQT",
+          "name": "EQT"
+        },
+        {
+          "symbol": "SLB",
+          "name": "SLB"
+        },
+        {
+          "symbol": "BKR",
+          "name": "Baker Hughes"
+        },
+        {
+          "symbol": "HUBB",
+          "name": "Hubbell"
+        },
+        {
+          "symbol": "NVT",
+          "name": "nVent Electric"
+        },
+        {
+          "symbol": "EME",
+          "name": "EMCOR Group"
+        },
+        {
+          "symbol": "MOD",
+          "name": "Modine Manufacturing"
+        },
+        {
+          "symbol": "JCI",
+          "name": "Johnson Controls"
+        },
+        {
+          "symbol": "TT",
+          "name": "Trane Technologies"
+        },
+        {
+          "symbol": "RTX",
+          "name": "RTX"
+        },
+        {
+          "symbol": "GE",
+          "name": "GE Aerospace"
+        }
+      ],
+      "tags": [
+        "美股",
+        "多檔個股"
+      ],
+      "sourceFile": "us_crash_risk_energy_grid_22_20260717_basis_2026-07-16.html",
+      "url": "reports/us_crash_risk_energy_grid_22_20260717_basis_2026-07-16.html",
+      "bytes": 1690947
+    },
+    {
+      "id": "us_crash_risk_cloud_network_22_20260717_basis_2026-07-16",
+      "title": "美股崩盤風險候選：雲端、網路、光通訊、伺服器與冷卻 22 檔 2026-07-17 basis 2026-07-16",
+      "heading": "美股崩盤風險候選：雲端、網路、光通訊、伺服器與冷卻 22 檔",
+      "summary": "1. 市場與持股閘門 3. Bear Case 4. 價格與部位 5. 來源數字 6. EPS 口徑 7. 估值模組 8. 目標價 9. 操作建議 10. 停損停利 11. 品質風險 12. Rerating / 倍數再評估 13. Price × Thesis 14. 事件 15. 下一驗證點...",
+      "date": "2026-07-16",
+      "market": "us",
+      "marketLabel": "美股",
+      "type": "multi",
+      "typeLabel": "多檔個股",
+      "symbols": [
+        "GOOGL",
+        "MSFT",
+        "AMZN",
+        "META",
+        "ORCL",
+        "ANET",
+        "CSCO",
+        "TEL",
+        "FN",
+        "GLW",
+        "COHR",
+        "LITE",
+        "CIEN",
+        "DELL",
+        "HPE",
+        "CLS",
+        "FLEX",
+        "JBL",
+        "VRT",
+        "ETN",
+        "PWR",
+        "FIX"
+      ],
+      "symbolNames": [
+        {
+          "symbol": "GOOGL",
+          "name": "Alphabet"
+        },
+        {
+          "symbol": "MSFT",
+          "name": "Microsoft"
+        },
+        {
+          "symbol": "AMZN",
+          "name": "Amazon"
+        },
+        {
+          "symbol": "META",
+          "name": "Meta Platforms"
+        },
+        {
+          "symbol": "ORCL",
+          "name": "Oracle"
+        },
+        {
+          "symbol": "ANET",
+          "name": "Arista Networks"
+        },
+        {
+          "symbol": "CSCO",
+          "name": "Cisco Systems"
+        },
+        {
+          "symbol": "TEL",
+          "name": "TE Connectivity"
+        },
+        {
+          "symbol": "FN",
+          "name": "Fabrinet"
+        },
+        {
+          "symbol": "GLW",
+          "name": "Corning"
+        },
+        {
+          "symbol": "COHR",
+          "name": "Coherent"
+        },
+        {
+          "symbol": "LITE",
+          "name": "Lumentum"
+        },
+        {
+          "symbol": "CIEN",
+          "name": "Ciena"
+        },
+        {
+          "symbol": "DELL",
+          "name": "Dell Technologies"
+        },
+        {
+          "symbol": "HPE",
+          "name": "Hewlett Packard Enterprise"
+        },
+        {
+          "symbol": "CLS",
+          "name": "Celestica"
+        },
+        {
+          "symbol": "FLEX",
+          "name": "Flex"
+        },
+        {
+          "symbol": "JBL",
+          "name": "Jabil"
+        },
+        {
+          "symbol": "VRT",
+          "name": "Vertiv"
+        },
+        {
+          "symbol": "ETN",
+          "name": "Eaton"
+        },
+        {
+          "symbol": "PWR",
+          "name": "Quanta Services"
+        },
+        {
+          "symbol": "FIX",
+          "name": "Comfort Systems USA"
+        }
+      ],
+      "tags": [
+        "美股",
+        "多檔個股"
+      ],
+      "sourceFile": "us_crash_risk_cloud_network_22_20260717_basis_2026-07-16.html",
+      "url": "reports/us_crash_risk_cloud_network_22_20260717_basis_2026-07-16.html",
+      "bytes": 1719129
+    },
+    {
+      "id": "us_crash_risk_semiconductor_22_20260717_basis_2026-07-16",
+      "title": "美股崩盤風險候選：AI 晶片、半導體設備與 EDA 22 檔 2026-07-17 basis 2026-07-16",
+      "heading": "美股崩盤風險候選：AI 晶片、半導體設備與 EDA 22 檔",
+      "summary": "1. 市場與持股閘門 3. Bear Case 4. 價格與部位 5. 來源數字 6. EPS 口徑 7. 估值模組 8. 目標價 9. 操作建議 10. 停損停利 11. 品質風險 12. Rerating / 倍數再評估 13. Price × Thesis 14. 事件 15. 下一驗證點...",
+      "date": "2026-07-16",
+      "market": "us",
+      "marketLabel": "美股",
+      "type": "multi",
+      "typeLabel": "多檔個股",
+      "symbols": [
+        "NVDA",
+        "AVGO",
+        "AMD",
+        "MRVL",
+        "KLAC",
+        "AMAT",
+        "LRCX",
+        "ASML",
+        "TSM",
+        "MU",
+        "ARM",
+        "QCOM",
+        "TER",
+        "TXN",
+        "NXPI",
+        "MPWR",
+        "MCHP",
+        "ON",
+        "WDC",
+        "STX",
+        "SNPS",
+        "CDNS"
+      ],
+      "symbolNames": [
+        {
+          "symbol": "NVDA",
+          "name": "NVIDIA"
+        },
+        {
+          "symbol": "AVGO",
+          "name": "Broadcom"
+        },
+        {
+          "symbol": "AMD",
+          "name": "Advanced Micro Devices"
+        },
+        {
+          "symbol": "MRVL",
+          "name": "Marvell"
+        },
+        {
+          "symbol": "KLAC",
+          "name": "KLA"
+        },
+        {
+          "symbol": "AMAT",
+          "name": "Applied Materials"
+        },
+        {
+          "symbol": "LRCX",
+          "name": "Lam Research"
+        },
+        {
+          "symbol": "ASML",
+          "name": "ASML Holding"
+        },
+        {
+          "symbol": "TSM",
+          "name": "Taiwan Semiconductor"
+        },
+        {
+          "symbol": "MU",
+          "name": "Micron"
+        },
+        {
+          "symbol": "ARM",
+          "name": "Arm Holdings"
+        },
+        {
+          "symbol": "QCOM",
+          "name": "Qualcomm"
+        },
+        {
+          "symbol": "TER",
+          "name": "Teradyne"
+        },
+        {
+          "symbol": "TXN",
+          "name": "Texas Instruments"
+        },
+        {
+          "symbol": "NXPI",
+          "name": "NXP Semiconductors"
+        },
+        {
+          "symbol": "MPWR",
+          "name": "Monolithic Power Systems"
+        },
+        {
+          "symbol": "MCHP",
+          "name": "Microchip Technology"
+        },
+        {
+          "symbol": "ON",
+          "name": "onsemi"
+        },
+        {
+          "symbol": "WDC",
+          "name": "Western Digital"
+        },
+        {
+          "symbol": "STX",
+          "name": "Seagate Technology"
+        },
+        {
+          "symbol": "SNPS",
+          "name": "Synopsys"
+        },
+        {
+          "symbol": "CDNS",
+          "name": "Cadence Design Systems"
+        }
+      ],
+      "tags": [
+        "美股",
+        "多檔個股"
+      ],
+      "sourceFile": "us_crash_risk_semiconductor_22_20260717_basis_2026-07-16.html",
+      "url": "reports/us_crash_risk_semiconductor_22_20260717_basis_2026-07-16.html",
+      "bytes": 1696495
+    },
     {
       "id": "tw_nonconsensus_25_stock_analysis_20260702",
       "title": "台股非共識主題 25 檔個股分析（25 檔） 2026-07-02",
