@@ -3,7 +3,7 @@
   "siteDescription": "以資料完整性、估值情境與風控紀律整理的公開個股研究索引。",
   "disclaimer": "本網站內容僅供投資研究紀錄與討論，不構成個人化投資建議。資料可能延遲或不完整，請自行交叉驗證。",
   "feedbackIssueUrl": "https://github.com/ScikitLin/stock-analysis-site/issues/new",
-  "generatedAt": "2026-08-29T16:30:38.895444+00:00",
+  "generatedAt": "2026-08-29T16:42:43.172190+00:00",
   "sourceDir": "published_reports",
   "publishedFolder": "published_reports",
   "chartPreviews": [
@@ -26,7 +26,7 @@
       "bytes": 169757
     }
   ],
-  "reportCount": 39,
+  "reportCount": 49,
   "reports": [
     {
       "id": "us_portfolio_crash_energy_grid_22_20260830_basis_2026-08-28",
@@ -423,6 +423,1110 @@
       "sourceFile": "us_portfolio_crash_semiconductor_22_20260830_basis_2026-08-28.html",
       "url": "reports/us_portfolio_crash_semiconductor_22_20260830_basis_2026-08-28.html",
       "bytes": 1686840
+    },
+    {
+      "id": "us_image5_google_tpu_gpu_supply_chain_10_20260830_basis_2026-08-28",
+      "title": "圖片 5 美股重新分析：Google TPU、NVIDIA GPU、AMD 伺服器組裝鏈（10 檔） 2026-08-30 basis 2026-08-28",
+      "heading": "圖片 5 美股重新分析：Google TPU、NVIDIA GPU、AMD 伺服器組裝鏈（10 檔）",
+      "summary": "1. 市場與持股閘門 3. Bear Case 4. 價格與部位 5. 來源數字 6. EPS 口徑 7. 估值模組 8. 目標價 9. 操作建議 10. 停損停利 11. 品質風險 12. Rerating / 倍數再評估 13. Price × Thesis 14. 事件 15. 下一驗證點...",
+      "date": "2026-08-28",
+      "market": "us",
+      "marketLabel": "美股",
+      "type": "multi",
+      "typeLabel": "多檔個股",
+      "symbols": [
+        "GOOGL",
+        "NVDA",
+        "AMD",
+        "CLS",
+        "FLEX",
+        "SANM",
+        "AVGO",
+        "MRVL",
+        "INTC",
+        "AMKR"
+      ],
+      "symbolNames": [
+        {
+          "symbol": "GOOGL",
+          "name": "Alphabet"
+        },
+        {
+          "symbol": "NVDA",
+          "name": "NVIDIA"
+        },
+        {
+          "symbol": "AMD",
+          "name": "Advanced Micro Devices"
+        },
+        {
+          "symbol": "CLS",
+          "name": "Celestica"
+        },
+        {
+          "symbol": "FLEX",
+          "name": "Flex"
+        },
+        {
+          "symbol": "SANM",
+          "name": "Sanmina"
+        },
+        {
+          "symbol": "AVGO",
+          "name": "Broadcom"
+        },
+        {
+          "symbol": "MRVL",
+          "name": "Marvell"
+        },
+        {
+          "symbol": "INTC",
+          "name": "Intel"
+        },
+        {
+          "symbol": "AMKR",
+          "name": "Amkor Technology"
+        }
+      ],
+      "tags": [
+        "美股",
+        "多檔個股"
+      ],
+      "sourceFile": "us_image5_google_tpu_gpu_supply_chain_10_20260830_basis_2026-08-28.html",
+      "url": "reports/us_image5_google_tpu_gpu_supply_chain_10_20260830_basis_2026-08-28.html",
+      "bytes": 774114
+    },
+    {
+      "id": "tw_image5_google_tpu_gpu_supply_chain_24_20260828",
+      "title": "圖片 5 台股重新分析：Google TPU、NVIDIA GPU、AMD 伺服器組裝鏈（24 檔）（24 檔） 2026-08-28",
+      "heading": "圖片 5 台股重新分析：Google TPU、NVIDIA GPU、AMD 伺服器組裝鏈（24 檔）（24 檔）",
+      "summary": "1. 市場與持股閘門 2. 產業與國際情勢 4. Bear Case 5. 價格與部位 6. 來源數字 7. EPS 模組 8. 估值模組 9. 價格結論 10. 操作建議 11. 停損停利 12. 品質風險 13. 低 P/E 成長 14. Rerating / 倍數再評估 17. Price...",
+      "date": "2026-08-28",
+      "market": "tw",
+      "marketLabel": "台股",
+      "type": "multi",
+      "typeLabel": "多檔個股",
+      "symbols": [
+        "2382",
+        "2356",
+        "2317",
+        "3231",
+        "6669",
+        "8210",
+        "3017",
+        "2059",
+        "2454",
+        "3443",
+        "3037",
+        "8046",
+        "4958",
+        "3189",
+        "2330",
+        "3711",
+        "2303",
+        "2449",
+        "6510",
+        "6223",
+        "6683",
+        "6515",
+        "2383",
+        "2368"
+      ],
+      "symbolNames": [
+        {
+          "symbol": "2382",
+          "name": "廣達"
+        },
+        {
+          "symbol": "2356",
+          "name": "英業達"
+        },
+        {
+          "symbol": "2317",
+          "name": "鴻海"
+        },
+        {
+          "symbol": "3231",
+          "name": "緯創"
+        },
+        {
+          "symbol": "6669",
+          "name": "緯穎"
+        },
+        {
+          "symbol": "8210",
+          "name": "勤誠"
+        },
+        {
+          "symbol": "3017",
+          "name": "奇鋐"
+        },
+        {
+          "symbol": "2059",
+          "name": "川湖"
+        },
+        {
+          "symbol": "2454",
+          "name": "聯發科"
+        },
+        {
+          "symbol": "3443",
+          "name": "創意"
+        },
+        {
+          "symbol": "3037",
+          "name": "欣興"
+        },
+        {
+          "symbol": "8046",
+          "name": "南電"
+        },
+        {
+          "symbol": "4958",
+          "name": "臻鼎-KY"
+        },
+        {
+          "symbol": "3189",
+          "name": "景碩"
+        },
+        {
+          "symbol": "2330",
+          "name": "台積電"
+        },
+        {
+          "symbol": "3711",
+          "name": "日月光投控"
+        },
+        {
+          "symbol": "2303",
+          "name": "聯電"
+        },
+        {
+          "symbol": "2449",
+          "name": "京元電子"
+        },
+        {
+          "symbol": "6510",
+          "name": "精測"
+        },
+        {
+          "symbol": "6223",
+          "name": "旺矽"
+        },
+        {
+          "symbol": "6683",
+          "name": "雍智科技"
+        },
+        {
+          "symbol": "6515",
+          "name": "穎崴"
+        },
+        {
+          "symbol": "2383",
+          "name": "台光電"
+        },
+        {
+          "symbol": "2368",
+          "name": "金像電"
+        }
+      ],
+      "tags": [
+        "台股",
+        "多檔個股"
+      ],
+      "sourceFile": "tw_image5_google_tpu_gpu_supply_chain_24_20260828.html",
+      "url": "reports/tw_image5_google_tpu_gpu_supply_chain_24_20260828.html",
+      "bytes": 1598445
+    },
+    {
+      "id": "us_image4_aws_microsoft_meta_custom_silicon_13_20260830_basis_2026-08-28",
+      "title": "圖片 4 美股重新分析：AWS、Microsoft、Meta 自研晶片台廠組裝鏈（13 檔） 2026-08-30 basis 2026-08-28",
+      "heading": "圖片 4 美股重新分析：AWS、Microsoft、Meta 自研晶片台廠組裝鏈（13 檔）",
+      "summary": "1. 市場與持股閘門 3. Bear Case 4. 價格與部位 5. 來源數字 6. EPS 口徑 7. 估值模組 8. 目標價 9. 操作建議 10. 停損停利 11. 品質風險 12. Rerating / 倍數再評估 13. Price × Thesis 14. 事件 15. 下一驗證點...",
+      "date": "2026-08-28",
+      "market": "us",
+      "marketLabel": "美股",
+      "type": "custom",
+      "typeLabel": "指定個股",
+      "symbols": [
+        "AMZN",
+        "MSFT",
+        "META",
+        "FN",
+        "JBL",
+        "FLEX",
+        "CLS",
+        "CSCO",
+        "ANET",
+        "MRVL",
+        "AVGO",
+        "AMKR",
+        "INTC"
+      ],
+      "symbolNames": [
+        {
+          "symbol": "AMZN",
+          "name": "Amazon"
+        },
+        {
+          "symbol": "MSFT",
+          "name": "Microsoft"
+        },
+        {
+          "symbol": "META",
+          "name": "Meta Platforms"
+        },
+        {
+          "symbol": "FN",
+          "name": "Fabrinet"
+        },
+        {
+          "symbol": "JBL",
+          "name": "Jabil"
+        },
+        {
+          "symbol": "FLEX",
+          "name": "Flex"
+        },
+        {
+          "symbol": "CLS",
+          "name": "Celestica"
+        },
+        {
+          "symbol": "CSCO",
+          "name": "Cisco Systems"
+        },
+        {
+          "symbol": "ANET",
+          "name": "Arista Networks"
+        },
+        {
+          "symbol": "MRVL",
+          "name": "Marvell"
+        },
+        {
+          "symbol": "AVGO",
+          "name": "Broadcom"
+        },
+        {
+          "symbol": "AMKR",
+          "name": "Amkor Technology"
+        },
+        {
+          "symbol": "INTC",
+          "name": "Intel"
+        }
+      ],
+      "tags": [
+        "美股",
+        "指定個股",
+        "自選清單"
+      ],
+      "sourceFile": "us_image4_aws_microsoft_meta_custom_silicon_13_20260830_basis_2026-08-28.html",
+      "url": "reports/us_image4_aws_microsoft_meta_custom_silicon_13_20260830_basis_2026-08-28.html",
+      "bytes": 1007647
+    },
+    {
+      "id": "tw_image4_aws_microsoft_meta_custom_silicon_27_20260828",
+      "title": "圖片 4 台股重新分析：AWS、Microsoft、Meta 自研晶片台廠組裝鏈（27 檔）（27 檔） 2026-08-28",
+      "heading": "圖片 4 台股重新分析：AWS、Microsoft、Meta 自研晶片台廠組裝鏈（27 檔）（27 檔）",
+      "summary": "1. 市場與持股閘門 2. 產業與國際情勢 4. Bear Case 5. 價格與部位 6. 來源數字 7. EPS 模組 8. 估值模組 9. 價格結論 10. 操作建議 11. 停損停利 12. 品質風險 13. 低 P/E 成長 14. Rerating / 倍數再評估 17. Price...",
+      "date": "2026-08-28",
+      "market": "tw",
+      "marketLabel": "台股",
+      "type": "custom",
+      "typeLabel": "指定個股",
+      "symbols": [
+        "2382",
+        "2317",
+        "2356",
+        "6669",
+        "2345",
+        "8210",
+        "3017",
+        "2059",
+        "6584",
+        "6805",
+        "2301",
+        "6781",
+        "2308",
+        "3211",
+        "3037",
+        "3661",
+        "3443",
+        "2330",
+        "3711",
+        "2303",
+        "2449",
+        "6223",
+        "2383",
+        "4958",
+        "6274",
+        "2368",
+        "5439"
+      ],
+      "symbolNames": [
+        {
+          "symbol": "2382",
+          "name": "廣達"
+        },
+        {
+          "symbol": "2317",
+          "name": "鴻海"
+        },
+        {
+          "symbol": "2356",
+          "name": "英業達"
+        },
+        {
+          "symbol": "6669",
+          "name": "緯穎"
+        },
+        {
+          "symbol": "2345",
+          "name": "智邦"
+        },
+        {
+          "symbol": "8210",
+          "name": "勤誠"
+        },
+        {
+          "symbol": "3017",
+          "name": "奇鋐"
+        },
+        {
+          "symbol": "2059",
+          "name": "川湖"
+        },
+        {
+          "symbol": "6584",
+          "name": "南俊國際"
+        },
+        {
+          "symbol": "6805",
+          "name": "富世達"
+        },
+        {
+          "symbol": "2301",
+          "name": "光寶科"
+        },
+        {
+          "symbol": "6781",
+          "name": "AES-KY"
+        },
+        {
+          "symbol": "2308",
+          "name": "台達電"
+        },
+        {
+          "symbol": "3211",
+          "name": "順達"
+        },
+        {
+          "symbol": "3037",
+          "name": "欣興"
+        },
+        {
+          "symbol": "3661",
+          "name": "世芯-KY"
+        },
+        {
+          "symbol": "3443",
+          "name": "創意"
+        },
+        {
+          "symbol": "2330",
+          "name": "台積電"
+        },
+        {
+          "symbol": "3711",
+          "name": "日月光投控"
+        },
+        {
+          "symbol": "2303",
+          "name": "聯電"
+        },
+        {
+          "symbol": "2449",
+          "name": "京元電子"
+        },
+        {
+          "symbol": "6223",
+          "name": "旺矽"
+        },
+        {
+          "symbol": "2383",
+          "name": "台光電"
+        },
+        {
+          "symbol": "4958",
+          "name": "臻鼎-KY"
+        },
+        {
+          "symbol": "6274",
+          "name": "台燿"
+        },
+        {
+          "symbol": "2368",
+          "name": "金像電"
+        },
+        {
+          "symbol": "5439",
+          "name": "高技"
+        }
+      ],
+      "tags": [
+        "台股",
+        "指定個股",
+        "自選清單"
+      ],
+      "sourceFile": "tw_image4_aws_microsoft_meta_custom_silicon_27_20260828.html",
+      "url": "reports/tw_image4_aws_microsoft_meta_custom_silicon_27_20260828.html",
+      "bytes": 1794967
+    },
+    {
+      "id": "us_image3_server_nine_customer_supply_chain_17_20260830_basis_2026-08-28",
+      "title": "圖片 3 美股重新分析：野村伺服器九大客戶供應鏈（17 檔） 2026-08-30 basis 2026-08-28",
+      "heading": "圖片 3 美股重新分析：野村伺服器九大客戶供應鏈（17 檔）",
+      "summary": "1. 市場與持股閘門 3. Bear Case 4. 價格與部位 5. 來源數字 6. EPS 口徑 7. 估值模組 8. 目標價 9. 操作建議 10. 停損停利 11. 品質風險 12. Rerating / 倍數再評估 13. Price × Thesis 14. 事件 15. 下一驗證點...",
+      "date": "2026-08-28",
+      "market": "us",
+      "marketLabel": "美股",
+      "type": "custom",
+      "typeLabel": "指定個股",
+      "symbols": [
+        "CLS",
+        "FLEX",
+        "JBL",
+        "FN",
+        "SANM",
+        "SMCI",
+        "DELL",
+        "CSCO",
+        "ANET",
+        "AEIS",
+        "TEL",
+        "APH",
+        "VRT",
+        "MRVL",
+        "AVGO",
+        "AMKR",
+        "INTC"
+      ],
+      "symbolNames": [
+        {
+          "symbol": "CLS",
+          "name": "Celestica"
+        },
+        {
+          "symbol": "FLEX",
+          "name": "Flex"
+        },
+        {
+          "symbol": "JBL",
+          "name": "Jabil"
+        },
+        {
+          "symbol": "FN",
+          "name": "Fabrinet"
+        },
+        {
+          "symbol": "SANM",
+          "name": "Sanmina"
+        },
+        {
+          "symbol": "SMCI",
+          "name": "Super Micro Computer"
+        },
+        {
+          "symbol": "DELL",
+          "name": "Dell Technologies"
+        },
+        {
+          "symbol": "CSCO",
+          "name": "Cisco Systems"
+        },
+        {
+          "symbol": "ANET",
+          "name": "Arista Networks"
+        },
+        {
+          "symbol": "AEIS",
+          "name": "Advanced Energy Industries"
+        },
+        {
+          "symbol": "TEL",
+          "name": "TE Connectivity"
+        },
+        {
+          "symbol": "APH",
+          "name": "Amphenol"
+        },
+        {
+          "symbol": "VRT",
+          "name": "Vertiv"
+        },
+        {
+          "symbol": "MRVL",
+          "name": "Marvell"
+        },
+        {
+          "symbol": "AVGO",
+          "name": "Broadcom"
+        },
+        {
+          "symbol": "AMKR",
+          "name": "Amkor Technology"
+        },
+        {
+          "symbol": "INTC",
+          "name": "Intel"
+        }
+      ],
+      "tags": [
+        "美股",
+        "指定個股",
+        "自選清單"
+      ],
+      "sourceFile": "us_image3_server_nine_customer_supply_chain_17_20260830_basis_2026-08-28.html",
+      "url": "reports/us_image3_server_nine_customer_supply_chain_17_20260830_basis_2026-08-28.html",
+      "bytes": 1314912
+    },
+    {
+      "id": "tw_image3_server_nine_customer_supply_chain_44_20260828",
+      "title": "圖片 3 台股重新分析：野村伺服器九大客戶供應鏈（44 檔）（44 檔） 2026-08-28",
+      "heading": "圖片 3 台股重新分析：野村伺服器九大客戶供應鏈（44 檔）（44 檔）",
+      "summary": "1. 市場與持股閘門 2. 產業與國際情勢 4. Bear Case 5. 價格與部位 6. 來源數字 7. EPS 模組 8. 估值模組 9. 價格結論 10. 操作建議 11. 停損停利 12. 品質風險 13. 低 P/E 成長 14. Rerating / 倍數再評估 17. Price...",
+      "date": "2026-08-28",
+      "market": "tw",
+      "marketLabel": "台股",
+      "type": "custom",
+      "typeLabel": "指定個股",
+      "symbols": [
+        "2382",
+        "2317",
+        "6669",
+        "3231",
+        "2356",
+        "2324",
+        "2345",
+        "8210",
+        "3017",
+        "2059",
+        "6584",
+        "6805",
+        "2308",
+        "2301",
+        "6781",
+        "3211",
+        "3533",
+        "3324",
+        "3653",
+        "8996",
+        "2421",
+        "6230",
+        "2454",
+        "3661",
+        "3443",
+        "3037",
+        "8046",
+        "3189",
+        "4958",
+        "2330",
+        "3711",
+        "2303",
+        "2449",
+        "6223",
+        "6510",
+        "6515",
+        "6683",
+        "2383",
+        "6213",
+        "6274",
+        "2368",
+        "3044",
+        "5469",
+        "5439"
+      ],
+      "symbolNames": [
+        {
+          "symbol": "2382",
+          "name": "廣達"
+        },
+        {
+          "symbol": "2317",
+          "name": "鴻海"
+        },
+        {
+          "symbol": "6669",
+          "name": "緯穎"
+        },
+        {
+          "symbol": "3231",
+          "name": "緯創"
+        },
+        {
+          "symbol": "2356",
+          "name": "英業達"
+        },
+        {
+          "symbol": "2324",
+          "name": "仁寶"
+        },
+        {
+          "symbol": "2345",
+          "name": "智邦"
+        },
+        {
+          "symbol": "8210",
+          "name": "勤誠"
+        },
+        {
+          "symbol": "3017",
+          "name": "奇鋐"
+        },
+        {
+          "symbol": "2059",
+          "name": "川湖"
+        },
+        {
+          "symbol": "6584",
+          "name": "南俊國際"
+        },
+        {
+          "symbol": "6805",
+          "name": "富世達"
+        },
+        {
+          "symbol": "2308",
+          "name": "台達電"
+        },
+        {
+          "symbol": "2301",
+          "name": "光寶科"
+        },
+        {
+          "symbol": "6781",
+          "name": "AES-KY"
+        },
+        {
+          "symbol": "3211",
+          "name": "順達"
+        },
+        {
+          "symbol": "3533",
+          "name": "嘉澤"
+        },
+        {
+          "symbol": "3324",
+          "name": "雙鴻"
+        },
+        {
+          "symbol": "3653",
+          "name": "健策"
+        },
+        {
+          "symbol": "8996",
+          "name": "高力"
+        },
+        {
+          "symbol": "2421",
+          "name": "建準"
+        },
+        {
+          "symbol": "6230",
+          "name": "尼得科超眾"
+        },
+        {
+          "symbol": "2454",
+          "name": "聯發科"
+        },
+        {
+          "symbol": "3661",
+          "name": "世芯-KY"
+        },
+        {
+          "symbol": "3443",
+          "name": "創意"
+        },
+        {
+          "symbol": "3037",
+          "name": "欣興"
+        },
+        {
+          "symbol": "8046",
+          "name": "南電"
+        },
+        {
+          "symbol": "3189",
+          "name": "景碩"
+        },
+        {
+          "symbol": "4958",
+          "name": "臻鼎-KY"
+        },
+        {
+          "symbol": "2330",
+          "name": "台積電"
+        },
+        {
+          "symbol": "3711",
+          "name": "日月光投控"
+        },
+        {
+          "symbol": "2303",
+          "name": "聯電"
+        },
+        {
+          "symbol": "2449",
+          "name": "京元電子"
+        },
+        {
+          "symbol": "6223",
+          "name": "旺矽"
+        },
+        {
+          "symbol": "6510",
+          "name": "精測"
+        },
+        {
+          "symbol": "6515",
+          "name": "穎崴"
+        },
+        {
+          "symbol": "6683",
+          "name": "雍智科技"
+        },
+        {
+          "symbol": "2383",
+          "name": "台光電"
+        },
+        {
+          "symbol": "6213",
+          "name": "聯茂"
+        },
+        {
+          "symbol": "6274",
+          "name": "台燿"
+        },
+        {
+          "symbol": "2368",
+          "name": "金像電"
+        },
+        {
+          "symbol": "3044",
+          "name": "健鼎"
+        },
+        {
+          "symbol": "5469",
+          "name": "瀚宇博"
+        },
+        {
+          "symbol": "5439",
+          "name": "高技"
+        }
+      ],
+      "tags": [
+        "台股",
+        "指定個股",
+        "自選清單"
+      ],
+      "sourceFile": "tw_image3_server_nine_customer_supply_chain_44_20260828.html",
+      "url": "reports/tw_image3_server_nine_customer_supply_chain_44_20260828.html",
+      "bytes": 2899993
+    },
+    {
+      "id": "us_image2_power_cooling_supply_chain_5_20260830_basis_2026-08-28",
+      "title": "圖片 2 美股重新分析：九家客戶共同供應商：電源與散熱（5 檔） 2026-08-30 basis 2026-08-28",
+      "heading": "圖片 2 美股重新分析：九家客戶共同供應商：電源與散熱（5 檔）",
+      "summary": "1. 市場與持股閘門 3. Bear Case 4. 價格與部位 5. 來源數字 6. EPS 口徑 7. 估值模組 8. 目標價 9. 操作建議 10. 停損停利 11. 品質風險 12. Rerating / 倍數再評估 13. Price × Thesis 14. 事件 15. 下一驗證點...",
+      "date": "2026-08-28",
+      "market": "us",
+      "marketLabel": "美股",
+      "type": "multi",
+      "typeLabel": "多檔個股",
+      "symbols": [
+        "FLEX",
+        "AEIS",
+        "TEL",
+        "APH",
+        "VRT"
+      ],
+      "symbolNames": [
+        {
+          "symbol": "FLEX",
+          "name": "Flex"
+        },
+        {
+          "symbol": "AEIS",
+          "name": "Advanced Energy Industries"
+        },
+        {
+          "symbol": "TEL",
+          "name": "TE Connectivity"
+        },
+        {
+          "symbol": "APH",
+          "name": "Amphenol"
+        },
+        {
+          "symbol": "VRT",
+          "name": "Vertiv"
+        }
+      ],
+      "tags": [
+        "美股",
+        "多檔個股"
+      ],
+      "sourceFile": "us_image2_power_cooling_supply_chain_5_20260830_basis_2026-08-28.html",
+      "url": "reports/us_image2_power_cooling_supply_chain_5_20260830_basis_2026-08-28.html",
+      "bytes": 396043
+    },
+    {
+      "id": "tw_image2_power_cooling_supply_chain_19_20260828",
+      "title": "圖片 2 台股重新分析：九家客戶共同供應商：電源與散熱（19 檔）（19 檔） 2026-08-28",
+      "heading": "圖片 2 台股重新分析：九家客戶共同供應商：電源與散熱（19 檔）（19 檔）",
+      "summary": "1. 市場與持股閘門 2. 產業與國際情勢 4. Bear Case 5. 價格與部位 6. 來源數字 7. EPS 模組 8. 估值模組 9. 價格結論 10. 操作建議 11. 停損停利 12. 品質風險 13. 低 P/E 成長 14. Rerating / 倍數再評估 17. Price...",
+      "date": "2026-08-28",
+      "market": "tw",
+      "marketLabel": "台股",
+      "type": "multi",
+      "typeLabel": "多檔個股",
+      "symbols": [
+        "2308",
+        "2301",
+        "3533",
+        "3017",
+        "3324",
+        "6230",
+        "2317",
+        "2382",
+        "8996",
+        "3653",
+        "2421",
+        "2330",
+        "6213",
+        "6274",
+        "2383",
+        "2368",
+        "3044",
+        "5469",
+        "4958"
+      ],
+      "symbolNames": [
+        {
+          "symbol": "2308",
+          "name": "台達電"
+        },
+        {
+          "symbol": "2301",
+          "name": "光寶科"
+        },
+        {
+          "symbol": "3533",
+          "name": "嘉澤"
+        },
+        {
+          "symbol": "3017",
+          "name": "奇鋐"
+        },
+        {
+          "symbol": "3324",
+          "name": "雙鴻"
+        },
+        {
+          "symbol": "6230",
+          "name": "尼得科超眾"
+        },
+        {
+          "symbol": "2317",
+          "name": "鴻海"
+        },
+        {
+          "symbol": "2382",
+          "name": "廣達"
+        },
+        {
+          "symbol": "8996",
+          "name": "高力"
+        },
+        {
+          "symbol": "3653",
+          "name": "健策"
+        },
+        {
+          "symbol": "2421",
+          "name": "建準"
+        },
+        {
+          "symbol": "2330",
+          "name": "台積電"
+        },
+        {
+          "symbol": "6213",
+          "name": "聯茂"
+        },
+        {
+          "symbol": "6274",
+          "name": "台燿"
+        },
+        {
+          "symbol": "2383",
+          "name": "台光電"
+        },
+        {
+          "symbol": "2368",
+          "name": "金像電"
+        },
+        {
+          "symbol": "3044",
+          "name": "健鼎"
+        },
+        {
+          "symbol": "5469",
+          "name": "瀚宇博"
+        },
+        {
+          "symbol": "4958",
+          "name": "臻鼎-KY"
+        }
+      ],
+      "tags": [
+        "台股",
+        "多檔個股"
+      ],
+      "sourceFile": "tw_image2_power_cooling_supply_chain_19_20260828.html",
+      "url": "reports/tw_image2_power_cooling_supply_chain_19_20260828.html",
+      "bytes": 1265578
+    },
+    {
+      "id": "us_image1_tesla_dojo_supply_chain_5_20260830_basis_2026-08-28",
+      "title": "圖片 1 美股重新分析：Tesla Dojo、Dell、HPE 伺服器供應鏈（5 檔） 2026-08-30 basis 2026-08-28",
+      "heading": "圖片 1 美股重新分析：Tesla Dojo、Dell、HPE 伺服器供應鏈（5 檔）",
+      "summary": "1. 市場與持股閘門 3. Bear Case 4. 價格與部位 5. 來源數字 6. EPS 口徑 7. 估值模組 8. 目標價 9. 操作建議 10. 停損停利 11. 品質風險 12. Rerating / 倍數再評估 13. Price × Thesis 14. 事件 15. 下一驗證點...",
+      "date": "2026-08-28",
+      "market": "us",
+      "marketLabel": "美股",
+      "type": "multi",
+      "typeLabel": "多檔個股",
+      "symbols": [
+        "TSLA",
+        "DELL",
+        "HPE",
+        "SMCI",
+        "AVGO"
+      ],
+      "symbolNames": [
+        {
+          "symbol": "TSLA",
+          "name": "Tesla"
+        },
+        {
+          "symbol": "DELL",
+          "name": "Dell Technologies"
+        },
+        {
+          "symbol": "HPE",
+          "name": "Hewlett Packard Enterprise"
+        },
+        {
+          "symbol": "SMCI",
+          "name": "Super Micro Computer"
+        },
+        {
+          "symbol": "AVGO",
+          "name": "Broadcom"
+        }
+      ],
+      "tags": [
+        "美股",
+        "多檔個股"
+      ],
+      "sourceFile": "us_image1_tesla_dojo_supply_chain_5_20260830_basis_2026-08-28.html",
+      "url": "reports/us_image1_tesla_dojo_supply_chain_5_20260830_basis_2026-08-28.html",
+      "bytes": 396594
+    },
+    {
+      "id": "tw_image1_tesla_dojo_supply_chain_12_20260828",
+      "title": "圖片 1 台股重新分析：Tesla Dojo、Dell、HPE 伺服器供應鏈（12 檔）（12 檔） 2026-08-28",
+      "heading": "圖片 1 台股重新分析：Tesla Dojo、Dell、HPE 伺服器供應鏈（12 檔）（12 檔）",
+      "summary": "1. 市場與持股閘門 2. 產業與國際情勢 4. Bear Case 5. 價格與部位 6. 來源數字 7. EPS 模組 8. 估值模組 9. 價格結論 10. 操作建議 11. 停損停利 12. 品質風險 13. 低 P/E 成長 14. Rerating / 倍數再評估 17. Price...",
+      "date": "2026-08-28",
+      "market": "tw",
+      "marketLabel": "台股",
+      "type": "multi",
+      "typeLabel": "多檔個股",
+      "symbols": [
+        "2317",
+        "3231",
+        "2356",
+        "2324",
+        "2330",
+        "3661",
+        "3443",
+        "3189",
+        "3711",
+        "2449",
+        "6510",
+        "2301"
+      ],
+      "symbolNames": [
+        {
+          "symbol": "2317",
+          "name": "鴻海"
+        },
+        {
+          "symbol": "3231",
+          "name": "緯創"
+        },
+        {
+          "symbol": "2356",
+          "name": "英業達"
+        },
+        {
+          "symbol": "2324",
+          "name": "仁寶"
+        },
+        {
+          "symbol": "2330",
+          "name": "台積電"
+        },
+        {
+          "symbol": "3661",
+          "name": "世芯-KY"
+        },
+        {
+          "symbol": "3443",
+          "name": "創意"
+        },
+        {
+          "symbol": "3189",
+          "name": "景碩"
+        },
+        {
+          "symbol": "3711",
+          "name": "日月光投控"
+        },
+        {
+          "symbol": "2449",
+          "name": "京元電子"
+        },
+        {
+          "symbol": "6510",
+          "name": "精測"
+        },
+        {
+          "symbol": "2301",
+          "name": "光寶科"
+        }
+      ],
+      "tags": [
+        "台股",
+        "多檔個股"
+      ],
+      "sourceFile": "tw_image1_tesla_dojo_supply_chain_12_20260828.html",
+      "url": "reports/tw_image1_tesla_dojo_supply_chain_12_20260828.html",
+      "bytes": 817100
     },
     {
       "id": "tw_portfolio_crash_power_energy_holdings_23_20260828",

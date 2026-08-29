@@ -1,6 +1,6 @@
 {
   "basis_date": "2026-08-28",
-  "captured_at": "2026-08-29T16:24:55.011996+00:00",
+  "captured_at": "2026-08-29T16:41:43.482419+00:00",
   "source": "2026-08-28 StockAnalysis formal close and post-close valuation snapshot; no premarket price used as report price",
   "tickers": {
     "NVDA": {
@@ -793,6 +793,90 @@
       "valuation_eps_type": "SAME_DAY_POST_CLOSE_IMPLIED",
       "valuation_eps_confidence": "Medium",
       "source_url": "https://stockanalysis.com/stocks/ge/statistics/",
+      "source_timestamp": "At close:"
+    },
+    "TSLA": {
+      "close": 348.75,
+      "pe": 322.91666666666663,
+      "forward_pe": 183.21,
+      "ttm_eps": 1.08,
+      "valuation_eps": 1.9035532994923856,
+      "valuation_eps_basis": "2026-08-28 post-close snapshot implied EPS = captured price / captured Forward P/E; FY1/FY2 direct consensus are reported separately",
+      "valuation_eps_type": "SAME_DAY_POST_CLOSE_IMPLIED",
+      "valuation_eps_confidence": "Medium",
+      "source_url": "https://stockanalysis.com/stocks/tsla/statistics/",
+      "source_timestamp": "At close:"
+    },
+    "SMCI": {
+      "close": 37.08,
+      "pe": 11.374233128834357,
+      "forward_pe": 8.55,
+      "ttm_eps": 3.26,
+      "valuation_eps": 4.336842105263157,
+      "valuation_eps_basis": "2026-08-28 post-close snapshot implied EPS = captured price / captured Forward P/E; FY1/FY2 direct consensus are reported separately",
+      "valuation_eps_type": "SAME_DAY_POST_CLOSE_IMPLIED",
+      "valuation_eps_confidence": "Medium",
+      "source_url": "https://stockanalysis.com/stocks/smci/statistics/",
+      "source_timestamp": "At close:"
+    },
+    "AEIS": {
+      "close": 272.82,
+      "pe": 50.71003717472119,
+      "forward_pe": 20.06,
+      "ttm_eps": 5.38,
+      "valuation_eps": 13.600199401794617,
+      "valuation_eps_basis": "2026-08-28 post-close snapshot implied EPS = captured price / captured Forward P/E; FY1/FY2 direct consensus are reported separately",
+      "valuation_eps_type": "SAME_DAY_POST_CLOSE_IMPLIED",
+      "valuation_eps_confidence": "Medium",
+      "source_url": "https://stockanalysis.com/stocks/aeis/statistics/",
+      "source_timestamp": "At close:"
+    },
+    "APH": {
+      "close": 157.74,
+      "pe": 39.435,
+      "forward_pe": 26.89,
+      "ttm_eps": 4.0,
+      "valuation_eps": 5.866121234659725,
+      "valuation_eps_basis": "2026-08-28 post-close snapshot implied EPS = captured price / captured Forward P/E; FY1/FY2 direct consensus are reported separately",
+      "valuation_eps_type": "SAME_DAY_POST_CLOSE_IMPLIED",
+      "valuation_eps_confidence": "Medium",
+      "source_url": "https://stockanalysis.com/stocks/aph/statistics/",
+      "source_timestamp": "At close:"
+    },
+    "SANM": {
+      "close": 194.01,
+      "pe": 34.70661896243291,
+      "forward_pe": 15.399999999999999,
+      "ttm_eps": 5.59,
+      "valuation_eps": 12.598051948051948,
+      "valuation_eps_basis": "2026-08-28 post-close snapshot implied EPS = captured price / captured Forward P/E; FY1/FY2 direct consensus are reported separately",
+      "valuation_eps_type": "SAME_DAY_POST_CLOSE_IMPLIED",
+      "valuation_eps_confidence": "Medium",
+      "source_url": "https://stockanalysis.com/stocks/sanm/statistics/",
+      "source_timestamp": "Aug 28, 2026, 4:00 PM EDT - Market closed"
+    },
+    "AMKR": {
+      "close": 47.88,
+      "pe": 21.470852017937222,
+      "forward_pe": 17.57,
+      "ttm_eps": 2.23,
+      "valuation_eps": 2.7250996015936257,
+      "valuation_eps_basis": "2026-08-28 post-close snapshot implied EPS = captured price / captured Forward P/E; FY1/FY2 direct consensus are reported separately",
+      "valuation_eps_type": "SAME_DAY_POST_CLOSE_IMPLIED",
+      "valuation_eps_confidence": "Medium",
+      "source_url": "https://stockanalysis.com/stocks/amkr/statistics/",
+      "source_timestamp": "At close:"
+    },
+    "INTC": {
+      "close": 89.47,
+      "pe": null,
+      "forward_pe": 53.85,
+      "ttm_eps": null,
+      "valuation_eps": 1.6614670380687093,
+      "valuation_eps_basis": "2026-08-28 post-close snapshot implied EPS = captured price / captured Forward P/E; FY1/FY2 direct consensus are reported separately",
+      "valuation_eps_type": "SAME_DAY_POST_CLOSE_IMPLIED",
+      "valuation_eps_confidence": "Medium",
+      "source_url": "https://stockanalysis.com/stocks/intc/statistics/",
       "source_timestamp": "At close:"
     }
   }
