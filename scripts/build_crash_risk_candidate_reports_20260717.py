@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Build six sector-grouped crash-risk stock reports for 2026-07-17."""
+"""Build six sector-grouped portfolio reports from one aligned market close."""
 
 from __future__ import annotations
 
@@ -25,53 +25,60 @@ import build_us_watchlist_integrated_report as core
 
 ROOT = Path(__file__).resolve().parents[1]
 OUTPUT = ROOT / "output"
-RUN_DATE = "2026-07-17"
-TW_SUFFIX = "20260717"
-US_BASIS_DATE = "2026-07-17"
+RUN_DATE = os.environ.get("RUN_DATE", datetime.now().date().isoformat())
+TW_BASIS_DATE = os.environ.get("TW_BASIS_DATE", RUN_DATE)
+TW_SUFFIX = TW_BASIS_DATE.replace("-", "")
+US_BASIS_DATE = os.environ.get("US_BASIS_DATE", TW_BASIS_DATE)
 REUTERS_CHIP_URL = "https://live.euronext.com/en/financial-news/stocks-sink-chip-rout-deepens-oil-set-weekly-gain"
 AP_MARKET_URL = "https://apnews.com/article/65449e9565fba441a617f9517e097f5a"
 
 
 TW_GROUPS = [
     {
-        "stem": "tw_crash_risk_semiconductor_22",
-        "title": "台股崩盤風險候選：半導體、IC 設計與設備 22 檔",
+        "stem": "tw_portfolio_crash_semiconductor_22",
+        "title": "台股持股池重新分析：半導體、IC 設計與設備 22 檔",
         "codes": "2330 2454 3711 3443 3661 3034 2379 3529 6488 5274 4966 5269 6415 1560 3583 3413 3131 6196 6223 6515 6531 6683".split(),
         "ratings": "A+ A A B+ C+ A- A- C+ B B+ B B+ B B B B+ C+ B C+ C+ C+ C".split(),
+        "holdings": {"2379", "3413"},
     },
     {
-        "stem": "tw_crash_risk_ai_infrastructure_22",
-        "title": "台股崩盤風險候選：AI 伺服器、網通、PCB、散熱與光通訊 22 檔",
+        "stem": "tw_portfolio_crash_ai_infrastructure_22",
+        "title": "台股持股池重新分析：AI 伺服器、網通、PCB、散熱與光通訊 22 檔",
         "codes": "2317 2382 3231 6669 2376 2345 6285 2368 3037 6274 2308 6412 3017 3324 3706 3653 6805 2059 8210 6442 4979 3363".split(),
         "ratings": "A+ A A- B+ A- B+ A- B+ B C+ A+ A- B C+ B+ B+ C+ B+ B+ C+ C C".split(),
+        "holdings": {"3324"},
     },
     {
-        "stem": "tw_crash_risk_power_energy_defensive_21",
-        "title": "台股崩盤風險候選：電網、能源、原物料與防禦現金流 21 檔",
-        "codes": "1504 1519 1513 1609 1608 1503 1514 1612 6505 1301 1303 1101 1102 9958 2006 2015 1708 1216 2912 2886 5871".split(),
-        "ratings": "A- B B+ B C B B C B B B B B B+ B C+ C+ A- A- A- B".split(),
+        "stem": "tw_portfolio_crash_power_energy_holdings_23",
+        "title": "台股持股池重新分析：電網、能源、防禦現金流與持股補充 23 檔",
+        "codes": "1504 1519 1513 1609 1608 1503 1514 1612 6505 1301 1303 1101 1102 9958 2006 2015 1708 1216 2912 2886 5871 4739 6781".split(),
+        "ratings": "A- B B+ B C B B C B B B B B B+ B C+ C+ A- A- A- B C+ C+".split(),
+        "holdings": {"1504", "4739", "6781"},
     },
 ]
 
 
 US_GROUPS = [
     {
-        "stem": "us_crash_risk_semiconductor_22",
-        "title": "美股崩盤風險候選：AI 晶片、半導體設備與 EDA 22 檔",
+        "stem": "us_portfolio_crash_semiconductor_22",
+        "title": "美股持股池重新分析：AI 晶片、半導體設備與 EDA 22 檔",
         "tickers": "NVDA AVGO AMD MRVL KLAC AMAT LRCX ASML TSM MU ARM QCOM TER TXN NXPI MPWR MCHP ON WDC STX SNPS CDNS".split(),
         "ratings": "A+ A B C+ A A- A- A- A B+ C+ B+ B+ A- B+ B+ B B B B A A".split(),
+        "holdings": {"NVDA"},
     },
     {
-        "stem": "us_crash_risk_cloud_network_22",
-        "title": "美股崩盤風險候選：雲端、網路、光通訊、伺服器與冷卻 22 檔",
+        "stem": "us_portfolio_crash_cloud_network_holdings_22",
+        "title": "美股持股池重新分析：雲端、網路、光通訊、伺服器與冷卻 22 檔",
         "tickers": "GOOGL MSFT AMZN META ORCL ANET CSCO TEL FN GLW COHR LITE CIEN DELL HPE CLS FLEX JBL VRT ETN PWR FIX".split(),
         "ratings": "A+ A+ A A B+ A- B A- B+ B C+ C+ C+ B B B+ B B B+ A A- B+".split(),
+        "holdings": {"COHR", "GLW"},
     },
     {
-        "stem": "us_crash_risk_energy_grid_22",
-        "title": "美股崩盤風險候選：電力、能源、電網、工程與國防 22 檔",
+        "stem": "us_portfolio_crash_energy_grid_22",
+        "title": "美股持股池重新分析：電力、能源、電網、工程與國防 22 檔",
         "tickers": "GEV CEG VST NRG NEE CCJ LEU XOM CVX COP LNG EQT SLB BKR HUBB NVT EME MOD JCI TT RTX GE".split(),
         "ratings": "B+ B+ B B A- B+ C A- A- A- B+ B B+ B+ A- B+ A- B A- A A- A-".split(),
+        "holdings": set(),
     },
 ]
 
@@ -85,40 +92,36 @@ def rating_bucket(rating: str) -> str:
 
 
 def common_macro_html(market: str, rows: list[tuple[str, str, str, str]]) -> str:
-    basis = "2026-07-17 官方收盤" if market == "台股" else "2026-07-17 正式收盤"
+    basis_date = TW_BASIS_DATE if market == "台股" else US_BASIS_DATE
+    basis = f"{basis_date} 正式收盤"
     table_rows = "".join(
         f"<tr><td><strong>{html.escape(code)}</strong></td><td>{html.escape(name)}</td>"
-        f"<td>{html.escape(industry)}</td><td><strong>{html.escape(rating)}</strong></td>"
-        f"<td>{html.escape(rating_bucket(rating))}</td></tr>"
-        for code, name, industry, rating in rows
+        f"<td>{html.escape(industry)}</td><td><strong>{html.escape(status)}</strong></td>"
+        f"<td>以本檔最新 EPS、估值、FES-Lite、FETS、RES 與 price/thesis stop 為準</td></tr>"
+        for code, name, industry, status in rows
     )
     return f"""
     <section class="card crash-risk-overlay">
-      <h2>崩盤風險與評級覆蓋層</h2>
-      <p><strong>價格基準：</strong>{basis}。7/17 全球晶片賣壓屬事件期，新增部位一律採 De-risk 節奏；本表評級不是買賣分數。</p>
-      <p><strong>初步診斷：</strong>台股急跌超過 6% 且晶片股全球同步修正，但台積電 Q2 獲利仍優於預期、ASML 亦上調 2026 銷售展望，因此目前先視為估值重定價、槓桿與擁擠部位去化，尚不能直接判定 AI 基本面反轉。只有 hyperscaler 資本支出、半導體訂單／指引、HBM／先進封裝利用率或網路設備 bookings 連續轉弱，才升級為基本面反轉。</p>
-      <p><strong>能源與通膨：</strong>7/17 Brent 約 85.95 美元、單日約 +2%；中東衝突若持續限制荷莫茲或紅海流量，能源、運費、保險與原料成本會壓低非能源公司的 margin，並透過通膨與利率延長壓縮長久期成長股倍數。能源股也不是無條件避險，需求衰退、政策、hedge 與停機仍可能抵銷高油價。</p>
-      <p><strong>執行規則：</strong>第一批 20% 僅在跌停打開或出現承接；第二批 25% 須再有 5–8% 價格折讓；第三批 25% 等連兩日不創低或站回短均；最後 30% 等營收、財報或指引確認 thesis 未受傷。高波動 C 類不使用機械式攤平。</p>
-      <p><a href="{REUTERS_CHIP_URL}">7/17 全球晶片賣壓與台股急跌來源</a>｜<a href="{AP_MARKET_URL}">7/17 油價、AI 股與中東衝突來源</a></p>
-      <table><thead><tr><th>代號</th><th>公司</th><th>產業</th><th>評級</th><th>大跌時定位</th></tr></thead><tbody>{table_rows}</tbody></table>
+      <h2>持股池重新計算說明</h2>
+      <p><strong>價格基準：</strong>{basis}。本版由共同基準日重新載入價格、EPS、估值與財務證據，不沿用 7/17 的靜態 A/B/C 評級或事件結論。</p>
+      <p><strong>判斷方法：</strong>研究排序不是買賣分數；每檔操作以市場別 framework 內的 Conservative Fair、Selected Growth Fair、FETS/RES、price stop 與 thesis stop 共同決定。</p>
+      <table><thead><tr><th>代號</th><th>公司</th><th>產業</th><th>池中身分</th><th>本版判斷依據</th></tr></thead><tbody>{table_rows}</tbody></table>
     </section>
     """.strip() + "\n"
 
 
 def common_macro_md(rows: list[tuple[str, str, str, str]]) -> str:
     lines = [
-        "## 崩盤風險與 A/B/C 評級覆蓋層",
+        "## 持股池重新計算說明",
         "",
-        "- **市場狀態：De-risk。** 7/17 官方收盤已納入；先視為估值重定價與擁擠部位去化，尚不能直接判定 AI 基本面反轉。",
-        "- **基本面反轉閘門：** hyperscaler 資本支出、半導體訂單／指引、HBM／先進封裝利用率或網路設備 bookings 若連續轉弱，才升級為 thesis 破壞。",
-        "- **能源／通膨：** 中東衝突若持續推升油價、運費與保險，將壓低非能源 margin 並延長高利率；能源股仍受需求、政策、hedge 與停機風險約束。",
-        "- **分批：** 20%／25%／25%／30%；C 類不因跌停或單日長黑機械式攤平。",
+        f"- **共同價格基準：** 台股 {TW_BASIS_DATE}、美股 {US_BASIS_DATE} 正式收盤。",
+        "- **方法：** 重新載入價格、EPS、估值與財務證據；不沿用 7/17 靜態評級。",
         "",
-        "| 代號 | 公司 | 產業 | 評級 | 大跌時定位 |",
+        "| 代號 | 公司 | 產業 | 池中身分 | 本版判斷依據 |",
         "|---|---|---|---|---|",
     ]
-    lines.extend(f"| {c} | {n} | {i} | {r} | {rating_bucket(r)} |" for c, n, i, r in rows)
-    lines.extend(["", f"來源：{REUTERS_CHIP_URL}；{AP_MARKET_URL}", ""])
+    lines.extend(f"| {c} | {n} | {i} | {status} | 以各檔最新估值與 thesis stop 為準 |" for c, n, i, status in rows)
+    lines.append("")
     return "\n".join(lines)
 
 
@@ -131,7 +134,7 @@ def build_tw_reports() -> list[Path]:
         assert len(group["codes"]) == len(group["ratings"]) <= 25
         env = os.environ.copy()
         env.update({
-            "RUN_DATE": RUN_DATE,
+            "RUN_DATE": TW_BASIS_DATE,
             "CANDIDATE_CODES": ",".join(group["codes"]),
             "CANDIDATE_COUNT": "0",
             "OUTPUT_PREFIX": group["stem"],
@@ -148,9 +151,10 @@ def build_tw_reports() -> list[Path]:
             check=True,
         )
         rows = []
-        for code, rating in zip(group["codes"], group["ratings"]):
+        for code, _rating in zip(group["codes"], group["ratings"]):
             row = candidates[code]
-            rows.append((code, row["公司名稱 / Company"], row["產業名稱 / Industry"] or "產業分類待補", rating))
+            status = "持股" if code in group.get("holdings", set()) else "相關觀察股"
+            rows.append((code, row["公司名稱 / Company"], row["產業名稱 / Industry"] or "產業分類待補", status))
         html_path = OUTPUT / f"{group['stem']}_{TW_SUFFIX}.html"
         md_path = OUTPUT / f"{group['stem']}_{TW_SUFFIX}.md"
         html_text = html_path.read_text(encoding="utf-8")
@@ -277,7 +281,7 @@ def ensure_us_snapshot(universe: list[str], path: Path) -> None:
             "forward_pe": close / valuation_eps if close and valuation_eps and valuation_eps > 0 else None,
             "ttm_eps": ttm_eps,
             "valuation_eps": valuation_eps,
-            "valuation_eps_basis": "2026-07-17 post-close snapshot implied EPS = captured price / captured Forward P/E; FY1/FY2 direct consensus are reported separately",
+            "valuation_eps_basis": f"{US_BASIS_DATE} post-close snapshot implied EPS = captured price / captured Forward P/E; FY1/FY2 direct consensus are reported separately",
             "valuation_eps_type": "SAME_DAY_POST_CLOSE_IMPLIED" if valuation_eps else "UNAVAILABLE",
             "valuation_eps_confidence": "Medium" if valuation_eps else "Blocked",
             "source_url": stat["url"],
@@ -287,14 +291,14 @@ def ensure_us_snapshot(universe: list[str], path: Path) -> None:
         path.write_text(json.dumps({
             "basis_date": US_BASIS_DATE,
             "captured_at": datetime.now(timezone.utc).isoformat(),
-            "source": "partial checkpoint; 2026-07-17 formal close and post-close valuation snapshot",
+            "source": f"partial checkpoint; {US_BASIS_DATE} formal close and post-close valuation snapshot",
             "tickers": rows,
         }, ensure_ascii=False, indent=2), encoding="utf-8")
         time.sleep(0.03)
     path.write_text(json.dumps({
         "basis_date": US_BASIS_DATE,
         "captured_at": datetime.now(timezone.utc).isoformat(),
-        "source": "2026-07-17 StockAnalysis formal close and post-close valuation snapshot; no premarket price used as report price",
+        "source": f"{US_BASIS_DATE} StockAnalysis formal close and post-close valuation snapshot; no premarket price used as report price",
         "tickers": rows,
     }, ensure_ascii=False, indent=2), encoding="utf-8")
 
@@ -303,7 +307,7 @@ def build_us_reports() -> list[Path]:
     universe, config, ir_urls, cross, indirect = merged_us_maps()
     assert len(universe) == len(set(universe))
     core.fetch = cached_fetch
-    snapshot = ROOT / "data/us_valuation_snapshot_crash_risk_20260717.json"
+    snapshot = ROOT / f"data/us_valuation_snapshot_portfolio_{US_BASIS_DATE.replace('-', '')}.json"
     ensure_us_snapshot(universe, snapshot)
     outputs = []
     for group in US_GROUPS:
@@ -318,16 +322,21 @@ def build_us_reports() -> list[Path]:
         core.RESEARCH_CROSSCHECKS = {ticker: cross[ticker] for ticker in tickers}
         core.INDIRECT_SOURCES = {ticker: indirect[ticker] for ticker in tickers}
         core.VALUATION_SNAPSHOT = snapshot
-        core.FORWARD_EPS_EVIDENCE = ROOT / "data/us_forward_eps_evidence_20260717.json"
+        core.FORWARD_EPS_EVIDENCE = ROOT / f"data/us_forward_eps_evidence_{US_BASIS_DATE.replace('-', '')}.json"
         core.PRIMARY_OUT = core.PRIMARY_DOC = core.PRIMARY_PUB = None
         core.PRIMARY_JSON = core.LEGACY_OUT = core.LEGACY_DOC = core.LEGACY_PUB = core.LEGACY_JSON = None
         data, stats_map, _ = core.build_data()
-        rating_by_ticker = dict(zip(tickers, group["ratings"]))
-        for item in data:
-            item["crash_rating"] = rating_by_ticker[item["ticker"]]
         core.validate_report_consistency(data)
         report_html = core.build_html(data, stats_map)
-        rows = [(ticker, config[ticker]["company"], config[ticker]["industry"], rating_by_ticker[ticker]) for ticker in tickers]
+        rows = [
+            (
+                ticker,
+                config[ticker]["company"],
+                config[ticker]["industry"],
+                "持股" if ticker in group.get("holdings", set()) else "相關觀察股",
+            )
+            for ticker in tickers
+        ]
         report_html = report_html.replace("<main>", "<main>" + common_macro_html("美股", rows), 1)
         stem = f"{group['stem']}_{RUN_DATE.replace('-', '')}_basis_{US_BASIS_DATE}"
         html_path = OUTPUT / f"{stem}.html"
@@ -346,14 +355,14 @@ def validate_outputs(paths: list[Path]) -> None:
         text = (OUTPUT / f"{group['stem']}_{TW_SUFFIX}.html").read_text(encoding="utf-8")
         if text.count('class="tab-button') != len(group["codes"]):
             raise RuntimeError(f"{group['stem']}: wrong TW stock count")
-        if "De-risk" not in text or "崩盤風險與評級覆蓋層" not in text:
-            raise RuntimeError(f"{group['stem']}: missing crash-risk overlay")
+        if "持股池重新計算說明" not in text or TW_BASIS_DATE not in text:
+            raise RuntimeError(f"{group['stem']}: missing current-basis portfolio overlay")
     for group in US_GROUPS:
         stem = f"{group['stem']}_{RUN_DATE.replace('-', '')}_basis_{US_BASIS_DATE}"
         text = (OUTPUT / f"{stem}.html").read_text(encoding="utf-8")
         if text.count('class="tab') < len(group["tickers"]):
             raise RuntimeError(f"{group['stem']}: wrong US stock count")
-        if "崩盤風險與評級覆蓋層" not in text or US_BASIS_DATE not in text:
+        if "持股池重新計算說明" not in text or US_BASIS_DATE not in text:
             raise RuntimeError(f"{group['stem']}: missing basis/risk overlay")
 
 

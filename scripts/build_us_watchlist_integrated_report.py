@@ -3297,6 +3297,13 @@ def build_data() -> tuple[list[dict], dict[str, dict], dict[str, list[dict]]]:
         item["res"] = score_res(item)
         item["forward_eps_layers"] = compute_forward_eps_layers(item)
         item["price_nodes"] = compute_price_nodes(item)
+        if item["price_nodes"].get("conservative_fair") is None:
+            item["valuation_blocked"] = True
+            item["valuation_block_reason"] = (
+                item.get("valuation_block_reason")
+                or "reported TTM EPS 或 2Y/3Y point-in-time normalized anchor 不可用；目標價節點已阻擋"
+            )
+            item["valuation_confidence"] = "blocked"
         item["stress"] = item["price_nodes"].get("bear_stress")
         item["entry"] = item["price_nodes"].get("value_entry")
         item["fair"] = item["price_nodes"].get("conservative_fair")
@@ -4766,8 +4773,13 @@ def validate_report_consistency(data: list[dict]) -> None:
             errors.append(f"{ticker}: IR URL is not HTTPS")
         if item.get("revenue_ttm") is None:
             errors.append(f"{ticker}: missing TTM revenue for 12.1 scenario model")
-        if item.get("shares_diluted_ttm") is None:
-            errors.append(f"{ticker}: missing diluted shares for 12.1 scenario model")
+        # The current generic 12.1 model projects the report's single
+        # valuation EPS directly; it does not divide projected net income by
+        # diluted shares.  StockAnalysis no longer exposes sharesDiluted in
+        # the financials page payload, so requiring an unused field would
+        # incorrectly block an otherwise auditable report.  If 12.1 is later
+        # changed back to Revenue × margin ÷ diluted shares, restore this gate
+        # together with an explicit, same-currency diluted-share source.
         eps = item.get("valuation_eps")
         if item.get("valuation_blocked"):
             if any(item.get(key) is not None for key in ["stress", "entry", "fair", "upper"]):

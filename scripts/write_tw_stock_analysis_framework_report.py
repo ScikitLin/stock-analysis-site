@@ -2058,7 +2058,10 @@ def us_style_tw_valuation_sections(d: dict[str, Any]) -> str:
         1 if peer_available and finite(v.get("forward_growth_anchor")) and current <= to_float(v.get("forward_growth_anchor")) else 0
     )
     fes_total = fes_a + fes_b + fes_c + fes_d + fes_e
-    q_from_fes = 0.25 if fes_total <= 2 else 0.35 if fes_total <= 4 else 0.50 if fes_total <= 6 else 0.65 if fes_total <= 8 else 0.75
+    # Keep the evidence-to-q mapping aligned with the US FES-Lite framework.
+    # The q=35% node remains a sensitivity point in 7.2B, but it is not a
+    # separate evidence band that can be selected by price action.
+    q_from_fes = 0.0 if fes_total <= 2 else 0.25 if fes_total <= 4 else 0.50 if fes_total <= 6 else 0.65 if fes_total <= 8 else 0.75
     q_final = min(q_from_fes, to_float(fets.get("q_final")) if finite(fets.get("q_final")) else q_from_fes)
     forward_date = forward_ev.get("source_date") or d.get("valuation_date_fmt") or ""
     forward_title = str(forward_ev.get("source_title") or f"{fwd.get('type')} EPS evidence").replace("|", "/")
@@ -2091,10 +2094,18 @@ def us_style_tw_valuation_sections(d: dict[str, Any]) -> str:
     ])
 
     # 7.2D Integrated ladder.
+    historical_anchor_price = ttm * anchor if finite(ttm) and finite(anchor) else math.nan
+    selected_growth_fair = (
+        to_float(v.get("conservative_fair")) + q_final * growth_gap
+        if finite(v.get("conservative_fair")) and finite(growth_gap) and growth_gap > 0
+        else math.nan
+    )
     node_rows = [
         ("Bear Stress", v.get("stress_price"), "Conservative Fair × 75%", "thesis 受壓時的風險檢查", "跌破需檢查 price stop 與 thesis stop"),
         ("Value Entry", v.get("conservative_entry"), "Conservative Fair × 85%", "不依賴 Growth 的價值研究區", "thesis intact 才分批研究"),
+        ("Historical Anchor", historical_anchor_price, "TTM EPS × Historical Anchor P/E", "標的自身 2Y／3Y point-in-time 歷史錨", "只作歷史估值參考"),
         ("Conservative Fair", v.get("conservative_fair"), "TTM EPS × Conservative P/E", "防守型合理價", "低於此線才是價值型研究區"),
+        (f"Selected Growth Fair q={fmt(q_final*100, 0, '%')}", selected_growth_fair, "Conservative Fair + q_final × Growth Gap", "FES-Lite 與 hard caps 選出的唯一 growth fair", "不得因股價上漲人工提高 q"),
         ("Trust-adjusted Fair", v.get("trust_adjusted_fair"), "Trust-adjusted EPS × Internal Growth Multiple", "FETS 折扣後的成長合理價", "主成長價格參考"),
         ("Forward Growth Anchor", v.get("forward_growth_anchor"), "Forward EPS × Internal Growth Multiple", "forward 完全兌現的 proxy 情境", "樂觀上緣，不是 base fair"),
         ("Current Price", current, "基準日收盤價", f"隱含 q {market_q_text}", "與本表唯一主階梯比較"),
