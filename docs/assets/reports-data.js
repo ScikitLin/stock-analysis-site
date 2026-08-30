@@ -3,7 +3,7 @@ window.STOCK_REPORTS = {
   "siteDescription": "以資料完整性、估值情境與風控紀律整理的公開個股研究索引。",
   "disclaimer": "本網站內容僅供投資研究紀錄與討論，不構成個人化投資建議。資料可能延遲或不完整，請自行交叉驗證。",
   "feedbackIssueUrl": "https://github.com/ScikitLin/stock-analysis-site/issues/new",
-  "generatedAt": "2026-08-29T16:42:43.172190+00:00",
+  "generatedAt": "2026-08-30T03:48:26.375514+00:00",
   "sourceDir": "published_reports",
   "publishedFolder": "published_reports",
   "chartPreviews": [
@@ -158,7 +158,7 @@ window.STOCK_REPORTS = {
       ],
       "sourceFile": "us_portfolio_crash_energy_grid_22_20260830_basis_2026-08-28.html",
       "url": "reports/us_portfolio_crash_energy_grid_22_20260830_basis_2026-08-28.html",
-      "bytes": 1682123
+      "bytes": 1742493
     },
     {
       "id": "us_portfolio_crash_cloud_network_holdings_22_20260830_basis_2026-08-28",
@@ -290,7 +290,7 @@ window.STOCK_REPORTS = {
       ],
       "sourceFile": "us_portfolio_crash_cloud_network_holdings_22_20260830_basis_2026-08-28.html",
       "url": "reports/us_portfolio_crash_cloud_network_holdings_22_20260830_basis_2026-08-28.html",
-      "bytes": 1710111
+      "bytes": 1764441
     },
     {
       "id": "us_portfolio_crash_semiconductor_22_20260830_basis_2026-08-28",
@@ -422,7 +422,7 @@ window.STOCK_REPORTS = {
       ],
       "sourceFile": "us_portfolio_crash_semiconductor_22_20260830_basis_2026-08-28.html",
       "url": "reports/us_portfolio_crash_semiconductor_22_20260830_basis_2026-08-28.html",
-      "bytes": 1686840
+      "bytes": 1752590
     },
     {
       "id": "us_image5_google_tpu_gpu_supply_chain_10_20260830_basis_2026-08-28",
@@ -494,7 +494,7 @@ window.STOCK_REPORTS = {
       ],
       "sourceFile": "us_image5_google_tpu_gpu_supply_chain_10_20260830_basis_2026-08-28.html",
       "url": "reports/us_image5_google_tpu_gpu_supply_chain_10_20260830_basis_2026-08-28.html",
-      "bytes": 774114
+      "bytes": 802345
     },
     {
       "id": "tw_image5_google_tpu_gpu_supply_chain_24_20260828",
@@ -636,7 +636,7 @@ window.STOCK_REPORTS = {
       ],
       "sourceFile": "tw_image5_google_tpu_gpu_supply_chain_24_20260828.html",
       "url": "reports/tw_image5_google_tpu_gpu_supply_chain_24_20260828.html",
-      "bytes": 1598445
+      "bytes": 1585171
     },
     {
       "id": "us_image4_aws_microsoft_meta_custom_silicon_13_20260830_basis_2026-08-28",
@@ -724,7 +724,7 @@ window.STOCK_REPORTS = {
       ],
       "sourceFile": "us_image4_aws_microsoft_meta_custom_silicon_13_20260830_basis_2026-08-28.html",
       "url": "reports/us_image4_aws_microsoft_meta_custom_silicon_13_20260830_basis_2026-08-28.html",
-      "bytes": 1007647
+      "bytes": 1041773
     },
     {
       "id": "tw_image4_aws_microsoft_meta_custom_silicon_27_20260828",
@@ -882,7 +882,7 @@ window.STOCK_REPORTS = {
       ],
       "sourceFile": "tw_image4_aws_microsoft_meta_custom_silicon_27_20260828.html",
       "url": "reports/tw_image4_aws_microsoft_meta_custom_silicon_27_20260828.html",
-      "bytes": 1794967
+      "bytes": 1778454
     },
     {
       "id": "us_image3_server_nine_customer_supply_chain_17_20260830_basis_2026-08-28",
@@ -990,7 +990,7 @@ window.STOCK_REPORTS = {
       ],
       "sourceFile": "us_image3_server_nine_customer_supply_chain_17_20260830_basis_2026-08-28.html",
       "url": "reports/us_image3_server_nine_customer_supply_chain_17_20260830_basis_2026-08-28.html",
-      "bytes": 1314912
+      "bytes": 1358462
     },
     {
       "id": "tw_image3_server_nine_customer_supply_chain_44_20260828",
@@ -1233,7 +1233,7 @@ window.STOCK_REPORTS = {
       ],
       "sourceFile": "tw_image3_server_nine_customer_supply_chain_44_20260828.html",
       "url": "reports/tw_image3_server_nine_customer_supply_chain_44_20260828.html",
-      "bytes": 2899993
+      "bytes": 2881072
     },
     {
       "id": "us_image2_power_cooling_supply_chain_5_20260830_basis_2026-08-28",
@@ -1280,7 +1280,7 @@ window.STOCK_REPORTS = {
       ],
       "sourceFile": "us_image2_power_cooling_supply_chain_5_20260830_basis_2026-08-28.html",
       "url": "reports/us_image2_power_cooling_supply_chain_5_20260830_basis_2026-08-28.html",
-      "bytes": 396043
+      "bytes": 408075
     },
     {
       "id": "tw_image2_power_cooling_supply_chain_19_20260828",
@@ -1397,7 +1397,7 @@ window.STOCK_REPORTS = {
       ],
       "sourceFile": "tw_image2_power_cooling_supply_chain_19_20260828.html",
       "url": "reports/tw_image2_power_cooling_supply_chain_19_20260828.html",
-      "bytes": 1265578
+      "bytes": 1254437
     },
     {
       "id": "us_image1_tesla_dojo_supply_chain_5_20260830_basis_2026-08-28",
@@ -1444,7 +1444,7 @@ window.STOCK_REPORTS = {
       ],
       "sourceFile": "us_image1_tesla_dojo_supply_chain_5_20260830_basis_2026-08-28.html",
       "url": "reports/us_image1_tesla_dojo_supply_chain_5_20260830_basis_2026-08-28.html",
-      "bytes": 396594
+      "bytes": 409266
     },
     {
       "id": "tw_image1_tesla_dojo_supply_chain_12_20260828",
@@ -1526,7 +1526,7 @@ window.STOCK_REPORTS = {
       ],
       "sourceFile": "tw_image1_tesla_dojo_supply_chain_12_20260828.html",
       "url": "reports/tw_image1_tesla_dojo_supply_chain_12_20260828.html",
-      "bytes": 817100
+      "bytes": 803359
     },
     {
       "id": "tw_portfolio_crash_power_energy_holdings_23_20260828",
@@ -1663,7 +1663,7 @@ window.STOCK_REPORTS = {
       ],
       "sourceFile": "tw_portfolio_crash_power_energy_holdings_23_20260828.html",
       "url": "reports/tw_portfolio_crash_power_energy_holdings_23_20260828.html",
-      "bytes": 1499602
+      "bytes": 1495635
     },
     {
       "id": "tw_portfolio_crash_semiconductor_22_20260828",
@@ -1795,7 +1795,7 @@ window.STOCK_REPORTS = {
       ],
       "sourceFile": "tw_portfolio_crash_semiconductor_22_20260828.html",
       "url": "reports/tw_portfolio_crash_semiconductor_22_20260828.html",
-      "bytes": 1449674
+      "bytes": 1456959
     },
     {
       "id": "tw_portfolio_crash_ai_infrastructure_22_20260828",
@@ -1927,7 +1927,7 @@ window.STOCK_REPORTS = {
       ],
       "sourceFile": "tw_portfolio_crash_ai_infrastructure_22_20260828.html",
       "url": "reports/tw_portfolio_crash_ai_infrastructure_22_20260828.html",
-      "bytes": 1457099
+      "bytes": 1447031
     },
     {
       "id": "us_diversified_financial_payments_22_20260717_basis_2026-07-17",

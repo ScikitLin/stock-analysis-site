@@ -2484,6 +2484,16 @@ def source_numbers(d: dict[str, Any]) -> str:
 
 def eps_research_refresh_note(d: dict[str, Any]) -> str:
     entry = d.get("full_research_entry") or {}
+    collection = entry.get("eps_collection") or {}
+    if collection.get("searched_at"):
+        pit = collection.get("point_in_time_status") or ""
+        source = collection.get("source_url") or ""
+        return (
+            f"本次已重新擷取 direct consensus（{collection.get('searched_at')}）；"
+            f"狀態 {collection.get('collection_status') or 'UNKNOWN'}；"
+            f"價格基準 {collection.get('basis_date') or RUN_DATE}；{pit or '擷取日與價格日分列'}"
+            + (f"；來源：{source}" if source else "") + "。"
+        )
     refresh = entry.get("eps_research_refresh") or {}
     status = refresh.get("status") or "not_run"
     error = refresh.get("error") or ""
@@ -2856,20 +2866,26 @@ def multibagger_reassessment(d: dict[str, Any]) -> str:
         margin_score, financial_score, market_share_score,
     ])
 
+    conservative_entry = v.get("conservative_entry", v.get("entry_price"))
+    conservative_fair = v.get("conservative_fair", v.get("fair_price"))
+    trust_adjusted_fair = v.get("trust_adjusted_fair", v.get("upper_fair_price"))
+    forward_growth_anchor = v.get("forward_growth_anchor", v.get("overheat_price"))
     if not finite(latest):
         price_unpriced = 0
-    elif latest <= v["conservative_entry"]:
+    elif finite(conservative_entry) and latest <= conservative_entry:
         price_unpriced = 11
-    elif latest <= v["conservative_fair"]:
+    elif finite(conservative_fair) and latest <= conservative_fair:
         price_unpriced = 9
-    elif latest <= v["trust_adjusted_fair"]:
+    elif finite(trust_adjusted_fair) and latest <= trust_adjusted_fair:
         price_unpriced = 6
-    elif latest <= v["forward_growth_anchor"]:
+    elif finite(forward_growth_anchor) and latest <= forward_growth_anchor:
         price_unpriced = 3
     else:
         price_unpriced = 0
-    valuation_support = 7 if finite(pe) and pe <= v["conservative_pe"] else (
-        5 if finite(pe) and pe <= v["historical_anchor_pe"] * 1.15 else 2
+    conservative_pe = v.get("conservative_pe", v.get("fair_pe"))
+    historical_anchor_pe = v.get("historical_anchor_pe", v.get("fair_pe"))
+    valuation_support = 7 if finite(pe) and finite(conservative_pe) and pe <= conservative_pe else (
+        5 if finite(pe) and finite(historical_anchor_pe) and pe <= historical_anchor_pe * 1.15 else 2
     )
     balance_score = 5 if finite(debt_equity) and debt_equity <= 0.7 else 3 if finite(debt_equity) and debt_equity <= 1.5 else 1
     crowding_score = 5 if finite(ret60) and ret60 <= 15 else 3 if finite(ret60) and ret60 <= 40 else 1
@@ -2885,8 +2901,8 @@ def multibagger_reassessment(d: dict[str, Any]) -> str:
         ("市占率與競爭優勢", market_share_score, 6, d["thesis"], "缺正式市占率與競爭者量化資料"),
     ]
     price_rows = [
-        ("現價尚未反映 Base/Bull", price_unpriced, 12, f"現價 {fmt(latest)}；Trust-adjusted fair {fmt(v['trust_adjusted_fair'])}", "現價越接近 Forward Growth Anchor，分數越低"),
-        ("估值下檔保護", valuation_support, 8, f"Trailing P/E {fmt(pe)}；Conservative P/E {fmt(v['conservative_pe'])}", "若 TTM 品質或 point-in-time 樣本不足，估值信心下降"),
+        ("現價尚未反映 Base/Bull", price_unpriced, 12, f"現價 {fmt(latest)}；Trust-adjusted fair {fmt(trust_adjusted_fair)}", "現價越接近 Forward Growth Anchor，分數越低"),
+        ("估值下檔保護", valuation_support, 8, f"Trailing P/E {fmt(pe)}；Conservative P/E {fmt(conservative_pe)}", "若 TTM 品質或 point-in-time 樣本不足，估值信心下降"),
         ("稀釋、負債與資本需求", balance_score, 5, f"負債權益比 {fmt(debt_equity, 2)}", "缺完整淨負債、增資與資本支出橋"),
         ("擁擠度、預期門檻與時程", crowding_score, 5, f"60D {fmt(ret60, 1, '%')}；52W 位置 {fmt(d.get('pos52'), 1, '%')}", "急漲或高檔利多鈍化時扣分"),
     ]

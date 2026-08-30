@@ -140,6 +140,8 @@ def build_tw_reports() -> list[Path]:
             "OUTPUT_PREFIX": group["stem"],
             "REPORT_TITLE": group["title"],
             "REQUIRE_FULL_TW_RESEARCH": "0",
+            "TW_FULL_RESEARCH_EVIDENCE": str(ROOT / "data/tw_forward_eps_evidence_20260830_basis_20260828.json"),
+            "TW_MANUAL_FORWARD_EPS_EVIDENCE": str(ROOT / "data/empty_forward_eps_evidence.json"),
             "TW_EPS_REALTIME_COLLECT": "0",
             "TW_EPS_RESEARCH_REFRESH": "0",
             "TW_EPS_LEGACY_SEARCH": "0",

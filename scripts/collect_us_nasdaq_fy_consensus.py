@@ -6,27 +6,30 @@ from __future__ import annotations
 import argparse
 import json
 import math
+import subprocess
 import time
-import urllib.request
-from datetime import datetime, timezone
+from datetime import date, datetime, timezone
 from pathlib import Path
 from typing import Any
 
 
 ROOT = Path(__file__).resolve().parents[1]
+ADR_USD_REQUIRED = {"ASML", "TSM"}
 
 
 def fetch_json(url: str) -> dict[str, Any]:
-    request = urllib.request.Request(
-        url,
-        headers={
-            "Accept": "application/json, text/plain, */*",
-            "Origin": "https://www.nasdaq.com",
-            "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36",
-        },
+    completed = subprocess.run(
+        [
+            "curl", "-fsSL", "--max-time", "30",
+            "-A", "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36",
+            "-H", "Accept: application/json, text/plain, */*",
+            "-H", "Origin: https://www.nasdaq.com",
+            url,
+        ],
+        check=True,
+        capture_output=True,
     )
-    with urllib.request.urlopen(request, timeout=30) as response:
-        return json.load(response)
+    return json.loads(completed.stdout)
 
 
 def number(value: Any) -> float | None:
@@ -55,32 +58,49 @@ def merge_ticker(ticker: str, entry: dict[str, Any], basis_date: str) -> dict[st
     eps = entry.setdefault("eps", {})
     prior_fy1 = number(eps.get("fy1_consensus_eps"))
     source_url = f"https://www.nasdaq.com/market-activity/stocks/{ticker.lower()}/earnings"
+    captured_date = date.today().isoformat()
     for label, row in (("fy1", valid[0]), ("fy2", valid[1])):
         value = number(row.get("consensusEPSForecast"))
         year = fiscal_year(row.get("fiscalEnd"))
         count = number(row.get("noOfEstimates"))
-        eps.update(
-            {
-                f"{label}_consensus_eps": value,
-                f"{label}_consensus_year": year,
-                f"{label}_analyst_count": count,
-                f"{label}_consensus_eps_basis": (
-                    f"Nasdaq annual consensus EPS for fiscal year ending {row.get('fiscalEnd')}; "
-                    f"high {row.get('highEPSForecast')}, low {row.get('lowEPSForecast')}"
-                ),
-            }
-        )
+        values = {
+            f"{label}_consensus_eps": value,
+            f"{label}_consensus_year": year,
+            f"{label}_analyst_count": count,
+            f"{label}_consensus_eps_basis": (
+                f"Nasdaq annual consensus EPS captured {captured_date} for fiscal year ending {row.get('fiscalEnd')}; "
+                f"high {row.get('highEPSForecast')}, low {row.get('lowEPSForecast')}"
+            ),
+            f"{label}_consensus_source_url": source_url,
+            f"{label}_consensus_source_date": captured_date,
+            f"{label}_point_in_time_status": (
+                "POINT_IN_TIME_ON_OR_BEFORE_BASIS"
+                if captured_date <= basis_date
+                else "CURRENT_SNAPSHOT_CAPTURED_AFTER_PRICE_BASIS"
+            ),
+        }
+        if label == "fy1" and prior_fy1 is not None and ticker not in ADR_USD_REQUIRED:
+            eps.update({f"nasdaq_{key}": value for key, value in values.items()})
+        else:
+            eps.update(values)
+            if label == "fy1" and ticker in ADR_USD_REQUIRED:
+                eps["fy1_currency_alignment"] = "Nasdaq ADR USD EPS selected; local-currency StockAnalysis EPS retained only as cross-check"
 
     eps.update(
         {
-            "forward_eps_source_url": source_url,
-            "forward_eps_source_date": basis_date,
             "nasdaq_fy_consensus_captured_at": datetime.now(timezone.utc).isoformat(),
             "nasdaq_fy_consensus_endpoint": endpoint,
             "nasdaq_yearly_rows": valid[:3],
         }
     )
-    nasdaq_fy1 = number(eps.get("fy1_consensus_eps"))
+    if ticker in ADR_USD_REQUIRED:
+        eps["stockanalysis_ntm_crosscheck_eps"] = eps.get("ntm_consensus_eps")
+        eps["ntm_consensus_eps"] = None
+        eps["ntm_consensus_year"] = None
+        eps["ntm_analyst_count"] = None
+        eps["ntm_consensus_eps_basis"] = None
+        eps["ntm_consensus_status"] = "FISCAL_CURRENCY_MISMATCH"
+    nasdaq_fy1 = number(eps.get("nasdaq_fy1_consensus_eps") or eps.get("fy1_consensus_eps"))
     if prior_fy1 and nasdaq_fy1:
         gap = nasdaq_fy1 / prior_fy1 - 1
         eps["stockanalysis_fy1_crosscheck_eps"] = prior_fy1

@@ -1338,12 +1338,17 @@ def load_valuation_snapshot() -> dict:
 
 def load_forward_eps_evidence() -> dict:
     if not FORWARD_EPS_EVIDENCE.exists():
-        return {"basis_date": BASIS_DATE, "tickers": {}}
+        raise RuntimeError(
+            f"forward EPS refresh not run for basis date {BASIS_DATE}: {FORWARD_EPS_EVIDENCE}"
+        )
     payload = json.loads(FORWARD_EPS_EVIDENCE.read_text())
     if payload.get("basis_date") != BASIS_DATE:
         raise RuntimeError(
             f"forward EPS evidence date {payload.get('basis_date')} != report basis {BASIS_DATE}"
         )
+    missing = [ticker for ticker in TICKERS if ticker not in payload.get("tickers", {})]
+    if missing:
+        raise RuntimeError(f"forward EPS evidence missing tickers: {missing}")
     return payload
 
 
@@ -2421,21 +2426,41 @@ def compute_eps_year_clarity(item: dict) -> dict:
         "pe_label": "Forward P/E",
         "note": "Current Price / Forward P/E；沒有直接 consensus 時 q/FETS 需降信心",
     })
-    for label, eps_year, eps_type, value_field, year_field, analyst_field, basis_field in [
-        ("FY1 consensus EPS", "FY1", "CONSENSUS_FY1", "fy1_consensus_eps", "fy1_consensus_year", "fy1_analyst_count", "fy1_consensus_eps_basis"),
-        ("FY2 consensus EPS", "FY2", "CONSENSUS_FY2", "fy2_consensus_eps", "fy2_consensus_year", "fy2_analyst_count", "fy2_consensus_eps_basis"),
-        ("NTM consensus EPS", "NTM", "CONSENSUS_NTM", "ntm_consensus_eps", "ntm_consensus_year", "ntm_analyst_count", "ntm_consensus_eps_basis"),
+    status = item.get("forward_eps_collection_status") or "PUBLIC_CONSENSUS_UNAVAILABLE"
+    missing_notes = {
+        "REFRESH_NOT_RUN": "本期 direct consensus refresh 未執行",
+        "FETCH_FAILED": "direct consensus 擷取失敗；不代表市場無預估",
+        "PUBLIC_CONSENSUS_UNAVAILABLE": "未找到可公開驗證的 direct consensus",
+        "SOURCE_COUNT_LT_3": "分析師或來源數不足",
+        "STALE": "direct consensus 超過時效門檻",
+        "NO_POINT_IN_TIME_DATA": "無法確認為價格基準日當時可得資料",
+        "FISCAL_CURRENCY_MISMATCH": "ADR 與當地股 EPS 幣別不一致，故阻擋 NTM consensus",
+    }
+    for label, eps_year, eps_type, value_field, year_field, analyst_field, basis_field, date_field, pit_field in [
+        ("FY1 consensus EPS", "FY1", "CONSENSUS_FY1", "fy1_consensus_eps", "fy1_consensus_year", "fy1_analyst_count", "fy1_consensus_eps_basis", "fy1_consensus_source_date", "fy1_point_in_time_status"),
+        ("FY2 consensus EPS", "FY2", "CONSENSUS_FY2", "fy2_consensus_eps", "fy2_consensus_year", "fy2_analyst_count", "fy2_consensus_eps_basis", "fy2_consensus_source_date", "fy2_point_in_time_status"),
+        ("NTM consensus EPS", "NTM", "CONSENSUS_NTM", "ntm_consensus_eps", "ntm_consensus_year", "ntm_analyst_count", "ntm_consensus_eps_basis", "ntm_consensus_source_date", "ntm_point_in_time_status"),
     ]:
         value = item.get(value_field)
+        source_date = item.get(date_field) or item.get("forward_eps_source_date")
+        if value is None and item.get(value_field.replace("_eps", "_status")):
+            source_date = None
+        pit_status = item.get(pit_field) or (
+            "POINT_IN_TIME_ON_OR_BEFORE_BASIS" if source_date and str(source_date) <= BASIS_DATE else "CURRENT_SNAPSHOT"
+        )
+        source_text = item.get(basis_field) or "Missing Data"
+        if source_date:
+            source_text = f"{source_text}; source date {source_date}; {pit_status}"
+        row_status = item.get(value_field.replace("_eps", "_status")) or status
         rows.append({
             "label": label,
             "eps_used": value,
             "eps_year": item.get(year_field) or eps_year,
             "eps_type": eps_type if value is not None else "Missing Data",
-            "eps_source": item.get(basis_field) or "Missing Data",
+            "eps_source": source_text,
             "analyst_count": item.get(analyst_field) or item.get("analyst_count"),
             "pe_label": "Direct consensus EPS" if value is not None else "N/A",
-            "note": "揭露與 FETS 使用；不覆蓋 same-snapshot valuation EPS" if value is not None else "未取得直接 consensus；不得和 implied EPS 混用",
+            "note": "揭露與 FETS 使用；不覆蓋 same-snapshot valuation EPS" if value is not None else f"{missing_notes.get(row_status, row_status)}；不得和 implied EPS 混用",
         })
     return {
         "rows": rows,
@@ -2933,6 +2958,9 @@ def build_data() -> tuple[list[dict], dict[str, dict], dict[str, list[dict]]]:
 
         snapshot = dict(valuation_snapshot["tickers"][ticker])
         snapshot.update({key: value for key, value in overlay_eps.items() if value is not None})
+        snapshot["forward_eps_collection_status"] = forward_overlay.get("collection_status") or (
+            "AVAILABLE" if overlay_eps else "PUBLIC_CONSENSUS_UNAVAILABLE"
+        )
         price = item.get("close")
         audit = valuation_audit(item, snapshot)
         item["valuation_audit"] = audit
@@ -3021,6 +3049,8 @@ def build_data() -> tuple[list[dict], dict[str, dict], dict[str, list[dict]]]:
             fy1_consensus_year=snapshot.get("fy1_consensus_year"),
             fy1_analyst_count=num(snapshot.get("fy1_analyst_count")),
             fy1_consensus_eps_basis=snapshot.get("fy1_consensus_eps_basis"),
+            fy1_consensus_source_date=snapshot.get("fy1_consensus_source_date") or snapshot.get("forward_eps_source_date"),
+            fy1_point_in_time_status=snapshot.get("fy1_point_in_time_status"),
             stockanalysis_fy1_crosscheck_eps=num(snapshot.get("stockanalysis_fy1_crosscheck_eps")),
             fy1_cross_source_gap_pct=num(snapshot.get("fy1_cross_source_gap_pct")),
             fy1_cross_source_warning=snapshot.get("fy1_cross_source_warning"),
@@ -3028,12 +3058,18 @@ def build_data() -> tuple[list[dict], dict[str, dict], dict[str, list[dict]]]:
             fy2_consensus_year=snapshot.get("fy2_consensus_year"),
             fy2_analyst_count=num(snapshot.get("fy2_analyst_count")),
             fy2_consensus_eps_basis=snapshot.get("fy2_consensus_eps_basis"),
+            fy2_consensus_source_date=snapshot.get("fy2_consensus_source_date") or snapshot.get("forward_eps_source_date"),
+            fy2_point_in_time_status=snapshot.get("fy2_point_in_time_status"),
             ntm_consensus_eps=num(snapshot.get("ntm_consensus_eps")),
             ntm_consensus_year=snapshot.get("ntm_consensus_year"),
             ntm_analyst_count=num(snapshot.get("ntm_analyst_count")),
             ntm_consensus_eps_basis=snapshot.get("ntm_consensus_eps_basis"),
+            ntm_consensus_status=snapshot.get("ntm_consensus_status"),
+            ntm_consensus_source_date=snapshot.get("ntm_consensus_source_date") or snapshot.get("forward_eps_source_date"),
+            ntm_point_in_time_status=snapshot.get("ntm_point_in_time_status"),
             forward_eps_source_url=snapshot.get("forward_eps_source_url"),
             forward_eps_source_date=snapshot.get("forward_eps_source_date"),
+            forward_eps_collection_status=snapshot.get("forward_eps_collection_status"),
             supplemental_eps_sources=supplemental_eps_sources(snapshot),
             valuation_snapshot_source=valuation_snapshot.get("source"),
             valuation_snapshot_url=(
